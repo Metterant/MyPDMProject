@@ -1,6 +1,6 @@
 //Khi muốn thêm một người dùng mới
 
-package com.db;
+package com.buspass.db;
 
 import com.db.QueryExecutionModule; // Import module
 

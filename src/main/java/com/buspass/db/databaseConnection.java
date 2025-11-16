@@ -1,6 +1,6 @@
 //Module này để lấy được kết nối đến database.
 
-package com.db;
+package com.buspass.db;
 
 import java.io.File;
 import java.sql.Connection;
@@ -22,7 +22,7 @@ public class databaseConnection {
     public static Connection getConnection() {
         try {
             // 1.Nạp driver (tùy chon với JDBC 4.0+)
-            // Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Read credentials file from project root (no "..")
             File credFile = new File("db_credentials.txt");
@@ -36,6 +36,9 @@ public class databaseConnection {
             } else {
                 System.out.println("Credentials file not found at: " + credFile.getAbsolutePath() + ". Using defaults/constants.");
             }
+
+            System.out.println(DB_URL);
+            System.out.println(PASS);
 
             // 2.Tao kết noi
             return DriverManager.getConnection(DB_URL, USER, PASS);

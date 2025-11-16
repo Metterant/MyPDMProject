@@ -1,7 +1,8 @@
 //Module này thực thi truy vấn SQL.
 //Mình tạo một lớp với các phương thức tĩnh (static) để dễ dàng gọi từ bất kỳ đâu.
 //Lớp này sẽ xử lý PreparedStatement một cách an toàn.
-package com.db; //Cùng package với databaseConnection
+
+package com.buspass.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
