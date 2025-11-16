@@ -3,7 +3,7 @@ CREATE DATABASE digital_bus_pass;
 
 -- Use the database
 USE digital_bus_pass;
-CREATE TABLE Users (
+CREATE TABLE User (
 	UserID INT PRIMARY KEY AUTO_INCREMENT,
     UserName VARCHAR(50),
     Age INT,

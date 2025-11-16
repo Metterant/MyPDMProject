@@ -11,7 +11,7 @@ SELECT t.TicketID, t.Date,
        b.PlateNumber,
        r.RouteName
 FROM Ticket t
-JOIN Users u ON t.UserID = u.UserID
+JOIN User u ON t.UserID = u.UserID
 JOIN Trip tr ON t.TripID = tr.TripID
 JOIN Bus_info b ON tr.BusID = b.BusID
 JOIN Route r ON tr.RouteID = r.RouteID;

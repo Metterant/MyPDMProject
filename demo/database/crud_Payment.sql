@@ -10,7 +10,7 @@ SELECT p.Amount, p.PaymentDATE,
        u.UserName,
        pm.Method, pm.PaymentDate AS TransactionTime
 FROM Payment p
-JOIN Users u ON p.UserID = u.UserID
+JOIN User u ON p.UserID = u.UserID
 JOIN Payment_Method pm ON p.PaymentID = pm.PaymentID;
 
 -- Update

@@ -1,4 +1,4 @@
-INSERT INTO users (UserName, Age, Phone, Address, Role)
+INSERT INTO user (UserName, Age, Phone, Address, Role)
 VALUES
 ('Nguyen Van A', 24, '0912345678', '81 LA', 'Passenger'),
 ('Le Van B', 30, '0987654321', '35 WA', 'Passenger'),

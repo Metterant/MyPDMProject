@@ -1,11 +1,11 @@
 -- Number of Admins and Passenger
 SELECT Role, COUNT(*) AS TotalUsers
-FROM Users
+FROM user
 GROUP BY Role;
 
 -- Average user age of admin and passanger
 SELECT Role, AVG(Age) AS Avg_Age
-FROM Users
+FROM user
 GROUP BY Role;
 
 -- Most Popular bus route taken(in tickets)
@@ -28,10 +28,10 @@ FROM payment
 GROUP BY PaymentDATE
 ORDER BY Date DESC;
 
--- Top Users who spent the most
+-- Top user who spent the most
 SELECT u.UserName,  SUM(p.Amount) AS Total_Spent
 FROM Payment p
-JOIN Users u ON p.UserID = u.UserID
+JOIN user u ON p.UserID = u.UserID
 GROUP BY u.UserName
 ORDER BY Total_Spent DESC
 LIMIT 5;

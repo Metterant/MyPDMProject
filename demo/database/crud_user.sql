@@ -1,17 +1,17 @@
 -- Create
-INSERT INTO Users(UserName, Age, Phone, Address, Role)
+INSERT INTO user(Username, Age, Phone, Address, Role)
 VALUES(?,?,?,?,?);
 
 -- Read
-SELECT *FROM Users;
+SELECT *FROM user;
 -- Read by ID
-SELECT *FROM Users WHERE UserID =?;
+SELECT *FROM user WHERE UserID =?;
 
 -- Update
-UPDATE Users
+UPDATE user
 SET Phone=?, Address=?
 WHERE UserID=?;
 
 -- Delete 
-DELETE FROM Users
+DELETE FROM user
 WHERE UserID=?
