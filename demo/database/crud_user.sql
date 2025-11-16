@@ -1,15 +1,15 @@
 -- Create
-INSERT INTO user(Username, Age, Phone, Address, Role)
-VALUES(?,?,?,?,?);
+INSERT INTO user(Username, UserPassword, Age, Phone, UserAddress, UserRoleID)
+VALUES(?,?,?,?,?,?);
 
 -- Read
-SELECT *FROM user;
+SELECT * FROM user;
 -- Read by ID
-SELECT *FROM user WHERE UserID =?;
+SELECT * FROM user WHERE UserID =?;
 
 -- Update
 UPDATE user
-SET Phone=?, Address=?
+SET Phone=?, UserAddress=?
 WHERE UserID=?;
 
 -- Delete 

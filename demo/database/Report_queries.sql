@@ -1,12 +1,12 @@
 -- Number of Admins and Passenger
-SELECT Role, COUNT(*) AS TotalUsers
+SELECT UserRole, COUNT(*) AS TotalUsers
 FROM user
-GROUP BY Role;
+GROUP BY UserRole;
 
 -- Average user age of admin and passanger
-SELECT Role, AVG(Age) AS Avg_Age
+SELECT UserRole, AVG(Age) AS Avg_Age
 FROM user
-GROUP BY Role;
+GROUP BY UserRole;
 
 -- Most Popular bus route taken(in tickets)
 SELECT r.RouteName, COUNT(t.TicketID) AS Tickets_Sold

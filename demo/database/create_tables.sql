@@ -3,14 +3,23 @@ CREATE DATABASE digital_bus_pass;
 
 -- Use the database
 USE digital_bus_pass;
+
+CREATE TABLE UserRoles(
+    UserRoleID INT PRIMARY KEY AUTO_INCREMENT,
+    RoleDescription VARCHAR(50)
+);
+
 CREATE TABLE User (
 	UserID INT PRIMARY KEY AUTO_INCREMENT,
     UserName VARCHAR(50),
+    UserPassword VARCHAR(50),
     Age INT,
     Phone VARCHAR(15),
-    Address VARCHAR(100),
-    Role VARCHAR(20)		-- Passenger/Admin    
+    UserAddress VARCHAR(100),
+    UserRoleID INT,
+    FOREIGN KEY (UserRoleID) REFERENCES UserRoles(UserRoleID)
 );
+
 
 CREATE TABLE Route(
 	RouteID INT PRIMARY KEY AUTO_INCREMENT,
@@ -56,7 +65,7 @@ CREATE TABLE Ticket (
     Date DATETIME,
     UserID INT,
     TripID INT,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID),
     FOREIGN KEY (TripID) REFERENCES Trip(TripID)
 );
 
@@ -71,10 +80,6 @@ CREATE TABLE Payment(
     PaymentDATE DATE,
     UserID INT,
     PaymentID INT,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID),
     FOREIGN KEY (PaymentID) REFERENCES Payment_Method(PaymentID)
-    
 );
-
-
-    

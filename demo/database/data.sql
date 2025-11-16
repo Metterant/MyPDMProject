@@ -1,15 +1,20 @@
-INSERT INTO user (UserName, Age, Phone, Address, Role)
+INSERT INTO userRoles (RoleDescription)
 VALUES
-('Nguyen Van A', 24, '0912345678', '81 LA', 'Passenger'),
-('Le Van B', 30, '0987654321', '35 WA', 'Passenger'),
-('Nguyen Van C', 52, '0965432987', '56 TA', 'Admin'),
-('Tran Yen D', 35, '0924681357', '75 WE', 'Passenger'),
-('Nam Cong E', 65, '0913579246', '20 VN', 'Admin'),
-('Pham Thi F', 19, '0901112233', '12 QB', 'Passenger'),
-('Hoang Minh G', 41, '0978765432', '99 XT', 'Passenger'),
-('Vo Quoc H', 28, '0934567890', '40 KN', 'Passenger'),
-('Dinh Thi I', 58, '0955667788', '10 CD', 'Admin'),
-('Doan Van J', 22, '0941234567', '21 GH', 'Passenger');
+("Passenger"),
+("Admin");
+
+INSERT INTO user (Username, UserPassword, Age, Phone, UserAddress, UserRoleID)
+VALUES
+('Nguyen Van A', "1", 24, '0912345678', '81 LA', 1),
+('Le Van B', "1", 30, '0987654321', '35 WA', 1),
+('Nguyen Van C', "1", 52, '0965432987', '56 TA', 2),
+('Tran Yen D', "1", 35, '0924681357', '75 WE', 1),
+('Nam Cong E', "1", 65, '0913579246', '20 VN', 2),
+('Pham Thi F', "1", 19, '0901112233', '12 QB', 1),
+('Hoang Minh G', "1", 41, '0978765432', '99 XT', 1),
+('Vo Quoc H', "1", 28, '0934567890', '40 KN', 1),
+('Dinh Thi I', "1", 58, '0955667788', '10 CD', 2),
+('Doan Van J', "1", 22, '0941234567', '21 GH', 1);
 
 INSERT INTO driver (DriveID, Name, Age, License, Phone)
 VALUES

@@ -5,7 +5,7 @@ VALUES (?,?);
 -- Read
 SELECT * FROM Payment_Method;
 -- Read by PaymentID
-SELECT *FROM Payment_Method WHERE PaymentID=?;
+SELECT * FROM Payment_Method WHERE PaymentID=?;
 
 -- Update
 UPDATE Payment_Method
