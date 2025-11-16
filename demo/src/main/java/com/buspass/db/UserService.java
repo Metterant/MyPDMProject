@@ -2,7 +2,7 @@
 
 package com.buspass.db;
 
-import com.db.QueryExecutionModule; // Import module
+import com.buspass.db.QueryExecutionModule; // Import module
 
 import java.util.List;
 import java.util.Map;
