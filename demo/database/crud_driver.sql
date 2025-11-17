@@ -3,9 +3,9 @@ INSERT INTO Driver (DriveID, Name, Age, License, Phone)
 VALUES(?, ?, ?, ?, ?);
 
 -- Read
-SELECT *FROM Driver;
+SELECT * FROM Driver;
 -- Read by ID
-SELECT *FROM Driver WHERE DriveID=?;
+SELECT * FROM Driver WHERE DriveID=?;
 
 -- Update
 UPDATE Driver
