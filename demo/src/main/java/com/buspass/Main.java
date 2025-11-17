@@ -1,9 +1,11 @@
 package com.buspass;
 
-import com.buspass.db.databaseConnection;
+import com.buspass.db.*;
 
 public class Main {
     public static void main(String[] args) {
-        com.buspass.db.databaseConnection.getConnection();
+        UserService userService = new UserService();
+
+        System.out.println(userService.getUserById(1));
     }
 }
