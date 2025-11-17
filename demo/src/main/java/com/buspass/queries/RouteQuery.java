@@ -6,13 +6,6 @@ import java.util.Map;
 import com.buspass.db.QueryExecutionModule;
 
 public class RouteQuery {
-
-	public boolean registerRoute(String routeName, String startLocation, String endLocation, double fare, float distance, String times) {
-		String sql = "INSERT INTO Route (RouteName, StartLocation, EndLocation, FARE, Distance, Times) VALUES (?, ?, ?, ?, ?, ?);";
-		int rowsAffected = QueryExecutionModule.executeUpdate(sql, routeName, startLocation, endLocation, fare, distance, times);
-		return rowsAffected > 0;
-	}
-
 	public Map<String, Object> getRouteById(int routeId) {
 		String sql = "SELECT * FROM Route WHERE RouteID = ?";
 		List<Map<String, Object>> routes = QueryExecutionModule.executeQuery(sql, routeId);
@@ -27,6 +20,12 @@ public class RouteQuery {
 
 	/* ADMIN PRIVILEGES */
 
+	public boolean registerRoute(String routeName, String startLocation, String endLocation, double fare, float distance, String times) {
+		String sql = "INSERT INTO Route (RouteName, StartLocation, EndLocation, FARE, Distance, Times) VALUES (?, ?, ?, ?, ?, ?);";
+		int rowsAffected = QueryExecutionModule.executeUpdate(sql, routeName, startLocation, endLocation, fare, distance, times);
+		return rowsAffected > 0;
+	}
+	
 	public boolean updateRouteName(int routeId, String routeName) {
 		String sql = "UPDATE Route SET RouteName = ? WHERE RouteID = ?";
 		int rowsAffected = QueryExecutionModule.executeUpdate(sql, routeName, routeId);
