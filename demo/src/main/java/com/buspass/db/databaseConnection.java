@@ -62,7 +62,7 @@ public class databaseConnection {
                 }
             }
 
-            System.out.println("Connection Successful!");
+            // System.out.println("Connection Successful!");
 
             if (DB_URL == null || DB_URL.isBlank()) {
                 System.err.println("Database URL is empty. Ensure db_credentials.txt (in src/main/resources) or DB_URL constant is set.");
