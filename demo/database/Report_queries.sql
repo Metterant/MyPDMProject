@@ -1,12 +1,14 @@
 -- Number of Admins and Passenger
-SELECT UserRole, COUNT(*) AS TotalUsers
-FROM user
-GROUP BY UserRole;
+SELECT ur.RoleDescription AS Role, COUNT(*) AS TotalUsers
+FROM `User` u
+LEFT JOIN UserRoles ur ON u.UserRoleID = ur.UserRoleID
+GROUP BY ur.RoleDescription;
 
 -- Average user age of admin and passanger
-SELECT UserRole, AVG(Age) AS Avg_Age
-FROM user
-GROUP BY UserRole;
+SELECT ur.RoleDescription AS Role, AVG(u.Age) AS Avg_Age
+FROM `User` u
+LEFT JOIN UserRoles ur ON u.UserRoleID = ur.UserRoleID
+GROUP BY ur.RoleDescription;
 
 -- Most Popular bus route taken(in tickets)
 SELECT r.RouteName, COUNT(t.TicketID) AS Tickets_Sold
@@ -17,21 +19,21 @@ GROUP BY r.RouteName
 ORDER BY Tickets_Sold DESC;
 
 -- Total Tickets Sold Per Day
-SELECT DATE(Date) AS TicketDate, COUNT(*) AS TicketsSold
+SELECT DATE(`Date`) AS TicketDate, COUNT(*) AS TicketsSold
 FROM Ticket
-GROUP BY DATE(Date)
+GROUP BY DATE(`Date`)
 ORDER BY TicketDate DESC;
 
 -- Total Revenue per day
-SELECT PaymentDATE AS DATE, SUM(Amount) AS Total_Revenue
-FROM payment
-GROUP BY PaymentDATE
-ORDER BY Date DESC;
+SELECT DATE(PaymentDate) AS PaymentDay, SUM(Amount) AS Total_Revenue
+FROM Payment
+GROUP BY DATE(PaymentDate)
+ORDER BY PaymentDay DESC;
 
 -- Top user who spent the most
-SELECT u.UserName,  SUM(p.Amount) AS Total_Spent
+SELECT u.UserName, SUM(p.Amount) AS Total_Spent
 FROM Payment p
-JOIN user u ON p.UserID = u.UserID
+JOIN `User` u ON p.UserID = u.UserID
 GROUP BY u.UserName
 ORDER BY Total_Spent DESC
 LIMIT 5;
@@ -52,6 +54,9 @@ GROUP BY b.PlateNumber
 ORDER BY TripCount DESC;
 
 -- Average revenue per route
+-- Note: payments are linked to users, not tickets. This approximates revenue per route
+-- by joining payments by user to their tickets. It may overcount if users make payments
+-- unrelated to tickets.
 SELECT r.RouteName, AVG(p.Amount) AS AvgFare
 FROM Payment p
 JOIN Ticket t ON p.UserID = t.UserID
