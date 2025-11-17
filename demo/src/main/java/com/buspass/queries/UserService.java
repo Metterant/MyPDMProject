@@ -23,7 +23,7 @@ public class UserService {
                 "VALUES (?, ?, ?, ?, ?, ?)";
         // Gọi phương thức executeUpdate từ module của nhóm
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, password , age, phone, address, userRoleID);
-        return rowsAffected > 0; // thành công--> True
+        return rowsAffected > 0;
     }
 
     //2: Lấy thông tin người dùng bằng ID (Dùng SELECT)
@@ -35,7 +35,7 @@ public class UserService {
         if (!user.isEmpty()) {
             return user.get(0); // Trả về người dùng đầu tiên tìm thấy
         }
-        return null; // Không tìm thấy
+        return null; // Not found
     }
 
     /**
