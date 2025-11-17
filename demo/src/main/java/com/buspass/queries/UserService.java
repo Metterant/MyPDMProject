@@ -1,9 +1,11 @@
 //Khi muốn thêm một người dùng mới
 
-package com.buspass.db;
+package com.buspass.queries;
 
 import java.util.List;
 import java.util.Map;
+
+import com.buspass.db.QueryExecutionModule;
 
 public class UserService {
     //1: Đăng ký người dùng mới (Dùng INSERT)
@@ -102,6 +104,8 @@ public class UserService {
 
     /**
      * Delete User from the User Table by UserID
+     * 
+     * The Passenger User can only delete their own Profile and the Admin can delete any user 
      * TODO: Make sure to implement confirmation to aovid accidential terminiation
      * 
      * @param userId the UserID of the User table
