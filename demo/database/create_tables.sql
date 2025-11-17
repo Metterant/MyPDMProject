@@ -1,4 +1,5 @@
 
+DROP DATABASE digital_bus_pass;
 CREATE DATABASE digital_bus_pass;
 
 -- Use the database
@@ -69,17 +70,16 @@ CREATE TABLE Ticket (
     FOREIGN KEY (TripID) REFERENCES Trip(TripID)
 );
 
-CREATE TABLE Payment_Method(
-	PaymentID INT PRIMARY KEY AUTO_INCREMENT,
-	PaymentDate DATETIME,
+CREATE TABLE Payment_Methods(
+	Payment_Method_ID INT PRIMARY KEY AUTO_INCREMENT,
     Method VARCHAR(20)		-- Card/Cash/Online
 );
 
 CREATE TABLE Payment(
-    Amount DECIMAL(10,2),
-    PaymentDATE DATE,
-    UserID INT,
     PaymentID INT,
+    Amount DECIMAL(10,2),
+    PaymentDate DATE,
+    UserID INT,
     FOREIGN KEY (UserID) REFERENCES User(UserID),
     FOREIGN KEY (PaymentID) REFERENCES Payment_Method(PaymentID)
 );

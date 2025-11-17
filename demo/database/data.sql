@@ -3,6 +3,12 @@ VALUES
 ("Passenger"),
 ("Admin");
 
+INSERT INTO payment_method (Method)
+VALUES
+("Cash"),
+("Card"),
+("Online Banking");
+
 INSERT INTO user (Username, UserPassword, Age, Phone, UserAddress, UserRoleID)
 VALUES
 ('Nguyen Van A', "1", 24, '0912345678', '81 LA', 1),
@@ -64,15 +70,6 @@ VALUES
 ('2025-06-02 00:00:00', 7, 9),
 ('2025-06-03 00:00:00', 8, 12),
 ('2025-06-03 00:00:00', 10, 10);
-
-INSERT INTO payment_method (PaymentDate, Method)
-VALUES
-('2025-06-01 00:00:00', 'Cash'),
-('2025-06-01 00:00:00', 'Card'),
-('2025-06-01 00:00:00', 'Online'),
-('2025-06-02 00:00:00', 'Cash'),
-('2025-06-02 00:00:00', 'Online'),
-('2025-06-03 00:00:00', 'Card');
 
 INSERT INTO payment (Amount, PaymentDATE, UserID, PaymentID)
 VALUES
