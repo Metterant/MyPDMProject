@@ -78,7 +78,7 @@ CREATE TABLE Payment(
     PaymentID INT PRIMARY KEY AUTO_INCREMENT,
     UserID INT,
     Amount DECIMAL(10,2),
-    PaymentDate DATE,
+    PaymentDate DATETIME,
     Payment_Method_ID INT,
     FOREIGN KEY (UserID) REFERENCES User(UserID),
     FOREIGN KEY (Payment_Method_ID) REFERENCES Payment_Methods(Payment_Method_ID)
