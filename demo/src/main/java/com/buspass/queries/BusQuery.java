@@ -19,7 +19,7 @@ public class BusQuery {
 
         List<Map<String, Object>> bus = QueryExecutionModule.executeQuery(sql, busId);
         if (!bus.isEmpty()) {
-            return bus.get(0); // Trả về người dùng đầu tiên tìm thấy
+            return bus.get(0);
         }
         return null; // Not found    
     }
@@ -38,43 +38,34 @@ public class BusQuery {
 
     /* ADMIN PRIVILEDGES */
 
-    public boolean updateBusPlate(Integer busId, String plateNumber) {
-        String sql = "UPDATE bus_info SET plateNumber=? " +
-                "WHERE UserID = " + busId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, plateNumber);
+    public boolean updateBusPlate(int busId, String plateNumber) {
+        String sql = "UPDATE Bus_info SET PlateNumber = ? WHERE BusID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, plateNumber, busId);
         return rowsAffected > 0;
     }
 
-    public boolean updateCapacity(Integer busId, int newCapacity) {
-        String sql = "UPDATE bus_info SET capacity=? " +
-                "WHERE UserID = " + busId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, newCapacity);
+    public boolean updateCapacity(int busId, int newCapacity) {
+        String sql = "UPDATE Bus_info SET Capacity = ? WHERE BusID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, newCapacity, busId);
         return rowsAffected > 0;
     }
 
-    public boolean updateDriverID(Integer busId, int driverId) {
-        String sql = "UPDATE bus_info SET DriverID=? " +
-                "WHERE UserID = " + busId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, driverId);
+    public boolean updateDriverID(int busId, int driverId) {
+        String sql = "UPDATE Bus_info SET DriveID = ? WHERE BusID = ? " + busId;
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, driverId, busId);
         return rowsAffected > 0;
     }
 
     
-    public boolean updateRouteID(Integer busId, int routeId) {
-        String sql = "UPDATE bus_info SET RouteID=? " +
-                "WHERE UserID = " + busId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, routeId);
+    public boolean updateRouteID(int busId, int routeId) {
+        String sql = "UPDATE Bus_info SET RouteID = ? WHERE BusID = ? ";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, routeId, busId);
         return rowsAffected > 0;
     }
 
-    public boolean removeBus(Integer busId) {
-        String sql = "DELETE FROM bus_info WHERE BusID = " + busId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql);
+    public boolean removeBus(int busId) {
+        String sql = "DELETE FROM Bus_info WHERE BusID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, busId);
         return rowsAffected > 0;
     }
 }

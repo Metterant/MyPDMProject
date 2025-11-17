@@ -38,17 +38,24 @@ public class UserService {
         return null; // Not found
     }
 
+    public List<Map<String, Object>> listAllUsers() {
+        String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
+            "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
+            
+        List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql);
+        
+        return users;
+    }
+
     /**
      * Change the name of the user
      * @param userId the UserID of User table
      * @param username the new name of the user
      * @return true if the user is found and their name was changed successfully
      */
-    public boolean updateUsername(Integer userId, String username) {
-        String sql = "UPDATE user SET Username = ? " +
-                "WHERE UserID = " + userId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, username);
+    public boolean updateUsername(int userId, String username) {
+        String sql = "UPDATE User SET Username = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, userId);
         return rowsAffected > 0;
     }
 
@@ -58,11 +65,9 @@ public class UserService {
      * @param newPassword the new password of the user
      * @return true if the user is found and their password was changed successfully
      */
-    public boolean updatePassword(Integer userId, String newPassword) {
-        String sql = "UPDATE user SET UserPassword = ? " +
-                "WHERE UserID = " + userId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, newPassword);
+    public boolean updatePassword(int userId, String newPassword) {
+        String sql = "UPDATE User SET UserPassword = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, newPassword, userId);
         return rowsAffected > 0;
     }
 
@@ -72,19 +77,15 @@ public class UserService {
      * @param address the new address of the user
      * @return true if the user is found and their address was changed successfully
      */
-    public boolean updateAddress(Integer userId, String address) {
-        String sql = "UPDATE user SET UserAddreess = ? " +
-                "WHERE UserID = " + userId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, address);
+    public boolean updateAddress(int userId, String address) {
+        String sql = "UPDATE User SET UserAddress = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, address, userId);
         return rowsAffected > 0;
     }
 
-    public boolean updateAge(Integer userId, int address) {
-        String sql = "UPDATE user SET Age = ? " +
-                "WHERE UserID = " + userId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, address);
+    public boolean updateAge(int userId, int age) {
+        String sql = "UPDATE User SET Age = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, age, userId);
         return rowsAffected > 0;
     }
 
@@ -94,11 +95,9 @@ public class UserService {
      * @param address the new UserRoleID of the user corresponding to the new Role (1: Passenger, 2: Admin)
      * @return true if the user is found and their UserRoleID was changed successfully
      */
-    public boolean updateRoleID(Integer userId, int userRoleId) {
-        String sql = "UPDATE user SET UserRoleID = ? " +
-                "WHERE UserID = " + userId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, userRoleId);
+    public boolean updateRoleID(int userId, int userRoleId) {
+        String sql = "UPDATE User SET UserRoleID = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, userRoleId, userId);
         return rowsAffected > 0;
     }
 
@@ -111,10 +110,9 @@ public class UserService {
      * @param userId the UserID of the User table
      * @return whether the User is found and their profile was deleted successfully
      */
-    public boolean deleteUser(Integer userId) {
-        String sql = "DELETE FROM user WHERE UserID = " + userId.toString();
-        
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql);
+    public boolean deleteUser(int userId) {
+        String sql = "DELETE FROM User WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, userId);
         return rowsAffected > 0;
     }
 }
