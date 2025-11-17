@@ -1,5 +1,4 @@
 
-DROP DATABASE digital_bus_pass;
 CREATE DATABASE digital_bus_pass;
 
 -- Use the database
