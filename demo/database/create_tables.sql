@@ -76,7 +76,7 @@ CREATE TABLE Payment_Methods(
 );
 
 CREATE TABLE Payment(
-    PaymentID INT,
+    PaymentID INT PRIMARY KEY AUTO_INCREMENT,
     UserID INT,
     Amount DECIMAL(10,2),
     PaymentDate DATE,
