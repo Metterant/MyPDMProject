@@ -12,7 +12,7 @@ CREATE TABLE UserRoles(
 CREATE TABLE User (
 	UserID INT PRIMARY KEY AUTO_INCREMENT,
     UserName VARCHAR(50),
-    UserPassword VARCHAR(50),
+    UserPassword VARCHAR(128) NOT NULL,
     Age INT,
     Phone VARCHAR(15),
     UserAddress VARCHAR(100),
