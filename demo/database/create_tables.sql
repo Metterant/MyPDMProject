@@ -72,14 +72,15 @@ CREATE TABLE Ticket (
 
 CREATE TABLE Payment_Methods(
 	Payment_Method_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Method VARCHAR(20)		-- Card/Cash/Online
+    Method VARCHAR(30)		-- Card/Cash/Online
 );
 
 CREATE TABLE Payment(
     PaymentID INT,
+    UserID INT,
     Amount DECIMAL(10,2),
     PaymentDate DATE,
-    UserID INT,
+    Payment_Method_ID INT,
     FOREIGN KEY (UserID) REFERENCES User(UserID),
-    FOREIGN KEY (PaymentID) REFERENCES Payment_Method(PaymentID)
+    FOREIGN KEY (Payment_Method_ID) REFERENCES Payment_Methods(Payment_Method_ID)
 );
