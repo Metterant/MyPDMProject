@@ -38,7 +38,7 @@ public class UserService {
         return null; // Not found
     }
 
-    public List<Map<String, Object>> listAllUsers() {
+    public List<Map<String, Object>> getAllUsers() {
         String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
             

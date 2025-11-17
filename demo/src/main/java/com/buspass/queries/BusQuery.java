@@ -24,16 +24,16 @@ public class BusQuery {
         return null; // Not found    
     }
     
-    public List<Map<String, Object>> getBusJoinRouteAndDriverById() {
+    public List<Map<String, Object>> getAllBuses() {
         String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity,\r\n" + //
                         "d.Name AS DriverName, r.RouteName\r\n" + //
                         "FROM Bus_info b\r\n" + //
                         "JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
                         "JOIN Route r ON b.RouteID = r.RouteID;";
 
-        List<Map<String, Object>> busses = QueryExecutionModule.executeQuery(sql);
+        List<Map<String, Object>> buses = QueryExecutionModule.executeQuery(sql);
         
-        return busses; // Not found    
+        return buses; // Not found    
     }
 
     /* ADMIN PRIVILEDGES */
