@@ -1,15 +1,15 @@
-INSERT INTO userRoles (RoleDescription)
+INSERT INTO UserRoles (RoleDescription)
 VALUES
 ("Passenger"),
 ("Admin");
 
-INSERT INTO payment_method (Method)
+INSERT INTO Payment_Methods (Method)
 VALUES
 ("Cash"),
 ("Card"),
 ("Online Banking");
 
-INSERT INTO user (Username, UserPassword, Age, Phone, UserAddress, UserRoleID)
+INSERT INTO `User` (Username, UserPassword, Age, Phone, UserAddress, UserRoleID)
 VALUES
 ('Nguyen Van A', "1", 24, '0912345678', '81 LA', 1),
 ('Le Van B', "1", 30, '0987654321', '35 WA', 1),
@@ -22,7 +22,7 @@ VALUES
 ('Dinh Thi I', "1", 58, '0955667788', '10 CD', 2),
 ('Doan Van J', "1", 22, '0941234567', '21 GH', 1);
 
-INSERT INTO driver (DriverID, Name, Age, License, Phone)
+INSERT INTO Driver (DriverID, Name, Age, License, Phone)
 VALUES
 (12345678, 'Le Driver', 45, 'L12345', 902345678),
 (12345679, 'Nguyen Driver', 30, 'L54321', 907654321),
@@ -30,7 +30,7 @@ VALUES
 (12345681, 'Vu Driver', 38, 'L98765', 911223344),
 (12345682, 'Bui Driver', 55, 'L24680', 909887766);
 
-INSERT INTO route (RouteName, StartLocation, EndLocation, FARE, Distance, Times)
+INSERT INTO `Route` (RouteName, StartLocation, EndLocation, FARE, Distance, Times)
 VALUES
 ('Route A', 'Station A', 'Station B', 1.50, 12.3, '00:45:00'),
 ('Route B', 'Station B', 'Station C', 1.50, 12.3, '00:45:00'),
@@ -38,7 +38,7 @@ VALUES
 ('Route D', 'Station D', 'Station E', 2.00, 15.0, '01:00:00'),
 ('Route E', 'Station E', 'Station F', 1.00, 8.5, '00:25:00');
 
-INSERT INTO bus_info (PlateNumber, Capacity, DriverID, RouteID)
+INSERT INTO Bus_Info (PlateNumber, Capacity, DriverID, RouteID)
 VALUES
 ('30A-12345', 40, 12345678, 1),
 ('30A-54321', 40, 12345679, 2),
@@ -46,7 +46,7 @@ VALUES
 ('29B-99887', 50, 12345681, 4),
 ('51C-10203', 35, 12345682, 5);
 
-INSERT INTO trip (Date, DepartureTime, ArrivalTime, BusID, RouteID)
+INSERT INTO Trip (Date, DepartureTime, ArrivalTime, BusID, RouteID)
 VALUES
 ('2025-06-01', '08:00:00', '08:45:00', 1, 1),
 ('2025-06-01', '09:00:00', '09:45:00', 2, 2),
@@ -61,22 +61,22 @@ VALUES
 ('2025-06-03', '18:00:00', '18:35:00', 3, 3),
 ('2025-06-03', '17:00:00', '18:00:00', 4, 4);
 
-INSERT INTO ticket (Date, UserID, TripID)
+INSERT INTO Ticket (`Date`, UserID, TripID)
 VALUES
-('2025-06-01 00:00:00', 1, 1),
-('2025-06-01 00:00:00', 2, 5),
-('2025-06-01 00:00:00', 4, 3),
-('2025-06-02 00:00:00', 6, 7),
-('2025-06-02 00:00:00', 7, 9),
-('2025-06-03 00:00:00', 8, 12),
-('2025-06-03 00:00:00', 10, 10);
+('2025-06-01 09:15:00', 1, 1),
+('2025-06-01 10:30:00', 2, 5),
+('2025-06-01 11:00:00', 4, 3),
+('2025-06-02 08:45:00', 6, 7),
+('2025-06-02 12:20:00', 7, 9),
+('2025-06-03 14:05:00', 8, 12),
+('2025-06-03 18:30:00', 10, 10);
 
-INSERT INTO payment (Amount, PaymentDATE, UserID, PaymentID)
+INSERT INTO Payment (UserID, Amount, PaymentDate, Payment_Method_ID)
 VALUES
-(10000.00, '2025-06-01', 1, 1),
-(10000.00, '2025-06-01', 2, 2),
-(10000.00, '2025-06-01', 4, 3),
-(15000.00, '2025-06-02', 6, 4),
-(10000.00, '2025-06-02', 7, 5),
-(20000.00, '2025-06-03', 8, 6),
-(10000.00, '2025-06-03', 10, 2);
+(1, 10000.00, '2025-06-01 09:15:00', 1),
+(2, 12000.50, '2025-06-01 10:30:00', 2),
+(4, 8000.00,  '2025-06-01 11:00:00', 1),
+(6, 15000.00, '2025-06-02 08:45:00', 3),
+(7, 10000.00, '2025-06-02 12:20:00', 2),
+(8, 20000.00, '2025-06-03 14:05:00', 1),
+(10,10000.00, '2025-06-03 18:30:00', 2);
