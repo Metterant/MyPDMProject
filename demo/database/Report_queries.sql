@@ -40,7 +40,7 @@ LIMIT 5;
 SELECT d.Name AS DriverName, COUNT(t.TripID) AS TotalTrips
 FROM Trip t
 JOIN Bus_info b ON t.BusID = b.BusID
-JOIN Driver d ON b.DriveID = d.DriveID
+JOIN Driver d ON b.DriverID = d.DriverID
 GROUP BY d.Name
 ORDER BY TotalTrips DESC;
 

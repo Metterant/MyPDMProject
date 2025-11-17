@@ -16,7 +16,7 @@ VALUES
 ('Dinh Thi I', "1", 58, '0955667788', '10 CD', 2),
 ('Doan Van J', "1", 22, '0941234567', '21 GH', 1);
 
-INSERT INTO driver (DriveID, Name, Age, License, Phone)
+INSERT INTO driver (DriverID, Name, Age, License, Phone)
 VALUES
 (12345678, 'Le Driver', 45, 'L12345', 902345678),
 (12345679, 'Nguyen Driver', 30, 'L54321', 907654321),
@@ -32,7 +32,7 @@ VALUES
 ('Route D', 'Station D', 'Station E', 2.00, 15.0, '01:00:00'),
 ('Route E', 'Station E', 'Station F', 1.00, 8.5, '00:25:00');
 
-INSERT INTO bus_info (PlateNumber, Capacity, DriveID, RouteID)
+INSERT INTO bus_info (PlateNumber, Capacity, DriverID, RouteID)
 VALUES
 ('30A-12345', 40, 12345678, 1),
 ('30A-54321', 40, 12345679, 2),

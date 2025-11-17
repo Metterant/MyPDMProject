@@ -32,7 +32,7 @@ CREATE TABLE Route(
 );
 
 CREATE TABLE Driver(
-	DriveID INT PRIMARY KEY,
+	DriverID INT PRIMARY KEY,
     Name VARCHAR(50),
     Age INT,
     License VARCHAR(20),
@@ -43,10 +43,10 @@ CREATE TABLE Bus_info(
 	BusID INT PRIMARY KEY AUTO_INCREMENT,
 	PlateNumber VARCHAR(20),
     Capacity INT,
-    DriveID INT,
+    DriverID INT,
     RouteID INT,
     FOREIGN KEY (RouteID) REFERENCES Route(RouteID),
-    FOREIGN KEY (DriveID) REFERENCES Driver(DriveID)
+    FOREIGN KEY (DriverID) REFERENCES Driver(DriverID)
 );
 
 CREATE TABLE Trip (

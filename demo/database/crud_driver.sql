@@ -13,5 +13,5 @@ SET Name=?, Age=?, License=?, Phone=?
 WHERE DriveID=?;
 
 -- Delete
-DELETE FROM Driver Where DriveID=?
+DELETE FROM Driver WHERE DriveID=?
 

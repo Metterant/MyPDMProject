@@ -1,19 +1,19 @@
 -- Create
-INSERT INTO bus_info (PlateNumber, Capacity, DriveID, RouteID)
+INSERT INTO bus_info (PlateNumber, Capacity, DriverID, RouteID)
 VALUES(?,?,?,?);
 
 -- Read
-SELECT *FROM Bus_info;
+SELECT * FROM Bus_info;
 -- Read + JOIN driver + Route
 SELECT b.BusID, b.PlateNumber, b.Capacity,
        d.Name AS DriverName, r.RouteName
 FROM Bus_info b
-JOIN Driver d ON b.DriveID = d.DriveID
+JOIN Driver d ON b.DriverID = d.DriverID
 JOIN Route r ON b.RouteID = r.RouteID;
 
 -- Update
 UPDATE Bus_info
-SET PlateNumber = ?, Capacity = ?, DriveID = ?, RouteID = ?
+SET PlateNumber = ?, Capacity = ?, DriverID = ?, RouteID = ?
 WHERE BusID = ?;
 
 -- Delete
