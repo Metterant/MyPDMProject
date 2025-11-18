@@ -32,7 +32,7 @@ CREATE TABLE Route(
 );
 
 CREATE TABLE Driver(
-	DriverID INT PRIMARY KEY,
+	DriverID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(50),
     Age INT,
     License VARCHAR(20),

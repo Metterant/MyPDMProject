@@ -22,13 +22,13 @@ VALUES
 ('Dinh Thi I', "1", 58, '0955667788', '10 CD', 2),
 ('Doan Van J', "1", 22, '0941234567', '21 GH', 1);
 
-INSERT INTO Driver (DriverID, Name, Age, License, Phone)
+INSERT INTO Driver (Name, Age, License, Phone)
 VALUES
-(12345678, 'Le Driver', 45, 'L12345', 902345678),
-(12345679, 'Nguyen Driver', 30, 'L54321', 907654321),
-(12345680, 'Tran Driver', 50, 'L13579', 998765432),
-(12345681, 'Vu Driver', 38, 'L98765', 911223344),
-(12345682, 'Bui Driver', 55, 'L24680', 909887766);
+('Le Driver', 45, 'L12345', 902345678),
+('Nguyen Driver', 30, 'L54321', 907654321),
+('Tran Driver', 50, 'L13579', 998765432),
+('Vu Driver', 38, 'L98765', 911223344),
+('Bui Driver', 55, 'L24680', 909887766);
 
 INSERT INTO `Route` (RouteName, StartLocation, EndLocation, FARE, Distance, Times)
 VALUES

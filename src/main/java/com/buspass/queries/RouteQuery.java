@@ -18,8 +18,8 @@ public class RouteQuery {
 		return QueryExecutionModule.executeQuery(sql);
 	}
 
-	/* ADMIN PRIVILEGES */
-
+	//#region ADMIN PRIVILEDGES
+    
 	public boolean registerRoute(String routeName, String startLocation, String endLocation, double fare, float distance, String times) {
 		String sql = "INSERT INTO Route (RouteName, StartLocation, EndLocation, FARE, Distance, Times) VALUES (?, ?, ?, ?, ?, ?);";
 		int rowsAffected = QueryExecutionModule.executeUpdate(sql, routeName, startLocation, endLocation, fare, distance, times);
@@ -62,4 +62,5 @@ public class RouteQuery {
 		return rowsAffected > 0;
 	}
 
+    //#endregion
 }

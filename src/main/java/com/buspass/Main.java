@@ -22,6 +22,6 @@ public class Main {
         // System.out.println(busQuery.getBusInfoById(2));
         // System.out.println(routeQuery.getAllRoutes());
 
-        System.out.println(paymentQuery.getPaymentsByUserId(1));
+        System.out.println(userService.getAllUsers());
     }
 }
