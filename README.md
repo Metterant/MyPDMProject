@@ -1,4 +1,6 @@
-## Store Credentials in `.env` file
+# Project Manual
+
+## Store Credentials in a `.env` file
 
 Create a file named `db_credentials.env` in the project root (do not commit this file).
 
