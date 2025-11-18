@@ -41,7 +41,7 @@ public class UserService {
 
     /** Returns basic details related to Tickets used for Trips */
     public List<Map<String, Object>> getTicketsByUserId(int userId) {
-        String sql = "SELECT TicketID, t.Date, b.PlateNumber, RouteName, t.TripID, b.BusID, r.RouteID\r\n" + //
+        String sql = "SELECT TicketID, t.Date, b.PlateNumber, RouteName, t.TripID, b.BusID, r.RouteID, t.PaymentID\r\n" + //
                      "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
                      "    JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
                      "    JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
