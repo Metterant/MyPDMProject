@@ -58,20 +58,9 @@ CREATE TABLE Trip (
     FOREIGN KEY (BusID) REFERENCES Bus_info(BusID)
 );
 
-CREATE TABLE Ticket (
-	TicketID INT PRIMARY KEY AUTO_INCREMENT,
-    Date DATETIME,
-    UserID INT,
-    TripID INT,
-    PaymentID INT,
-    FOREIGN KEY (UserID) REFERENCES User(UserID),
-    FOREIGN KEY (TripID) REFERENCES Trip(TripID),
-    FOREIGN KEY (PaymentID) REFERENCES Payment(PaymentID)
-);
-
 CREATE TABLE Payment_Methods(
 	Payment_Method_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Method VARCHAR(30)		-- Card/Cash/Online
+    Method VARCHAR(30)
 );
 
 CREATE TABLE Payment(
@@ -82,4 +71,15 @@ CREATE TABLE Payment(
     Payment_Method_ID INT,
     FOREIGN KEY (UserID) REFERENCES User(UserID),
     FOREIGN KEY (Payment_Method_ID) REFERENCES Payment_Methods(Payment_Method_ID)
+);
+
+CREATE TABLE Ticket (
+	TicketID INT PRIMARY KEY AUTO_INCREMENT,
+    Date DATETIME,
+    UserID INT,
+    TripID INT,
+    PaymentID INT,
+    FOREIGN KEY (UserID) REFERENCES User(UserID),
+    FOREIGN KEY (TripID) REFERENCES Trip(TripID),
+    FOREIGN KEY (PaymentID) REFERENCES Payment(PaymentID)
 );
