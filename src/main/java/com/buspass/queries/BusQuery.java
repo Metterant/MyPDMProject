@@ -20,10 +20,10 @@ public class BusQuery {
     
     public List<Map<String, Object>> getAllBuses() {
         String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity,\r\n" + //
-        "d.Name AS DriverName, r.RouteName\r\n" + //
-        "FROM Bus_info b\r\n" + //
-        "JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
-        "JOIN Route r ON b.RouteID = r.RouteID;";
+                    "d.Name AS DriverName, r.RouteName\r\n" + //
+                    "FROM Bus_info b\r\n" + //
+                    "JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
+                    "JOIN Route r ON b.RouteID = r.RouteID;";
         
         List<Map<String, Object>> buses = QueryExecutionModule.executeQuery(sql);
         
@@ -40,7 +40,18 @@ public class BusQuery {
         return rowsAffected > 0;
     }
 
-    // public 
+    public List<Map<String, Object>> getTripsTraveledById(int busId) {
+        String sql = "SELECT TripID, Date, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime, b.DriverID, d.Name AS DriverName\n" + //
+                    "FROM Trip t\n" + //
+                    "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
+                    "JOIN Route r ON t.RouteID = r.RouteID\n" + //
+                    "JOIN Driver d ON b.DriverID = d.DriverID\n" + //
+                    "WHERE b.BusID = ?;";
+        
+        List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, busId);
+        
+        return trips; // Not found    
+    }
 
     public boolean updateBusPlate(int busId, String plateNumber) {
         String sql = "UPDATE Bus_info SET PlateNumber = ? WHERE BusID = ?";
