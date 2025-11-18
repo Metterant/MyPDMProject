@@ -6,6 +6,32 @@ import java.util.Map;
 import com.buspass.db.QueryExecutionModule;
 
 public class BusQuery {
+    
+    public Map<String, Object> getBusInfoById(int busId) {
+        String sql = "SELECT * FROM bus_info WHERE BusID = ?";
+        
+        List<Map<String, Object>> bus = QueryExecutionModule.executeQuery(sql, busId);
+        if (!bus.isEmpty()) {
+            return bus.get(0);
+        }
+        return null; // Not found    
+    }
+
+    
+    public List<Map<String, Object>> getAllBuses() {
+        String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity,\r\n" + //
+        "d.Name AS DriverName, r.RouteName\r\n" + //
+        "FROM Bus_info b\r\n" + //
+        "JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
+        "JOIN Route r ON b.RouteID = r.RouteID;";
+        
+        List<Map<String, Object>> buses = QueryExecutionModule.executeQuery(sql);
+        
+        return buses; // Not found    
+    }
+    
+    /* ADMIN PRIVILEDGES */
+    
     public boolean registerBus(String plateNumber, int capacity, int driverId, int routeId) {
         String sql = "INSERT INTO bus_info (PlateNumber, Capacity, DriveID, RouteID) " + 
             "VALUES(?,?,?,?);";
@@ -13,30 +39,8 @@ public class BusQuery {
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, plateNumber, capacity , driverId, routeId);
         return rowsAffected > 0;
     }
-    
-    public Map<String, Object> getBusInfoById(int busId) {
-        String sql = "SELECT * FROM bus_info WHERE BusID = ?";
 
-        List<Map<String, Object>> bus = QueryExecutionModule.executeQuery(sql, busId);
-        if (!bus.isEmpty()) {
-            return bus.get(0);
-        }
-        return null; // Not found    
-    }
-    
-    public List<Map<String, Object>> getAllBuses() {
-        String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity,\r\n" + //
-                        "d.Name AS DriverName, r.RouteName\r\n" + //
-                        "FROM Bus_info b\r\n" + //
-                        "JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
-                        "JOIN Route r ON b.RouteID = r.RouteID;";
-
-        List<Map<String, Object>> buses = QueryExecutionModule.executeQuery(sql);
-        
-        return buses; // Not found    
-    }
-
-    /* ADMIN PRIVILEDGES */
+    // public 
 
     public boolean updateBusPlate(int busId, String plateNumber) {
         String sql = "UPDATE Bus_info SET PlateNumber = ? WHERE BusID = ?";
