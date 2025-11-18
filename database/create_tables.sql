@@ -55,9 +55,7 @@ CREATE TABLE Trip (
     DepartureTime TIME,
     ArrivalTime TIME,
     BusID INT,
-    RouteID INT,
-    FOREIGN KEY (BusID) REFERENCES Bus_info(BusID),
-    FOREIGN KEY (RouteID) REFERENCES Route(RouteID)
+    FOREIGN KEY (BusID) REFERENCES Bus_info(BusID)
 );
 
 CREATE TABLE Ticket (
