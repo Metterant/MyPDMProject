@@ -40,11 +40,11 @@ VALUES
 
 INSERT INTO Bus_Info (PlateNumber, Capacity, DriverID, RouteID)
 VALUES
-('30A-12345', 40, 12345678, 1),
-('30A-54321', 40, 12345679, 2),
-('30A-13579', 40, 12345680, 3),
-('29B-99887', 50, 12345681, 4),
-('51C-10203', 35, 12345682, 5);
+('30A-12345', 40, 1, 1),
+('30A-54321', 40, 2, 2),
+('30A-13579', 40, 3, 3),
+('29B-99887', 50, 4, 4),
+('51C-10203', 35, 5, 5);
 
 INSERT INTO Trip (Date, DepartureTime, ArrivalTime, BusID, RouteID)
 VALUES
