@@ -38,7 +38,7 @@ public class QueryExecutionModule {
 
         // try-with-resources sẽ tự động đóng Connection, PreparedStatement, và ResultSet
         try (Connection conn = databaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // 1. Thiết lập các tham số
             setParameters(pstmt, params);
             // 2. Thực thi truy vấn và lấy ResultSet
