@@ -38,13 +38,13 @@ public class PaymentQuery {
 
     public Map<String, Object> getPaymentById(int paymentId) {
         String sql = "SELECT p.Amount,\r\n" +
-                        "   p.PaymentDate AS TransactionTime,\r\n" +
-                        "   u.Username,\r\n" +
-                        "   pm.Method AS PaymentMethod\r\n" +
-                        "FROM Payment p\r\n" +
-                        "JOIN `User` u ON p.UserID = u.UserID\r\n" +
-                        "JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID\r\n" +
-                        "WHERE p.PaymentID = ?;";
+                     "   p.PaymentDate AS TransactionTime,\r\n" +
+                     "   u.Username,\r\n" +
+                     "   pm.Method AS PaymentMethod\r\n" +
+                     "FROM Payment p\r\n" +
+                     "JOIN `User` u ON p.UserID = u.UserID\r\n" +
+                     "JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID\r\n" +
+                     "WHERE p.PaymentID = ?;";
 
         List<Map<String, Object>> payments = QueryExecutionModule.executeQuery(sql, paymentId);
         if (!payments.isEmpty()) {

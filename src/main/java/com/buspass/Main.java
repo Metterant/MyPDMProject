@@ -8,6 +8,8 @@ public class Main {
         BusQuery busQuery = new BusQuery();
         RouteQuery routeQuery = new RouteQuery();
         PaymentQuery paymentQuery = new PaymentQuery();
+        DriverQuery driverQuery = new DriverQuery();
+        TripQuery tripQuery = new TripQuery();
 
         // userService.registerUser("hello", "there" ,69, "09", "08", 2);
         // System.out.println(userService.getUserById(10));
@@ -22,6 +24,15 @@ public class Main {
         // System.out.println(busQuery.getBusInfoById(2));
         // System.out.println(routeQuery.getAllRoutes());
 
-        System.out.println(userService.getAllUsers());
+        
+        // System.out.println(userService.getAllUsers());
+        // System.out.println(driverQuery.getDriverById(1));
+
+        // System.out.println(driverQuery.getAllDrivers());
+        // System.out.println(driverQuery.updatePhoneNumber(8, "6999999"));
+
+        // System.out.println(driverQuery.getTripsTraveledById(1));
+        // System.out.println(tripQuery.getTripsWithJoinAndDrivers());
+        // System.out.println(busQuery.getTripsTraveledById(1));
     }
 }
