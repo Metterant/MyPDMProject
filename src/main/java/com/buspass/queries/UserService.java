@@ -39,6 +39,35 @@ public class UserService {
         return null; // Not found
     }
 
+    /** Returns basic details related to Tickets used for Trips */
+    public List<Map<String, Object>> getTicketsByUserId(int userId) {
+        String sql = "SELECT TicketID, t.Date, b.PlateNumber, RouteName, t.TripID, b.BusID, r.RouteID\r\n" + //
+                     "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
+                     "    JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
+                     "    JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
+                     "    JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
+                     "WHERE u.UserID = ?";
+            
+        List<Map<String, Object>> tickets = QueryExecutionModule.executeQuery(sql, userId);
+        
+        return tickets;
+    }
+
+    /** Returns the details about the trips a specific User has bought Tickets for */
+    public List<Map<String, Object>> getTripsTravelByUserId(int userId) {
+        String sql = "SELECT tr.Date, b.PlateNumber, RouteName, DepartureTime, " +
+                        "ArrivalTime, TicketID, t.TripID, b.BusID, r.RouteID\r\n" + //
+                     "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
+                     "    JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
+                     "    JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
+                     "    JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
+                     "WHERE u.UserID = ?";
+            
+        List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, userId);
+        
+        return trips;
+    }
+
     //#region ADMIN PRIVILEDGES
     
     public List<Map<String, Object>> getAllUsers() {
@@ -110,7 +139,7 @@ public class UserService {
      * Delete User from the User Table by UserID
      * 
      * The Passenger User can only delete their own Profile and the Admin can delete any user 
-     * TODO: Make sure to implement confirmation to aovid accidential terminiation
+     * TODO: Make sure to implement confirmation to aovid accidental terminiation
      * 
      * @param userId the UserID of the User table
      * @return whether the User is found and their profile was deleted successfully
