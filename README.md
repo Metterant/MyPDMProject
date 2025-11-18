@@ -5,7 +5,7 @@ Create a file named `db_credentials.env` in the project root (do not commit this
 Example contents:
 
 ```
-DB_URL=jdbc:mysql://localhost:3306/bus_pass_system
+DB_URL=jdbc:mysql://localhost:3306/digital_bus_pass
 DB_USER=root
 DB_PASSWORD=your_password_here
 DB_MAX_POOL_SIZE=10
