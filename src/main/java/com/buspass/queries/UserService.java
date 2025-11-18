@@ -27,14 +27,14 @@ public class UserService {
         return rowsAffected > 0;
     }
 
-    //2: Lấy thông tin người dùng bằng ID (Dùng SELECT)
+
     public Map<String, Object> getUserById(int userId) {
         String sql = "SELECT UserID, UserName, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID WHERE UserID = ?";
-        // Gọi phương thức executeQuery từ module của nhóm
+
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
         if (!users.isEmpty()) {
-            return users.get(0); // Trả về người dùng đầu tiên tìm thấy
+            return users.get(0); // Return the first User
         }
         return null; // Not found
     }
@@ -115,7 +115,7 @@ public class UserService {
      * @param userId the UserID of the User table
      * @return whether the User is found and their profile was deleted successfully
      */
-    public boolean deleteUser(int userId) {
+    public boolean deleteUserById(int userId) {
         String sql = "DELETE FROM User WHERE UserID = ?";
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, userId);
         return rowsAffected > 0;
