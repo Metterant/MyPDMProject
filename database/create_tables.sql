@@ -63,8 +63,10 @@ CREATE TABLE Ticket (
     Date DATETIME,
     UserID INT,
     TripID INT,
+    PaymentID INT,
     FOREIGN KEY (UserID) REFERENCES User(UserID),
-    FOREIGN KEY (TripID) REFERENCES Trip(TripID)
+    FOREIGN KEY (TripID) REFERENCES Trip(TripID),
+    FOREIGN KEY (PaymentID) REFERENCES Payment(PaymentID)
 );
 
 CREATE TABLE Payment_Methods(
