@@ -38,6 +38,19 @@ public class DriverQuery {
         return buses;
     }
 
+    public List<Map<String, Object>> getTripsTraveledById(int driverId) {
+        String sql = "SELECT TripID, Date, b.BusID, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime\n" + //
+                    "FROM Trip t\n" + //
+                    "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
+                    "JOIN Route r ON t.RouteID = r.RouteID\n" + //
+                    "JOIN Driver d ON b.DriverID = d.DriverID\n" + //
+                    "WHERE d.DriverID = ?;";
+                     
+        List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, driverId);
+
+        return trips;
+    }
+
     public boolean registerDriver(String name, int age, String license, String phoneNumber) {    
         String sql = "INSERT INTO Driver (Name, Age, License, Phone)\r\n" +
                      "VALUES(?, ?, ?, ?);";
