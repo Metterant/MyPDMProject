@@ -1,6 +1,9 @@
 package com.buspass;
 
-import com.buspass.queries.*;
+import com.buspass.queries.BusQuery;
+import com.buspass.queries.PaymentQuery;
+import com.buspass.queries.RouteQuery;
+import com.buspass.queries.UserService;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +25,6 @@ public class Main {
         // System.out.println(busQuery.getBusInfoById(2));
         // System.out.println(routeQuery.getAllRoutes());
 
-        System.out.println(paymentQuery.getPaymentsByUserId(1));
+        System.out.println(userService.getAllUsers());
     }
 }
