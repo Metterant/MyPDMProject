@@ -42,7 +42,7 @@ public class DriverQuery {
         String sql = "SELECT TripID, Date, b.BusID, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime\n" + //
                     "FROM Trip t\n" + //
                     "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
-                    "JOIN Route r ON t.RouteID = r.RouteID\n" + //
+                    "JOIN Route r ON b.RouteID = r.RouteID\n" + //
                     "JOIN Driver d ON b.DriverID = d.DriverID\n" + //
                     "WHERE d.DriverID = ?;";
                      

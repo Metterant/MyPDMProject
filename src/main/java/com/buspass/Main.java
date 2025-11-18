@@ -34,5 +34,6 @@ public class Main {
         // System.out.println(driverQuery.getTripsTraveledById(1));
         // System.out.println(tripQuery.getTripsWithJoinAndDrivers());
         // System.out.println(busQuery.getTripsTraveledById(1));
+        // System.out.println(userService.getTicketsByUserId(1));
     }
 }

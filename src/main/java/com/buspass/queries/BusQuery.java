@@ -44,7 +44,7 @@ public class BusQuery {
         String sql = "SELECT TripID, Date, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime, b.DriverID, d.Name AS DriverName\n" + //
                     "FROM Trip t\n" + //
                     "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
-                    "JOIN Route r ON t.RouteID = r.RouteID\n" + //
+                    "JOIN Route r ON b.RouteID = r.RouteID\n" + //
                     "JOIN Driver d ON b.DriverID = d.DriverID\n" + //
                     "WHERE b.BusID = ?;";
         
