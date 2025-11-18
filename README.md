@@ -1,11 +1,23 @@
-# Project Manual
+## Store Credentials in `.env` file
 
-## Store Credentials in .env file
+Create a file named `db_credentials.env` in the project root (do not commit this file).
 
-Create `db_credentials.env` file in the root of this project and make sure the file contents follow  
+Example contents:
 
-``` dotenv
-DB_URL=your_jdbc_db_url_including_path_to_digital_bus_pass
-DB_PASSWORD=your_db_password_here
 ```
-- `DB_URL` example: `jdbc:mysql://localhost:3306/digital_bus_pass` (the path to the `digital_bus_pass` database)
+DB_URL=jdbc:mysql://localhost:3306/bus_pass_system
+DB_USER=root
+DB_PASSWORD=your_password_here
+DB_MAX_POOL_SIZE=10
+```
+
+- `DB_URL` should include the database name.
+- `DB_USER` and `DB_PASSWORD` are your database username and password.
+- `DB_MAX_POOL_SIZE` is optional (default is 10).
+
+Add `db_credentials.env` to your `.gitignore` to avoid committing secrets.
+
+---
+
+
+

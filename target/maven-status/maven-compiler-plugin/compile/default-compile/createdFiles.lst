@@ -1,0 +1,10 @@
+com\buspass\queries\BusQuery.class
+com\buspass\queries\DriverQuery.class
+com\buspass\queries\UserService.class
+com\buspass\db\QueryExecutionModule.class
+com\buspass\Main.class
+com\buspass\queries\PaymentQuery.class
+com\buspass\queries\TicketQuery.class
+com\buspass\queries\RouteQuery.class
+com\buspass\queries\TripQuery.class
+com\buspass\db\databaseConnection.class

@@ -3,49 +3,89 @@
 package com.buspass.db;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class databaseConnection {
-    // Thay đổi các thông tin này cho phù hợp với project nhóm mình
+    private static final HikariDataSource dataSource;
 
-    // Create your own db_credentials.json file similar to sample_credentials.json to store your MySQL credentials
-    // so that your password will not be expo
+    static {
+        // Try loading from classpath .env (db_credentials.env) first, fall back to environment variables
+        Dotenv dotenv = null;
+        try {
+            dotenv = Dotenv.configure()
+                    .filename("db_credentials.env")
+                    .ignoreIfMissing()
+                    .load();
+        } catch (Exception e) {
+            // ignore, we'll try system env
+        }
 
-    private static String DB_URL = "jdbc:mysql://localhost:3306/?user=root";//ví dụ:jdbc:mysql://localhost:3306/bus_pass_system
-    private static String USER = "root";
-    private static String PASS = "";// Mật khẩu
+        String jdbcUrl = getVar(dotenv, "DB_URL", null);
+        String user = getVar(dotenv, "DB_USER", null);
+        String pass = getVar(dotenv, "DB_PASSWORD", null);
+        String maxPool = getVar(dotenv, "DB_MAX_POOL_SIZE", "10");
 
-    // lấy ket nối
+        if (jdbcUrl == null || jdbcUrl.isBlank()) {
+            System.err.println("Database URL is not set. Provide DB_URL in db_credentials.env or as an environment variable.");
+        }
+
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(jdbcUrl);
+        if (user != null) config.setUsername(user);
+        if (pass != null) config.setPassword(pass);
+
+        try {
+            config.setMaximumPoolSize(Integer.parseInt(maxPool));
+        } catch (NumberFormatException e) {
+            // ignore and use default
+        }
+
+        // Optional recommended settings
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+
+        dataSource = new HikariDataSource(config);
+
+        // Close pool on JVM shutdown
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            if (dataSource != null && !dataSource.isClosed()) {
+                dataSource.close();
+            }
+        }));
+    }
+
+    private static String getVar(Dotenv dotenv, String key, String fallback) {
+        if (dotenv != null) {
+            try {
+                String v = dotenv.get(key);
+                if (v != null && !v.isBlank()) return v;
+            } catch (Exception e) {
+                // ignore
+            }
+        }
+        String env = System.getenv(key);
+        return (env != null && !env.isBlank()) ? env : fallback;
+    }
+
     public static Connection getConnection() {
         try {
-            // 1.Nạp driver (tùy chon với JDBC 4.0+)
-            // Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Dotenv dotenv = Dotenv.configure()
-                .filename("db_credentials.env")
-                .load();
-
-            // Access the variables
-            String DB_URL = dotenv.get("DB_URL");
-            String PASS = dotenv.get("DB_PASSWORD");
-
-            // System.out.println("Connection Successful!");
-
-            if (DB_URL == null || DB_URL.isBlank()) {
-                System.err.println("Database URL is empty. Ensure that db_credentials.env file containing DB_URL exists in the project root or DB_URL constant is set.");
-                return null;
-            }
-
-            // 2.Tao kết noi
-            return DriverManager.getConnection(DB_URL, USER, PASS);
+            return dataSource.getConnection();
         } catch (SQLException e) {
-            // Xử lu loi kết nối
-            System.err.println("Database Connection Error: " + e.getMessage());
+            System.err.println("Failed to obtain connection from pool: " + e.getMessage());
             e.printStackTrace();
-            return null; // Trả về null nếu khong ket nối được
+            return null;
+        }
+    }
+
+    public static void shutdownPool() {
+        if (dataSource != null && !dataSource.isClosed()) {
+            dataSource.close();
         }
     }
 }
