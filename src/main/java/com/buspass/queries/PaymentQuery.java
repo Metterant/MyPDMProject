@@ -21,8 +21,8 @@ public class PaymentQuery {
 		return payments;  
     }
 
-    /* ADMIND PRIVILEDGES */
-
+    //#region ADMIN PRIVILEDGES
+    
     /**
      * Create a new transaction at this moment
      * @param userId the UserID of User table
@@ -58,4 +58,7 @@ public class PaymentQuery {
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, paymentId);
         return rowsAffected > 0;
     }
+
+    //#endregion
+
 }

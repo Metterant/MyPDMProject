@@ -39,8 +39,8 @@ public class UserService {
         return null; // Not found
     }
 
-    /* ADMIN PRIVILEDGES */
-
+    //#region ADMIN PRIVILEDGES
+    
     public List<Map<String, Object>> getAllUsers() {
         String sql = "SELECT UserID, UserName, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
@@ -120,4 +120,6 @@ public class UserService {
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, userId);
         return rowsAffected > 0;
     }
+
+    //#endregion
 }
