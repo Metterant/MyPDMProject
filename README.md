@@ -16,6 +16,7 @@ DB_MAX_POOL_SIZE=10
 - `DB_MAX_POOL_SIZE` is optional (default is 10).
 
 Add `db_credentials.env` to your `.gitignore` to avoid committing secrets.
+
 ---
 
 
