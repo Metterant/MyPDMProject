@@ -14,7 +14,7 @@ FROM Ticket t
 JOIN User u ON t.UserID = u.UserID
 JOIN Trip tr ON t.TripID = tr.TripID
 JOIN Bus_info b ON tr.BusID = b.BusID
-JOIN Route r ON tr.RouteID = r.RouteID;
+JOIN Route r ON b.RouteID = r.RouteID;
 
 -- Update 
 UPDATE Ticket
