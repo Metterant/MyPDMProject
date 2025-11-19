@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.buspass.db.QueryExecutionModule;
 import com.buspass.queries.UserService;
+import com.buspass.utils.PasswordUtils;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -37,10 +38,10 @@ public class UserLogin {
     /**
      * Return the result of the User login
      * @param userId - The UserID of the User
-     * @param plainTextPassword - Password in plaintext
+     * @param plainPW - Password in plaintext
      * @return -1 if the User doesn't exist, 0 if the password was incorrect, and 1 if the login was successful 
      */
-    public int attemptLogin(int userId, String plainTextPassword) {
+    public int attemptLogin(int userId, String plainPW) {
         // Fetch stored hash and role id for the user
         List<Map<String, Object>> results;
         results = QueryExecutionModule.executeQuery(
@@ -59,14 +60,14 @@ public class UserLogin {
             return 0; // no password set
         }
 
-        String userHashedPassword = pwObj.toString();
+        String hashedPW = pwObj.toString();
 
         // IMPORTANT: BCrypt generates a different hash each time because it uses a random salt.
         // To verify a password, use BCrypt.checkpw(plainPassword, storedHash) instead of
         // hashing the plaintext again.
         boolean matches = false;
         try {
-            matches = BCrypt.checkpw(plainTextPassword, userHashedPassword);
+            matches = PasswordUtils.verify(plainPW, hashedPW);
         } 
         catch (Exception e) {
             // any parsing/format issue with the stored hash

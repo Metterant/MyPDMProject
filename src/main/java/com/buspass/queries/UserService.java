@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.buspass.db.QueryExecutionModule;
+import com.buspass.utils.PasswordUtils;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 public class UserService {
@@ -21,7 +23,7 @@ public class UserService {
         String sql = "INSERT INTO user(UserName, UserPassword, Age, Phone, UserAddress, UserRoleID) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
 
-        String hashedPassword = BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+        String hashedPassword = PasswordUtils.hashPassword(plainTextPassword);
 
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, userName, hashedPassword , age, phone, address, userRoleID);
         return rowsAffected > 0;
