@@ -1,6 +1,6 @@
 -- Create
-INSERT INTO user(UserName, UserPassword, Age, Phone, UserAddress, UserRoleID)
-VALUES(?,?,?,?,?,?);
+INSERT INTO user(Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID)
+VALUES(?,?,?,?,?,?,?);
 
 -- Read
 SELECT * FROM user;

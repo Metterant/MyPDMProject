@@ -22,7 +22,9 @@ public class TripQuery {
     /** Trips joined with Buses and Routes */
     public List<Map<String, Object>> getTripsWithJoin() {
         String sql = "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName "
-                + "FROM Trip t JOIN Bus_info b ON t.BusID = b.BusID JOIN Route r ON b.RouteID = r.RouteID";
+                   + "FROM Trip t "
+                   + "    LEFT JOIN Bus_info b ON t.BusID = b.BusID "
+                   + "    LEFT JOIN Route r ON b.RouteID = r.RouteID";
         return QueryExecutionModule.executeQuery(sql);
     }
 
@@ -31,9 +33,9 @@ public class TripQuery {
         String sql = 
                 "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName, DriverName "
                 + "FROM Trip t "
-                + "JOIN Bus_info b ON t.BusID = b.BusID "
-                + "JOIN Route r ON b.RouteID = r.RouteID "
-                + "JOIN Driver d ON b.DriverID = d.DriverID";
+                + "LEFT JOIN Bus_info b ON t.BusID = b.BusID "
+                + "LEFT JOIN Route r ON b.RouteID = r.RouteID "
+                + "LEFT JOIN Driver d ON b.DriverID = d.DriverID";
         return QueryExecutionModule.executeQuery(sql);
     }
 

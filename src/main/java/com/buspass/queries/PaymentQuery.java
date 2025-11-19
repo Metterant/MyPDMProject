@@ -14,8 +14,8 @@ public class PaymentQuery {
      */
     public List<Map<String, Object>> getPaymentsByUserId(int userId) {
         String sql = "SELECT PaymentID, Amount, PaymentDate, Method " +
-            "FROM Payment p JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID " +
-            "WHERE UserID = ?";
+                     "FROM Payment p LEFT JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID " +
+                     "WHERE UserID = ?";
         
         List<Map<String, Object>> payments = QueryExecutionModule.executeQuery(sql, userId);
 		return payments;  
@@ -39,11 +39,11 @@ public class PaymentQuery {
     public Map<String, Object> getPaymentById(int paymentId) {
         String sql = "SELECT p.Amount,\r\n" +
                      "   p.PaymentDate AS TransactionTime,\r\n" +
-                     "   u.Username,\r\n" +
+                     "   u.FullName,\r\n" +
                      "   pm.Method AS PaymentMethod\r\n" +
                      "FROM Payment p\r\n" +
-                     "JOIN `User` u ON p.UserID = u.UserID\r\n" +
-                     "JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID\r\n" +
+                     "   LEFT JOIN `User` u ON p.UserID = u.UserID\r\n" +
+                     "   LEFT JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID\r\n" +
                      "WHERE p.PaymentID = ?;";
 
         List<Map<String, Object>> payments = QueryExecutionModule.executeQuery(sql, paymentId);

@@ -4,32 +4,37 @@ import java.util.List;
 import java.util.Map;
 
 import com.buspass.db.QueryExecutionModule;
+import com.buspass.utils.AuthUtils;
+import com.buspass.utils.StringUtils;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 public class UserService {
     //1: Đăng ký người dùng mới (Dùng INSERT)
     /**
      * A method used to create a new user
-     * @param userName
+     * @param username
      * @param age
      * @param phone
      * @param address
      * @param userRoleID: Use dropdown menu (1 -> Passenger, 2 -> Admin)
      * @return
      */
-    public boolean registerUser(String userName, String plainTextPassword, int age, String phone, String address, int userRoleID) {
-        String sql = "INSERT INTO user(UserName, UserPassword, Age, Phone, UserAddress, UserRoleID) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+    public boolean registerUser(String username, String plainPassword, String fullName, int age, String phone, String address, int userRoleID) {
+        String sql = "INSERT INTO user(Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        String hashedPassword = BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+        String hashPW = AuthUtils.hashPassword(plainPassword);
+        fullName = StringUtils.normalizeStr(fullName);
 
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, userName, hashedPassword , age, phone, address, userRoleID);
+
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, hashPW , fullName, age, phone, address, userRoleID);
         return rowsAffected > 0;
     }
 
 
     public Map<String, Object> getUserById(int userId) {
-        String sql = "SELECT UserID, UserName, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID WHERE UserID = ?";
 
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
@@ -43,9 +48,9 @@ public class UserService {
     public List<Map<String, Object>> getTicketsByUserId(int userId) {
         String sql = "SELECT TicketID, t.TicketDateTime, b.PlateNumber, RouteName, t.TripID, b.BusID, r.RouteID, t.PaymentID\r\n" + //
                      "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
-                     "    JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
-                     "    JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
-                     "    JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
+                     "    LEFT JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
+                     "    LEFT JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
+                     "    LEFT JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
                      "WHERE u.UserID = ?";
             
         List<Map<String, Object>> tickets = QueryExecutionModule.executeQuery(sql, userId);
@@ -58,9 +63,9 @@ public class UserService {
         String sql = "SELECT tr.Date, b.PlateNumber, RouteName, DepartureTime, " +
                         "ArrivalTime, TicketID, t.TripID, b.BusID, r.RouteID\r\n" + //
                      "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
-                     "    JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
-                     "    JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
-                     "    JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
+                     "    LEFT JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
+                     "    LEFT JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
+                     "    LEFT JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
                      "WHERE u.UserID = ?";
             
         List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, userId);
@@ -71,7 +76,7 @@ public class UserService {
     //#region ADMIN PRIVILEDGES
     
     public List<Map<String, Object>> getAllUsers() {
-        String sql = "SELECT UserID, UserName, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
             
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql);
@@ -80,28 +85,59 @@ public class UserService {
     }
 
     /**
-     * Change the name of the user
+     * Change the Username of the user
      * @param userId the UserID of User table
      * @param username the new name of the user
-     * @return true if the user is found and their name was changed successfully
+     * @return 1 if the user is found and their name was changed successfully, or -1 if the new Username is not valid,
+     * or 0 if the Username already exists
      */
-    public boolean updateUserName(int userId, String username) {
-        String sql = "UPDATE User SET UserName = ? WHERE UserID = ?";
+    public int updateUsername(int userId, String username) {
+        if (!AuthUtils.isValidUsername(username))
+            return -1;
+
+        String sql = "UPDATE User SET Username = ? WHERE UserID = ?";
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, userId);
-        return rowsAffected > 0;
+        return (rowsAffected > 0) ? 1 : 0;
     }
 
     /**
      * Change the password of the user
      * @param userId the UserID of User table
-     * @param plainTextPassword the new password of the user
+     * @param plainPassword the new password of the user
      * @return true if the user is found and their password was changed successfully
      */
-    public boolean updatePassword(int userId, String plainTextPassword) {
-        String hashedPassword = BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+    public boolean updatePassword(int userId, String plainPassword) {
+        String hashPW = AuthUtils.hashPassword(plainPassword);
 
         String sql = "UPDATE User SET UserPassword = ? WHERE UserID = ?";
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, hashedPassword, userId);
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, hashPW, userId);
+        return rowsAffected > 0;
+    }
+
+    /**
+     * Change the Full Name of the User
+     * @param userId the UserID of the User
+     * @param fullName the Full Name the User wants to change to 
+     * @return true if the update was executed successfully
+     */
+    public boolean updateFullName(int userId, String fullName) {
+        fullName = StringUtils.normalizeStr(fullName);
+
+        String sql = "UPDATE User SET FullName = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, fullName, userId);
+        return (rowsAffected > 0);
+    }
+
+    public boolean updateAge(int userId, int age) {
+        String sql = "UPDATE User SET Age = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, age, userId);
+        return rowsAffected > 0;
+    }
+    
+    
+    public boolean updatePhoneNumber(int userId, String phoneNumber) {
+        String sql = "UPDATE User SET Phone = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, phoneNumber, userId);
         return rowsAffected > 0;
     }
 
@@ -117,12 +153,6 @@ public class UserService {
         return rowsAffected > 0;
     }
 
-    public boolean updateAge(int userId, int age) {
-        String sql = "UPDATE User SET Age = ? WHERE UserID = ?";
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, age, userId);
-        return rowsAffected > 0;
-    }
-
     /**
      * Change the UserRoleID of the user
      * @param userId the UserID of User table
@@ -134,6 +164,7 @@ public class UserService {
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, userRoleId, userId);
         return rowsAffected > 0;
     }
+
 
     /**
      * Delete User from the User Table by UserID

@@ -9,11 +9,11 @@ SELECT * FROM Payment;
 -- Read + JOIN (User + Payment Method)
 SELECT p.Amount,
        p.PaymentDate AS TransactionTime,
-       u.UserName,
+       u.Username,
        pm.Method AS PaymentMethod
 FROM Payment p
-JOIN `User` u ON p.UserID = u.UserID
-JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID;
+    LEFT JOIN `User` u ON p.UserID = u.UserID
+    LEFT JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID;
 
 -- Update
 UPDATE Payment

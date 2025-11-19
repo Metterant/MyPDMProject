@@ -31,10 +31,10 @@ GROUP BY DATE(PaymentDate)
 ORDER BY PaymentDay DESC;
 
 -- Top user who spent the most
-SELECT u.UserName, SUM(p.Amount) AS Total_Spent
+SELECT u.FullName, SUM(p.Amount) AS Total_Spent
 FROM Payment p
 JOIN `User` u ON p.UserID = u.UserID
-GROUP BY u.UserName
+GROUP BY u.Username
 ORDER BY Total_Spent DESC
 LIMIT 5;
 

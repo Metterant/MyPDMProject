@@ -11,13 +11,16 @@ CREATE TABLE UserRoles(
 
 CREATE TABLE User (
 	UserID INT PRIMARY KEY AUTO_INCREMENT,
-    UserName VARCHAR(50),
-    UserPassword VARCHAR(128) NOT NULL,
+    Username VARCHAR(50) UNIQUE NOT NULL,
+    FullName VARCHAR(50) DEFAULT 'Unnamed',
+    UserPassword VARCHAR(128) NULL DEFAULT NULL,
     Age INT,
     Phone VARCHAR(15),
     UserAddress VARCHAR(100),
     UserRoleID INT,
-    FOREIGN KEY (UserRoleID) REFERENCES UserRoles(UserRoleID)
+    FOREIGN KEY (UserRoleID) REFERENCES UserRoles(UserRoleID),
+    CHECK (Age >= 0),
+	CONSTRAINT chkNoSpaces CHECK (Username NOT LIKE '% %')
 );
 
 
@@ -36,7 +39,8 @@ CREATE TABLE Driver(
     DriverName VARCHAR(50),
     Age INT,
     License VARCHAR(20),
-    Phone INT
+    Phone INT,
+    CHECK (Age >= 0)
 );
 
 CREATE TABLE Bus_info(
