@@ -16,9 +16,9 @@ LEFT  JOIN Route r ON b.RouteID = r.RouteID;
 SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime,
        b.PlateNumber, r.RouteName, d.Name AS DriverName
 FROM Trip t
-LEFT  JOIN Bus_info b ON t.BusID = b.BusID
-LEFT  JOIN Route r ON b.RouteID = r.RouteID
-LEFT  JOIN Driver d ON b.DriverID = d.DriverID;
+LEFT JOIN Bus_info b ON t.BusID = b.BusID
+LEFT JOIN Route r ON b.RouteID = r.RouteID
+LEFT JOIN Driver d ON b.DriverID = d.DriverID;
 
 -- Update
 UPDATE Trip
