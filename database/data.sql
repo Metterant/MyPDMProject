@@ -23,7 +23,7 @@ VALUES
 ('Dinh Thi I', "1", 58, '0955667788', '10 CD', 2),
 ('Doan Van J', "1", 22, '0941234567', '21 GH', 1);
 
-INSERT INTO Driver (Name, Age, License, Phone)
+INSERT INTO Driver (DriverName, Age, License, Phone)
 VALUES
 ('Le Driver', 45, 'L12345', 902345678),
 ('Nguyen Driver', 30, 'L54321', 907654321),
@@ -31,7 +31,7 @@ VALUES
 ('Vu Driver', 38, 'L98765', 911223344),
 ('Bui Driver', 55, 'L24680', 909887766);
 
-INSERT INTO `Route` (RouteName, StartLocation, EndLocation, FARE, Distance, Times)
+INSERT INTO `Route` (RouteName, StartLocation, EndLocation, Fare, Distance, Duration)
 VALUES
 ('Route A', 'Station A', 'Station B', 1.50, 12.3, '00:45:00'),
 ('Route B', 'Station B', 'Station C', 1.50, 12.3, '00:45:00'),
@@ -47,7 +47,7 @@ VALUES
 ('29B-99887', 50, 4, 4),
 ('51C-10203', 35, 5, 5);
 
-INSERT INTO Trip (Date, DepartureTime, ArrivalTime, BusID)
+INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID)
 VALUES
 ('2025-06-01', '08:00:00', '08:45:00', 1),
 ('2025-06-01', '09:00:00', '09:45:00', 2),

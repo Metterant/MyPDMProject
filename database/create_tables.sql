@@ -28,7 +28,7 @@ CREATE TABLE Route(
     EndLocation VARCHAR(50),
     Fare DECIMAL(10,2),
     Distance float,
-    Times TIME
+    Duration TIME
 );
 
 CREATE TABLE Driver(
