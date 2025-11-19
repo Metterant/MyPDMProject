@@ -20,7 +20,7 @@ MyPDMProject
 |-- target
 |   `...
 |-- .gitignore
-|-- .db_credentials.env
+|-- db_credentials.env
 .
 .
 ```
