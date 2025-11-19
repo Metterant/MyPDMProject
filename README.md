@@ -4,14 +4,33 @@
 
 Create a file named `db_credentials.env` in the project root (do not commit this file).
 
-Example contents:
+Inside `db_credentials.env`:
 
+`db_credentials.env` location:
+
+``` plain
+MyPDMProject
+|-- pom.xml
+|-- src
+|   `-- main
+|      `-- java
+|          `-- com
+|              `-- buspass
+|                  `...
+|-- target
+|   `...
+|-- .gitignore
+|-- .db_credentials.env
+.
+.
 ```
+
+``` dotenv
 DB_URL=jdbc:mysql://localhost:3306/digital_bus_pass
 DB_USER=root
 DB_PASSWORD=your_password_here
 DB_MAX_POOL_SIZE=10
-```
+
 
 - `DB_URL` should include the database name.
 - `DB_USER` and `DB_PASSWORD` are your database username and password.
