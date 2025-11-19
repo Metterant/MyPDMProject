@@ -26,14 +26,14 @@ CREATE TABLE Route(
     RouteName VARCHAR(50),
     StartLocation VARCHAR(50),
     EndLocation VARCHAR(50),
-    FARE DECIMAL(10,2),
+    Fare DECIMAL(10,2),
     Distance float,
     Times TIME
 );
 
 CREATE TABLE Driver(
 	DriverID INT PRIMARY KEY AUTO_INCREMENT,
-    Name VARCHAR(50),
+    DriverName VARCHAR(50),
     Age INT,
     License VARCHAR(20),
     Phone INT
@@ -51,7 +51,7 @@ CREATE TABLE Bus_info(
 
 CREATE TABLE Trip (
 	TripID INT PRIMARY KEY AUTO_INCREMENT,
-    Date DATE,
+    TripDate DATE,
     DepartureTime TIME,
     ArrivalTime TIME,
     BusID INT,
@@ -75,7 +75,7 @@ CREATE TABLE Payment(
 
 CREATE TABLE Ticket (
 	TicketID INT PRIMARY KEY AUTO_INCREMENT,
-    Date DATETIME,
+    TicketDate DATETIME,
     UserID INT,
     TripID INT,
     PaymentID INT,
