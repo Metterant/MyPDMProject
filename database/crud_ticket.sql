@@ -6,7 +6,7 @@ VALUES (?, ?, ?, ?);
 SELECT * FROM Ticket;
 -- Read with JOIN
 SELECT t.TicketID, t.TicketDateTime,
-       u.UserName,
+       u.Username,
        tr.DepartureTime, tr.ArrivalTime, t.TicketDateTime AS TripDate,
        b.PlateNumber,
        r.RouteName

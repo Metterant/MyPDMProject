@@ -1,5 +1,5 @@
 -- Create
-INSERT INTO user(UserName, UserPassword, Age, Phone, UserAddress, UserRoleID)
+INSERT INTO user(Username, UserPassword, Age, Phone, UserAddress, UserRoleID)
 VALUES(?,?,?,?,?,?);
 
 -- Read

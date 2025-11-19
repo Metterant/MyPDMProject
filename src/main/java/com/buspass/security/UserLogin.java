@@ -13,7 +13,7 @@ public class UserLogin {
     private int userId;
     private int userRoleId;
     private int age;
-    private String userName;
+    private String Username;
     private String address;
     private String phoneNumber;
 
@@ -22,7 +22,7 @@ public class UserLogin {
     public int getUserId()         { return userId; }
     public int getUserRoleId()     { return userRoleId; }
     public int getAge()            { return age; }
-    public String getName()        { return userName; }
+    public String getName()        { return Username; }
     public String getAddress()     { return address; }
     public String getPhoneNumber() { return phoneNumber;}
 
@@ -30,7 +30,7 @@ public class UserLogin {
     private void setUserId(int userId)              { this.userId = userId; }
     private void setUserRoleId(int userRoleId)      { this.userRoleId = userRoleId; }
     private void setAge(int age)                    { this.age = age; }
-    private void setName(String userName)           { this.userName = userName; }
+    private void setName(String Username)           { this.Username = Username; }
     private void setAddress(String address)         { this.address = address; }
     private void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber;}
     
@@ -45,7 +45,7 @@ public class UserLogin {
         // Fetch stored hash and role id for the user
         List<Map<String, Object>> results;
         results = QueryExecutionModule.executeQuery(
-            "SELECT UserName, UserPassword, Age, Phone, UserAddress, UserRoleID FROM `User` WHERE UserID = ?", 
+            "SELECT Username, UserPassword, Age, Phone, UserAddress, UserRoleID FROM `User` WHERE UserID = ?", 
             userId
         );
 
@@ -77,7 +77,7 @@ public class UserLogin {
         if (matches) {
             Object roleObj     = user.get("UserRoleID");
             Object ageObj      = user.get("Age");
-            Object userNameObj = user.get("UserName");
+            Object userNameObj = user.get("Username");
             Object addressObj  = user.get("UserAddress");
             Object phoneObj    = user.get("Phone");
             

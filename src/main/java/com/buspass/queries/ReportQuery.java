@@ -43,9 +43,9 @@ public class ReportQuery {
 	}
 
 	public List<Map<String, Object>> getTopSpenders(int limit) {
-		String sql = "SELECT u.UserName, SUM(p.Amount) AS Total_Spent "
+		String sql = "SELECT u.Username, SUM(p.Amount) AS Total_Spent "
 				   + "FROM Payment p JOIN `User` u ON p.UserID = u.UserID "
-				   + "GROUP BY u.UserName ORDER BY Total_Spent DESC LIMIT ?";
+				   + "GROUP BY u.Username ORDER BY Total_Spent DESC LIMIT ?";
 		return QueryExecutionModule.executeQuery(sql, limit);
 	}
 

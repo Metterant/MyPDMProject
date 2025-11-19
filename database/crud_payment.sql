@@ -9,7 +9,7 @@ SELECT * FROM Payment;
 -- Read + JOIN (User + Payment Method)
 SELECT p.Amount,
        p.PaymentDate AS TransactionTime,
-       u.UserName,
+       u.Username,
        pm.Method AS PaymentMethod
 FROM Payment p
     LEFT JOIN `User` u ON p.UserID = u.UserID
