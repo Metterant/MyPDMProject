@@ -39,7 +39,7 @@ public class PaymentQuery {
     public Map<String, Object> getPaymentById(int paymentId) {
         String sql = "SELECT p.Amount,\r\n" +
                      "   p.PaymentDate AS TransactionTime,\r\n" +
-                     "   u.Username,\r\n" +
+                     "   u.FullName,\r\n" +
                      "   pm.Method AS PaymentMethod\r\n" +
                      "FROM Payment p\r\n" +
                      "   LEFT JOIN `User` u ON p.UserID = u.UserID\r\n" +

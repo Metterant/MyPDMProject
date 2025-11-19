@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.buspass.db.QueryExecutionModule;
-import com.buspass.utils.PasswordUtils;
+import com.buspass.utils.LoginUtils;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -12,26 +12,26 @@ public class UserService {
     //1: Đăng ký người dùng mới (Dùng INSERT)
     /**
      * A method used to create a new user
-     * @param userName
+     * @param username
      * @param age
      * @param phone
      * @param address
      * @param userRoleID: Use dropdown menu (1 -> Passenger, 2 -> Admin)
      * @return
      */
-    public boolean registerUser(String userName, String plainTextPassword, int age, String phone, String address, int userRoleID) {
-        String sql = "INSERT INTO user(UserName, UserPassword, Age, Phone, UserAddress, UserRoleID) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+    public boolean registerUser(String username, String plainPassword, String fullName, int age, String phone, String address, int userRoleID) {
+        String sql = "INSERT INTO user(Username, UserPassword, Age, Phone, UserAddress, UserRoleID) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        String hashedPassword = PasswordUtils.hashPassword(plainTextPassword);
+        String hashPW = LoginUtils.hashPassword(plainPassword);
 
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, userName, hashedPassword , age, phone, address, userRoleID);
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, hashPW , fullName, age, phone, address, userRoleID);
         return rowsAffected > 0;
     }
 
 
     public Map<String, Object> getUserById(int userId) {
-        String sql = "SELECT UserID, UserName, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID WHERE UserID = ?";
 
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
@@ -73,7 +73,7 @@ public class UserService {
     //#region ADMIN PRIVILEDGES
     
     public List<Map<String, Object>> getAllUsers() {
-        String sql = "SELECT UserID, UserName, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
             
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql);
@@ -88,7 +88,7 @@ public class UserService {
      * @return true if the user is found and their name was changed successfully
      */
     public boolean updateUserName(int userId, String username) {
-        String sql = "UPDATE User SET UserName = ? WHERE UserID = ?";
+        String sql = "UPDATE User SET Username = ? WHERE UserID = ?";
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, userId);
         return rowsAffected > 0;
     }
