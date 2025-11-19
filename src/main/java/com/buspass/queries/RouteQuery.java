@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.buspass.db.QueryExecutionModule;
+import com.buspass.utils.MathUtils;
 
 public class RouteQuery {
 	public Map<String, Object> getRouteById(int routeId) {
@@ -20,9 +21,12 @@ public class RouteQuery {
 
 	//#region ADMIN PRIVILEDGES
     
-	public boolean registerRoute(String routeName, String startLocation, String endLocation, double fare, float distance, String times) {
+	public boolean registerRoute(String routeName, String startLocation, String endLocation, double fare, float distance, int durationInMinutes) {
 		String sql = "INSERT INTO Route (RouteName, StartLocation, EndLocation, FARE, Distance, Times) VALUES (?, ?, ?, ?, ?, ?);";
-		int rowsAffected = QueryExecutionModule.executeUpdate(sql, routeName, startLocation, endLocation, fare, distance, times);
+
+		String sqlTimeString = MathUtils.convertToTimeString(durationInMinutes).toString();
+
+		int rowsAffected = QueryExecutionModule.executeUpdate(sql, routeName, startLocation, endLocation, fare, distance, sqlTimeString);
 		return rowsAffected > 0;
 	}
 	
@@ -55,6 +59,17 @@ public class RouteQuery {
 		int rowsAffected = QueryExecutionModule.executeUpdate(sql, distance, routeId);
 		return rowsAffected > 0;
 	}
+
+	public boolean updateDuration(int routeId, int durationInMinutes) {
+		String sql = "UPDATE Route SET Times = ? WHERE RouteID = ?";
+
+		String sqlTimeString = MathUtils.convertToTimeString(durationInMinutes).toString();
+
+		int rowsAffected = QueryExecutionModule.executeUpdate(sql, sqlTimeString, routeId);
+		return rowsAffected > 0;
+	}
+
+	
 
 	public boolean removeRoute(int routeId) {
 		String sql = "DELETE FROM Route WHERE RouteID = ?";
