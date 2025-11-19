@@ -21,7 +21,7 @@ public class TripQuery {
 
     /** Trips joined with Buses and Routes */
     public List<Map<String, Object>> getTripsWithJoin() {
-        String sql = "SELECT t.TripID, t.Date, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName "
+        String sql = "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName "
                 + "FROM Trip t JOIN Bus_info b ON t.BusID = b.BusID JOIN Route r ON b.RouteID = r.RouteID";
         return QueryExecutionModule.executeQuery(sql);
     }
@@ -29,7 +29,7 @@ public class TripQuery {
     /** Trips joined with Buses and Routes */
     public List<Map<String, Object>> getTripsWithJoinAndDrivers() {
         String sql = 
-                "SELECT t.TripID, t.Date, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName, d.Name AS DriverName "
+                "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName, d.Name AS DriverName "
                 + "FROM Trip t "
                 + "JOIN Bus_info b ON t.BusID = b.BusID "
                 + "JOIN Route r ON b.RouteID = r.RouteID "
@@ -39,9 +39,9 @@ public class TripQuery {
 
     //#region ADMIN PRIVILEDGES
 
-    public boolean createTrip(String date, String departureTime, String arrivalTime, int busId, int routeId) {
-        String sql = "INSERT INTO Trip (Date, DepartureTime, ArrivalTime, BusID, RouteID) VALUES (?, ?, ?, ?, ?);";
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, date, departureTime, arrivalTime, busId, routeId);
+    public boolean createTrip(String tripDate, String departureTime, String arrivalTime, int busId, int routeId) {
+        String sql = "INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID, RouteID) VALUES (?, ?, ?, ?, ?);";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, tripDate, departureTime, arrivalTime, busId, routeId);
         return rowsAffected > 0;
     }
 

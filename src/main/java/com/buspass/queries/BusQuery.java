@@ -19,8 +19,7 @@ public class BusQuery {
 
     
     public List<Map<String, Object>> getAllBuses() {
-        String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity,\r\n" + //
-                    "d.Name AS DriverName, r.RouteName\r\n" + //
+        String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity, DriverName, r.RouteName\r\n" + //
                     "FROM Bus_info b\r\n" + //
                     "JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
                     "JOIN Route r ON b.RouteID = r.RouteID;";
@@ -41,7 +40,7 @@ public class BusQuery {
     }
 
     public List<Map<String, Object>> getTripsTraveledById(int busId) {
-        String sql = "SELECT TripID, Date, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime, b.DriverID, d.Name AS DriverName\n" + //
+        String sql = "SELECT TripID, Date, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime, b.DriverID, DriverName\n" + //
                     "FROM Trip t\n" + //
                     "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
                     "JOIN Route r ON b.RouteID = r.RouteID\n" + //

@@ -22,7 +22,7 @@ public class RouteQuery {
 	//#region ADMIN PRIVILEDGES
     
 	public boolean registerRoute(String routeName, String startLocation, String endLocation, double fare, float distance, int durationInMinutes) {
-		String sql = "INSERT INTO Route (RouteName, StartLocation, EndLocation, FARE, Distance, Times) VALUES (?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO Route (RouteName, StartLocation, EndLocation, Fare, Distance, Duration) VALUES (?, ?, ?, ?, ?, ?);";
 
 		String sqlTimeString = MathUtils.convertToTimeString(durationInMinutes).toString();
 
@@ -49,7 +49,7 @@ public class RouteQuery {
 	}
 
 	public boolean updateFare(int routeId, double fare) {
-		String sql = "UPDATE Route SET FARE = ? WHERE RouteID = ?";
+		String sql = "UPDATE Route SET Fare = ? WHERE RouteID = ?";
 		int rowsAffected = QueryExecutionModule.executeUpdate(sql, fare, routeId);
 		return rowsAffected > 0;
 	}
@@ -68,8 +68,6 @@ public class RouteQuery {
 		int rowsAffected = QueryExecutionModule.executeUpdate(sql, sqlTimeString, routeId);
 		return rowsAffected > 0;
 	}
-
-	
 
 	public boolean removeRoute(int routeId) {
 		String sql = "DELETE FROM Route WHERE RouteID = ?";

@@ -28,7 +28,7 @@ public class DriverQuery {
     }
      
     public List<Map<String, Object>> getAllDrivenBuses(int driverId) {
-        String sql = "SELECT d.DriverID, Name, busID, plateNumber, r.RouteID, StartLocation, EndLocation, Distance, Times\r\n" + 
+        String sql = "SELECT d.DriverID, DriverName, busID, plateNumber, r.RouteID, StartLocation, EndLocation, Distance, Times\r\n" + 
                      "FROM Driver d JOIN Bus_Info b ON d.DriverID = b.DriverID\r\n" +
 		             "JOIN Route r on b.RouteID = r.RouteID\r\n" +
                      "WHERE d.DriverID = ?;";
@@ -52,16 +52,16 @@ public class DriverQuery {
     }
 
     public boolean registerDriver(String name, int age, String license, String phoneNumber) {    
-        String sql = "INSERT INTO Driver (Name, Age, License, Phone)\r\n" +
+        String sql = "INSERT INTO Driver (DriverName, Age, License, Phone)\r\n" +
                      "VALUES(?, ?, ?, ?);";
 
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, name, age, license, phoneNumber);
         return rowsAffected > 0;
     }
 
-    public boolean updateName(int driverId, String name) {
-        String sql = "UPDATE Driver SET Name = ? WHERE DriverID = ?";
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, name, driverId);
+    public boolean updateName(int driverId, String driverName) {
+        String sql = "UPDATE Driver SET DriverName = ? WHERE DriverID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, driverName, driverId);
         return rowsAffected > 0;
     }
 
