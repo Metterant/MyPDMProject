@@ -58,7 +58,7 @@ public class UserLogin {
         Map<String, Object> user = results.get(0);
         Object pwObj = user.get("UserPassword");
         if (pwObj == null) {
-            return 0; // no password set
+            return 1; // no password set
         }
 
         String hashedPW = pwObj.toString();
