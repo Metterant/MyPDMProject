@@ -2,8 +2,8 @@ package com.buspass.utils;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-public class PasswordUtils {
-    private PasswordUtils() {}
+public class LoginUtils {
+    private LoginUtils() {}
 
     public static String hashPassword(String plain) {
         if (plain.isEmpty()) return "";
