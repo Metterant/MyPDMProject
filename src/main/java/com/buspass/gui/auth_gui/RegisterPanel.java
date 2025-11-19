@@ -34,13 +34,13 @@ public class RegisterPanel extends javax.swing.JPanel {
 
         userRegisterLabel = new javax.swing.JLabel();
         registerFields = new javax.swing.JPanel();
-        registerButton = new javax.swing.JButton();
         passwordLabel = new javax.swing.JLabel();
-        userPasswordField = new javax.swing.JPasswordField();
+        usernameField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
         confirmPasswordLabel = new javax.swing.JLabel();
         confirmPasswordField = new javax.swing.JPasswordField();
-        usernameField = new javax.swing.JTextField();
         usernameLabel = new javax.swing.JLabel();
+        registerButton = new javax.swing.JButton();
         loginMessagePanel = new javax.swing.JPanel();
         loginLabel = new javax.swing.JLabel();
         messageLabel = new javax.swing.JLabel();
@@ -51,15 +51,14 @@ public class RegisterPanel extends javax.swing.JPanel {
         userRegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRegisterLabel.setText("REGISTER");
 
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        registerButton.setText("Register");
-        registerButton.addActionListener(this::registerButtonActionPerformed);
-
         passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         passwordLabel.setText("Password");
 
-        userPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        userPasswordField.addActionListener(this::userPasswordFieldActionPerformed);
+        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        usernameField.addActionListener(this::usernameFieldActionPerformed);
+
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passwordField.addActionListener(this::passwordFieldActionPerformed);
 
         confirmPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         confirmPasswordLabel.setText("Confirm Password");
@@ -67,11 +66,12 @@ public class RegisterPanel extends javax.swing.JPanel {
         confirmPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         confirmPasswordField.addActionListener(this::confirmPasswordFieldActionPerformed);
 
-        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        usernameField.addActionListener(this::usernameFieldActionPerformed);
-
         usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         usernameLabel.setText("Username");
+
+        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerButton.setText("Register");
+        registerButton.addActionListener(this::registerButtonActionPerformed);
 
         javax.swing.GroupLayout registerFieldsLayout = new javax.swing.GroupLayout(registerFields);
         registerFields.setLayout(registerFieldsLayout);
@@ -83,12 +83,12 @@ public class RegisterPanel extends javax.swing.JPanel {
                     .addComponent(confirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(registerFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(userPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(confirmPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         registerFieldsLayout.setVerticalGroup(
             registerFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +100,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(confirmPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -181,9 +181,9 @@ public class RegisterPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameFieldActionPerformed
 
-    private void userPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userPasswordFieldActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userPasswordFieldActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void confirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFieldActionPerformed
         // TODO add your handling code here:
@@ -202,10 +202,10 @@ public class RegisterPanel extends javax.swing.JPanel {
     private javax.swing.JLabel loginLabel;
     private javax.swing.JPanel loginMessagePanel;
     private javax.swing.JLabel messageLabel;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton registerButton;
     private javax.swing.JPanel registerFields;
-    private javax.swing.JPasswordField userPasswordField;
     private javax.swing.JLabel userRegisterLabel;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameLabel;
