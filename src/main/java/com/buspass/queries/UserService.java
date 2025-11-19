@@ -133,6 +133,13 @@ public class UserService {
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, age, userId);
         return rowsAffected > 0;
     }
+    
+    
+    public boolean updatePhoneNumber(int userId, String phoneNumber) {
+        String sql = "UPDATE User SET Phone = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, phoneNumber, userId);
+        return rowsAffected > 0;
+    }
 
     /**
      * Change the address of the user
@@ -157,6 +164,7 @@ public class UserService {
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, userRoleId, userId);
         return rowsAffected > 0;
     }
+
 
     /**
      * Delete User from the User Table by UserID
