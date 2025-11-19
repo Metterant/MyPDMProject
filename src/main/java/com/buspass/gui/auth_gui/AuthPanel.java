@@ -1,6 +1,9 @@
 package com.buspass.gui.auth_gui;
 
 import javax.swing.*;
+
+import com.buspass.auth.UserLogin;
+
 import java.awt.*;
 
 /**
@@ -16,10 +19,10 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
     private final LoginPanel loginPanel;
     private final RegisterPanel registerPanel;
 
-    public AuthPanel() {
+    public AuthPanel(UserLogin userLogin) {
         setLayout(new BorderLayout());
 
-        loginPanel = new LoginPanel();
+        loginPanel = new LoginPanel(userLogin);
         registerPanel = new RegisterPanel();
 
         // give child panels the callback so they can ask the parent to switch
