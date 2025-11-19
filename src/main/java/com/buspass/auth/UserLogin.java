@@ -1,4 +1,4 @@
-package com.buspass.security;
+package com.buspass.auth;
 
 import java.util.Map;
 import java.util.List;

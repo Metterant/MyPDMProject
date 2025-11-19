@@ -1,4 +1,4 @@
-package com.buspass.gui.login_gui;
+package com.buspass.gui.auth_gui;
 
 import javax.swing.*;
 import java.awt.*;

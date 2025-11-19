@@ -1,4 +1,4 @@
-package com.buspass.gui.login_gui;
+package com.buspass.gui.auth_gui;
 
 /** Simple callback interface used by child panels to request a panel switch from their parent. */
 public interface PanelSwitcher {

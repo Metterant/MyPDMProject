@@ -1,7 +1,7 @@
 package com.buspass;
 
+import com.buspass.auth.UserLogin;
 import com.buspass.queries.*;
-import com.buspass.security.UserLogin;
 import com.buspass.utils.LoginUtils;
 
 public class Main {

@@ -1,6 +1,6 @@
 package com.buspass.gui;
 
-import com.buspass.gui.login_gui.AuthPanel;
+import com.buspass.gui.auth_gui.AuthPanel;
 
 public class MainFrame extends javax.swing.JFrame {
     
