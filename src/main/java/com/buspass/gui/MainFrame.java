@@ -4,6 +4,7 @@
  */
 package com.buspass.gui;
 
+import com.buspass.auth.UserLogin;
 import com.buspass.gui.auth_gui.*;
 
 /**
@@ -14,12 +15,14 @@ public class MainFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
 
-    /**
-     * Creates new form MainFrame
-     */
+    private UserLogin userLogin;
+    
     public MainFrame() {
+        userLogin = new UserLogin();
         initComponents();
     }
+    
+    public UserLogin getUserLogin() { return userLogin; }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         // Create and add AuthPanel (login/register) to the frame
-        authPanel = new AuthPanel();
+        authPanel = new AuthPanel(userLogin);
         getContentPane().setLayout(new java.awt.BorderLayout());
         getContentPane().add(authPanel, java.awt.BorderLayout.CENTER);
         
