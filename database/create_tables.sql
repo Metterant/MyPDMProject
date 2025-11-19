@@ -17,7 +17,8 @@ CREATE TABLE User (
     Phone VARCHAR(15),
     UserAddress VARCHAR(100),
     UserRoleID INT,
-    FOREIGN KEY (UserRoleID) REFERENCES UserRoles(UserRoleID)
+    FOREIGN KEY (UserRoleID) REFERENCES UserRoles(UserRoleID),
+    CHECK Age >= 0
 );
 
 
@@ -36,7 +37,8 @@ CREATE TABLE Driver(
     DriverName VARCHAR(50),
     Age INT,
     License VARCHAR(20),
-    Phone INT
+    Phone INT,
+    CHECK Age >= 0
 );
 
 CREATE TABLE Bus_info(
