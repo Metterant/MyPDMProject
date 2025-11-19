@@ -1,6 +1,6 @@
 -- Create
-INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID, RouteID)
-VALUES (?, ?, ?, ?, ?);
+INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID)
+VALUES (?, ?, ?, ?);
 
 -- Read
 SELECT * FROM Trip;
