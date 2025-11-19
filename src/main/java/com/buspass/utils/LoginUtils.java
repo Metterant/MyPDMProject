@@ -5,6 +5,10 @@ import org.mindrot.jbcrypt.BCrypt;
 public class LoginUtils {
     private LoginUtils() {}
 
+    public static boolean isValidUsername(String username) {
+        return !username.contains(" ");
+    }
+
     public static String hashPassword(String plain) {
         if (plain.isEmpty()) return "";
         
