@@ -30,7 +30,7 @@ public class PaymentQuery {
      * @param paymentMethodId Payment_Method_ID of Payment_Methods table {1: Cash, 2: Card, 3: Online Banking}
      * @return whether the query is valid
      */
-    public boolean createTransactionNow(int userId, boolean amount, int paymentMethodId) {
+    public boolean createTransactionNow(int userId, float amount, int paymentMethodId) {
         String sql = "INSERT INTO Payment (UserID, Amount, PaymentDate, Payment_Method_ID) VALUES (?, ?, NOW(), ?);";
 		int rowsAffected = QueryExecutionModule.executeUpdate(sql, userId, amount, paymentMethodId);
 		return rowsAffected > 0;
