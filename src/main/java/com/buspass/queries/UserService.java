@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.buspass.db.QueryExecutionModule;
-import com.buspass.utils.LoginUtils;
+import com.buspass.utils.AuthUtils;
 import com.buspass.utils.StringUtils;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -24,7 +24,7 @@ public class UserService {
         String sql = "INSERT INTO user(Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        String hashPW = LoginUtils.hashPassword(plainPassword);
+        String hashPW = AuthUtils.hashPassword(plainPassword);
         fullName = StringUtils.normalizeStr(fullName);
 
 
@@ -92,7 +92,7 @@ public class UserService {
      * or 0 if the Username already exists
      */
     public int updateUsername(int userId, String username) {
-        if (!LoginUtils.isValidUsername(username))
+        if (!AuthUtils.isValidUsername(username))
             return -1;
 
         String sql = "UPDATE User SET Username = ? WHERE UserID = ?";
@@ -107,7 +107,7 @@ public class UserService {
      * @return true if the user is found and their password was changed successfully
      */
     public boolean updatePassword(int userId, String plainPassword) {
-        String hashPW = LoginUtils.hashPassword(plainPassword);
+        String hashPW = AuthUtils.hashPassword(plainPassword);
 
         String sql = "UPDATE User SET UserPassword = ? WHERE UserID = ?";
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, hashPW, userId);
