@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.buspass.db.QueryExecutionModule;
 import com.buspass.utils.LoginUtils;
+import com.buspass.utils.StringUtils;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -20,10 +21,12 @@ public class UserService {
      * @return
      */
     public boolean registerUser(String username, String plainPassword, String fullName, int age, String phone, String address, int userRoleID) {
-        String sql = "INSERT INTO user(Username, UserPassword, Age, Phone, UserAddress, UserRoleID) " +
+        String sql = "INSERT INTO user(Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         String hashPW = LoginUtils.hashPassword(plainPassword);
+        fullName = StringUtils.normalizeStr(fullName);
+
 
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, hashPW , fullName, age, phone, address, userRoleID);
         return rowsAffected > 0;
@@ -31,7 +34,7 @@ public class UserService {
 
 
     public Map<String, Object> getUserById(int userId) {
-        String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID WHERE UserID = ?";
 
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
@@ -82,28 +85,52 @@ public class UserService {
     }
 
     /**
-     * Change the name of the user
+     * Change the Username of the user
      * @param userId the UserID of User table
      * @param username the new name of the user
-     * @return true if the user is found and their name was changed successfully
+     * @return 1 if the user is found and their name was changed successfully, or -1 if the new Username is not valid,
+     * or 0 if the Username already exists
      */
-    public boolean updateUserName(int userId, String username) {
+    public int updateUsername(int userId, String username) {
+        if (!LoginUtils.isValidUsername(username))
+            return -1;
+
         String sql = "UPDATE User SET Username = ? WHERE UserID = ?";
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, userId);
-        return rowsAffected > 0;
+        return (rowsAffected > 0) ? 1 : 0;
     }
 
     /**
      * Change the password of the user
      * @param userId the UserID of User table
-     * @param plainTextPassword the new password of the user
+     * @param plainPassword the new password of the user
      * @return true if the user is found and their password was changed successfully
      */
-    public boolean updatePassword(int userId, String plainTextPassword) {
-        String hashedPassword = BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+    public boolean updatePassword(int userId, String plainPassword) {
+        String hashPW = LoginUtils.hashPassword(plainPassword);
 
         String sql = "UPDATE User SET UserPassword = ? WHERE UserID = ?";
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, hashedPassword, userId);
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, hashPW, userId);
+        return rowsAffected > 0;
+    }
+
+    /**
+     * Change the Full Name of the User
+     * @param userId the UserID of the User
+     * @param fullName the Full Name the User wants to change to 
+     * @return true if the update was executed successfully
+     */
+    public boolean updateFullName(int userId, String fullName) {
+        fullName = StringUtils.normalizeStr(fullName);
+
+        String sql = "UPDATE User SET FullName = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, fullName, userId);
+        return (rowsAffected > 0);
+    }
+
+    public boolean updateAge(int userId, int age) {
+        String sql = "UPDATE User SET Age = ? WHERE UserID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, age, userId);
         return rowsAffected > 0;
     }
 
@@ -116,12 +143,6 @@ public class UserService {
     public boolean updateAddress(int userId, String address) {
         String sql = "UPDATE User SET UserAddress = ? WHERE UserID = ?";
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, address, userId);
-        return rowsAffected > 0;
-    }
-
-    public boolean updateAge(int userId, int age) {
-        String sql = "UPDATE User SET Age = ? WHERE UserID = ?";
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, age, userId);
         return rowsAffected > 0;
     }
 
