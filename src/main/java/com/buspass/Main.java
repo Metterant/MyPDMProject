@@ -1,6 +1,8 @@
 package com.buspass;
 
 import com.buspass.queries.*;
+import com.buspass.security.UserLogin;
+import com.buspass.utils.LoginUtils;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +13,8 @@ public class Main {
         DriverQuery driverQuery = new DriverQuery();
         TripQuery tripQuery = new TripQuery();
 
-        // userService.registerUser("hello", "there" ,69, "09", "08", 2);
+        // userService.registerUser("admin", "admin", "YourMOM", 69, "09", "08", 2);
+
         // System.out.println(userService.getUserById(10));
         // System.out.println(userService.getAllUsers());
 
@@ -35,5 +38,10 @@ public class Main {
         // System.out.println(tripQuery.getTripsWithJoinAndDrivers());
         // System.out.println(busQuery.getTripsTraveledById(1));
         // System.out.println(userService.getTicketsByUserId(1));
+
+        // UserLogin userLogin = new UserLogin();
+        // System.out.println(userLogin.attemptLogin("admin", "admin"));
+
+        // System.out.println(LoginUtils.isValidUsername("1asdatestasdas"));
     }
 }

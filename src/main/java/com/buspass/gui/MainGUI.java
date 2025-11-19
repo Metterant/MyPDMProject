@@ -6,6 +6,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import com.buspass.db.QueryExecutionModule;
+import com.buspass.queries.UserService;
 
 public class MainGUI extends JFrame {
 
@@ -44,6 +45,7 @@ public class MainGUI extends JFrame {
         add(tableScroll, BorderLayout.CENTER);
         add(consoleScroll, BorderLayout.SOUTH);
 
+
         runButton.addActionListener(e -> executeSQL());
     }
 
@@ -67,7 +69,9 @@ public class MainGUI extends JFrame {
     }
 
     private void runSelectQuery(String sql) {
-        List<Map<String, Object>> results = QueryExecutionModule.executeQuery(sql);
+        UserService userService = new UserService();
+
+        List<Map<String, Object>> results = userService.getAllUsers();
 
         if (results.isEmpty()) {
             resultTable.setModel(new DefaultTableModel());
