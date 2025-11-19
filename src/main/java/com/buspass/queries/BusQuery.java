@@ -21,8 +21,8 @@ public class BusQuery {
     public List<Map<String, Object>> getAllBuses() {
         String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity, DriverName, r.RouteName\r\n" + //
                     "FROM Bus_info b\r\n" + //
-                    "JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
-                    "JOIN Route r ON b.RouteID = r.RouteID;";
+                    "LEFT JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
+                    "LEFT JOIN Route r ON b.RouteID = r.RouteID;";
         
         List<Map<String, Object>> buses = QueryExecutionModule.executeQuery(sql);
         
@@ -42,9 +42,9 @@ public class BusQuery {
     public List<Map<String, Object>> getTripsTraveledById(int busId) {
         String sql = "SELECT TripID, TripDate, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime, b.DriverID, DriverName\n" + //
                     "FROM Trip t\n" + //
-                    "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
-                    "JOIN Route r ON b.RouteID = r.RouteID\n" + //
-                    "JOIN Driver d ON b.DriverID = d.DriverID\n" + //
+                    "LEFT JOIN Bus_info b ON t.BusID = b.BusID\n" + //
+                    "LEFT JOIN Route r ON b.RouteID = r.RouteID\n" + //
+                    "LEFT JOIN Driver d ON b.DriverID = d.DriverID\n" + //
                     "WHERE b.BusID = ?;";
         
         List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, busId);

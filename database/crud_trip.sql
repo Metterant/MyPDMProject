@@ -9,16 +9,16 @@ SELECT * FROM Trip;
 SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime,
        b.PlateNumber, r.RouteName
 FROM Trip t
-LEFT OUTER JOIN Bus_info b ON t.BusID = b.BusID
-LEFT OUTER JOIN Route r ON b.RouteID = r.RouteID;
+LEFT  JOIN Bus_info b ON t.BusID = b.BusID
+LEFT  JOIN Route r ON b.RouteID = r.RouteID;
 
 -- Read with JOINs Trip + Bus_info + Route + Driver
 SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime,
        b.PlateNumber, r.RouteName, d.Name AS DriverName
 FROM Trip t
-JOIN Bus_info b ON t.BusID = b.BusID
-JOIN Route r ON b.RouteID = r.RouteID
-JOIN Driver d ON b.DriverID = d.DriverID;
+LEFT  JOIN Bus_info b ON t.BusID = b.BusID
+LEFT  JOIN Route r ON b.RouteID = r.RouteID
+LEFT  JOIN Driver d ON b.DriverID = d.DriverID;
 
 -- Update
 UPDATE Trip

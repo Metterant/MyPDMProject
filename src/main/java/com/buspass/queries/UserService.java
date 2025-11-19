@@ -43,9 +43,9 @@ public class UserService {
     public List<Map<String, Object>> getTicketsByUserId(int userId) {
         String sql = "SELECT TicketID, t.TicketDateTime, b.PlateNumber, RouteName, t.TripID, b.BusID, r.RouteID, t.PaymentID\r\n" + //
                      "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
-                     "    JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
-                     "    JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
-                     "    JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
+                     "    LEFT JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
+                     "    LEFT JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
+                     "    LEFT JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
                      "WHERE u.UserID = ?";
             
         List<Map<String, Object>> tickets = QueryExecutionModule.executeQuery(sql, userId);
@@ -58,9 +58,9 @@ public class UserService {
         String sql = "SELECT tr.Date, b.PlateNumber, RouteName, DepartureTime, " +
                         "ArrivalTime, TicketID, t.TripID, b.BusID, r.RouteID\r\n" + //
                      "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
-                     "    JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
-                     "    JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
-                     "    JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
+                     "    LEFT JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
+                     "    LEFT JOIN Bus_Info b ON b.BusID = tr.BusID\r\n"        +
+                     "    LEFT JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
                      "WHERE u.UserID = ?";
             
         List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, userId);
