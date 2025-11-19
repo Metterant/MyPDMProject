@@ -4,7 +4,8 @@ import com.buspass.db.QueryExecutionModule;
 
 public class TicketQuery {
     
-    /** Obtain a Ticket Free of Charge 
+    /**
+     * Obtain a Ticket Free of Charge 
      * 
      * @param userId UserID of the User who paid for the Ticket
      * @param tripId TripID of the Trip the Ticket is paid for
@@ -56,12 +57,16 @@ public class TicketQuery {
     
     //#region ADMIN PRIVILEDGES
 
-    public boolean changeTripTo(int tripId) {
-        return false;
+    public boolean changeTripTo(int ticketId, int tripId) {
+        String sql = "UPDATE Ticket SET TripID = ? WHERE TicketID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, tripId, ticketId);
+        return rowsAffected > 0;
     }
 
     public boolean removeTicket(int ticketId) {
-        return false;
+        String sql = "DELETE FROM Ticket WHERE TicketID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, ticketId);
+        return rowsAffected > 0;
     }
 
     //#endregion
