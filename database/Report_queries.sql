@@ -19,10 +19,10 @@ GROUP BY r.RouteName
 ORDER BY Tickets_Sold DESC;
 
 -- Total Tickets Sold Per Day
-SELECT TicketDate, COUNT(*) AS TicketsSold
+SELECT TicketDateTime, COUNT(*) AS TicketsSold
 FROM Ticket
-GROUP BY DATE(TicketDate)
-ORDER BY TicketDate DESC;
+GROUP BY DATE(TicketDateTime)
+ORDER BY TicketDateTime DESC;
 
 -- Total Revenue per day
 SELECT DATE(PaymentDate) AS PaymentDay, SUM(Amount) AS Total_Revenue

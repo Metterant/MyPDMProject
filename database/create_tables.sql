@@ -75,7 +75,7 @@ CREATE TABLE Payment(
 
 CREATE TABLE Ticket (
 	TicketID INT PRIMARY KEY AUTO_INCREMENT,
-    TicketDate DATETIME,
+    TicketDateTime DATETIME,
     UserID INT,
     TripID INT,
     PaymentID INT,

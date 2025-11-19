@@ -1,13 +1,13 @@
 -- Create (User buys ticket)
-INSERT INTO Ticket (TicketDate, UserID, TripID, PaymentID)
-VALUES (?, ?, ?);
+INSERT INTO Ticket (TicketDateTime, UserID, TripID, PaymentID)
+VALUES (?, ?, ?, ?);
 
 -- Read
 SELECT * FROM Ticket;
 -- Read with JOIN
-SELECT t.TicketID, t.TicketDate,
+SELECT t.TicketID, t.TicketDateTime,
        u.UserName,
-       tr.DepartureTime, tr.ArrivalTime, tr.TicketDate AS TripDate,
+       tr.DepartureTime, tr.ArrivalTime, tr.TicketDateTime AS TripDate,
        b.PlateNumber,
        r.RouteName
 FROM Ticket t
@@ -18,7 +18,7 @@ JOIN Route r ON b.RouteID = r.RouteID;
 
 -- Update 
 UPDATE Ticket
-SET TicketDate = ?, UserID = ?, TripID = ?, PaymentID = ?
+SET TicketDateTime = ?, UserID = ?, TripID = ?, PaymentID = ?
 WHERE TicketID = ?;
 
 -- Delete

@@ -72,7 +72,7 @@ VALUES
 (8, 20000.00, '2025-06-03 14:05:00', 1),
 (10, 10000.00, '2025-06-03 18:30:00', 2);
 
-INSERT INTO Ticket (TicketDate, UserID, TripID, PaymentID)
+INSERT INTO Ticket (TicketDateTime, UserID, TripID, PaymentID)
 VALUES
 ('2025-06-01 09:15:00', 1, 1, 1),
 ('2025-06-01 10:30:00', 2, 5, 2),
