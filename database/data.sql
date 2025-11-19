@@ -10,18 +10,18 @@ VALUES
 ("Online Banking"),
 ("Free");
 
-INSERT INTO `User` (Username, UserPassword, Age, Phone, UserAddress, UserRoleID)
+INSERT INTO `User` (Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID)
 VALUES
-('Nguyen Van A', NULL, 24, '0912345678', '81 LA', 1),
-('Le Van B', NULL, 30, '0987654321', '35 WA', 1),
-('Nguyen Van C', NULL, 52, '0965432987', '56 TA', 2),
-('Tran Yen D', NULL, 35, '0924681357', '75 WE', 1),
-('Nam Cong E', NULL, 65, '0913579246', '20 VN', 2),
-('Pham Thi F', NULL, 19, '0901112233', '12 QB', 1),
-('Hoang Minh G', NULL, 41, '0978765432', '99 XT', 1),
-('Vo Quoc H', NULL, 28, '0934567890', '40 KN', 1),
-('Dinh Thi I', NULL, 58, '0955667788', '10 CD', 2),
-('Doan Van J', NULL, 22, '0941234567', '21 GH', 1);
+('UserA', NULL, 'Nguyen Van A', 24, '0912345678', '81 LA', 1),
+('UserB', NULL, 'Le Van B', 30, '0987654321', '35 WA', 1),
+('UserC', NULL, 'Nguyen Van C', 52, '0965432987', '56 TA', 2),
+('UserD', NULL, 'Tran Yen D', 35, '0924681357', '75 WE', 1),
+('UserE', NULL, 'Nam Cong E', 65, '0913579246', '20 VN', 2),
+('UserF', NULL, 'Pham Thi F', 19, '0901112233', '12 QB', 1),
+('UserG', NULL, 'Hoang Minh G', 41, '0978765432', '99 XT', 1),
+('UserH', NULL, 'Vo Quoc H', 28, '0934567890', '40 KN', 1),
+('UserI', NULL, 'Dinh Thi I', 58, '0955667788', '10 CD', 2),
+('UserJ', NULL, 'Doan Van J', 22, '0941234567', '21 GH', 1);
 
 INSERT INTO Driver (DriverName, Age, License, Phone)
 VALUES
