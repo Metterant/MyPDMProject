@@ -7,14 +7,14 @@ SELECT * FROM Ticket;
 -- Read with JOIN
 SELECT t.TicketID, t.TicketDateTime,
        u.UserName,
-       tr.DepartureTime, tr.ArrivalTime, tr.TicketDateTime AS TripDate,
+       tr.DepartureTime, tr.ArrivalTime, t.TicketDateTime AS TripDate,
        b.PlateNumber,
        r.RouteName
 FROM Ticket t
-JOIN User u ON t.UserID = u.UserID
-JOIN Trip tr ON t.TripID = tr.TripID
-JOIN Bus_info b ON tr.BusID = b.BusID
-JOIN Route r ON b.RouteID = r.RouteID;
+LEFT OUTER JOIN User u ON t.UserID = u.UserID
+LEFT OUTER JOIN Trip tr ON t.TripID = tr.TripID
+LEFT OUTER JOIN Bus_info b ON tr.BusID = b.BusID
+LEFT OUTER JOIN Route r ON b.RouteID = r.RouteID;
 
 -- Update 
 UPDATE Ticket

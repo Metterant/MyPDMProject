@@ -8,8 +8,8 @@ SELECT * FROM Bus_info;
 SELECT b.BusID, b.PlateNumber, b.Capacity,
        d.Name AS DriverName, r.RouteName
 FROM Bus_info b
-JOIN Driver d ON b.DriverID = d.DriverID
-JOIN Route r ON b.RouteID = r.RouteID;
+LEFT OUTER JOIN Driver d ON b.DriverID = d.DriverID
+LEFT OUTER JOIN Route r ON b.RouteID = r.RouteID;
 
 -- Update
 UPDATE Bus_info
