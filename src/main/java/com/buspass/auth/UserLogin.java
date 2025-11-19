@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.buspass.db.QueryExecutionModule;
 import com.buspass.queries.UserService;
-import com.buspass.utils.LoginUtils;
+import com.buspass.utils.AuthUtils;
 
 public class UserLogin {
     private int userId;
@@ -68,7 +68,7 @@ public class UserLogin {
         // hashing the plaintext again.
         boolean matches = false;
         try {
-            matches = LoginUtils.verify(plainPW, hashedPW);
+            matches = AuthUtils.verify(plainPW, hashedPW);
         } 
         catch (Exception e) {
             // any parsing/format issue with the stored hash
@@ -100,7 +100,6 @@ public class UserLogin {
             
             return 1;
         }
-
         return 0;
     }
 }
