@@ -40,7 +40,7 @@ public class BusQuery {
     }
 
     public List<Map<String, Object>> getTripsTraveledById(int busId) {
-        String sql = "SELECT TripID, Date, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime, b.DriverID, DriverName\n" + //
+        String sql = "SELECT TripID, TripDate, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime, b.DriverID, DriverName\n" + //
                     "FROM Trip t\n" + //
                     "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
                     "JOIN Route r ON b.RouteID = r.RouteID\n" + //

@@ -29,7 +29,7 @@ public class TripQuery {
     /** Trips joined with Buses and Routes */
     public List<Map<String, Object>> getTripsWithJoinAndDrivers() {
         String sql = 
-                "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName, d.Name AS DriverName "
+                "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName, DriverName "
                 + "FROM Trip t "
                 + "JOIN Bus_info b ON t.BusID = b.BusID "
                 + "JOIN Route r ON b.RouteID = r.RouteID "

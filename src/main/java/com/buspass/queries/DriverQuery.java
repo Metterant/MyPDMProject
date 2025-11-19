@@ -39,7 +39,7 @@ public class DriverQuery {
     }
 
     public List<Map<String, Object>> getTripsTraveledById(int driverId) {
-        String sql = "SELECT TripID, Date, b.BusID, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime\n" + //
+        String sql = "SELECT TripID, TripDate, b.BusID, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime\n" + //
                     "FROM Trip t\n" + //
                     "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
                     "JOIN Route r ON b.RouteID = r.RouteID\n" + //

@@ -2,9 +2,11 @@ package com.buspass.queries;
 
 public class TicketQuery {
     
-
-    //#region ADMIN PRIVILEDGES
+    public boolean purchaseTicket(int userId, int amount) {
+        return false;
+    }
     
+    //#region ADMIN PRIVILEDGES
 
     //#endregion
 }
