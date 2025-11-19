@@ -12,11 +12,11 @@ GROUP BY ur.RoleDescription;
 
 -- Most Popular bus route taken(in tickets)
 SELECT r.RouteName, COUNT(t.TicketID) AS Tickets_Sold
-FROM Ticket t
-JOIN Trip tr ON t.TripID = tr.TripID
-JOIN Route r ON tr.RouteID = r.RouteID
-GROUP BY r.RouteName
-ORDER BY Tickets_Sold DESC;
+FROM Ticket t JOIN Trip tr ON t.TripID = tr.TripID
+    JOIN Bus_Info b ON b.BusID = tr.BusID
+    JOIN Route r ON b.RouteID = r.RouteID
+GROUP BY r.RouteName ORDER BY Tickets_Sold DESC LIMIT = ?
+
 
 -- Total Tickets Sold Per Day
 SELECT TicketDateTime, COUNT(*) AS TicketsSold
@@ -54,14 +54,12 @@ GROUP BY b.PlateNumber
 ORDER BY TripCount DESC;
 
 -- Average revenue per route
--- Note: payments are linked to users, not tickets. This approximates revenue per route
--- by joining payments by user to their tickets. It may overcount if users make payments
--- unrelated to tickets.
 SELECT r.RouteName, AVG(p.Amount) AS AvgFare
 FROM Payment p
-JOIN Ticket t ON p.UserID = t.UserID
+JOIN Ticket t ON p.PaymentID = t.PaymentID
 JOIN Trip tr ON t.TripID = tr.TripID
-JOIN Route r ON tr.RouteID = r.RouteID
+JOIN Bus_Info b ON tr.BusID = b.BusID
+JOIN Route r ON b.RouteID = r.RouteID
 GROUP BY r.RouteName;
 
 
