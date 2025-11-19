@@ -1,5 +1,5 @@
 -- Create
-INSERT INTO Driver (Name, Age, License, Phone)
+INSERT INTO Driver (DriverName, Age, License, Phone)
 VALUES(?, ?, ?, ?);
 
 -- Read
@@ -9,7 +9,7 @@ SELECT * FROM Driver WHERE DriverID=?;
 
 -- Update
 UPDATE Driver
-SET Name=?, Age=?, License=?, Phone=?
+SET DriverName=?, Age=?, License=?, Phone=?
 WHERE DriveID=?;
 
 -- Delete

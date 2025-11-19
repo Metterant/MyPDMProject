@@ -1,19 +1,19 @@
 -- Create
-INSERT INTO Trip (Date, DepartureTime, ArrivalTime, BusID, RouteID)
+INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID, RouteID)
 VALUES (?, ?, ?, ?, ?);
 
 -- Read
 SELECT * FROM Trip;
 
 -- Read with JOINs Trip + Bus_info + Route
-SELECT t.TripID, t.Date, t.DepartureTime, t.ArrivalTime,
+SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime,
        b.PlateNumber, r.RouteName
 FROM Trip t
 JOIN Bus_info b ON t.BusID = b.BusID
 JOIN Route r ON b.RouteID = r.RouteID;
 
 -- Read with JOINs Trip + Bus_info + Route + Driver
-SELECT t.TripID, t.Date, t.DepartureTime, t.ArrivalTime,
+SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime,
        b.PlateNumber, r.RouteName, d.Name AS DriverName
 FROM Trip t
 JOIN Bus_info b ON t.BusID = b.BusID

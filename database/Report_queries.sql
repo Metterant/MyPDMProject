@@ -19,9 +19,9 @@ GROUP BY r.RouteName
 ORDER BY Tickets_Sold DESC;
 
 -- Total Tickets Sold Per Day
-SELECT DATE(`Date`) AS TicketDate, COUNT(*) AS TicketsSold
+SELECT TicketDate, COUNT(*) AS TicketsSold
 FROM Ticket
-GROUP BY DATE(`Date`)
+GROUP BY DATE(TicketDate)
 ORDER BY TicketDate DESC;
 
 -- Total Revenue per day
@@ -39,11 +39,11 @@ ORDER BY Total_Spent DESC
 LIMIT 5;
 
 -- Total Trips per driver
-SELECT d.Name AS DriverName, COUNT(t.TripID) AS TotalTrips
+SELECT d.DriverName, COUNT(t.TripID) AS TotalTrips
 FROM Trip t
 JOIN Bus_info b ON t.BusID = b.BusID
 JOIN Driver d ON b.DriverID = d.DriverID
-GROUP BY d.Name
+GROUP BY d.DriverName
 ORDER BY TotalTrips DESC;
 
 -- Bus usage rate
