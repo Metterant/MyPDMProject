@@ -4,6 +4,8 @@
  */
 package com.buspass.gui.auth_gui;
 
+import com.buspass.auth.UserLogin;
+
 /**
  *
  * @author USER
@@ -11,11 +13,13 @@ package com.buspass.gui.auth_gui;
 public class LoginPanel extends javax.swing.JPanel {
 
     private PanelSwitcher switcher;
+    private UserLogin userLogin;
 
     /**
      * Creates new form LoginPanel
      */
-    public LoginPanel() {
+    public LoginPanel(UserLogin userLogin) {
+        this.userLogin = userLogin;
         initComponents();
     }
 
@@ -34,12 +38,12 @@ public class LoginPanel extends javax.swing.JPanel {
 
         userLoginLabel = new javax.swing.JLabel();
         loginFields = new javax.swing.JPanel();
-        registerButton = new javax.swing.JButton();
-        userPasswordField = new javax.swing.JPasswordField();
-        forgotPasswordLabel = new javax.swing.JLabel();
-        passwordLabel = new javax.swing.JLabel();
-        usernameField = new javax.swing.JTextField();
         usernameLabel = new javax.swing.JLabel();
+        usernameField = new javax.swing.JTextField();
+        passwordLabel = new javax.swing.JLabel();
+        forgotPasswordLabel = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        loginButton = new javax.swing.JButton();
         registerMessagePanel = new javax.swing.JPanel();
         registerLabel = new javax.swing.JLabel();
         messageLabel = new javax.swing.JLabel();
@@ -50,12 +54,14 @@ public class LoginPanel extends javax.swing.JPanel {
         userLoginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userLoginLabel.setText("LOGIN");
 
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        registerButton.setText("Login");
-        registerButton.addActionListener(this::registerButtonActionPerformed);
+        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        usernameLabel.setText("Username");
 
-        userPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        userPasswordField.addActionListener(this::userPasswordFieldActionPerformed);
+        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        usernameField.addActionListener(this::usernameFieldActionPerformed);
+
+        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passwordLabel.setText("Password");
 
         forgotPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         forgotPasswordLabel.setForeground(new java.awt.Color(0, 0, 255));
@@ -68,14 +74,12 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        passwordLabel.setText("Password");
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passwordField.addActionListener(this::passwordFieldActionPerformed);
 
-        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        usernameField.addActionListener(this::usernameFieldActionPerformed);
-
-        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        usernameLabel.setText("Username");
+        loginButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loginButton.setText("Login");
+        loginButton.addActionListener(this::loginButtonActionPerformed);
 
         javax.swing.GroupLayout loginFieldsLayout = new javax.swing.GroupLayout(loginFields);
         loginFields.setLayout(loginFieldsLayout);
@@ -84,13 +88,13 @@ public class LoginPanel extends javax.swing.JPanel {
             .addGroup(loginFieldsLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(loginFieldsLayout.createSequentialGroup()
                             .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(forgotPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(userPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -111,9 +115,9 @@ public class LoginPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -178,17 +182,22 @@ public class LoginPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerButtonActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        String username = usernameField.getText();
+        String plainPassword = new String(passwordField.getPassword());
+        System.out.println(plainPassword);
+        
+        System.out.println(userLogin.attemptLogin(username, plainPassword));
+
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameFieldActionPerformed
 
-    private void userPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userPasswordFieldActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userPasswordFieldActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void forgotPasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordLabelMouseClicked
         // TODO add your handling code here:
@@ -203,14 +212,14 @@ public class LoginPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel forgotPasswordLabel;
+    private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginFields;
     private javax.swing.JLabel messageLabel;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JPanel registerMessagePanel;
     private javax.swing.JLabel userLoginLabel;
-    private javax.swing.JPasswordField userPasswordField;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
