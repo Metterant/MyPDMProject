@@ -12,8 +12,8 @@ SELECT p.Amount,
        u.UserName,
        pm.Method AS PaymentMethod
 FROM Payment p
-JOIN `User` u ON p.UserID = u.UserID
-JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID;
+    LEFT JOIN `User` u ON p.UserID = u.UserID
+    LEFT JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID;
 
 -- Update
 UPDATE Payment

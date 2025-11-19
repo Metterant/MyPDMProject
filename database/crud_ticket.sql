@@ -11,10 +11,10 @@ SELECT t.TicketID, t.TicketDateTime,
        b.PlateNumber,
        r.RouteName
 FROM Ticket t
-LEFT  JOIN User u ON t.UserID = u.UserID
-LEFT  JOIN Trip tr ON t.TripID = tr.TripID
-LEFT  JOIN Bus_info b ON tr.BusID = b.BusID
-LEFT  JOIN Route r ON b.RouteID = r.RouteID;
+LEFT JOIN User u ON t.UserID = u.UserID
+LEFT JOIN Trip tr ON t.TripID = tr.TripID
+LEFT JOIN Bus_info b ON tr.BusID = b.BusID
+LEFT JOIN Route r ON b.RouteID = r.RouteID;
 
 -- Update 
 UPDATE Ticket
