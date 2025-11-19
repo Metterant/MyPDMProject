@@ -12,16 +12,16 @@ VALUES
 
 INSERT INTO `User` (Username, UserPassword, Age, Phone, UserAddress, UserRoleID)
 VALUES
-('Nguyen Van A', "1", 24, '0912345678', '81 LA', 1),
-('Le Van B', "1", 30, '0987654321', '35 WA', 1),
-('Nguyen Van C', "1", 52, '0965432987', '56 TA', 2),
-('Tran Yen D', "1", 35, '0924681357', '75 WE', 1),
-('Nam Cong E', "1", 65, '0913579246', '20 VN', 2),
-('Pham Thi F', "1", 19, '0901112233', '12 QB', 1),
-('Hoang Minh G', "1", 41, '0978765432', '99 XT', 1),
-('Vo Quoc H', "1", 28, '0934567890', '40 KN', 1),
-('Dinh Thi I', "1", 58, '0955667788', '10 CD', 2),
-('Doan Van J', "1", 22, '0941234567', '21 GH', 1);
+('Nguyen Van A', NULL, 24, '0912345678', '81 LA', 1),
+('Le Van B', NULL, 30, '0987654321', '35 WA', 1),
+('Nguyen Van C', NULL, 52, '0965432987', '56 TA', 2),
+('Tran Yen D', NULL, 35, '0924681357', '75 WE', 1),
+('Nam Cong E', NULL, 65, '0913579246', '20 VN', 2),
+('Pham Thi F', NULL, 19, '0901112233', '12 QB', 1),
+('Hoang Minh G', NULL, 41, '0978765432', '99 XT', 1),
+('Vo Quoc H', NULL, 28, '0934567890', '40 KN', 1),
+('Dinh Thi I', NULL, 58, '0955667788', '10 CD', 2),
+('Doan Van J', NULL, 22, '0941234567', '21 GH', 1);
 
 INSERT INTO Driver (DriverName, Age, License, Phone)
 VALUES
