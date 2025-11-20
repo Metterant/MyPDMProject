@@ -4,7 +4,7 @@
  */
 package com.buspass.gui;
 
-import com.buspass.auth.UserLogin;
+import com.buspass.auth.UserLoginSession;
 import com.buspass.gui.auth_gui.*;
 
 /**
@@ -15,14 +15,14 @@ public class MainFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
 
-    private UserLogin userLogin;
+    private UserLoginSession userLogin;
     
     public MainFrame() {
-        userLogin = new UserLogin();
+        userLogin = new UserLoginSession();
         initComponents();
     }
     
-    public UserLogin getUserLogin() { return userLogin; }
+    public UserLoginSession getUserLogin() { return userLogin; }
 
     /**
      * This method is called from within the constructor to initialize the form.
