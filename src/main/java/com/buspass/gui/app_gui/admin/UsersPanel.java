@@ -62,11 +62,6 @@ public class UsersPanel extends javax.swing.JPanel {
         getUserByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getUserByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getUserByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getUserByIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getUserByIdButtonMouseClicked(evt);
-            }
-        });
         getUserByIdButton.addActionListener(this::getUserByIdButtonActionPerformed);
         buttonPanel.add(getUserByIdButton);
 
@@ -76,11 +71,6 @@ public class UsersPanel extends javax.swing.JPanel {
         getAllUsersButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getAllUsersButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getAllUsersButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getAllUsersButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getAllUsersButtonMouseClicked(evt);
-            }
-        });
         getAllUsersButton.addActionListener(this::getAllUsersButtonActionPerformed);
         buttonPanel.add(getAllUsersButton);
 
@@ -90,11 +80,6 @@ public class UsersPanel extends javax.swing.JPanel {
         updateUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
         updateUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
         updateUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateUserButtonMouseClicked(evt);
-            }
-        });
         updateUserButton.addActionListener(this::updateUserButtonActionPerformed);
         buttonPanel.add(updateUserButton);
 
@@ -104,11 +89,6 @@ public class UsersPanel extends javax.swing.JPanel {
         createUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
         createUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
         createUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                createUserButtonMouseClicked(evt);
-            }
-        });
         createUserButton.addActionListener(this::createUserButtonActionPerformed);
         buttonPanel.add(createUserButton);
 
@@ -118,11 +98,6 @@ public class UsersPanel extends javax.swing.JPanel {
         findIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
         findIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
         findIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        findIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                findIdButtonMouseClicked(evt);
-            }
-        });
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
         buttonPanel.add(findIdButton);
 
@@ -132,11 +107,6 @@ public class UsersPanel extends javax.swing.JPanel {
         deleteUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
         deleteUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
         deleteUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteUserButtonMouseClicked(evt);
-            }
-        });
         deleteUserButton.addActionListener(this::deleteUserButtonActionPerformed);
         buttonPanel.add(deleteUserButton);
 
@@ -227,29 +197,6 @@ public class UsersPanel extends javax.swing.JPanel {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_getUserByIdButtonActionPerformed
-
-    private void getUserByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getUserByIdButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getUserByIdButtonMouseClicked
-
-    private void getAllUsersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllUsersButtonMouseClicked
-    }//GEN-LAST:event_getAllUsersButtonMouseClicked
-
-    private void updateUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateUserButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateUserButtonMouseClicked
-
-    private void createUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createUserButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createUserButtonMouseClicked
-
-    private void findIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findIdButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_findIdButtonMouseClicked
-
-    private void deleteUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteUserButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteUserButtonMouseClicked
 
     private void getAllUsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllUsersButtonActionPerformed
         middlePanel.setTableContents(resultTable, userService.getAllUsers());

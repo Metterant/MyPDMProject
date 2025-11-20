@@ -63,11 +63,6 @@ public class TripsPanel extends javax.swing.JPanel {
         getTripByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getTripByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getTripByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getTripByIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getTripByIdButtonMouseClicked(evt);
-            }
-        });
         getTripByIdButton.addActionListener(this::getTripByIdButtonActionPerformed);
         buttonPanel.add(getTripByIdButton);
 
@@ -77,11 +72,6 @@ public class TripsPanel extends javax.swing.JPanel {
         getAllTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getAllTripsButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getAllTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getAllTripsButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getAllTripsButtonMouseClicked(evt);
-            }
-        });
         getAllTripsButton.addActionListener(this::getAllTripsButtonActionPerformed);
         buttonPanel.add(getAllTripsButton);
 
@@ -91,11 +81,6 @@ public class TripsPanel extends javax.swing.JPanel {
         routesAndTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
         routesAndTripsButton.setMinimumSize(new java.awt.Dimension(180, 40));
         routesAndTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        routesAndTripsButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                routesAndTripsButtonMouseClicked(evt);
-            }
-        });
         routesAndTripsButton.addActionListener(this::routesAndTripsButtonActionPerformed);
         buttonPanel.add(routesAndTripsButton);
 
@@ -105,11 +90,6 @@ public class TripsPanel extends javax.swing.JPanel {
         joinedQueryButton.setMaximumSize(new java.awt.Dimension(180, 40));
         joinedQueryButton.setMinimumSize(new java.awt.Dimension(180, 40));
         joinedQueryButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        joinedQueryButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                joinedQueryButtonMouseClicked(evt);
-            }
-        });
         joinedQueryButton.addActionListener(this::joinedQueryButtonActionPerformed);
         buttonPanel.add(joinedQueryButton);
 
@@ -119,11 +99,6 @@ public class TripsPanel extends javax.swing.JPanel {
         updateTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
         updateTripButton.setMinimumSize(new java.awt.Dimension(180, 40));
         updateTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateTripButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateTripButtonMouseClicked(evt);
-            }
-        });
         updateTripButton.addActionListener(this::updateTripButtonActionPerformed);
         buttonPanel.add(updateTripButton);
 
@@ -133,11 +108,6 @@ public class TripsPanel extends javax.swing.JPanel {
         createTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
         createTripButton.setMinimumSize(new java.awt.Dimension(180, 40));
         createTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createTripButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                createTripButtonMouseClicked(evt);
-            }
-        });
         createTripButton.addActionListener(this::createTripButtonActionPerformed);
         buttonPanel.add(createTripButton);
 
@@ -147,11 +117,6 @@ public class TripsPanel extends javax.swing.JPanel {
         deleteTriprButton.setMaximumSize(new java.awt.Dimension(180, 40));
         deleteTriprButton.setMinimumSize(new java.awt.Dimension(180, 40));
         deleteTriprButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteTriprButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteTriprButtonMouseClicked(evt);
-            }
-        });
         deleteTriprButton.addActionListener(this::deleteTriprButtonActionPerformed);
         buttonPanel.add(deleteTriprButton);
 
@@ -240,36 +205,8 @@ public class TripsPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_getTripByIdButtonActionPerformed
 
-    private void getTripByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getTripByIdButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getTripByIdButtonMouseClicked
-
-    private void getAllTripsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllTripsButtonMouseClicked
-        middlePanel.setTableContents(resultTable, tripQuery.getAllTrips());
-    }//GEN-LAST:event_getAllTripsButtonMouseClicked
-
-    private void updateTripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateTripButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateTripButtonMouseClicked
-
-    private void createTripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createTripButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createTripButtonMouseClicked
-
-    private void routesAndTripsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_routesAndTripsButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_routesAndTripsButtonMouseClicked
-
-    private void deleteTriprButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteTriprButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteTriprButtonMouseClicked
-
-    private void joinedQueryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_joinedQueryButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_joinedQueryButtonMouseClicked
-
     private void getAllTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllTripsButtonActionPerformed
-        // TODO add your handling code here:
+        middlePanel.setTableContents(resultTable, tripQuery.getAllTrips());
     }//GEN-LAST:event_getAllTripsButtonActionPerformed
 
     private void routesAndTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routesAndTripsButtonActionPerformed

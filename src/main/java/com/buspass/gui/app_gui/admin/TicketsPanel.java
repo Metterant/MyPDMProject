@@ -61,11 +61,6 @@ public class TicketsPanel extends javax.swing.JPanel {
         buyTicketButton.setMaximumSize(new java.awt.Dimension(180, 40));
         buyTicketButton.setMinimumSize(new java.awt.Dimension(180, 40));
         buyTicketButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        buyTicketButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buyTicketButtonMouseClicked(evt);
-            }
-        });
         buyTicketButton.addActionListener(this::buyTicketButtonActionPerformed);
         buttonPanel.add(buyTicketButton);
 
@@ -75,11 +70,6 @@ public class TicketsPanel extends javax.swing.JPanel {
         myTicketsButton.setMaximumSize(new java.awt.Dimension(180, 40));
         myTicketsButton.setMinimumSize(new java.awt.Dimension(180, 40));
         myTicketsButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        myTicketsButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                myTicketsButtonMouseClicked(evt);
-            }
-        });
         myTicketsButton.addActionListener(this::myTicketsButtonActionPerformed);
         buttonPanel.add(myTicketsButton);
 
@@ -89,11 +79,6 @@ public class TicketsPanel extends javax.swing.JPanel {
         changeToTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
         changeToTripButton.setMinimumSize(new java.awt.Dimension(180, 40));
         changeToTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        changeToTripButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                changeToTripButtonMouseClicked(evt);
-            }
-        });
         changeToTripButton.addActionListener(this::changeToTripButtonActionPerformed);
         buttonPanel.add(changeToTripButton);
 
@@ -103,11 +88,6 @@ public class TicketsPanel extends javax.swing.JPanel {
         getTicketsOfUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getTicketsOfUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getTicketsOfUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getTicketsOfUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getTicketsOfUserButtonMouseClicked(evt);
-            }
-        });
         getTicketsOfUserButton.addActionListener(this::getTicketsOfUserButtonActionPerformed);
         buttonPanel.add(getTicketsOfUserButton);
 
@@ -117,11 +97,6 @@ public class TicketsPanel extends javax.swing.JPanel {
         deleteTicket.setMaximumSize(new java.awt.Dimension(180, 40));
         deleteTicket.setMinimumSize(new java.awt.Dimension(180, 40));
         deleteTicket.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteTicket.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteTicketMouseClicked(evt);
-            }
-        });
         deleteTicket.addActionListener(this::deleteTicketActionPerformed);
         buttonPanel.add(deleteTicket);
 
@@ -180,26 +155,6 @@ public class TicketsPanel extends javax.swing.JPanel {
     private void buyTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyTicketButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buyTicketButtonActionPerformed
-
-    private void buyTicketButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buyTicketButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buyTicketButtonMouseClicked
-
-    private void myTicketsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myTicketsButtonMouseClicked
-        middlePanel.setTableContents(resultTable, busQuery.getAllBuses());
-    }//GEN-LAST:event_myTicketsButtonMouseClicked
-
-    private void getTicketsOfUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getTicketsOfUserButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getTicketsOfUserButtonMouseClicked
-
-    private void changeToTripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeToTripButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_changeToTripButtonMouseClicked
-
-    private void deleteTicketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteTicketMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteTicketMouseClicked
 
     private void myTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTicketsButtonActionPerformed
         // TODO add your handling code here:

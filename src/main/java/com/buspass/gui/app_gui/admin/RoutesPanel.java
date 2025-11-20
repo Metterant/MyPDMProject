@@ -61,11 +61,6 @@ public class RoutesPanel extends javax.swing.JPanel {
         getBusByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getBusByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getBusByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getBusByIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getBusByIdButtonMouseClicked(evt);
-            }
-        });
         getBusByIdButton.addActionListener(this::getBusByIdButtonActionPerformed);
         buttonPanel.add(getBusByIdButton);
 
@@ -75,11 +70,6 @@ public class RoutesPanel extends javax.swing.JPanel {
         getAllBusesButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getAllBusesButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getAllBusesButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getAllBusesButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getAllBusesButtonMouseClicked(evt);
-            }
-        });
         getAllBusesButton.addActionListener(this::getAllBusesButtonActionPerformed);
         buttonPanel.add(getAllBusesButton);
 
@@ -89,11 +79,6 @@ public class RoutesPanel extends javax.swing.JPanel {
         updateBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
         updateBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
         updateBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateBusButtonMouseClicked(evt);
-            }
-        });
         updateBusButton.addActionListener(this::updateBusButtonActionPerformed);
         buttonPanel.add(updateBusButton);
 
@@ -103,11 +88,6 @@ public class RoutesPanel extends javax.swing.JPanel {
         createBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
         createBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
         createBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                createBusButtonMouseClicked(evt);
-            }
-        });
         createBusButton.addActionListener(this::createBusButtonActionPerformed);
         buttonPanel.add(createBusButton);
 
@@ -117,11 +97,6 @@ public class RoutesPanel extends javax.swing.JPanel {
         deleteBusrButton.setMaximumSize(new java.awt.Dimension(180, 40));
         deleteBusrButton.setMinimumSize(new java.awt.Dimension(180, 40));
         deleteBusrButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteBusrButtonMouseClicked(evt);
-            }
-        });
         deleteBusrButton.addActionListener(this::deleteBusrButtonActionPerformed);
         buttonPanel.add(deleteBusrButton);
 
@@ -210,28 +185,8 @@ public class RoutesPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_getBusByIdButtonActionPerformed
 
-    private void getBusByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getBusByIdButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getBusByIdButtonMouseClicked
-
-    private void getAllBusesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllBusesButtonMouseClicked
-        middlePanel.setTableContents(resultTable, routeQuery.getAllRoutes());
-    }//GEN-LAST:event_getAllBusesButtonMouseClicked
-
-    private void updateBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBusButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateBusButtonMouseClicked
-
-    private void createBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBusButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createBusButtonMouseClicked
-
-    private void deleteBusrButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBusrButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBusrButtonMouseClicked
-
     private void getAllBusesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllBusesButtonActionPerformed
-        // TODO add your handling code here:
+        middlePanel.setTableContents(resultTable, routeQuery.getAllRoutes());
     }//GEN-LAST:event_getAllBusesButtonActionPerformed
 
     private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed

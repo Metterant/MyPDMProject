@@ -4,7 +4,7 @@
  */
 package com.buspass.gui.app_gui.admin;
 
-import com.buspass.queries.BusQuery;
+import com.buspass.queries.PaymentQuery;
 
 /**
  *
@@ -20,7 +20,7 @@ public class PaymentsPanel extends javax.swing.JPanel {
     }
 
     private MiddlePanel middlePanel = new MiddlePanel();
-    private BusQuery busQuery = new BusQuery();
+    private PaymentQuery paymentQuery = new PaymentQuery();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,11 +60,6 @@ public class PaymentsPanel extends javax.swing.JPanel {
         myPaymentsButton.setMaximumSize(new java.awt.Dimension(180, 40));
         myPaymentsButton.setMinimumSize(new java.awt.Dimension(180, 40));
         myPaymentsButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        myPaymentsButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                myPaymentsButtonMouseClicked(evt);
-            }
-        });
         myPaymentsButton.addActionListener(this::myPaymentsButtonActionPerformed);
         buttonPanel.add(myPaymentsButton);
 
@@ -74,11 +69,7 @@ public class PaymentsPanel extends javax.swing.JPanel {
         getPaymentsOfUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getPaymentsOfUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getPaymentsOfUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getPaymentsOfUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getPaymentsOfUserButtonMouseClicked(evt);
-            }
-        });
+        getPaymentsOfUserButton.addActionListener(this::getPaymentsOfUserButtonActionPerformed);
         buttonPanel.add(getPaymentsOfUserButton);
 
         createTransactionButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -87,11 +78,7 @@ public class PaymentsPanel extends javax.swing.JPanel {
         createTransactionButton.setMaximumSize(new java.awt.Dimension(180, 40));
         createTransactionButton.setMinimumSize(new java.awt.Dimension(180, 40));
         createTransactionButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createTransactionButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                createTransactionButtonMouseClicked(evt);
-            }
-        });
+        createTransactionButton.addActionListener(this::createTransactionButtonActionPerformed);
         buttonPanel.add(createTransactionButton);
 
         deletePaymentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -100,11 +87,7 @@ public class PaymentsPanel extends javax.swing.JPanel {
         deletePaymentButton.setMaximumSize(new java.awt.Dimension(180, 40));
         deletePaymentButton.setMinimumSize(new java.awt.Dimension(180, 40));
         deletePaymentButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deletePaymentButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deletePaymentButtonMouseClicked(evt);
-            }
-        });
+        deletePaymentButton.addActionListener(this::deletePaymentButtonActionPerformed);
         buttonPanel.add(deletePaymentButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
@@ -159,21 +142,17 @@ public class PaymentsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_myPaymentsButtonActionPerformed
 
-    private void myPaymentsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myPaymentsButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_myPaymentsButtonMouseClicked
+    private void getPaymentsOfUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getPaymentsOfUserButtonActionPerformed
+        // middlePanel.setTableContents(resultTable, paymentQuery.getAllBuses());
+    }//GEN-LAST:event_getPaymentsOfUserButtonActionPerformed
 
-    private void getPaymentsOfUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getPaymentsOfUserButtonMouseClicked
-        middlePanel.setTableContents(resultTable, busQuery.getAllBuses());
-    }//GEN-LAST:event_getPaymentsOfUserButtonMouseClicked
-
-    private void createTransactionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createTransactionButtonMouseClicked
+    private void createTransactionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createTransactionButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_createTransactionButtonMouseClicked
+    }//GEN-LAST:event_createTransactionButtonActionPerformed
 
-    private void deletePaymentButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletePaymentButtonMouseClicked
+    private void deletePaymentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePaymentButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deletePaymentButtonMouseClicked
+    }//GEN-LAST:event_deletePaymentButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
