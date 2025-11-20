@@ -116,11 +116,6 @@ public class MainPanel extends javax.swing.JPanel {
         mainButton.setMaximumSize(new java.awt.Dimension(125, 40));
         mainButton.setMinimumSize(new java.awt.Dimension(125, 40));
         mainButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        mainButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mainButtonMouseClicked(evt);
-            }
-        });
         mainButton.addActionListener(this::mainButtonActionPerformed);
         buttonPanel.add(mainButton);
 
@@ -130,11 +125,6 @@ public class MainPanel extends javax.swing.JPanel {
         usersButton.setMaximumSize(new java.awt.Dimension(125, 40));
         usersButton.setMinimumSize(new java.awt.Dimension(125, 40));
         usersButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        usersButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usersButtonMouseClicked(evt);
-            }
-        });
         usersButton.addActionListener(this::usersButtonActionPerformed);
         buttonPanel.add(usersButton);
 
@@ -144,11 +134,6 @@ public class MainPanel extends javax.swing.JPanel {
         driversButton.setMaximumSize(new java.awt.Dimension(125, 40));
         driversButton.setMinimumSize(new java.awt.Dimension(125, 40));
         driversButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        driversButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                driversButtonMouseClicked(evt);
-            }
-        });
         driversButton.addActionListener(this::driversButtonActionPerformed);
         buttonPanel.add(driversButton);
 
@@ -158,11 +143,6 @@ public class MainPanel extends javax.swing.JPanel {
         busesButton.setMaximumSize(new java.awt.Dimension(125, 40));
         busesButton.setMinimumSize(new java.awt.Dimension(125, 40));
         busesButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        busesButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                busesButtonMouseClicked(evt);
-            }
-        });
         busesButton.addActionListener(this::busesButtonActionPerformed);
         buttonPanel.add(busesButton);
 
@@ -172,11 +152,6 @@ public class MainPanel extends javax.swing.JPanel {
         routesButton.setMaximumSize(new java.awt.Dimension(125, 40));
         routesButton.setMinimumSize(new java.awt.Dimension(125, 40));
         routesButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        routesButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                routesButtonMouseClicked(evt);
-            }
-        });
         routesButton.addActionListener(this::routesButtonActionPerformed);
         buttonPanel.add(routesButton);
 
@@ -186,11 +161,6 @@ public class MainPanel extends javax.swing.JPanel {
         tripButton.setMaximumSize(new java.awt.Dimension(125, 40));
         tripButton.setMinimumSize(new java.awt.Dimension(125, 40));
         tripButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        tripButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tripButtonMouseClicked(evt);
-            }
-        });
         tripButton.addActionListener(this::tripButtonActionPerformed);
         buttonPanel.add(tripButton);
 
@@ -200,11 +170,6 @@ public class MainPanel extends javax.swing.JPanel {
         ticketsButton.setMaximumSize(new java.awt.Dimension(125, 40));
         ticketsButton.setMinimumSize(new java.awt.Dimension(125, 40));
         ticketsButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        ticketsButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ticketsButtonMouseClicked(evt);
-            }
-        });
         ticketsButton.addActionListener(this::ticketsButtonActionPerformed);
         buttonPanel.add(ticketsButton);
 
@@ -214,11 +179,6 @@ public class MainPanel extends javax.swing.JPanel {
         paymentsButton.setMaximumSize(new java.awt.Dimension(125, 40));
         paymentsButton.setMinimumSize(new java.awt.Dimension(125, 40));
         paymentsButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        paymentsButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                paymentsButtonMouseClicked(evt);
-            }
-        });
         paymentsButton.addActionListener(this::paymentsButtonActionPerformed);
         buttonPanel.add(paymentsButton);
 
@@ -228,11 +188,6 @@ public class MainPanel extends javax.swing.JPanel {
         customSqlButton.setMaximumSize(new java.awt.Dimension(125, 40));
         customSqlButton.setMinimumSize(new java.awt.Dimension(125, 40));
         customSqlButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        customSqlButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                customSqlButtonMouseClicked(evt);
-            }
-        });
         customSqlButton.addActionListener(this::customSqlButtonActionPerformed);
         buttonPanel.add(customSqlButton);
 
@@ -303,35 +258,6 @@ public class MainPanel extends javax.swing.JPanel {
     private void driversButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driversButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_driversButtonActionPerformed
-
-    private void mainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mainButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mainButtonMouseClicked
-
-    private void usersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usersButtonMouseClicked
-
-    private void driversButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driversButtonMouseClicked
-    }//GEN-LAST:event_driversButtonMouseClicked
-
-    private void busesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busesButtonMouseClicked
-    }//GEN-LAST:event_busesButtonMouseClicked
-
-    private void routesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_routesButtonMouseClicked
-    }//GEN-LAST:event_routesButtonMouseClicked
-
-    private void tripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tripButtonMouseClicked
-    }//GEN-LAST:event_tripButtonMouseClicked
-
-    private void ticketsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticketsButtonMouseClicked
-    }//GEN-LAST:event_ticketsButtonMouseClicked
-
-    private void paymentsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentsButtonMouseClicked
-    }//GEN-LAST:event_paymentsButtonMouseClicked
-
-    private void customSqlButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customSqlButtonMouseClicked
-    }//GEN-LAST:event_customSqlButtonMouseClicked
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         switchMiddlePanel(USERS_PANEL);
