@@ -7,6 +7,7 @@ package com.buspass.gui.auth_gui;
 import javax.swing.JOptionPane;
 
 import com.buspass.auth.UserRegister;
+import com.buspass.gui.PanelSwitcher;
 
 /**
  *

@@ -3,6 +3,7 @@ package com.buspass.gui.auth_gui;
 import javax.swing.*;
 
 import com.buspass.auth.UserLoginSession;
+import com.buspass.gui.PanelSwitcher;
 
 import java.awt.*;
 
