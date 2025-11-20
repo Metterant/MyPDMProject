@@ -4,6 +4,8 @@
  */
 package com.buspass.gui.auth_gui;
 
+import javax.swing.JOptionPane;
+
 import com.buspass.auth.UserLogin;
 
 /**
@@ -185,9 +187,24 @@ public class LoginPanel extends javax.swing.JPanel {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         String username = usernameField.getText();
         String plainPassword = new String(passwordField.getPassword());
-        System.out.println(plainPassword);
         
-        System.out.println(userLogin.attemptLogin(username, plainPassword));
+        // System.out.println();
+        int result = userLogin.attemptLogin(username, plainPassword);
+
+        switch(result) {
+            case -1:
+                showDialogUserNotFound();
+                break;
+            case 0:
+                showDialogIncorrectPW();
+                break;
+            case 1:
+                showDialogLoginSuccess(username);
+                break;
+            default:
+                break;
+        }
+
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
@@ -209,6 +226,17 @@ public class LoginPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_registerLabelMouseClicked
 
+    private void showDialogUserNotFound() {
+        JOptionPane.showMessageDialog(null, "User not found!", "Login Failed", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void showDialogIncorrectPW() {
+        JOptionPane.showMessageDialog(null, "Incorrect Password!", "Login Failed", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void showDialogLoginSuccess(String username) {
+        JOptionPane.showMessageDialog(null, "Login Successful with Username: " + username, "Login Successful", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel forgotPasswordLabel;
