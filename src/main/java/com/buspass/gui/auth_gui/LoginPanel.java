@@ -6,7 +6,7 @@ package com.buspass.gui.auth_gui;
 
 import javax.swing.JOptionPane;
 
-import com.buspass.auth.UserLogin;
+import com.buspass.auth.UserLoginSession;
 
 /**
  *
@@ -15,12 +15,12 @@ import com.buspass.auth.UserLogin;
 public class LoginPanel extends javax.swing.JPanel {
 
     private PanelSwitcher switcher;
-    private UserLogin userLogin;
+    private UserLoginSession userLogin;
 
     /**
      * Creates new form LoginPanel
      */
-    public LoginPanel(UserLogin userLogin) {
+    public LoginPanel(UserLoginSession userLogin) {
         this.userLogin = userLogin;
         initComponents();
     }
@@ -190,22 +190,26 @@ public class LoginPanel extends javax.swing.JPanel {
         
         // System.out.println();
         int result = userLogin.attemptLogin(username, plainPassword);
-
+        
         switch(result) {
             case -1:
                 showDialogUserNotFound();
                 break;
-            case 0:
+                case 0:
                 showDialogIncorrectPW();
                 break;
-            case 1:
-                showDialogLoginSuccess(username);
-                break;
+                case 1:
+                    showDialogLoginSuccess(username);
+                    System.out.println(userLogin.getUserId());
+                    System.out.println(userLogin.getFullName());
+                    System.out.println(userLogin.getAge());
+                    System.out.println(userLogin.getAddress());
+                    System.out.println(userLogin.getPhoneNumber());
+                    System.out.println(userLogin.getUserRoleId());
+                    break;
             default:
                 break;
         }
-
-
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed

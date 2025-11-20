@@ -2,7 +2,7 @@ package com.buspass.gui.auth_gui;
 
 import javax.swing.*;
 
-import com.buspass.auth.UserLogin;
+import com.buspass.auth.UserLoginSession;
 
 import java.awt.*;
 
@@ -19,7 +19,7 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
     private final LoginPanel loginPanel;
     private final RegisterPanel registerPanel;
 
-    public AuthPanel(UserLogin userLogin) {
+    public AuthPanel(UserLoginSession userLogin) {
         setLayout(new BorderLayout());
 
         loginPanel = new LoginPanel(userLogin);
