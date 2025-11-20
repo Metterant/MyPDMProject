@@ -121,6 +121,7 @@ public class MainPanel extends javax.swing.JPanel {
                 mainButtonMouseClicked(evt);
             }
         });
+        mainButton.addActionListener(this::mainButtonActionPerformed);
         buttonPanel.add(mainButton);
 
         usersButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -134,6 +135,7 @@ public class MainPanel extends javax.swing.JPanel {
                 usersButtonMouseClicked(evt);
             }
         });
+        usersButton.addActionListener(this::usersButtonActionPerformed);
         buttonPanel.add(usersButton);
 
         driversButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -161,6 +163,7 @@ public class MainPanel extends javax.swing.JPanel {
                 busesButtonMouseClicked(evt);
             }
         });
+        busesButton.addActionListener(this::busesButtonActionPerformed);
         buttonPanel.add(busesButton);
 
         routesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -174,6 +177,7 @@ public class MainPanel extends javax.swing.JPanel {
                 routesButtonMouseClicked(evt);
             }
         });
+        routesButton.addActionListener(this::routesButtonActionPerformed);
         buttonPanel.add(routesButton);
 
         tripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -187,6 +191,7 @@ public class MainPanel extends javax.swing.JPanel {
                 tripButtonMouseClicked(evt);
             }
         });
+        tripButton.addActionListener(this::tripButtonActionPerformed);
         buttonPanel.add(tripButton);
 
         ticketsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -200,6 +205,7 @@ public class MainPanel extends javax.swing.JPanel {
                 ticketsButtonMouseClicked(evt);
             }
         });
+        ticketsButton.addActionListener(this::ticketsButtonActionPerformed);
         buttonPanel.add(ticketsButton);
 
         paymentsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -213,6 +219,7 @@ public class MainPanel extends javax.swing.JPanel {
                 paymentsButtonMouseClicked(evt);
             }
         });
+        paymentsButton.addActionListener(this::paymentsButtonActionPerformed);
         buttonPanel.add(paymentsButton);
 
         customSqlButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -226,6 +233,7 @@ public class MainPanel extends javax.swing.JPanel {
                 customSqlButtonMouseClicked(evt);
             }
         });
+        customSqlButton.addActionListener(this::customSqlButtonActionPerformed);
         buttonPanel.add(customSqlButton);
 
         scrollPane.setViewportView(buttonPanel);
@@ -332,6 +340,38 @@ public class MainPanel extends javax.swing.JPanel {
     private void customSqlButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customSqlButtonMouseClicked
         switchMiddlePanel(CUSTOM_SQL_PANEL);
     }//GEN-LAST:event_customSqlButtonMouseClicked
+
+    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mainButtonActionPerformed
+
+    private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usersButtonActionPerformed
+
+    private void busesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busesButtonActionPerformed
+
+    private void routesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_routesButtonActionPerformed
+
+    private void tripButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tripButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tripButtonActionPerformed
+
+    private void ticketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ticketsButtonActionPerformed
+
+    private void paymentsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paymentsButtonActionPerformed
+
+    private void customSqlButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customSqlButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customSqlButtonActionPerformed
 
     private void switchMiddlePanel(int childPanel) {
         // embed the UsersPanel into the middlePanel
