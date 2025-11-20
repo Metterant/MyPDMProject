@@ -4,6 +4,8 @@
  */
 package com.buspass.gui.auth_gui;
 
+import com.buspass.auth.UserRegister;
+
 /**
  *
  * @author USER
@@ -175,6 +177,19 @@ public class RegisterPanel extends javax.swing.JPanel {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here:
+
+        UserRegister userRegister = new UserRegister();
+
+        String username = usernameField.getText();
+        String plainPW = new String(passwordField.getPassword());
+        String confirmPlainPW = new String(confirmPasswordField.getPassword());
+
+        int result = userRegister.attemptRegister(username, plainPW, confirmPlainPW);
+        
+        passwordField.setText("");
+        confirmPasswordField.setText("");
+
+        System.out.println(result);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
