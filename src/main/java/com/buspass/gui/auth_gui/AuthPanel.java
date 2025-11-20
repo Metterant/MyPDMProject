@@ -19,10 +19,10 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
     private final LoginPanel loginPanel;
     private final RegisterPanel registerPanel;
 
-    public AuthPanel(UserLoginSession userLogin) {
+    public AuthPanel(UserLoginSession userLoginSession) {
         setLayout(new BorderLayout());
 
-        loginPanel = new LoginPanel(userLogin);
+        loginPanel = new LoginPanel(userLoginSession);
         registerPanel = new RegisterPanel();
 
         // give child panels the callback so they can ask the parent to switch

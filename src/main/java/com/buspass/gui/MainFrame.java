@@ -15,14 +15,14 @@ public class MainFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
 
-    private UserLoginSession userLogin;
+    private UserLoginSession userLoginSession;
     
     public MainFrame() {
-        userLogin = new UserLoginSession();
+        userLoginSession = new UserLoginSession();
         initComponents();
     }
     
-    public UserLoginSession getUserLogin() { return userLogin; }
+    public UserLoginSession getUserLoginSession() { return userLoginSession; }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,7 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         // Create and add AuthPanel (login/register) to the frame
-        authPanel = new AuthPanel(userLogin);
+        authPanel = new AuthPanel(userLoginSession);
         getContentPane().setLayout(new java.awt.BorderLayout());
         getContentPane().add(authPanel, java.awt.BorderLayout.CENTER);
         

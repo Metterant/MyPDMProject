@@ -15,13 +15,13 @@ import com.buspass.auth.UserLoginSession;
 public class LoginPanel extends javax.swing.JPanel {
 
     private PanelSwitcher switcher;
-    private UserLoginSession userLogin;
+    private UserLoginSession userLoginSession;
 
     /**
      * Creates new form LoginPanel
      */
     public LoginPanel(UserLoginSession userLogin) {
-        this.userLogin = userLogin;
+        this.userLoginSession = userLogin;
         initComponents();
     }
 
@@ -189,7 +189,7 @@ public class LoginPanel extends javax.swing.JPanel {
         String plainPassword = new String(passwordField.getPassword());
         
         // System.out.println();
-        int result = userLogin.attemptLogin(username, plainPassword);
+        int result = userLoginSession.attemptLogin(username, plainPassword);
         
         switch(result) {
             case -1:
@@ -200,12 +200,12 @@ public class LoginPanel extends javax.swing.JPanel {
                 break;
                 case 1:
                     showDialogLoginSuccess(username);
-                    System.out.println(userLogin.getUserId());
-                    System.out.println(userLogin.getFullName());
-                    System.out.println(userLogin.getAge());
-                    System.out.println(userLogin.getAddress());
-                    System.out.println(userLogin.getPhoneNumber());
-                    System.out.println(userLogin.getUserRoleId());
+                    System.out.println(userLoginSession.getUserId());
+                    System.out.println(userLoginSession.getFullName());
+                    System.out.println(userLoginSession.getAge());
+                    System.out.println(userLoginSession.getAddress());
+                    System.out.println(userLoginSession.getPhoneNumber());
+                    System.out.println(userLoginSession.getUserRoleId());
                     break;
             default:
                 break;
