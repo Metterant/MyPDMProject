@@ -39,7 +39,7 @@ public class TripsPanel extends javax.swing.JPanel {
         joinedQueryButton = new javax.swing.JButton();
         updateTripButton = new javax.swing.JButton();
         createTripButton = new javax.swing.JButton();
-        deleteTripButton = new javax.swing.JButton();
+        deleteTriprButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
         headerPanel = new javax.swing.JPanel();
@@ -82,6 +82,7 @@ public class TripsPanel extends javax.swing.JPanel {
                 getAllTripsButtonMouseClicked(evt);
             }
         });
+        getAllTripsButton.addActionListener(this::getAllTripsButtonActionPerformed);
         buttonPanel.add(getAllTripsButton);
 
         routesAndTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -95,6 +96,7 @@ public class TripsPanel extends javax.swing.JPanel {
                 routesAndTripsButtonMouseClicked(evt);
             }
         });
+        routesAndTripsButton.addActionListener(this::routesAndTripsButtonActionPerformed);
         buttonPanel.add(routesAndTripsButton);
 
         joinedQueryButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -108,6 +110,7 @@ public class TripsPanel extends javax.swing.JPanel {
                 joinedQueryButtonMouseClicked(evt);
             }
         });
+        joinedQueryButton.addActionListener(this::joinedQueryButtonActionPerformed);
         buttonPanel.add(joinedQueryButton);
 
         updateTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -135,20 +138,22 @@ public class TripsPanel extends javax.swing.JPanel {
                 createTripButtonMouseClicked(evt);
             }
         });
+        createTripButton.addActionListener(this::createTripButtonActionPerformed);
         buttonPanel.add(createTripButton);
 
-        deleteTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteTripButton.setText("Delete Trip");
-        deleteTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        deleteTripButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        deleteTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteTripButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        deleteTriprButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteTriprButton.setText("Delete Trip");
+        deleteTriprButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteTriprButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        deleteTriprButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        deleteTriprButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        deleteTriprButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deleteTriprButtonMouseClicked(evt);
             }
         });
-        buttonPanel.add(deleteTripButton);
+        deleteTriprButton.addActionListener(this::deleteTriprButtonActionPerformed);
+        buttonPanel.add(deleteTriprButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
 
@@ -203,7 +208,36 @@ public class TripsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updateTripButtonActionPerformed
 
     private void getTripByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTripByIdButtonActionPerformed
-        // TODO add your handling code here:
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter TripID:", "Find Trip", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "TripID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int tripId;
+        try {
+            tripId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric TripID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            java.util.Map<String, Object> trip = tripQuery.getTripById(tripId);
+            if (trip == null || trip.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No trip found with ID: " + tripId, "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                resultTable.setModel(new javax.swing.table.DefaultTableModel());
+                return;
+            }
+            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            rows.add(trip);
+            middlePanel.setTableContents(resultTable, rows);
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching trip: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_getTripByIdButtonActionPerformed
 
     private void getTripByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getTripByIdButtonMouseClicked
@@ -234,12 +268,32 @@ public class TripsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_joinedQueryButtonMouseClicked
 
+    private void getAllTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllTripsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getAllTripsButtonActionPerformed
+
+    private void routesAndTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routesAndTripsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_routesAndTripsButtonActionPerformed
+
+    private void joinedQueryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinedQueryButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_joinedQueryButtonActionPerformed
+
+    private void createTripButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createTripButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createTripButtonActionPerformed
+
+    private void deleteTriprButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTriprButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteTriprButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
     private javax.swing.JButton createTripButton;
-    private javax.swing.JButton deleteTripButton;
+    private javax.swing.JButton deleteTriprButton;
     private javax.swing.JButton getAllTripsButton;
     private javax.swing.JButton getTripByIdButton;
     private javax.swing.JLabel headerLabel;

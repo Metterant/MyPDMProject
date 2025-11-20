@@ -81,6 +81,7 @@ public class BusesPanel extends javax.swing.JPanel {
                 getAllBusesButtonMouseClicked(evt);
             }
         });
+        getAllBusesButton.addActionListener(this::getAllBusesButtonActionPerformed);
         buttonPanel.add(getAllBusesButton);
 
         getTripsWithBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -94,6 +95,7 @@ public class BusesPanel extends javax.swing.JPanel {
                 getTripsWithBusButtonMouseClicked(evt);
             }
         });
+        getTripsWithBusButton.addActionListener(this::getTripsWithBusButtonActionPerformed);
         buttonPanel.add(getTripsWithBusButton);
 
         updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -121,6 +123,7 @@ public class BusesPanel extends javax.swing.JPanel {
                 createBusButtonMouseClicked(evt);
             }
         });
+        createBusButton.addActionListener(this::createBusButtonActionPerformed);
         buttonPanel.add(createBusButton);
 
         deleteBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -134,6 +137,7 @@ public class BusesPanel extends javax.swing.JPanel {
                 deleteBusButtonMouseClicked(evt);
             }
         });
+        deleteBusButton.addActionListener(this::deleteBusButtonActionPerformed);
         buttonPanel.add(deleteBusButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
@@ -189,7 +193,36 @@ public class BusesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updateBusButtonActionPerformed
 
     private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBusByIdButtonActionPerformed
-        // TODO add your handling code here:
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter BusID:", "Find Bus", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "BusID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int busId;
+        try {
+            busId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric BusID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            java.util.Map<String, Object> bus = busQuery.getBusInfoById(busId);
+            if (bus == null || bus.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No bus found with ID: " + busId, "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                resultTable.setModel(new javax.swing.table.DefaultTableModel());
+                return;
+            }
+            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            rows.add(bus);
+            middlePanel.setTableContents(resultTable, rows);
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching bus: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_getBusByIdButtonActionPerformed
 
     private void getBusByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getBusByIdButtonMouseClicked
@@ -215,6 +248,22 @@ public class BusesPanel extends javax.swing.JPanel {
     private void deleteBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBusButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteBusButtonMouseClicked
+
+    private void getAllBusesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllBusesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getAllBusesButtonActionPerformed
+
+    private void getTripsWithBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTripsWithBusButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getTripsWithBusButtonActionPerformed
+
+    private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createBusButtonActionPerformed
+
+    private void deleteBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBusButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

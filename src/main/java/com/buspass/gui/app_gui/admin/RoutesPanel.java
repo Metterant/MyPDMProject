@@ -80,6 +80,7 @@ public class RoutesPanel extends javax.swing.JPanel {
                 getAllBusesButtonMouseClicked(evt);
             }
         });
+        getAllBusesButton.addActionListener(this::getAllBusesButtonActionPerformed);
         buttonPanel.add(getAllBusesButton);
 
         updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -107,6 +108,7 @@ public class RoutesPanel extends javax.swing.JPanel {
                 createBusButtonMouseClicked(evt);
             }
         });
+        createBusButton.addActionListener(this::createBusButtonActionPerformed);
         buttonPanel.add(createBusButton);
 
         deleteBusrButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -120,6 +122,7 @@ public class RoutesPanel extends javax.swing.JPanel {
                 deleteBusrButtonMouseClicked(evt);
             }
         });
+        deleteBusrButton.addActionListener(this::deleteBusrButtonActionPerformed);
         buttonPanel.add(deleteBusrButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
@@ -175,7 +178,36 @@ public class RoutesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updateBusButtonActionPerformed
 
     private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBusByIdButtonActionPerformed
-        // TODO add your handling code here:
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter RouteID:", "Find Route", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "RouteID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int routeId;
+        try {
+            routeId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric RouteID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            java.util.Map<String, Object> route = routeQuery.getRouteById(routeId);
+            if (route == null || route.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No route found with ID: " + routeId, "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                resultTable.setModel(new javax.swing.table.DefaultTableModel());
+                return;
+            }
+            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            rows.add(route);
+            middlePanel.setTableContents(resultTable, rows);
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching route: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_getBusByIdButtonActionPerformed
 
     private void getBusByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getBusByIdButtonMouseClicked
@@ -197,6 +229,18 @@ public class RoutesPanel extends javax.swing.JPanel {
     private void deleteBusrButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBusrButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteBusrButtonMouseClicked
+
+    private void getAllBusesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllBusesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getAllBusesButtonActionPerformed
+
+    private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createBusButtonActionPerformed
+
+    private void deleteBusrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusrButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBusrButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

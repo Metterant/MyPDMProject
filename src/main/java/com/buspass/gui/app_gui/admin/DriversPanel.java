@@ -96,6 +96,7 @@ public class DriversPanel extends javax.swing.JPanel {
                 getTripsWithBusButtonMouseClicked(evt);
             }
         });
+        getTripsWithBusButton.addActionListener(this::getTripsWithBusButtonActionPerformed);
         buttonPanel.add(getTripsWithBusButton);
 
         updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -123,6 +124,7 @@ public class DriversPanel extends javax.swing.JPanel {
                 createBusButtonMouseClicked(evt);
             }
         });
+        createBusButton.addActionListener(this::createBusButtonActionPerformed);
         buttonPanel.add(createBusButton);
 
         deleteBusrButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -136,6 +138,7 @@ public class DriversPanel extends javax.swing.JPanel {
                 deleteBusrButtonMouseClicked(evt);
             }
         });
+        deleteBusrButton.addActionListener(this::deleteBusrButtonActionPerformed);
         buttonPanel.add(deleteBusrButton);
 
         deleteBusrButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -149,6 +152,7 @@ public class DriversPanel extends javax.swing.JPanel {
                 deleteBusrButton1MouseClicked(evt);
             }
         });
+        deleteBusrButton1.addActionListener(this::deleteBusrButton1ActionPerformed);
         buttonPanel.add(deleteBusrButton1);
 
         buttonScrollPane.setViewportView(buttonPanel);
@@ -204,7 +208,36 @@ public class DriversPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updateBusButtonActionPerformed
 
     private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBusByIdButtonActionPerformed
-        // TODO add your handling code here:
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter DriverID:", "Find Driver", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "DriverID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int driverId;
+        try {
+            driverId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric DriverID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            java.util.Map<String, Object> drv = driverQuery.getDriverById(driverId);
+            if (drv == null || drv.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No driver found with ID: " + driverId, "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                resultTable.setModel(new javax.swing.table.DefaultTableModel());
+                return;
+            }
+            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            rows.add(drv);
+            middlePanel.setTableContents(resultTable, rows);
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching driver: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_getBusByIdButtonActionPerformed
 
     private void getBusByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getBusByIdButtonMouseClicked
@@ -238,6 +271,22 @@ public class DriversPanel extends javax.swing.JPanel {
     private void getAllBusesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllBusesButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_getAllBusesButtonActionPerformed
+
+    private void getTripsWithBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTripsWithBusButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getTripsWithBusButtonActionPerformed
+
+    private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createBusButtonActionPerformed
+
+    private void deleteBusrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusrButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBusrButtonActionPerformed
+
+    private void deleteBusrButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusrButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBusrButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

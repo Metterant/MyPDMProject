@@ -80,6 +80,7 @@ public class TicketsPanel extends javax.swing.JPanel {
                 myTicketsButtonMouseClicked(evt);
             }
         });
+        myTicketsButton.addActionListener(this::myTicketsButtonActionPerformed);
         buttonPanel.add(myTicketsButton);
 
         changeToTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -93,6 +94,7 @@ public class TicketsPanel extends javax.swing.JPanel {
                 changeToTripButtonMouseClicked(evt);
             }
         });
+        changeToTripButton.addActionListener(this::changeToTripButtonActionPerformed);
         buttonPanel.add(changeToTripButton);
 
         getTicketsOfUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -120,6 +122,7 @@ public class TicketsPanel extends javax.swing.JPanel {
                 deleteTicketMouseClicked(evt);
             }
         });
+        deleteTicket.addActionListener(this::deleteTicketActionPerformed);
         buttonPanel.add(deleteTicket);
 
         buttonScrollPane.setViewportView(buttonPanel);
@@ -197,6 +200,18 @@ public class TicketsPanel extends javax.swing.JPanel {
     private void deleteTicketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteTicketMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteTicketMouseClicked
+
+    private void myTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTicketsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_myTicketsButtonActionPerformed
+
+    private void changeToTripButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeToTripButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeToTripButtonActionPerformed
+
+    private void deleteTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTicketActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteTicketActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -133,6 +133,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="myTicketsButtonMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myTicketsButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="changeToTripButton">
@@ -158,6 +159,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="changeToTripButtonMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeToTripButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="getTicketsOfUserButton">
@@ -209,6 +211,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="deleteTicketMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteTicketActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

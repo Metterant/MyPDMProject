@@ -133,6 +133,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="getAllTripsButtonMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getAllTripsButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="routesAndTripsButton">
@@ -158,6 +159,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="routesAndTripsButtonMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="routesAndTripsButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="joinedQueryButton">
@@ -183,6 +185,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="joinedQueryButtonMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="joinedQueryButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="updateTripButton">
@@ -234,6 +237,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="createTripButtonMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createTripButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="deleteTriprButton">
@@ -259,6 +263,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="deleteTriprButtonMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteTriprButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
