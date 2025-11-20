@@ -20,7 +20,7 @@ public class AuthUtils {
     }
 
     public static boolean isValidPassword(String plainPW) {
-        return !plainPW.contains(" ");
+        return !(plainPW.contains(" ") || plainPW.compareTo("") == 0 || plainPW == null);
     }
 
     public static String hashPassword(String plain) {
