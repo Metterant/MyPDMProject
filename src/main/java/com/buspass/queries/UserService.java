@@ -1,14 +1,11 @@
 package com.buspass.queries;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import com.buspass.db.QueryExecutionModule;
 import com.buspass.utils.AuthUtils;
 import com.buspass.utils.StringUtils;
-
-import org.mindrot.jbcrypt.BCrypt;
 
 public class UserService {
     //1: Đăng ký người dùng mới (Dùng INSERT)
