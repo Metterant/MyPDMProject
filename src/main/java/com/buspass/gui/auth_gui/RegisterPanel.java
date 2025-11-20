@@ -37,8 +37,8 @@ public class RegisterPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        userRegisterLabel = new javax.swing.JLabel();
-        registerFieldsPanel = new javax.swing.JPanel();
+        centerPanel = new javax.swing.JPanel();
+        registerFields = new javax.swing.JPanel();
         passwordLabel = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
@@ -46,15 +46,14 @@ public class RegisterPanel extends javax.swing.JPanel {
         confirmPasswordField = new javax.swing.JPasswordField();
         usernameLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
+        userRegisterLabel = new javax.swing.JLabel();
         loginMessagePanel = new javax.swing.JPanel();
         loginLabel = new javax.swing.JLabel();
         messageLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(496, 500));
-
-        userRegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        userRegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userRegisterLabel.setText("REGISTER");
+        setMaximumSize(new java.awt.Dimension(1100, 600));
+        setMinimumSize(new java.awt.Dimension(1100, 600));
+        setPreferredSize(new java.awt.Dimension(1100, 600));
 
         passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         passwordLabel.setText("Password");
@@ -78,8 +77,8 @@ public class RegisterPanel extends javax.swing.JPanel {
         registerButton.setText("Register");
         registerButton.addActionListener(this::registerButtonActionPerformed);
 
-        javax.swing.GroupLayout registerFieldsLayout = new javax.swing.GroupLayout(registerFieldsPanel);
-        registerFieldsPanel.setLayout(registerFieldsLayout);
+        javax.swing.GroupLayout registerFieldsLayout = new javax.swing.GroupLayout(registerFields);
+        registerFields.setLayout(registerFieldsLayout);
         registerFieldsLayout.setHorizontalGroup(
             registerFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerFieldsLayout.createSequentialGroup()
@@ -115,6 +114,10 @@ public class RegisterPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        userRegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        userRegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userRegisterLabel.setText("REGISTER");
+
         loginLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         loginLabel.setForeground(new java.awt.Color(0, 0, 255));
         loginLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -122,6 +125,9 @@ public class RegisterPanel extends javax.swing.JPanel {
         loginLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginLabelMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                loginLabelMousePressed(evt);
             }
         });
 
@@ -134,7 +140,7 @@ public class RegisterPanel extends javax.swing.JPanel {
         loginMessagePanelLayout.setHorizontalGroup(
             loginMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginMessagePanelLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,32 +156,34 @@ public class RegisterPanel extends javax.swing.JPanel {
                 .addGap(16, 16, 16))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(userRegisterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(182, 182, 182))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(loginMessagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registerFieldsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(114, Short.MAX_VALUE))
+        javax.swing.GroupLayout centerPanelLayout = new javax.swing.GroupLayout(centerPanel);
+        centerPanel.setLayout(centerPanelLayout);
+        centerPanelLayout.setHorizontalGroup(
+            centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centerPanelLayout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(loginMessagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(registerFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(centerPanelLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(userRegisterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(66, 66, 66))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+        centerPanelLayout.setVerticalGroup(
+            centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centerPanelLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
                 .addComponent(userRegisterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(registerFieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(registerFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
+
+        add(centerPanel);
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
@@ -228,10 +236,14 @@ public class RegisterPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_confirmPasswordFieldActionPerformed
 
     private void loginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseClicked
+        
+    }//GEN-LAST:event_loginLabelMouseClicked
+
+    private void loginLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMousePressed
         if (switcher != null) {
             switcher.showPanel(AuthPanel.LOGIN);
         }
-    }//GEN-LAST:event_loginLabelMouseClicked
+    }//GEN-LAST:event_loginLabelMousePressed
 
     private void showDialogInvalidPWs() {
         JOptionPane.showMessageDialog(null, "Invalid Password!", "Error", JOptionPane.WARNING_MESSAGE);
@@ -254,6 +266,7 @@ public class RegisterPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel centerPanel;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel confirmPasswordLabel;
     private javax.swing.JLabel loginLabel;
@@ -262,7 +275,7 @@ public class RegisterPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton registerButton;
-    private javax.swing.JPanel registerFieldsPanel;
+    private javax.swing.JPanel registerFields;
     private javax.swing.JLabel userRegisterLabel;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameLabel;

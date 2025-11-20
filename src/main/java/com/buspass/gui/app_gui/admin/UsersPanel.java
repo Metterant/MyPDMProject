@@ -41,9 +41,11 @@ public class UsersPanel extends javax.swing.JPanel {
         deleteUserButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
+        headerPanel = new javax.swing.JPanel();
+        headerLabel = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(943, 445));
-        setMinimumSize(new java.awt.Dimension(943, 445));
+        setMaximumSize(new java.awt.Dimension(943, 545));
+        setMinimumSize(new java.awt.Dimension(943, 545));
 
         buttonScrollPane.setBackground(new java.awt.Color(220, 220, 220));
         buttonScrollPane.setForeground(new java.awt.Color(220, 220, 220));
@@ -60,11 +62,6 @@ public class UsersPanel extends javax.swing.JPanel {
         getUserByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getUserByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getUserByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getUserByIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getUserByIdButtonMouseClicked(evt);
-            }
-        });
         getUserByIdButton.addActionListener(this::getUserByIdButtonActionPerformed);
         buttonPanel.add(getUserByIdButton);
 
@@ -74,11 +71,7 @@ public class UsersPanel extends javax.swing.JPanel {
         getAllUsersButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getAllUsersButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getAllUsersButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getAllUsersButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getAllUsersButtonMouseClicked(evt);
-            }
-        });
+        getAllUsersButton.addActionListener(this::getAllUsersButtonActionPerformed);
         buttonPanel.add(getAllUsersButton);
 
         updateUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -87,11 +80,6 @@ public class UsersPanel extends javax.swing.JPanel {
         updateUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
         updateUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
         updateUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateUserButtonMouseClicked(evt);
-            }
-        });
         updateUserButton.addActionListener(this::updateUserButtonActionPerformed);
         buttonPanel.add(updateUserButton);
 
@@ -101,11 +89,7 @@ public class UsersPanel extends javax.swing.JPanel {
         createUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
         createUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
         createUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                createUserButtonMouseClicked(evt);
-            }
-        });
+        createUserButton.addActionListener(this::createUserButtonActionPerformed);
         buttonPanel.add(createUserButton);
 
         findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -114,11 +98,7 @@ public class UsersPanel extends javax.swing.JPanel {
         findIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
         findIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
         findIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        findIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                findIdButtonMouseClicked(evt);
-            }
-        });
+        findIdButton.addActionListener(this::findIdButtonActionPerformed);
         buttonPanel.add(findIdButton);
 
         deleteUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -127,11 +107,7 @@ public class UsersPanel extends javax.swing.JPanel {
         deleteUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
         deleteUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
         deleteUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteUserButtonMouseClicked(evt);
-            }
-        });
+        deleteUserButton.addActionListener(this::deleteUserButtonActionPerformed);
         buttonPanel.add(deleteUserButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
@@ -149,13 +125,21 @@ public class UsersPanel extends javax.swing.JPanel {
         ));
         tableScrollPane.setViewportView(resultTable);
 
+        headerPanel.setLayout(new java.awt.CardLayout());
+
+        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerLabel.setText("USERS");
+        headerPanel.add(headerLabel, "card2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 201, Short.MAX_VALUE)
+                .addContainerGap(201, Short.MAX_VALUE)
                 .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,9 +147,14 @@ public class UsersPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(buttonScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 64, Short.MAX_VALUE)
+                    .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -174,32 +163,100 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updateUserButtonActionPerformed
 
     private void getUserByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUserByIdButtonActionPerformed
-        // TODO add your handling code here:
+        // Super temporary solution for retriving User
+
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter UserID:", "Find User", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return; // user cancelled
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "UserID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int userId;
+        try {
+            userId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric UserID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            java.util.Map<String, Object> user = userService.getUserById(userId);
+            if (user == null || user.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No user found with ID: " + userId, "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                resultTable.setModel(new javax.swing.table.DefaultTableModel());
+                return;
+            }
+
+            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            rows.add(user);
+            middlePanel.setTableContents(resultTable, rows);
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_getUserByIdButtonActionPerformed
 
-    private void getUserByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getUserByIdButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getUserByIdButtonMouseClicked
-
-    private void getAllUsersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllUsersButtonMouseClicked
+    private void getAllUsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllUsersButtonActionPerformed
         middlePanel.setTableContents(resultTable, userService.getAllUsers());
-    }//GEN-LAST:event_getAllUsersButtonMouseClicked
+    }//GEN-LAST:event_getAllUsersButtonActionPerformed
 
-    private void updateUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateUserButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateUserButtonMouseClicked
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
+        
+    }//GEN-LAST:event_createUserButtonActionPerformed
 
-    private void createUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createUserButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createUserButtonMouseClicked
+    private void findIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIdButtonActionPerformed
+        String username = javax.swing.JOptionPane.showInputDialog(this, "Enter username to find UserID:", "Find UserID", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (username == null) return;
+        username = username.trim();
+        if (username.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Username cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        try {
+            int id = userService.getIdByUsername(username);
+            if (id <= 0) {
+                javax.swing.JOptionPane.showMessageDialog(this, "User not found.", "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "UserID for '" + username + "' is: " + id, "Found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error finding user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_findIdButtonActionPerformed
 
-    private void findIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findIdButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_findIdButtonMouseClicked
-
-    private void deleteUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteUserButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteUserButtonMouseClicked
+    private void deleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserButtonActionPerformed
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter UserID to delete:", "Delete User", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "UserID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int userId;
+        try {
+            userId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric UserID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Are you sure you want to delete UserID " + userId + "?", "Confirm delete", javax.swing.JOptionPane.YES_NO_OPTION);
+        if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+        try {
+            boolean ok = userService.deleteUserById(userId);
+            if (ok) {
+                javax.swing.JOptionPane.showMessageDialog(this, "User deleted.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                middlePanel.setTableContents(resultTable, userService.getAllUsers());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "User not found or could not be deleted.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error deleting user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_deleteUserButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -210,6 +267,8 @@ public class UsersPanel extends javax.swing.JPanel {
     private javax.swing.JButton findIdButton;
     private javax.swing.JButton getAllUsersButton;
     private javax.swing.JButton getUserByIdButton;
+    private javax.swing.JLabel headerLabel;
+    private javax.swing.JPanel headerPanel;
     private javax.swing.JTable resultTable;
     private javax.swing.JScrollPane tableScrollPane;
     private javax.swing.JButton updateUserButton;

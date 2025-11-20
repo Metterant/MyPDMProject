@@ -5,7 +5,6 @@
 package com.buspass.gui.app_gui.admin;
 
 import com.buspass.queries.BusQuery;
-import com.buspass.queries.UserService;
 
 /**
  *
@@ -39,12 +38,14 @@ public class BusesPanel extends javax.swing.JPanel {
         getTripsWithBusButton = new javax.swing.JButton();
         updateBusButton = new javax.swing.JButton();
         createBusButton = new javax.swing.JButton();
-        deleteBusrButton = new javax.swing.JButton();
+        deleteBusButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
+        headerPanel = new javax.swing.JPanel();
+        headerLabel = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(943, 445));
-        setMinimumSize(new java.awt.Dimension(943, 445));
+        setMaximumSize(new java.awt.Dimension(943, 545));
+        setMinimumSize(new java.awt.Dimension(943, 545));
 
         buttonScrollPane.setBackground(new java.awt.Color(220, 220, 220));
         buttonScrollPane.setForeground(new java.awt.Color(220, 220, 220));
@@ -61,11 +62,6 @@ public class BusesPanel extends javax.swing.JPanel {
         getBusByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getBusByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getBusByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getBusByIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getBusByIdButtonMouseClicked(evt);
-            }
-        });
         getBusByIdButton.addActionListener(this::getBusByIdButtonActionPerformed);
         buttonPanel.add(getBusByIdButton);
 
@@ -75,11 +71,7 @@ public class BusesPanel extends javax.swing.JPanel {
         getAllBusesButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getAllBusesButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getAllBusesButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getAllBusesButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getAllBusesButtonMouseClicked(evt);
-            }
-        });
+        getAllBusesButton.addActionListener(this::getAllBusesButtonActionPerformed);
         buttonPanel.add(getAllBusesButton);
 
         getTripsWithBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -88,11 +80,7 @@ public class BusesPanel extends javax.swing.JPanel {
         getTripsWithBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
         getTripsWithBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
         getTripsWithBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getTripsWithBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getTripsWithBusButtonMouseClicked(evt);
-            }
-        });
+        getTripsWithBusButton.addActionListener(this::getTripsWithBusButtonActionPerformed);
         buttonPanel.add(getTripsWithBusButton);
 
         updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -101,11 +89,6 @@ public class BusesPanel extends javax.swing.JPanel {
         updateBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
         updateBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
         updateBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateBusButtonMouseClicked(evt);
-            }
-        });
         updateBusButton.addActionListener(this::updateBusButtonActionPerformed);
         buttonPanel.add(updateBusButton);
 
@@ -115,25 +98,17 @@ public class BusesPanel extends javax.swing.JPanel {
         createBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
         createBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
         createBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                createBusButtonMouseClicked(evt);
-            }
-        });
+        createBusButton.addActionListener(this::createBusButtonActionPerformed);
         buttonPanel.add(createBusButton);
 
-        deleteBusrButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteBusrButton.setText("Delete Bus");
-        deleteBusrButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteBusrButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteBusrButtonMouseClicked(evt);
-            }
-        });
-        buttonPanel.add(deleteBusrButton);
+        deleteBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteBusButton.setText("Delete Bus");
+        deleteBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        deleteBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        deleteBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        deleteBusButton.addActionListener(this::deleteBusButtonActionPerformed);
+        buttonPanel.add(deleteBusButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
 
@@ -150,6 +125,13 @@ public class BusesPanel extends javax.swing.JPanel {
         ));
         tableScrollPane.setViewportView(resultTable);
 
+        headerPanel.setLayout(new java.awt.GridBagLayout());
+
+        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerLabel.setText("BUSES");
+        headerPanel.add(headerLabel, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,6 +139,7 @@ public class BusesPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 201, Short.MAX_VALUE)
                 .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,9 +147,14 @@ public class BusesPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(buttonScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 64, Short.MAX_VALUE)
+                    .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -175,42 +163,95 @@ public class BusesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updateBusButtonActionPerformed
 
     private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBusByIdButtonActionPerformed
-        // TODO add your handling code here:
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter BusID:", "Find Bus", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "BusID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int busId;
+        try {
+            busId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric BusID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            java.util.Map<String, Object> bus = busQuery.getBusInfoById(busId);
+            if (bus == null || bus.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No bus found with ID: " + busId, "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                resultTable.setModel(new javax.swing.table.DefaultTableModel());
+                return;
+            }
+            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            rows.add(bus);
+            middlePanel.setTableContents(resultTable, rows);
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching bus: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_getBusByIdButtonActionPerformed
 
-    private void getBusByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getBusByIdButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getBusByIdButtonMouseClicked
-
-    private void getAllBusesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllBusesButtonMouseClicked
+    private void getAllBusesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllBusesButtonActionPerformed
         middlePanel.setTableContents(resultTable, busQuery.getAllBuses());
-    }//GEN-LAST:event_getAllBusesButtonMouseClicked
+    }//GEN-LAST:event_getAllBusesButtonActionPerformed
 
-    private void updateBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBusButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateBusButtonMouseClicked
+    private void getTripsWithBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTripsWithBusButtonActionPerformed
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter BusID to list its trips:", "Bus Trips", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "BusID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int busId;
+        try {
+            busId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric BusID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            middlePanel.setTableContents(resultTable, busQuery.getTripsTraveledById(busId));
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching trips: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_getTripsWithBusButtonActionPerformed
 
-    private void createBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBusButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createBusButtonMouseClicked
+    private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed
+        
+    }//GEN-LAST:event_createBusButtonActionPerformed
 
-    private void getTripsWithBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getTripsWithBusButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getTripsWithBusButtonMouseClicked
-
-    private void deleteBusrButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBusrButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBusrButtonMouseClicked
+    private void deleteBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusButtonActionPerformed
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter BusID to delete:", "Delete Bus", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) { javax.swing.JOptionPane.showMessageDialog(this, "BusID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+        int busId; try { busId = Integer.parseInt(input); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid BusID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Delete BusID " + busId + "?", "Confirm", javax.swing.JOptionPane.YES_NO_OPTION);
+        if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+        try {
+            boolean ok = busQuery.removeBus(busId);
+            if (ok) { javax.swing.JOptionPane.showMessageDialog(this, "Bus deleted.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE); middlePanel.setTableContents(resultTable, busQuery.getAllBuses()); }
+            else { javax.swing.JOptionPane.showMessageDialog(this, "Bus not found or could not be deleted.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE); }
+        } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Error deleting bus: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE); ex.printStackTrace(); }
+    }//GEN-LAST:event_deleteBusButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
     private javax.swing.JButton createBusButton;
-    private javax.swing.JButton deleteBusrButton;
+    private javax.swing.JButton deleteBusButton;
     private javax.swing.JButton getAllBusesButton;
     private javax.swing.JButton getBusByIdButton;
     private javax.swing.JButton getTripsWithBusButton;
+    private javax.swing.JLabel headerLabel;
+    private javax.swing.JPanel headerPanel;
     private javax.swing.JTable resultTable;
     private javax.swing.JScrollPane tableScrollPane;
     private javax.swing.JButton updateBusButton;

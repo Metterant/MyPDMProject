@@ -28,7 +28,7 @@ public class DriverQuery {
     }
      
     public List<Map<String, Object>> getAllDrivenBuses(int driverId) {
-        String sql = "SELECT d.DriverID, DriverName, busID, plateNumber, r.RouteID, StartLocation, EndLocation, Distance, Times\r\n" + 
+        String sql = "SELECT d.DriverID, DriverName, busID, plateNumber, r.RouteID, StartLocation, EndLocation, Distance, Duration\r\n" + 
                      "FROM Driver d JOIN Bus_Info b ON d.DriverID = b.DriverID\r\n" +
 		             "JOIN Route r on b.RouteID = r.RouteID\r\n" +
                      "WHERE d.DriverID = ?;";
