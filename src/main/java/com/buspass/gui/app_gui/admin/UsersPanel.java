@@ -203,15 +203,81 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getAllUsersButtonActionPerformed
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
-        // TODO add your handling code here:
+        String username = javax.swing.JOptionPane.showInputDialog(this, "Enter username:", "Create User", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (username == null) return;
+        username = username.trim();
+        if (username.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Username cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String password = javax.swing.JOptionPane.showInputDialog(this, "Enter password:", "Create User", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (password == null) return;
+
+        try {
+            boolean ok = userService.registerUser(username, password);
+            if (ok) {
+                javax.swing.JOptionPane.showMessageDialog(this, "User created successfully.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                middlePanel.setTableContents(resultTable, userService.getAllUsers());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Failed to create user. Username may already exist.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error creating user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_createUserButtonActionPerformed
 
     private void findIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIdButtonActionPerformed
-        // TODO add your handling code here:
+        String username = javax.swing.JOptionPane.showInputDialog(this, "Enter username to find UserID:", "Find UserID", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (username == null) return;
+        username = username.trim();
+        if (username.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Username cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        try {
+            int id = userService.getIdByUsername(username);
+            if (id <= 0) {
+                javax.swing.JOptionPane.showMessageDialog(this, "User not found.", "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "UserID for '" + username + "' is: " + id, "Found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error finding user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_findIdButtonActionPerformed
 
     private void deleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserButtonActionPerformed
-        // TODO add your handling code here:
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter UserID to delete:", "Delete User", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "UserID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        int userId;
+        try {
+            userId = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric UserID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Are you sure you want to delete UserID " + userId + "?", "Confirm delete", javax.swing.JOptionPane.YES_NO_OPTION);
+        if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+        try {
+            boolean ok = userService.deleteUserById(userId);
+            if (ok) {
+                javax.swing.JOptionPane.showMessageDialog(this, "User deleted.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                middlePanel.setTableContents(resultTable, userService.getAllUsers());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "User not found or could not be deleted.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error deleting user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_deleteUserButtonActionPerformed
 
 

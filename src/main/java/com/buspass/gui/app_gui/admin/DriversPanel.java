@@ -36,10 +36,10 @@ public class DriversPanel extends javax.swing.JPanel {
         getBusByIdButton = new javax.swing.JButton();
         getAllBusesButton = new javax.swing.JButton();
         getTripsWithBusButton = new javax.swing.JButton();
-        updateBusButton = new javax.swing.JButton();
-        createBusButton = new javax.swing.JButton();
-        deleteBusrButton = new javax.swing.JButton();
-        deleteBusrButton1 = new javax.swing.JButton();
+        getTripsDrivenButton = new javax.swing.JButton();
+        createDriverButton = new javax.swing.JButton();
+        updateDriverButton = new javax.swing.JButton();
+        deleteDriverButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
         headerPanel = new javax.swing.JPanel();
@@ -84,41 +84,41 @@ public class DriversPanel extends javax.swing.JPanel {
         getTripsWithBusButton.addActionListener(this::getTripsWithBusButtonActionPerformed);
         buttonPanel.add(getTripsWithBusButton);
 
-        updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        updateBusButton.setText("Get Trips Driven");
-        updateBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        updateBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        updateBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateBusButton.addActionListener(this::updateBusButtonActionPerformed);
-        buttonPanel.add(updateBusButton);
+        getTripsDrivenButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getTripsDrivenButton.setText("Get Trips Driven");
+        getTripsDrivenButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getTripsDrivenButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        getTripsDrivenButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        getTripsDrivenButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        getTripsDrivenButton.addActionListener(this::getTripsDrivenButtonActionPerformed);
+        buttonPanel.add(getTripsDrivenButton);
 
-        createBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        createBusButton.setText("Create Driver");
-        createBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        createBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        createBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        createBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createBusButton.addActionListener(this::createBusButtonActionPerformed);
-        buttonPanel.add(createBusButton);
+        createDriverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createDriverButton.setText("Create Driver");
+        createDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        createDriverButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        createDriverButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        createDriverButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        createDriverButton.addActionListener(this::createDriverButtonActionPerformed);
+        buttonPanel.add(createDriverButton);
 
-        deleteBusrButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteBusrButton.setText("Update Driver");
-        deleteBusrButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteBusrButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.addActionListener(this::deleteBusrButtonActionPerformed);
-        buttonPanel.add(deleteBusrButton);
+        updateDriverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateDriverButton.setText("Update Driver");
+        updateDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateDriverButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        updateDriverButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        updateDriverButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        updateDriverButton.addActionListener(this::updateDriverButtonActionPerformed);
+        buttonPanel.add(updateDriverButton);
 
-        deleteBusrButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteBusrButton1.setText("Delete Driver");
-        deleteBusrButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteBusrButton1.setMaximumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton1.setMinimumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton1.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton1.addActionListener(this::deleteBusrButton1ActionPerformed);
-        buttonPanel.add(deleteBusrButton1);
+        deleteDriverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteDriverButton.setText("Delete Driver");
+        deleteDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteDriverButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        deleteDriverButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        deleteDriverButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        deleteDriverButton.addActionListener(this::deleteDriverButtonActionPerformed);
+        buttonPanel.add(deleteDriverButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
 
@@ -168,9 +168,9 @@ public class DriversPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBusButtonActionPerformed
+    private void getTripsDrivenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTripsDrivenButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateBusButtonActionPerformed
+    }//GEN-LAST:event_getTripsDrivenButtonActionPerformed
 
     private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBusByIdButtonActionPerformed
         String input = javax.swing.JOptionPane.showInputDialog(this, "Enter DriverID:", "Find Driver", javax.swing.JOptionPane.QUESTION_MESSAGE);
@@ -210,35 +210,49 @@ public class DriversPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getAllBusesButtonActionPerformed
 
     private void getTripsWithBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTripsWithBusButtonActionPerformed
-        // TODO add your handling code here:
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter DriverID to list buses driven:", "Buses Driven", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) { javax.swing.JOptionPane.showMessageDialog(this, "DriverID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+        int driverId; try { driverId = Integer.parseInt(input); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid DriverID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        try { middlePanel.setTableContents(resultTable, driverQuery.getAllDrivenBuses(driverId)); } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE); ex.printStackTrace(); }
     }//GEN-LAST:event_getTripsWithBusButtonActionPerformed
 
-    private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createBusButtonActionPerformed
+    private void createDriverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createDriverButtonActionPerformed
+        String name = javax.swing.JOptionPane.showInputDialog(this, "Driver name:", "Create Driver", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (name == null) return; name = name.trim(); if (name.isEmpty()) { javax.swing.JOptionPane.showMessageDialog(this, "Name required.", "Input", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+        String ageStr = javax.swing.JOptionPane.showInputDialog(this, "Age:", "Create Driver", javax.swing.JOptionPane.QUESTION_MESSAGE); if (ageStr == null) return; int age; try { age = Integer.parseInt(ageStr.trim()); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid age.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        String license = javax.swing.JOptionPane.showInputDialog(this, "License:", "Create Driver", javax.swing.JOptionPane.QUESTION_MESSAGE); if (license == null) return;
+        String phone = javax.swing.JOptionPane.showInputDialog(this, "Phone:", "Create Driver", javax.swing.JOptionPane.QUESTION_MESSAGE); if (phone == null) return;
+        try { boolean ok = driverQuery.registerDriver(name, age, license.trim(), phone.trim()); if (ok) { javax.swing.JOptionPane.showMessageDialog(this, "Driver created.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE); middlePanel.setTableContents(resultTable, driverQuery.getAllDrivers()); } else { javax.swing.JOptionPane.showMessageDialog(this, "Failed to create driver.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE); } } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE); ex.printStackTrace(); }
+    }//GEN-LAST:event_createDriverButtonActionPerformed
 
-    private void deleteBusrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusrButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBusrButtonActionPerformed
+    private void updateDriverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateDriverButtonActionPerformed
+        // This button is labelled 'Update Driver' in the UI; leave for update flows.
+    }//GEN-LAST:event_updateDriverButtonActionPerformed
 
-    private void deleteBusrButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusrButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBusrButton1ActionPerformed
+    private void deleteDriverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDriverButtonActionPerformed
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter DriverID to delete:", "Delete Driver", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return; input = input.trim(); if (input.isEmpty()) { javax.swing.JOptionPane.showMessageDialog(this, "DriverID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+        int driverId; try { driverId = Integer.parseInt(input); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid DriverID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Delete DriverID " + driverId + "?", "Confirm", javax.swing.JOptionPane.YES_NO_OPTION); if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+        try { boolean ok = driverQuery.deleteDriverById(driverId); if (ok) { javax.swing.JOptionPane.showMessageDialog(this, "Driver deleted.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE); middlePanel.setTableContents(resultTable, driverQuery.getAllDrivers()); } else { javax.swing.JOptionPane.showMessageDialog(this, "Driver not found or failed to delete.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE); } } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE); ex.printStackTrace(); }
+    }//GEN-LAST:event_deleteDriverButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
-    private javax.swing.JButton createBusButton;
-    private javax.swing.JButton deleteBusrButton;
-    private javax.swing.JButton deleteBusrButton1;
+    private javax.swing.JButton createDriverButton;
+    private javax.swing.JButton deleteDriverButton;
     private javax.swing.JButton getAllBusesButton;
     private javax.swing.JButton getBusByIdButton;
+    private javax.swing.JButton getTripsDrivenButton;
     private javax.swing.JButton getTripsWithBusButton;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JTable resultTable;
     private javax.swing.JScrollPane tableScrollPane;
-    private javax.swing.JButton updateBusButton;
+    private javax.swing.JButton updateDriverButton;
     // End of variables declaration//GEN-END:variables
 }

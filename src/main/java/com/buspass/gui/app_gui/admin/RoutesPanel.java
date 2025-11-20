@@ -33,11 +33,11 @@ public class RoutesPanel extends javax.swing.JPanel {
 
         buttonScrollPane = new javax.swing.JScrollPane();
         buttonPanel = new javax.swing.JPanel();
-        getBusByIdButton = new javax.swing.JButton();
-        getAllBusesButton = new javax.swing.JButton();
-        updateBusButton = new javax.swing.JButton();
-        createBusButton = new javax.swing.JButton();
-        deleteBusrButton = new javax.swing.JButton();
+        getRouteByIdButton = new javax.swing.JButton();
+        getAllRoutesButton = new javax.swing.JButton();
+        updateRouteButton = new javax.swing.JButton();
+        createRouteButton = new javax.swing.JButton();
+        deleteRouteButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
         headerPanel = new javax.swing.JPanel();
@@ -55,50 +55,50 @@ public class RoutesPanel extends javax.swing.JPanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        getBusByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getBusByIdButton.setText("Get Route By ID");
-        getBusByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getBusByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        getBusByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        getBusByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getBusByIdButton.addActionListener(this::getBusByIdButtonActionPerformed);
-        buttonPanel.add(getBusByIdButton);
+        getRouteByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getRouteByIdButton.setText("Get Route By ID");
+        getRouteByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getRouteByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        getRouteByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        getRouteByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        getRouteByIdButton.addActionListener(this::getRouteByIdButtonActionPerformed);
+        buttonPanel.add(getRouteByIdButton);
 
-        getAllBusesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getAllBusesButton.setText("Get All Routes");
-        getAllBusesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getAllBusesButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        getAllBusesButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        getAllBusesButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getAllBusesButton.addActionListener(this::getAllBusesButtonActionPerformed);
-        buttonPanel.add(getAllBusesButton);
+        getAllRoutesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getAllRoutesButton.setText("Get All Routes");
+        getAllRoutesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getAllRoutesButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        getAllRoutesButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        getAllRoutesButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        getAllRoutesButton.addActionListener(this::getAllRoutesButtonActionPerformed);
+        buttonPanel.add(getAllRoutesButton);
 
-        updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        updateBusButton.setText("Update Route");
-        updateBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        updateBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        updateBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateBusButton.addActionListener(this::updateBusButtonActionPerformed);
-        buttonPanel.add(updateBusButton);
+        updateRouteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateRouteButton.setText("Update Route");
+        updateRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        updateRouteButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        updateRouteButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        updateRouteButton.addActionListener(this::updateRouteButtonActionPerformed);
+        buttonPanel.add(updateRouteButton);
 
-        createBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        createBusButton.setText("Create Route");
-        createBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        createBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        createBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        createBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createBusButton.addActionListener(this::createBusButtonActionPerformed);
-        buttonPanel.add(createBusButton);
+        createRouteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createRouteButton.setText("Create Route");
+        createRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        createRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        createRouteButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        createRouteButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        createRouteButton.addActionListener(this::createRouteButtonActionPerformed);
+        buttonPanel.add(createRouteButton);
 
-        deleteBusrButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteBusrButton.setText("Delete Route");
-        deleteBusrButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteBusrButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.addActionListener(this::deleteBusrButtonActionPerformed);
-        buttonPanel.add(deleteBusrButton);
+        deleteRouteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteRouteButton.setText("Delete Route");
+        deleteRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        deleteRouteButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        deleteRouteButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        deleteRouteButton.addActionListener(this::deleteRouteButtonActionPerformed);
+        buttonPanel.add(deleteRouteButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
 
@@ -148,11 +148,11 @@ public class RoutesPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBusButtonActionPerformed
+    private void updateRouteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateRouteButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateBusButtonActionPerformed
+    }//GEN-LAST:event_updateRouteButtonActionPerformed
 
-    private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBusByIdButtonActionPerformed
+    private void getRouteByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getRouteByIdButtonActionPerformed
         String input = javax.swing.JOptionPane.showInputDialog(this, "Enter RouteID:", "Find Route", javax.swing.JOptionPane.QUESTION_MESSAGE);
         if (input == null) return;
         input = input.trim();
@@ -183,32 +183,43 @@ public class RoutesPanel extends javax.swing.JPanel {
             javax.swing.JOptionPane.showMessageDialog(this, "Error fetching route: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_getBusByIdButtonActionPerformed
+    }//GEN-LAST:event_getRouteByIdButtonActionPerformed
 
-    private void getAllBusesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllBusesButtonActionPerformed
+    private void getAllRoutesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllRoutesButtonActionPerformed
         middlePanel.setTableContents(resultTable, routeQuery.getAllRoutes());
-    }//GEN-LAST:event_getAllBusesButtonActionPerformed
+    }//GEN-LAST:event_getAllRoutesButtonActionPerformed
 
-    private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_createBusButtonActionPerformed
+    private void createRouteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createRouteButtonActionPerformed
+        String name = javax.swing.JOptionPane.showInputDialog(this, "Route name:", "Create Route", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (name == null) return; name = name.trim(); if (name.isEmpty()) { javax.swing.JOptionPane.showMessageDialog(this, "Route name required.", "Input", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+        String start = javax.swing.JOptionPane.showInputDialog(this, "Start location:", "Create Route", javax.swing.JOptionPane.QUESTION_MESSAGE); if (start == null) return;
+        String end = javax.swing.JOptionPane.showInputDialog(this, "End location:", "Create Route", javax.swing.JOptionPane.QUESTION_MESSAGE); if (end == null) return;
+        String fareStr = javax.swing.JOptionPane.showInputDialog(this, "Fare (decimal):", "Create Route", javax.swing.JOptionPane.QUESTION_MESSAGE); if (fareStr == null) return; double fare; try { fare = Double.parseDouble(fareStr.trim()); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid fare.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        String distStr = javax.swing.JOptionPane.showInputDialog(this, "Distance (float):", "Create Route", javax.swing.JOptionPane.QUESTION_MESSAGE); if (distStr == null) return; float distance; try { distance = Float.parseFloat(distStr.trim()); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid distance.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        String durStr = javax.swing.JOptionPane.showInputDialog(this, "Duration (minutes int):", "Create Route", javax.swing.JOptionPane.QUESTION_MESSAGE); if (durStr == null) return; int duration; try { duration = Integer.parseInt(durStr.trim()); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid duration.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        try { boolean ok = routeQuery.registerRoute(name, start, end, fare, distance, duration); if (ok) { javax.swing.JOptionPane.showMessageDialog(this, "Route created.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE); middlePanel.setTableContents(resultTable, routeQuery.getAllRoutes()); } else { javax.swing.JOptionPane.showMessageDialog(this, "Failed to create route.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE); } } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE); ex.printStackTrace(); }
+    }//GEN-LAST:event_createRouteButtonActionPerformed
 
-    private void deleteBusrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusrButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBusrButtonActionPerformed
+    private void deleteRouteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteRouteButtonActionPerformed
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter RouteID to delete:", "Delete Route", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return; input = input.trim(); if (input.isEmpty()) { javax.swing.JOptionPane.showMessageDialog(this, "RouteID required.", "Input", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+        int routeId; try { routeId = Integer.parseInt(input); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid RouteID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Delete RouteID " + routeId + "?", "Confirm", javax.swing.JOptionPane.YES_NO_OPTION); if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+        try { boolean ok = routeQuery.removeRoute(routeId); if (ok) { javax.swing.JOptionPane.showMessageDialog(this, "Route deleted.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE); middlePanel.setTableContents(resultTable, routeQuery.getAllRoutes()); } else { javax.swing.JOptionPane.showMessageDialog(this, "Route not found or failed to delete.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE); } } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE); ex.printStackTrace(); }
+    }//GEN-LAST:event_deleteRouteButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
-    private javax.swing.JButton createBusButton;
-    private javax.swing.JButton deleteBusrButton;
-    private javax.swing.JButton getAllBusesButton;
-    private javax.swing.JButton getBusByIdButton;
+    private javax.swing.JButton createRouteButton;
+    private javax.swing.JButton deleteRouteButton;
+    private javax.swing.JButton getAllRoutesButton;
+    private javax.swing.JButton getRouteByIdButton;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JTable resultTable;
     private javax.swing.JScrollPane tableScrollPane;
-    private javax.swing.JButton updateBusButton;
+    private javax.swing.JButton updateRouteButton;
     // End of variables declaration//GEN-END:variables
 }

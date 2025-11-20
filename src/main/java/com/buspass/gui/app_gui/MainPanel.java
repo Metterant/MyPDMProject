@@ -256,17 +256,18 @@ public class MainPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void driversButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driversButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_driversButtonActionPerformed
-
+    
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         // switchMiddlePanel(USERS_PANEL);
     }//GEN-LAST:event_mainButtonActionPerformed
-
+    
     private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
         switchMiddlePanel(USERS_PANEL);
     }//GEN-LAST:event_usersButtonActionPerformed
+
+    private void driversButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driversButtonActionPerformed
+        switchMiddlePanel(DRIVERS_PANEL);
+    }//GEN-LAST:event_driversButtonActionPerformed
 
     private void busesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busesButtonActionPerformed
         switchMiddlePanel(BUSES_PANEL);
