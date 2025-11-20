@@ -4,6 +4,8 @@
  */
 package com.buspass.gui.auth_gui;
 
+import javax.swing.JOptionPane;
+
 import com.buspass.auth.UserRegister;
 
 /**
@@ -35,7 +37,7 @@ public class RegisterPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         userRegisterLabel = new javax.swing.JLabel();
-        registerFields = new javax.swing.JPanel();
+        registerFieldsPanel = new javax.swing.JPanel();
         passwordLabel = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
@@ -75,8 +77,8 @@ public class RegisterPanel extends javax.swing.JPanel {
         registerButton.setText("Register");
         registerButton.addActionListener(this::registerButtonActionPerformed);
 
-        javax.swing.GroupLayout registerFieldsLayout = new javax.swing.GroupLayout(registerFields);
-        registerFields.setLayout(registerFieldsLayout);
+        javax.swing.GroupLayout registerFieldsLayout = new javax.swing.GroupLayout(registerFieldsPanel);
+        registerFieldsPanel.setLayout(registerFieldsLayout);
         registerFieldsLayout.setHorizontalGroup(
             registerFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerFieldsLayout.createSequentialGroup()
@@ -159,7 +161,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                 .addGap(112, 112, 112)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(loginMessagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registerFields, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(registerFieldsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -168,7 +170,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addComponent(userRegisterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(registerFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerFieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(52, Short.MAX_VALUE))
@@ -189,7 +191,27 @@ public class RegisterPanel extends javax.swing.JPanel {
         passwordField.setText("");
         confirmPasswordField.setText("");
 
-        System.out.println(result);
+        switch(result) {
+            case -3:
+                showDialogInvalidPWs();
+                break;
+            case -2:
+                showDialogUnidenticalPWs();
+                break;
+            case -1:
+                showDialogInvalidUsername();
+                break;
+            case 0:
+                showDialogUserAlreadyExists(username);
+                usernameField.setText("");
+                break;
+            case 1:
+                showDialogRegistrationSuccess(username);
+                usernameField.setText("");
+                break;
+            default:
+                break;
+        }
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
@@ -210,6 +232,25 @@ public class RegisterPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_loginLabelMouseClicked
 
+    private void showDialogInvalidPWs() {
+        JOptionPane.showMessageDialog(null, "Invalid Password!", "Error", JOptionPane.WARNING_MESSAGE);
+    }
+
+    private void showDialogUnidenticalPWs() {
+        JOptionPane.showMessageDialog(null, "Password and Confirm Password are unidentical!", "Error", JOptionPane.WARNING_MESSAGE);
+    }
+
+    private void showDialogInvalidUsername() {
+        JOptionPane.showMessageDialog(null, "Invalid Username!", "Error", JOptionPane.WARNING_MESSAGE);
+    }
+    
+    private void showDialogUserAlreadyExists(String username) {
+        JOptionPane.showMessageDialog(null, "User with Username: " + username + " already exists.", "Registration Failed", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void showDialogRegistrationSuccess(String username) {
+        JOptionPane.showMessageDialog(null, "Registration Successful with Username: " + username, "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField confirmPasswordField;
@@ -220,7 +261,7 @@ public class RegisterPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton registerButton;
-    private javax.swing.JPanel registerFields;
+    private javax.swing.JPanel registerFieldsPanel;
     private javax.swing.JLabel userRegisterLabel;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameLabel;
