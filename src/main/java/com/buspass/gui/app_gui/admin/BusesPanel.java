@@ -42,9 +42,11 @@ public class BusesPanel extends javax.swing.JPanel {
         deleteBusrButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
+        headerPanel = new javax.swing.JPanel();
+        headerLabel = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(943, 445));
-        setMinimumSize(new java.awt.Dimension(943, 445));
+        setMaximumSize(new java.awt.Dimension(943, 545));
+        setMinimumSize(new java.awt.Dimension(943, 545));
 
         buttonScrollPane.setBackground(new java.awt.Color(220, 220, 220));
         buttonScrollPane.setForeground(new java.awt.Color(220, 220, 220));
@@ -150,6 +152,13 @@ public class BusesPanel extends javax.swing.JPanel {
         ));
         tableScrollPane.setViewportView(resultTable);
 
+        headerPanel.setLayout(new java.awt.GridBagLayout());
+
+        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerLabel.setText("BUSES");
+        headerPanel.add(headerLabel, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,6 +166,7 @@ public class BusesPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 201, Short.MAX_VALUE)
                 .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,9 +174,14 @@ public class BusesPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(buttonScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 64, Short.MAX_VALUE)
+                    .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -211,6 +226,8 @@ public class BusesPanel extends javax.swing.JPanel {
     private javax.swing.JButton getAllBusesButton;
     private javax.swing.JButton getBusByIdButton;
     private javax.swing.JButton getTripsWithBusButton;
+    private javax.swing.JLabel headerLabel;
+    private javax.swing.JPanel headerPanel;
     private javax.swing.JTable resultTable;
     private javax.swing.JScrollPane tableScrollPane;
     private javax.swing.JButton updateBusButton;
