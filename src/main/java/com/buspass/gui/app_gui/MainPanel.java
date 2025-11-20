@@ -6,6 +6,11 @@ package com.buspass.gui.app_gui;
 
 import com.buspass.auth.UserLoginSession;
 import com.buspass.gui.PanelSwitcher;
+import com.buspass.gui.app_gui.admin.UsersPanel;
+import java.awt.BorderLayout;
+import java.awt.List;
+
+import javax.swing.JPanel;
 
 /**
  *
@@ -20,6 +25,8 @@ public class MainPanel extends javax.swing.JPanel {
 
     private PanelSwitcher switcher;
 
+    private UsersPanel usersPanel;
+
     public void setPanelSwitcher(PanelSwitcher s) {
         this.switcher = s;
     }
@@ -27,7 +34,12 @@ public class MainPanel extends javax.swing.JPanel {
     public MainPanel(UserLoginSession userLoginSession) {
         initComponents();
         scrollPane.getVerticalScrollBar().setUnitIncrement(20);
+
         this.userLoginSession = userLoginSession;
+        routesButton.setVisible(false);
+        tripButton.setVisible(false);
+
+        usersPanel = new UsersPanel();        
     }
 
     /**
@@ -70,7 +82,7 @@ public class MainPanel extends javax.swing.JPanel {
         );
         middlePanelLayout.setVerticalGroup(
             middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 445, Short.MAX_VALUE)
         );
 
         scrollPane.setBackground(new java.awt.Color(220, 220, 220));
@@ -226,7 +238,7 @@ public class MainPanel extends javax.swing.JPanel {
                 .addComponent(permissionLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(permissionTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 724, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -242,17 +254,23 @@ public class MainPanel extends javax.swing.JPanel {
         );
 
         bottomPanel.setBackground(new java.awt.Color(220, 220, 220));
-        bottomPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        bottomPanel.setMaximumSize(new java.awt.Dimension(1100, 100));
+        bottomPanel.setMinimumSize(new java.awt.Dimension(1100, 100));
+
+        consoleArea.setMaximumSize(new java.awt.Dimension(1100, 100));
+        consoleArea.setMinimumSize(new java.awt.Dimension(1100, 100));
+        consoleArea.setName(""); // NOI18N
+        consoleArea.setPreferredSize(new java.awt.Dimension(1100, 100));
 
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(consoleArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(consoleArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(consoleArea, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(consoleArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -273,8 +291,8 @@ public class MainPanel extends javax.swing.JPanel {
                 .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
-                    .addComponent(middlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(middlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scrollPane))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bottomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -290,6 +308,7 @@ public class MainPanel extends javax.swing.JPanel {
 
     private void usersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersButtonMouseClicked
         // TODO add your handling code here:
+        switchMiddlePanel(usersPanel);
     }//GEN-LAST:event_usersButtonMouseClicked
 
     private void driversButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driversButtonMouseClicked
@@ -320,6 +339,19 @@ public class MainPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_customSqlButtonMouseClicked
 
+    private void switchMiddlePanel(JPanel childPanel) {
+        // embed the UsersPanel into the middlePanel
+        try {
+            middlePanel.removeAll();
+            middlePanel.setLayout(new BorderLayout());
+            middlePanel.add(childPanel, BorderLayout.CENTER);
+            middlePanel.revalidate();
+            middlePanel.repaint();
+        } catch (Exception e) {
+            // keep UI resilient if UsersPanel construction fails
+            e.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;

@@ -52,7 +52,6 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
     @Override
     public void showPanel(String name) {
         // ensure change happens on EDT
-        System.out.println("AHDASIHD:AHD:As");
         if (SwingUtilities.isEventDispatchThread()) {
             cardLayout.show(cards, name);
         } else {
