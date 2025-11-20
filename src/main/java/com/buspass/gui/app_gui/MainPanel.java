@@ -5,6 +5,7 @@
 package com.buspass.gui.app_gui;
 
 import com.buspass.auth.UserLoginSession;
+import com.buspass.auth.UserRegister;
 import com.buspass.gui.PanelSwitcher;
 import com.buspass.gui.app_gui.admin.*;
 
@@ -260,11 +261,11 @@ public class MainPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_driversButtonActionPerformed
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
-        switchMiddlePanel(USERS_PANEL);
+        // switchMiddlePanel(USERS_PANEL);
     }//GEN-LAST:event_mainButtonActionPerformed
 
     private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
-        switchMiddlePanel(DRIVERS_PANEL);
+        switchMiddlePanel(USERS_PANEL);
     }//GEN-LAST:event_usersButtonActionPerformed
 
     private void busesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busesButtonActionPerformed
