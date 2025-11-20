@@ -8,9 +8,9 @@ import com.buspass.queries.UserService;
 import com.buspass.utils.AuthUtils;
 
 public class UserLoginSession {
-    private int userId;
-    private int userRoleId;
-    private int age;
+    private Integer userId;
+    private Integer userRoleId;
+    private Integer age;
     private String username;
     private String fullName;
     private String address;
@@ -18,18 +18,18 @@ public class UserLoginSession {
 
     UserService userService = new UserService();
 
-    public int getUserId()         { return userId; }
-    public int getUserRoleId()     { return userRoleId; }
-    public int getAge()            { return age; }
+    public Integer getUserId()     { return userId; }
+    public Integer getUserRoleId() { return userRoleId; }
+    public Integer getAge()        { return age; }
     public String getUsername()    { return username; }
     public String getFullName()    { return fullName; }
     public String getAddress()     { return address; }
     public String getPhoneNumber() { return phoneNumber;}
 
 
-    private void setUserId(int userId)              { this.userId = userId; }
-    private void setUserRoleId(int userRoleId)      { this.userRoleId = userRoleId; }
-    private void setAge(int age)                    { this.age = age; }
+    private void setUserId(Integer userId)          { this.userId = userId; }
+    private void setUserRoleId(Integer userRoleId)  { this.userRoleId = userRoleId; }
+    private void setAge(Integer age)                { this.age = age; }
     private void setUsername(String username)       { this.username = username; }
     private void setFullName(String fullName)       { this.fullName = fullName; }
     private void setAddress(String address)         { this.address = address; }
@@ -86,6 +86,7 @@ public class UserLoginSession {
     }
 
     private void setInfo(String username, Map<String, Object> userInfo) {
+        clearSessionInfo();
         setUsername(username);
 
         Object userIdObj   = userInfo.get("UserID");
@@ -109,7 +110,13 @@ public class UserLoginSession {
                 setPhoneNumber(phoneObj.toString());
     }
 
-    // private void clearInfo() {
-
-    // }
+    private void clearSessionInfo() {
+        userId = null;
+        userRoleId = null;
+        age = null;
+        username = null;
+        fullName = null;
+        address = null;
+        phoneNumber = null;
+    }
 }
