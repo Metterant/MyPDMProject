@@ -1,5 +1,6 @@
 package com.buspass.queries;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class UserService {
      * @param phone
      * @param address
      * @param userRoleID: Use dropdown menu (1 -> Passenger, 2 -> Admin)
-     * @return
+     * @return true if the user has been registered successfully
      */
     public boolean registerUser(String username, String plainPassword, String fullName, int age, String phone, String address, int userRoleID) {
         String sql = "INSERT INTO user(Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID) " +
@@ -27,8 +28,35 @@ public class UserService {
         String hashPW = AuthUtils.hashPassword(plainPassword);
         fullName = StringUtils.normalizeStr(fullName);
 
+        int rowsAffected = 0;
+        try {
+            rowsAffected = QueryExecutionModule.executeUpdate(sql, username, hashPW , fullName, age, phone, address, userRoleID);
+        }
+        catch (Exception e) {
+            QueryExecutionModule.executeUpdate("ALTER TABLE User AUTO_INCREMENT = LAST_INSERT_ID()");
+        }
+        return rowsAffected > 0;
+    }
 
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, hashPW , fullName, age, phone, address, userRoleID);
+    /**
+     * Create a User with only username and password
+     * @param username
+     * @param plainPassword
+     * @return true if the user has been registered successfully
+     */
+    public boolean registerUser(String username, String plainPassword) {
+        String sql = "INSERT INTO user(Username, UserPassword, UserRoleID) " +
+                "VALUES (?, ?, 1)";
+
+        String hashPW = AuthUtils.hashPassword(plainPassword);
+
+        int rowsAffected = 0;
+        try {
+            rowsAffected = QueryExecutionModule.executeUpdate(sql, username, hashPW);
+        }
+        catch (Exception e) {
+            QueryExecutionModule.executeUpdate("ALTER TABLE User AUTO_INCREMENT = LAST_INSERT_ID()");
+        }
         return rowsAffected > 0;
     }
 
