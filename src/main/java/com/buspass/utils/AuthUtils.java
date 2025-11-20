@@ -19,6 +19,10 @@ public class AuthUtils {
         return ok;
     }
 
+    public static boolean isValidPassword(String plainPW) {
+        return !plainPW.contains(" ");
+    }
+
     public static String hashPassword(String plain) {
         if (plain.isEmpty()) return "";
         
