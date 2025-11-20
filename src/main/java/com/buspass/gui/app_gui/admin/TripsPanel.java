@@ -210,11 +210,21 @@ public class TripsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getAllTripsButtonActionPerformed
 
     private void routesAndTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routesAndTripsButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            middlePanel.setTableContents(resultTable, tripQuery.getTripsWithJoin());
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching routes and trips: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_routesAndTripsButtonActionPerformed
 
     private void joinedQueryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinedQueryButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            middlePanel.setTableContents(resultTable, tripQuery.getTripsWithJoinAndDrivers());
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error fetching joined query: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_joinedQueryButtonActionPerformed
 
     private void createTripButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createTripButtonActionPerformed
@@ -222,7 +232,17 @@ public class TripsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_createTripButtonActionPerformed
 
     private void deleteTriprButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTriprButtonActionPerformed
-        // TODO add your handling code here:
+        String input = javax.swing.JOptionPane.showInputDialog(this, "Enter TripID to delete:", "Delete Trip", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (input == null) return;
+        input = input.trim();
+        if (input.isEmpty()) { javax.swing.JOptionPane.showMessageDialog(this, "TripID required.", "Input", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+        int tripId; try { tripId = Integer.parseInt(input); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid TripID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Delete TripID " + tripId + "?", "Confirm", javax.swing.JOptionPane.YES_NO_OPTION); if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+        try {
+            boolean ok = tripQuery.removeTrip(tripId);
+            if (ok) { javax.swing.JOptionPane.showMessageDialog(this, "Trip deleted.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE); middlePanel.setTableContents(resultTable, tripQuery.getAllTrips()); }
+            else { javax.swing.JOptionPane.showMessageDialog(this, "Trip not found or failed to delete.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE); }
+        } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Error deleting trip: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE); ex.printStackTrace(); }
     }//GEN-LAST:event_deleteTriprButtonActionPerformed
 
 

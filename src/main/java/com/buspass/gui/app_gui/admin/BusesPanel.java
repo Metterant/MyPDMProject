@@ -223,42 +223,7 @@ public class BusesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getTripsWithBusButtonActionPerformed
 
     private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed
-        String plate = javax.swing.JOptionPane.showInputDialog(this, "Enter Plate Number:", "Create Bus", javax.swing.JOptionPane.QUESTION_MESSAGE);
-        if (plate == null) return;
-        plate = plate.trim();
-        if (plate.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Plate number cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        String capStr = javax.swing.JOptionPane.showInputDialog(this, "Enter Capacity (integer):", "Create Bus", javax.swing.JOptionPane.QUESTION_MESSAGE);
-        if (capStr == null) return;
-        int capacity = 0;
-        try { capacity = Integer.parseInt(capStr.trim()); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid capacity.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
-
-        String driverIdStr = javax.swing.JOptionPane.showInputDialog(this, "Enter DriverID (or leave empty):", "Create Bus", javax.swing.JOptionPane.QUESTION_MESSAGE);
-        Integer driverId = null;
-        if (driverIdStr != null && !driverIdStr.trim().isEmpty()) {
-            try { driverId = Integer.parseInt(driverIdStr.trim()); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid DriverID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
-        }
-
-        String routeIdStr = javax.swing.JOptionPane.showInputDialog(this, "Enter RouteID (or leave empty):", "Create Bus", javax.swing.JOptionPane.QUESTION_MESSAGE);
-        Integer routeId = null;
-        if (routeIdStr != null && !routeIdStr.trim().isEmpty()) {
-            try { routeId = Integer.parseInt(routeIdStr.trim()); } catch (NumberFormatException e) { javax.swing.JOptionPane.showMessageDialog(this, "Invalid RouteID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE); return; }
-        }
-
-        try {
-            boolean ok = busQuery.registerBus(plate, capacity, driverId == null ? 0 : driverId, routeId == null ? 0 : routeId);
-            if (ok) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Bus created.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                middlePanel.setTableContents(resultTable, busQuery.getAllBuses());
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Failed to create bus.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error creating bus: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
-        }
+        
     }//GEN-LAST:event_createBusButtonActionPerformed
 
     private void deleteBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusButtonActionPerformed

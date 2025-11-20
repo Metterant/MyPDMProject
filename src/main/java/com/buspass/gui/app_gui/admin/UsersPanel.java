@@ -203,29 +203,7 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getAllUsersButtonActionPerformed
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
-        String username = javax.swing.JOptionPane.showInputDialog(this, "Enter username:", "Create User", javax.swing.JOptionPane.QUESTION_MESSAGE);
-        if (username == null) return;
-        username = username.trim();
-        if (username.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Username cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        String password = javax.swing.JOptionPane.showInputDialog(this, "Enter password:", "Create User", javax.swing.JOptionPane.QUESTION_MESSAGE);
-        if (password == null) return;
-
-        try {
-            boolean ok = userService.registerUser(username, password);
-            if (ok) {
-                javax.swing.JOptionPane.showMessageDialog(this, "User created successfully.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                middlePanel.setTableContents(resultTable, userService.getAllUsers());
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Failed to create user. Username may already exist.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error creating user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
-        }
+        
     }//GEN-LAST:event_createUserButtonActionPerformed
 
     private void findIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIdButtonActionPerformed
