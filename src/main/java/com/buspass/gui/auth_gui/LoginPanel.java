@@ -37,7 +37,7 @@ public class LoginPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         userLoginLabel = new javax.swing.JLabel();
-        loginFields = new javax.swing.JPanel();
+        loginFieldsPanel = new javax.swing.JPanel();
         usernameLabel = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
@@ -81,8 +81,8 @@ public class LoginPanel extends javax.swing.JPanel {
         loginButton.setText("Login");
         loginButton.addActionListener(this::loginButtonActionPerformed);
 
-        javax.swing.GroupLayout loginFieldsLayout = new javax.swing.GroupLayout(loginFields);
-        loginFields.setLayout(loginFieldsLayout);
+        javax.swing.GroupLayout loginFieldsLayout = new javax.swing.GroupLayout(loginFieldsPanel);
+        loginFieldsPanel.setLayout(loginFieldsLayout);
         loginFieldsLayout.setHorizontalGroup(
             loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginFieldsLayout.createSequentialGroup()
@@ -166,7 +166,7 @@ public class LoginPanel extends javax.swing.JPanel {
                         .addGap(74, 74, 74))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(registerMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(loginFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(loginFieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -175,7 +175,7 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGap(75, 75, 75)
                 .addComponent(userLoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginFieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(registerMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
@@ -213,7 +213,7 @@ public class LoginPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel forgotPasswordLabel;
     private javax.swing.JButton loginButton;
-    private javax.swing.JPanel loginFields;
+    private javax.swing.JPanel loginFieldsPanel;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
