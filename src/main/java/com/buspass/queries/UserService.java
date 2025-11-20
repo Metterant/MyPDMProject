@@ -103,6 +103,23 @@ public class UserService {
 
     //#region ADMIN PRIVILEDGES
     
+    /**
+     * Return the UserID of the the User who has the Username
+     * @param username The Username of the User to be found
+     * @return either -1 or the UserID of a User
+     */
+    public int getIdByUsername(String username) {
+        String sql = "SELECT UserID FROM User WHERE Username = ? ";
+        List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, username);
+        if (users == null)
+            return -1;
+            
+        Map<String, Object> user = users.get(0);
+        int userId = Integer.parseInt(user.get("UserID").toString());
+
+        return userId;
+    }
+
     public List<Map<String, Object>> getAllUsers() {
         String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
