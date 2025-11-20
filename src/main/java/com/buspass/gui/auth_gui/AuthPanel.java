@@ -19,6 +19,15 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
 
     private final LoginPanel loginPanel;
     private final RegisterPanel registerPanel;
+    private PanelSwitcher appPanelSwitcher;
+
+    public void setPanelSwitcher(PanelSwitcher s) {
+        this.appPanelSwitcher = s;
+        // forward the app-level switcher to child panels (they may have been created earlier)
+        if (loginPanel != null) {
+            loginPanel.setAppPanelSwitcher(appPanelSwitcher);
+        }
+    }
 
     public AuthPanel(UserLoginSession userLoginSession) {
         setLayout(new BorderLayout());
@@ -27,7 +36,8 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
         registerPanel = new RegisterPanel();
 
         // give child panels the callback so they can ask the parent to switch
-        loginPanel.setPanelSwitcher(this);
+        loginPanel.setAuthPanelSwitcher(this);
+        // appPanelSwitcher will be forwarded to children when set via setPanelSwitcher(...)
         registerPanel.setPanelSwitcher(this);
 
         cards.add(loginPanel, LOGIN);
@@ -42,6 +52,7 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
     @Override
     public void showPanel(String name) {
         // ensure change happens on EDT
+        System.out.println("AHDASIHD:AHD:As");
         if (SwingUtilities.isEventDispatchThread()) {
             cardLayout.show(cards, name);
         } else {

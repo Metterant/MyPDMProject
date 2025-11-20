@@ -119,6 +119,9 @@
                   <Dimension value="[125, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mainButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="usersButton">
               <Properties>
@@ -141,6 +144,9 @@
                   <Dimension value="[125, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="usersButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="driversButton">
               <Properties>
@@ -164,6 +170,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="driversButtonMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="driversButtonActionPerformed"/>
               </Events>
             </Component>
@@ -188,6 +195,9 @@
                   <Dimension value="[125, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="busesButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="routesButton">
               <Properties>
@@ -210,6 +220,9 @@
                   <Dimension value="[125, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="routesButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="tripButton">
               <Properties>
@@ -232,6 +245,9 @@
                   <Dimension value="[125, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tripButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ticketsButton">
               <Properties>
@@ -254,6 +270,9 @@
                   <Dimension value="[125, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ticketsButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="paymentsButton">
               <Properties>
@@ -276,6 +295,9 @@
                   <Dimension value="[125, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="paymentsButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="customSqlButton">
               <Properties>
@@ -298,6 +320,9 @@
                   <Dimension value="[125, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="customSqlButtonMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

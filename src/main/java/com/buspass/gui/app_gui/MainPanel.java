@@ -5,6 +5,7 @@
 package com.buspass.gui.app_gui;
 
 import com.buspass.auth.UserLoginSession;
+import com.buspass.gui.PanelSwitcher;
 
 /**
  *
@@ -16,6 +17,12 @@ public class MainPanel extends javax.swing.JPanel {
      * Creates new form MainPanel
      */
     UserLoginSession userLoginSession;
+
+    private PanelSwitcher switcher;
+
+    public void setPanelSwitcher(PanelSwitcher s) {
+        this.switcher = s;
+    }
 
     public MainPanel(UserLoginSession userLoginSession) {
         initComponents();
@@ -81,6 +88,11 @@ public class MainPanel extends javax.swing.JPanel {
         mainButton.setMaximumSize(new java.awt.Dimension(125, 40));
         mainButton.setMinimumSize(new java.awt.Dimension(125, 40));
         mainButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        mainButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mainButtonMouseClicked(evt);
+            }
+        });
         buttonPanel.add(mainButton);
 
         usersButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -89,6 +101,11 @@ public class MainPanel extends javax.swing.JPanel {
         usersButton.setMaximumSize(new java.awt.Dimension(125, 40));
         usersButton.setMinimumSize(new java.awt.Dimension(125, 40));
         usersButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        usersButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usersButtonMouseClicked(evt);
+            }
+        });
         buttonPanel.add(usersButton);
 
         driversButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -97,6 +114,11 @@ public class MainPanel extends javax.swing.JPanel {
         driversButton.setMaximumSize(new java.awt.Dimension(125, 40));
         driversButton.setMinimumSize(new java.awt.Dimension(125, 40));
         driversButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        driversButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                driversButtonMouseClicked(evt);
+            }
+        });
         driversButton.addActionListener(this::driversButtonActionPerformed);
         buttonPanel.add(driversButton);
 
@@ -106,6 +128,11 @@ public class MainPanel extends javax.swing.JPanel {
         busesButton.setMaximumSize(new java.awt.Dimension(125, 40));
         busesButton.setMinimumSize(new java.awt.Dimension(125, 40));
         busesButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        busesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                busesButtonMouseClicked(evt);
+            }
+        });
         buttonPanel.add(busesButton);
 
         routesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -114,6 +141,11 @@ public class MainPanel extends javax.swing.JPanel {
         routesButton.setMaximumSize(new java.awt.Dimension(125, 40));
         routesButton.setMinimumSize(new java.awt.Dimension(125, 40));
         routesButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        routesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                routesButtonMouseClicked(evt);
+            }
+        });
         buttonPanel.add(routesButton);
 
         tripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -122,6 +154,11 @@ public class MainPanel extends javax.swing.JPanel {
         tripButton.setMaximumSize(new java.awt.Dimension(125, 40));
         tripButton.setMinimumSize(new java.awt.Dimension(125, 40));
         tripButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        tripButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tripButtonMouseClicked(evt);
+            }
+        });
         buttonPanel.add(tripButton);
 
         ticketsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -130,6 +167,11 @@ public class MainPanel extends javax.swing.JPanel {
         ticketsButton.setMaximumSize(new java.awt.Dimension(125, 40));
         ticketsButton.setMinimumSize(new java.awt.Dimension(125, 40));
         ticketsButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        ticketsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ticketsButtonMouseClicked(evt);
+            }
+        });
         buttonPanel.add(ticketsButton);
 
         paymentsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -138,6 +180,11 @@ public class MainPanel extends javax.swing.JPanel {
         paymentsButton.setMaximumSize(new java.awt.Dimension(125, 40));
         paymentsButton.setMinimumSize(new java.awt.Dimension(125, 40));
         paymentsButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        paymentsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                paymentsButtonMouseClicked(evt);
+            }
+        });
         buttonPanel.add(paymentsButton);
 
         customSqlButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -146,6 +193,11 @@ public class MainPanel extends javax.swing.JPanel {
         customSqlButton.setMaximumSize(new java.awt.Dimension(125, 40));
         customSqlButton.setMinimumSize(new java.awt.Dimension(125, 40));
         customSqlButton.setPreferredSize(new java.awt.Dimension(125, 40));
+        customSqlButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customSqlButtonMouseClicked(evt);
+            }
+        });
         buttonPanel.add(customSqlButton);
 
         scrollPane.setViewportView(buttonPanel);
@@ -231,6 +283,42 @@ public class MainPanel extends javax.swing.JPanel {
     private void driversButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driversButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_driversButtonActionPerformed
+
+    private void mainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mainButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mainButtonMouseClicked
+
+    private void usersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usersButtonMouseClicked
+
+    private void driversButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driversButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_driversButtonMouseClicked
+
+    private void busesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busesButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busesButtonMouseClicked
+
+    private void routesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_routesButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_routesButtonMouseClicked
+
+    private void tripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tripButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tripButtonMouseClicked
+
+    private void ticketsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticketsButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ticketsButtonMouseClicked
+
+    private void paymentsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentsButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paymentsButtonMouseClicked
+
+    private void customSqlButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customSqlButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customSqlButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

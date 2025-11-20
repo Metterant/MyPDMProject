@@ -15,7 +15,8 @@ import com.buspass.gui.PanelSwitcher;
  */
 public class LoginPanel extends javax.swing.JPanel {
 
-    private PanelSwitcher switcher;
+    private PanelSwitcher appPanelSwitcher;
+    private PanelSwitcher authPanelSwitcher;
     private UserLoginSession userLoginSession;
 
     /**
@@ -25,9 +26,13 @@ public class LoginPanel extends javax.swing.JPanel {
         this.userLoginSession = userLogin;
         initComponents();
     }
-
-    public void setPanelSwitcher(PanelSwitcher s) {
-        this.switcher = s;
+    
+    public void setAppPanelSwitcher(PanelSwitcher s) {
+        System.out.println(s);
+        this.appPanelSwitcher = s;
+    }
+    public void setAuthPanelSwitcher(PanelSwitcher s) {
+        this.authPanelSwitcher = s;
     }
 
     /**
@@ -201,12 +206,17 @@ public class LoginPanel extends javax.swing.JPanel {
                 break;
                 case 1:
                     showDialogLoginSuccess(username);
+
                     System.out.println(userLoginSession.getUserId());
                     System.out.println(userLoginSession.getFullName());
                     System.out.println(userLoginSession.getAge());
                     System.out.println(userLoginSession.getAddress());
                     System.out.println(userLoginSession.getPhoneNumber());
                     System.out.println(userLoginSession.getUserRoleId());
+
+                    if (appPanelSwitcher != null) {
+                        appPanelSwitcher.showPanel("main");
+                    }
                     break;
             default:
                 break;
@@ -226,8 +236,8 @@ public class LoginPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_forgotPasswordLabelMouseClicked
 
     private void registerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLabelMouseClicked
-        if (switcher != null) {
-            switcher.showPanel(AuthPanel.REGISTER);
+        if (authPanelSwitcher != null) {
+            authPanelSwitcher.showPanel(AuthPanel.REGISTER);
         }
     }//GEN-LAST:event_registerLabelMouseClicked
 

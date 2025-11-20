@@ -36,9 +36,10 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         // Create and add AuthPanel (login/register) to the frame
-        authPanel = new AuthPanel(userLoginSession);
+        // authPanel = new AuthPanel(userLoginSession);
+        appPanel = new AppPanel(userLoginSession);
         getContentPane().setLayout(new java.awt.BorderLayout());
-        getContentPane().add(authPanel, java.awt.BorderLayout.CENTER);
+        getContentPane().add(appPanel, java.awt.BorderLayout.CENTER);
         
         pack();
         setLocationRelativeTo(null);
@@ -70,6 +71,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private AuthPanel authPanel;
+    // private AuthPanel authPanel;
+    private AppPanel appPanel;
     // End of variables declaration//GEN-END:variables
 }
