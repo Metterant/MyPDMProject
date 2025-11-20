@@ -43,23 +43,58 @@ public class LoginPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        userLoginLabel = new javax.swing.JLabel();
-        loginFieldsPanel = new javax.swing.JPanel();
+        centerPanel = new javax.swing.JPanel();
+        registerMessagePanel = new javax.swing.JPanel();
+        registerLabel = new javax.swing.JLabel();
+        messageLabel = new javax.swing.JLabel();
+        loginFields = new javax.swing.JPanel();
         usernameLabel = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         forgotPasswordLabel = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         loginButton = new javax.swing.JButton();
-        registerMessagePanel = new javax.swing.JPanel();
-        registerLabel = new javax.swing.JLabel();
-        messageLabel = new javax.swing.JLabel();
+        userLoginLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(496, 500));
+        setMaximumSize(new java.awt.Dimension(1100, 600));
+        setMinimumSize(new java.awt.Dimension(1100, 600));
+        setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        userLoginLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        userLoginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userLoginLabel.setText("LOGIN");
+        registerLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        registerLabel.setForeground(new java.awt.Color(0, 0, 255));
+        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        registerLabel.setText("Register Account");
+        registerLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerLabelMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registerLabelMousePressed(evt);
+            }
+        });
+
+        messageLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        messageLabel.setText("New to Digital Bus Pass?");
+
+        javax.swing.GroupLayout registerMessagePanelLayout = new javax.swing.GroupLayout(registerMessagePanel);
+        registerMessagePanel.setLayout(registerMessagePanelLayout);
+        registerMessagePanelLayout.setHorizontalGroup(
+            registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registerMessagePanelLayout.createSequentialGroup()
+                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        registerMessagePanelLayout.setVerticalGroup(
+            registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerMessagePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
+        );
 
         usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         usernameLabel.setText("Username");
@@ -88,8 +123,8 @@ public class LoginPanel extends javax.swing.JPanel {
         loginButton.setText("Login");
         loginButton.addActionListener(this::loginButtonActionPerformed);
 
-        javax.swing.GroupLayout loginFieldsLayout = new javax.swing.GroupLayout(loginFieldsPanel);
-        loginFieldsPanel.setLayout(loginFieldsLayout);
+        javax.swing.GroupLayout loginFieldsLayout = new javax.swing.GroupLayout(loginFields);
+        loginFields.setLayout(loginFieldsLayout);
         loginFieldsLayout.setHorizontalGroup(
             loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginFieldsLayout.createSequentialGroup()
@@ -128,65 +163,38 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        registerLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        registerLabel.setForeground(new java.awt.Color(0, 0, 255));
-        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        registerLabel.setText("Register Account");
-        registerLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerLabelMouseClicked(evt);
-            }
-        });
+        userLoginLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        userLoginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userLoginLabel.setText("LOGIN");
 
-        messageLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        messageLabel.setText("New to Digital Bus Pass?");
-
-        javax.swing.GroupLayout registerMessagePanelLayout = new javax.swing.GroupLayout(registerMessagePanel);
-        registerMessagePanel.setLayout(registerMessagePanelLayout);
-        registerMessagePanelLayout.setHorizontalGroup(
-            registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(registerMessagePanelLayout.createSequentialGroup()
-                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        registerMessagePanelLayout.setVerticalGroup(
-            registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerMessagePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout centerPanelLayout = new javax.swing.GroupLayout(centerPanel);
+        centerPanel.setLayout(centerPanelLayout);
+        centerPanelLayout.setHorizontalGroup(
+            centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centerPanelLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(centerPanelLayout.createSequentialGroup()
                         .addComponent(userLoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(74, 74, 74))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(registerMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(loginFieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                        .addComponent(loginFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+        centerPanelLayout.setVerticalGroup(
+            centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centerPanelLayout.createSequentialGroup()
+                .addContainerGap(113, Short.MAX_VALUE)
                 .addComponent(userLoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginFieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(registerMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(109, 109, 109))
         );
+
+        add(centerPanel);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
@@ -235,10 +243,14 @@ public class LoginPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_forgotPasswordLabelMouseClicked
 
     private void registerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLabelMouseClicked
+        
+    }//GEN-LAST:event_registerLabelMouseClicked
+
+    private void registerLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLabelMousePressed
         if (authPanelSwitcher != null) {
             authPanelSwitcher.showPanel(AuthPanel.REGISTER);
         }
-    }//GEN-LAST:event_registerLabelMouseClicked
+    }//GEN-LAST:event_registerLabelMousePressed
 
     private void showDialogUserNotFound() {
         JOptionPane.showMessageDialog(null, "User not found!", "Login Failed", JOptionPane.INFORMATION_MESSAGE);
@@ -253,9 +265,10 @@ public class LoginPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel centerPanel;
     private javax.swing.JLabel forgotPasswordLabel;
     private javax.swing.JButton loginButton;
-    private javax.swing.JPanel loginFieldsPanel;
+    private javax.swing.JPanel loginFields;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
