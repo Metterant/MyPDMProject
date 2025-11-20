@@ -6,9 +6,9 @@ package com.buspass.gui.app_gui;
 
 import com.buspass.auth.UserLoginSession;
 import com.buspass.gui.PanelSwitcher;
+import com.buspass.gui.app_gui.admin.BusesPanel;
 import com.buspass.gui.app_gui.admin.UsersPanel;
 import java.awt.BorderLayout;
-import java.awt.List;
 
 import javax.swing.JPanel;
 
@@ -26,6 +26,10 @@ public class MainPanel extends javax.swing.JPanel {
     private PanelSwitcher switcher;
 
     private UsersPanel usersPanel;
+    private JPanel[] panels = new JPanel[9];
+
+    private static final int USERS_PANEL = 0;
+    private static final int BUSES_PANEL = 1;
 
     public void setPanelSwitcher(PanelSwitcher s) {
         this.switcher = s;
@@ -36,10 +40,11 @@ public class MainPanel extends javax.swing.JPanel {
         scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
         this.userLoginSession = userLoginSession;
-        routesButton.setVisible(false);
-        tripButton.setVisible(false);
+        // routesButton.setVisible(false);
+        // tripButton.setVisible(false);
 
-        usersPanel = new UsersPanel();        
+        panels[USERS_PANEL] = new UsersPanel();      
+        panels[BUSES_PANEL] = new BusesPanel();  
     }
 
     /**
@@ -308,7 +313,7 @@ public class MainPanel extends javax.swing.JPanel {
 
     private void usersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersButtonMouseClicked
         // TODO add your handling code here:
-        switchMiddlePanel(usersPanel);
+        switchMiddlePanel(USERS_PANEL);
     }//GEN-LAST:event_usersButtonMouseClicked
 
     private void driversButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driversButtonMouseClicked
@@ -317,6 +322,7 @@ public class MainPanel extends javax.swing.JPanel {
 
     private void busesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busesButtonMouseClicked
         // TODO add your handling code here:
+        switchMiddlePanel(BUSES_PANEL);
     }//GEN-LAST:event_busesButtonMouseClicked
 
     private void routesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_routesButtonMouseClicked
@@ -339,12 +345,12 @@ public class MainPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_customSqlButtonMouseClicked
 
-    private void switchMiddlePanel(JPanel childPanel) {
+    private void switchMiddlePanel(int childPanel) {
         // embed the UsersPanel into the middlePanel
         try {
             middlePanel.removeAll();
             middlePanel.setLayout(new BorderLayout());
-            middlePanel.add(childPanel, BorderLayout.CENTER);
+            middlePanel.add(panels[childPanel], BorderLayout.CENTER);
             middlePanel.revalidate();
             middlePanel.repaint();
         } catch (Exception e) {

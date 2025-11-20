@@ -4,6 +4,9 @@
  */
 package com.buspass.gui.app_gui.admin;
 
+import com.buspass.queries.BusQuery;
+import com.buspass.queries.UserService;
+
 /**
  *
  * @author USER
@@ -17,6 +20,9 @@ public class BusesPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    private MiddlePanel middlePanel = new MiddlePanel();
+    private BusQuery busQuery = new BusQuery();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,12 +34,12 @@ public class BusesPanel extends javax.swing.JPanel {
 
         buttonScrollPane = new javax.swing.JScrollPane();
         buttonPanel = new javax.swing.JPanel();
-        getUserByIdButton = new javax.swing.JButton();
-        getAllUsersButton = new javax.swing.JButton();
-        findIdButton = new javax.swing.JButton();
-        updateUserButton = new javax.swing.JButton();
-        createUserButton = new javax.swing.JButton();
-        deleteUserButton = new javax.swing.JButton();
+        getBusByIdButton = new javax.swing.JButton();
+        getAllBusesButton = new javax.swing.JButton();
+        getTripsWithBusButton = new javax.swing.JButton();
+        updateBusButton = new javax.swing.JButton();
+        createBusButton = new javax.swing.JButton();
+        deleteBusrButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
 
@@ -49,85 +55,85 @@ public class BusesPanel extends javax.swing.JPanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        getUserByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getUserByIdButton.setText("Get Bus By ID");
-        getUserByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getUserByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        getUserByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        getUserByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getUserByIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        getBusByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getBusByIdButton.setText("Get Bus By ID");
+        getBusByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getBusByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        getBusByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        getBusByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        getBusByIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getUserByIdButtonMouseClicked(evt);
+                getBusByIdButtonMouseClicked(evt);
             }
         });
-        getUserByIdButton.addActionListener(this::getUserByIdButtonActionPerformed);
-        buttonPanel.add(getUserByIdButton);
+        getBusByIdButton.addActionListener(this::getBusByIdButtonActionPerformed);
+        buttonPanel.add(getBusByIdButton);
 
-        getAllUsersButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getAllUsersButton.setText("Get All Buses");
-        getAllUsersButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getAllUsersButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        getAllUsersButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        getAllUsersButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getAllUsersButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        getAllBusesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getAllBusesButton.setText("Get All Buses");
+        getAllBusesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getAllBusesButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        getAllBusesButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        getAllBusesButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        getAllBusesButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                getAllUsersButtonMouseClicked(evt);
+                getAllBusesButtonMouseClicked(evt);
             }
         });
-        buttonPanel.add(getAllUsersButton);
+        buttonPanel.add(getAllBusesButton);
 
-        findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        findIdButton.setText("Get Trips with Bus");
-        findIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        findIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        findIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        findIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        findIdButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        getTripsWithBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getTripsWithBusButton.setText("Get Trips with Bus");
+        getTripsWithBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getTripsWithBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        getTripsWithBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        getTripsWithBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        getTripsWithBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                findIdButtonMouseClicked(evt);
+                getTripsWithBusButtonMouseClicked(evt);
             }
         });
-        buttonPanel.add(findIdButton);
+        buttonPanel.add(getTripsWithBusButton);
 
-        updateUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        updateUserButton.setText("Update Bus");
-        updateUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        updateUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        updateUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateBusButton.setText("Update Bus");
+        updateBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        updateBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        updateBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        updateBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateUserButtonMouseClicked(evt);
+                updateBusButtonMouseClicked(evt);
             }
         });
-        updateUserButton.addActionListener(this::updateUserButtonActionPerformed);
-        buttonPanel.add(updateUserButton);
+        updateBusButton.addActionListener(this::updateBusButtonActionPerformed);
+        buttonPanel.add(updateBusButton);
 
-        createUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        createUserButton.setText("Create Bus");
-        createUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        createUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        createUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        createUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        createBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createBusButton.setText("Create Bus");
+        createBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        createBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        createBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        createBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        createBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                createUserButtonMouseClicked(evt);
+                createBusButtonMouseClicked(evt);
             }
         });
-        buttonPanel.add(createUserButton);
+        buttonPanel.add(createBusButton);
 
-        deleteUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteUserButton.setText("Delete Bus");
-        deleteUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        deleteUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        deleteUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        deleteBusrButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteBusrButton.setText("Delete Bus");
+        deleteBusrButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteBusrButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        deleteBusrButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        deleteBusrButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        deleteBusrButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteUserButtonMouseClicked(evt);
+                deleteBusrButtonMouseClicked(evt);
             }
         });
-        buttonPanel.add(deleteUserButton);
+        buttonPanel.add(deleteBusrButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
 
@@ -164,49 +170,49 @@ public class BusesPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserButtonActionPerformed
+    private void updateBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBusButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateUserButtonActionPerformed
+    }//GEN-LAST:event_updateBusButtonActionPerformed
 
-    private void getUserByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUserByIdButtonActionPerformed
+    private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBusByIdButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_getUserByIdButtonActionPerformed
+    }//GEN-LAST:event_getBusByIdButtonActionPerformed
 
-    private void getUserByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getUserByIdButtonMouseClicked
+    private void getBusByIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getBusByIdButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_getUserByIdButtonMouseClicked
+    }//GEN-LAST:event_getBusByIdButtonMouseClicked
 
-    private void getAllUsersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllUsersButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getAllUsersButtonMouseClicked
+    private void getAllBusesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllBusesButtonMouseClicked
+        middlePanel.setTableContents(resultTable, busQuery.getAllBuses());
+    }//GEN-LAST:event_getAllBusesButtonMouseClicked
 
-    private void updateUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateUserButtonMouseClicked
+    private void updateBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBusButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateUserButtonMouseClicked
+    }//GEN-LAST:event_updateBusButtonMouseClicked
 
-    private void createUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createUserButtonMouseClicked
+    private void createBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBusButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_createUserButtonMouseClicked
+    }//GEN-LAST:event_createBusButtonMouseClicked
 
-    private void findIdButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findIdButtonMouseClicked
+    private void getTripsWithBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getTripsWithBusButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_findIdButtonMouseClicked
+    }//GEN-LAST:event_getTripsWithBusButtonMouseClicked
 
-    private void deleteUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteUserButtonMouseClicked
+    private void deleteBusrButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBusrButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteUserButtonMouseClicked
+    }//GEN-LAST:event_deleteBusrButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
-    private javax.swing.JButton createUserButton;
-    private javax.swing.JButton deleteUserButton;
-    private javax.swing.JButton findIdButton;
-    private javax.swing.JButton getAllUsersButton;
-    private javax.swing.JButton getUserByIdButton;
+    private javax.swing.JButton createBusButton;
+    private javax.swing.JButton deleteBusrButton;
+    private javax.swing.JButton getAllBusesButton;
+    private javax.swing.JButton getBusByIdButton;
+    private javax.swing.JButton getTripsWithBusButton;
     private javax.swing.JTable resultTable;
     private javax.swing.JScrollPane tableScrollPane;
-    private javax.swing.JButton updateUserButton;
+    private javax.swing.JButton updateBusButton;
     // End of variables declaration//GEN-END:variables
 }

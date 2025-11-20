@@ -28,7 +28,6 @@ public class LoginPanel extends javax.swing.JPanel {
     }
     
     public void setAppPanelSwitcher(PanelSwitcher s) {
-        System.out.println(s);
         this.appPanelSwitcher = s;
     }
     public void setAuthPanelSwitcher(PanelSwitcher s) {

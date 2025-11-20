@@ -34,7 +34,8 @@ public class AppPanel extends JPanel implements PanelSwitcher {
         add(cards, BorderLayout.CENTER);
 
         // show login by default
-        cardLayout.show(cards, AUTH);
+        // cardLayout.show(cards, AUTH);
+        cardLayout.show(cards, MAIN);
     }
 
     @Override

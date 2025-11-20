@@ -4,6 +4,8 @@
  */
 package com.buspass.gui.app_gui.admin;
 
+import com.buspass.queries.UserService;
+
 /**
  *
  * @author USER
@@ -16,6 +18,9 @@ public class UsersPanel extends javax.swing.JPanel {
     public UsersPanel() {
         initComponents();
     }
+
+    private MiddlePanel middlePanel = new MiddlePanel();
+    private UserService userService = new UserService();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -177,7 +182,7 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getUserByIdButtonMouseClicked
 
     private void getAllUsersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllUsersButtonMouseClicked
-        // TODO add your handling code here:
+        middlePanel.setTableContents(resultTable, userService.getAllUsers());
     }//GEN-LAST:event_getAllUsersButtonMouseClicked
 
     private void updateUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateUserButtonMouseClicked

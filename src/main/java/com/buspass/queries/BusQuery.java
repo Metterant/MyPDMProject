@@ -21,7 +21,7 @@ public class BusQuery {
     public List<Map<String, Object>> getAllBuses() {
         String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity, DriverName, r.RouteName\r\n" + //
                     "FROM Bus_info b\r\n" + //
-                    "LEFT JOIN Driver d ON b.DriveID = d.DriveID\r\n" + //
+                    "LEFT JOIN Driver d ON b.DriverID = d.DriverID\r\n" + //
                     "LEFT JOIN Route r ON b.RouteID = r.RouteID;";
         
         List<Map<String, Object>> buses = QueryExecutionModule.executeQuery(sql);
