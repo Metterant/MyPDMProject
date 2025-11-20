@@ -4,8 +4,7 @@
  */
 package com.buspass.gui.app_gui.admin;
 
-import com.buspass.queries.BusQuery;
-import com.buspass.queries.UserService;
+import com.buspass.queries.TripQuery;
 
 /**
  *
@@ -21,7 +20,7 @@ public class TripsPanel extends javax.swing.JPanel {
     }
 
     private MiddlePanel middlePanel = new MiddlePanel();
-    private BusQuery busQuery = new BusQuery();
+    private TripQuery tripQuery = new TripQuery();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -212,7 +211,7 @@ public class TripsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getTripByIdButtonMouseClicked
 
     private void getAllTripsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllTripsButtonMouseClicked
-        middlePanel.setTableContents(resultTable, busQuery.getAllBuses());
+        middlePanel.setTableContents(resultTable, tripQuery.getAllTrips());
     }//GEN-LAST:event_getAllTripsButtonMouseClicked
 
     private void updateTripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateTripButtonMouseClicked

@@ -5,7 +5,6 @@
 package com.buspass.gui.app_gui.admin;
 
 import com.buspass.queries.BusQuery;
-import com.buspass.queries.UserService;
 
 /**
  *

@@ -6,10 +6,9 @@ package com.buspass.gui.app_gui;
 
 import com.buspass.auth.UserLoginSession;
 import com.buspass.gui.PanelSwitcher;
-import com.buspass.gui.app_gui.admin.BusesPanel;
-import com.buspass.gui.app_gui.admin.UsersPanel;
-import java.awt.BorderLayout;
+import com.buspass.gui.app_gui.admin.*;
 
+import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
 /**
@@ -28,8 +27,14 @@ public class MainPanel extends javax.swing.JPanel {
     private UsersPanel usersPanel;
     private JPanel[] panels = new JPanel[9];
 
-    private static final int USERS_PANEL = 0;
-    private static final int BUSES_PANEL = 1;
+    private static final int USERS_PANEL      = 1;
+    private static final int DRIVERS_PANEL    = 2;
+    private static final int BUSES_PANEL      = 3;
+    private static final int ROUTES_PANEL     = 4;
+    private static final int TRIPS_PANEL      = 5;
+    private static final int TICKETS_PANEL    = 6;
+    private static final int PAYMENTS_PANEL   = 7;
+    private static final int CUSTOM_SQL_PANEL = 8;
 
     public void setPanelSwitcher(PanelSwitcher s) {
         this.switcher = s;
@@ -43,8 +48,14 @@ public class MainPanel extends javax.swing.JPanel {
         // routesButton.setVisible(false);
         // tripButton.setVisible(false);
 
-        panels[USERS_PANEL] = new UsersPanel();      
-        panels[BUSES_PANEL] = new BusesPanel();  
+        panels[USERS_PANEL]      = new UsersPanel();
+        panels[DRIVERS_PANEL]    = new DriversPanel();
+        panels[BUSES_PANEL]      = new BusesPanel();
+        panels[ROUTES_PANEL]     = new RoutesPanel(); 
+        panels[TRIPS_PANEL]      = new TripsPanel();
+        panels[TICKETS_PANEL]    = new TicketsPanel();
+        panels[PAYMENTS_PANEL]   = new PaymentsPanel();
+        panels[CUSTOM_SQL_PANEL] = new CusomSQLPanel();
     }
 
     /**
@@ -295,32 +306,31 @@ public class MainPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_usersButtonMouseClicked
 
     private void driversButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driversButtonMouseClicked
-        // TODO add your handling code here:
+        switchMiddlePanel(DRIVERS_PANEL);
     }//GEN-LAST:event_driversButtonMouseClicked
 
     private void busesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busesButtonMouseClicked
-        // TODO add your handling code here:
         switchMiddlePanel(BUSES_PANEL);
     }//GEN-LAST:event_busesButtonMouseClicked
 
     private void routesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_routesButtonMouseClicked
-        // TODO add your handling code here:
+        switchMiddlePanel(ROUTES_PANEL);
     }//GEN-LAST:event_routesButtonMouseClicked
 
     private void tripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tripButtonMouseClicked
-        // TODO add your handling code here:
+        switchMiddlePanel(TRIPS_PANEL);
     }//GEN-LAST:event_tripButtonMouseClicked
 
     private void ticketsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticketsButtonMouseClicked
-        // TODO add your handling code here:
+        switchMiddlePanel(TICKETS_PANEL);
     }//GEN-LAST:event_ticketsButtonMouseClicked
 
     private void paymentsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentsButtonMouseClicked
-        // TODO add your handling code here:
+        switchMiddlePanel(PAYMENTS_PANEL);
     }//GEN-LAST:event_paymentsButtonMouseClicked
 
     private void customSqlButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customSqlButtonMouseClicked
-        // TODO add your handling code here:
+        switchMiddlePanel(CUSTOM_SQL_PANEL);
     }//GEN-LAST:event_customSqlButtonMouseClicked
 
     private void switchMiddlePanel(int childPanel) {

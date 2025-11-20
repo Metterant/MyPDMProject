@@ -4,8 +4,7 @@
  */
 package com.buspass.gui.app_gui.admin;
 
-import com.buspass.queries.BusQuery;
-import com.buspass.queries.UserService;
+import com.buspass.queries.DriverQuery;
 
 /**
  *
@@ -21,7 +20,7 @@ public class DriversPanel extends javax.swing.JPanel {
     }
 
     private MiddlePanel middlePanel = new MiddlePanel();
-    private BusQuery busQuery = new BusQuery();
+    private DriverQuery driverQuery = new DriverQuery();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -213,7 +212,7 @@ public class DriversPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getBusByIdButtonMouseClicked
 
     private void getAllBusesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_getAllBusesButtonMouseClicked
-        middlePanel.setTableContents(resultTable, busQuery.getAllBuses());
+        middlePanel.setTableContents(resultTable, driverQuery.getAllDrivers());
     }//GEN-LAST:event_getAllBusesButtonMouseClicked
 
     private void updateBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBusButtonMouseClicked
