@@ -310,67 +310,59 @@ public class MainPanel extends javax.swing.JPanel {
 
     private void usersButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersButtonMouseClicked
         // TODO add your handling code here:
-        switchMiddlePanel(USERS_PANEL);
     }//GEN-LAST:event_usersButtonMouseClicked
 
     private void driversButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_driversButtonMouseClicked
-        switchMiddlePanel(DRIVERS_PANEL);
     }//GEN-LAST:event_driversButtonMouseClicked
 
     private void busesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busesButtonMouseClicked
-        switchMiddlePanel(BUSES_PANEL);
     }//GEN-LAST:event_busesButtonMouseClicked
 
     private void routesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_routesButtonMouseClicked
-        switchMiddlePanel(ROUTES_PANEL);
     }//GEN-LAST:event_routesButtonMouseClicked
 
     private void tripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tripButtonMouseClicked
-        switchMiddlePanel(TRIPS_PANEL);
     }//GEN-LAST:event_tripButtonMouseClicked
 
     private void ticketsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticketsButtonMouseClicked
-        switchMiddlePanel(TICKETS_PANEL);
     }//GEN-LAST:event_ticketsButtonMouseClicked
 
     private void paymentsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentsButtonMouseClicked
-        switchMiddlePanel(PAYMENTS_PANEL);
     }//GEN-LAST:event_paymentsButtonMouseClicked
 
     private void customSqlButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customSqlButtonMouseClicked
-        switchMiddlePanel(CUSTOM_SQL_PANEL);
     }//GEN-LAST:event_customSqlButtonMouseClicked
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
-        // TODO add your handling code here:
+        switchMiddlePanel(USERS_PANEL);
     }//GEN-LAST:event_mainButtonActionPerformed
 
     private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
-        // TODO add your handling code here:
+        switchMiddlePanel(DRIVERS_PANEL);
     }//GEN-LAST:event_usersButtonActionPerformed
 
     private void busesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busesButtonActionPerformed
-        // TODO add your handling code here:
+        switchMiddlePanel(BUSES_PANEL);
     }//GEN-LAST:event_busesButtonActionPerformed
 
     private void routesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routesButtonActionPerformed
-        // TODO add your handling code here:
+        switchMiddlePanel(ROUTES_PANEL);
     }//GEN-LAST:event_routesButtonActionPerformed
 
     private void tripButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tripButtonActionPerformed
-        // TODO add your handling code here:
+        switchMiddlePanel(TRIPS_PANEL);
     }//GEN-LAST:event_tripButtonActionPerformed
 
     private void ticketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketsButtonActionPerformed
-        // TODO add your handling code here:
+        switchMiddlePanel(TICKETS_PANEL);
     }//GEN-LAST:event_ticketsButtonActionPerformed
 
     private void paymentsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentsButtonActionPerformed
-        // TODO add your handling code here:
+        switchMiddlePanel(PAYMENTS_PANEL);
     }//GEN-LAST:event_paymentsButtonActionPerformed
 
     private void customSqlButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customSqlButtonActionPerformed
-        // TODO add your handling code here:
+        switchMiddlePanel(CUSTOM_SQL_PANEL);
     }//GEN-LAST:event_customSqlButtonActionPerformed
 
     private void switchMiddlePanel(int childPanel) {
