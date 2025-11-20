@@ -39,7 +39,7 @@ public class BusesPanel extends javax.swing.JPanel {
         getTripsWithBusButton = new javax.swing.JButton();
         updateBusButton = new javax.swing.JButton();
         createBusButton = new javax.swing.JButton();
-        deleteBusrButton = new javax.swing.JButton();
+        deleteBusButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
         headerPanel = new javax.swing.JPanel();
@@ -124,18 +124,18 @@ public class BusesPanel extends javax.swing.JPanel {
         });
         buttonPanel.add(createBusButton);
 
-        deleteBusrButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteBusrButton.setText("Delete Bus");
-        deleteBusrButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteBusrButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        deleteBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteBusButton.setText("Delete Bus");
+        deleteBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        deleteBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        deleteBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        deleteBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteBusrButtonMouseClicked(evt);
+                deleteBusButtonMouseClicked(evt);
             }
         });
-        buttonPanel.add(deleteBusrButton);
+        buttonPanel.add(deleteBusButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
 
@@ -213,16 +213,16 @@ public class BusesPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_getTripsWithBusButtonMouseClicked
 
-    private void deleteBusrButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBusrButtonMouseClicked
+    private void deleteBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBusButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBusrButtonMouseClicked
+    }//GEN-LAST:event_deleteBusButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
     private javax.swing.JButton createBusButton;
-    private javax.swing.JButton deleteBusrButton;
+    private javax.swing.JButton deleteBusButton;
     private javax.swing.JButton getAllBusesButton;
     private javax.swing.JButton getBusByIdButton;
     private javax.swing.JButton getTripsWithBusButton;

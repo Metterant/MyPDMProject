@@ -39,8 +39,8 @@ public class TripsPanel extends javax.swing.JPanel {
         routesAndTripsButton = new javax.swing.JButton();
         joinedQueryButton = new javax.swing.JButton();
         updateTripButton = new javax.swing.JButton();
-        createBusButton = new javax.swing.JButton();
-        deleteBusrButton = new javax.swing.JButton();
+        createTripButton = new javax.swing.JButton();
+        deleteTripButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
         headerPanel = new javax.swing.JPanel();
@@ -125,31 +125,31 @@ public class TripsPanel extends javax.swing.JPanel {
         updateTripButton.addActionListener(this::updateTripButtonActionPerformed);
         buttonPanel.add(updateTripButton);
 
-        createBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        createBusButton.setText("Create Trip");
-        createBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        createBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        createBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        createBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createBusButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        createTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createTripButton.setText("Create Trip");
+        createTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        createTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        createTripButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        createTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        createTripButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                createBusButtonMouseClicked(evt);
+                createTripButtonMouseClicked(evt);
             }
         });
-        buttonPanel.add(createBusButton);
+        buttonPanel.add(createTripButton);
 
-        deleteBusrButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteBusrButton.setText("Delete Trip");
-        deleteBusrButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteBusrButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        deleteBusrButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        deleteTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteTripButton.setText("Delete Trip");
+        deleteTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        deleteTripButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        deleteTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        deleteTripButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteBusrButtonMouseClicked(evt);
+                deleteTriprButtonMouseClicked(evt);
             }
         });
-        buttonPanel.add(deleteBusrButton);
+        buttonPanel.add(deleteTripButton);
 
         buttonScrollPane.setViewportView(buttonPanel);
 
@@ -219,17 +219,17 @@ public class TripsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_updateTripButtonMouseClicked
 
-    private void createBusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createBusButtonMouseClicked
+    private void createTripButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createTripButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_createBusButtonMouseClicked
+    }//GEN-LAST:event_createTripButtonMouseClicked
 
     private void routesAndTripsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_routesAndTripsButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_routesAndTripsButtonMouseClicked
 
-    private void deleteBusrButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBusrButtonMouseClicked
+    private void deleteTriprButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteTriprButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBusrButtonMouseClicked
+    }//GEN-LAST:event_deleteTriprButtonMouseClicked
 
     private void joinedQueryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_joinedQueryButtonMouseClicked
         // TODO add your handling code here:
@@ -239,8 +239,8 @@ public class TripsPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
-    private javax.swing.JButton createBusButton;
-    private javax.swing.JButton deleteBusrButton;
+    private javax.swing.JButton createTripButton;
+    private javax.swing.JButton deleteTripButton;
     private javax.swing.JButton getAllTripsButton;
     private javax.swing.JButton getTripByIdButton;
     private javax.swing.JLabel headerLabel;
