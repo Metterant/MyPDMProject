@@ -61,7 +61,7 @@ public class RouteQuery {
 	}
 
 	public boolean updateDuration(int routeId, int durationInMinutes) {
-		String sql = "UPDATE Route SET Times = ? WHERE RouteID = ?";
+		String sql = "UPDATE Route SET Duration = ? WHERE RouteID = ?";
 
 		String sqlTimeString = MathUtils.convertToTimeString(durationInMinutes).toString();
 
