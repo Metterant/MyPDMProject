@@ -97,7 +97,7 @@ public class UserLoginSession {
         Object phoneObj    = userInfo.get("Phone");
 
         if (userIdObj != null)
-                setUserId(Integer.parseInt(roleObj.toString()));
+                setUserId(Integer.parseInt(userIdObj.toString()));
             if (roleObj != null)
                 setUserRoleId(Integer.parseInt(roleObj.toString()));
             if (ageObj != null)
