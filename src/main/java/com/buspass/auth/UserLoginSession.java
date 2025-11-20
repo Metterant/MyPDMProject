@@ -7,7 +7,7 @@ import com.buspass.db.QueryExecutionModule;
 import com.buspass.queries.UserService;
 import com.buspass.utils.AuthUtils;
 
-public class UserLogin {
+public class UserLoginSession {
     private int userId;
     private int userRoleId;
     private int age;
@@ -58,6 +58,8 @@ public class UserLogin {
         Map<String, Object> user = results.get(0);
         Object pwObj = user.get("UserPassword");
         if (pwObj == null) {
+            setInfo(username, user);
+
             return 1; // no password set
         }
 
@@ -76,16 +78,24 @@ public class UserLogin {
         }
 
         if (matches) {
-            Object userIdObj   = user.get("UserID");
-            Object roleObj     = user.get("UserRoleID");
-            Object ageObj      = user.get("Age");
-            Object fullNameObj = user.get("FullName");
-            Object addressObj  = user.get("UserAddress");
-            Object phoneObj    = user.get("Phone");
-            
-            setUsername(username);
-            
-            if (userIdObj != null)
+            setInfo(username, user);
+
+            return 1;
+        }
+        return 0;
+    }
+
+    private void setInfo(String username, Map<String, Object> userInfo) {
+        setUsername(username);
+
+        Object userIdObj   = userInfo.get("UserID");
+        Object roleObj     = userInfo.get("UserRoleID");
+        Object ageObj      = userInfo.get("Age");
+        Object fullNameObj = userInfo.get("FullName");
+        Object addressObj  = userInfo.get("UserAddress");
+        Object phoneObj    = userInfo.get("Phone");
+
+        if (userIdObj != null)
                 setUserId(Integer.parseInt(roleObj.toString()));
             if (roleObj != null)
                 setUserRoleId(Integer.parseInt(roleObj.toString()));
@@ -97,9 +107,9 @@ public class UserLogin {
                 setAddress(addressObj.toString());
             if (phoneObj != null)
                 setPhoneNumber(phoneObj.toString());
-            
-            return 1;
-        }
-        return 0;
     }
+
+    // private void clearInfo() {
+
+    // }
 }
