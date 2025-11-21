@@ -8,7 +8,6 @@ import com.buspass.utils.AuthUtils;
 import com.buspass.utils.StringUtils;
 
 public class UserService {
-    //1: Đăng ký người dùng mới (Dùng INSERT)
     /**
      * A method used to create a new user
      * @param username
@@ -120,7 +119,7 @@ public class UserService {
     public int getIdByUsername(String username) {
         String sql = "SELECT UserID FROM User WHERE Username = ? ";
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, username);
-        if (users == null)
+        if (users == null || users.isEmpty()) 
             return -1;
             
         Map<String, Object> user = users.get(0);
@@ -130,7 +129,7 @@ public class UserService {
     }
 
     public List<Map<String, Object>> getAllUsers() {
-        String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
             
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql);
