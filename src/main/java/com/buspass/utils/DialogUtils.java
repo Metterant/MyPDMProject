@@ -14,4 +14,8 @@ public class DialogUtils {
     public static void showDialogInvalidUsername() {
         JOptionPane.showMessageDialog(null, "Invalid Username!", "Error", JOptionPane.WARNING_MESSAGE);
     }
+
+    public static void showDialogInvalidPWs() {
+        JOptionPane.showMessageDialog(null, "Invalid Password!", "Error", JOptionPane.WARNING_MESSAGE);
+    }
 }
