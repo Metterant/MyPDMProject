@@ -25,11 +25,11 @@ VALUES
 
 INSERT INTO Driver (DriverName, Age, License, Phone)
 VALUES
-('Le Driver', 45, 'L12345', 902345678),
-('Nguyen Driver', 30, 'L54321', 907654321),
-('Tran Driver', 50, 'L13579', 998765432),
-('Vu Driver', 38, 'L98765', 911223344),
-('Bui Driver', 55, 'L24680', 909887766);
+('Le Driver', 45, 'L12345', '902345678'),
+('Nguyen Driver', 30, 'L54321', '907654321'),
+('Tran Driver', 50, 'L13579', '998765432'),
+('Vu Driver', 38, 'L98765', '911223344'),
+('Bui Driver', 55, 'L24680', '909887766');
 
 INSERT INTO `Route` (RouteName, StartLocation, EndLocation, Fare, Distance, Duration)
 VALUES
