@@ -50,7 +50,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
         addressLabel = new javax.swing.JLabel();
         userRoleIdLabel = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
-        UserIdPanel = new javax.swing.JPanel();
+        userIdPanel = new javax.swing.JPanel();
         userIdField = new javax.swing.JTextField();
         findIdButton = new javax.swing.JButton();
         usernameField = new javax.swing.JTextField();
@@ -130,24 +130,24 @@ public class UserUpdatePanel extends javax.swing.JPanel {
         findIdButton.setText("Find");
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
-        javax.swing.GroupLayout UserIdPanelLayout = new javax.swing.GroupLayout(UserIdPanel);
-        UserIdPanel.setLayout(UserIdPanelLayout);
-        UserIdPanelLayout.setHorizontalGroup(
-            UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserIdPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout userIdPanelLayout = new javax.swing.GroupLayout(userIdPanel);
+        userIdPanel.setLayout(userIdPanelLayout);
+        userIdPanelLayout.setHorizontalGroup(
+            userIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userIdPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(userIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(findIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        UserIdPanelLayout.setVerticalGroup(
-            UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        userIdPanelLayout.setVerticalGroup(
+            userIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(findIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(userIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        rightPanel.add(UserIdPanel);
+        rightPanel.add(userIdPanel);
 
         usernameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rightPanel.add(usernameField);
@@ -214,7 +214,6 @@ public class UserUpdatePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel UserIdPanel;
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField ageField;
@@ -235,6 +234,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
     private javax.swing.JButton updateButton;
     private javax.swing.JTextField userIdField;
     private javax.swing.JLabel userIdLabel;
+    private javax.swing.JPanel userIdPanel;
     private javax.swing.JTextField userRoleIdField;
     private javax.swing.JLabel userRoleIdLabel;
     private javax.swing.JTextField usernameField;

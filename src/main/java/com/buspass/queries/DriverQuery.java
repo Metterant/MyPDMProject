@@ -70,6 +70,12 @@ public class DriverQuery {
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, age, driverId);
         return rowsAffected > 0;
     }
+    
+    public boolean updateLicense(int driverId, String license) {
+        String sql = "UPDATE Driver SET License = ? WHERE DriverID = ?";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, license, driverId);
+        return rowsAffected > 0;
+    }
 
     public boolean updatePhoneNumber(int driverId, String phoneNumber) {
         String sql = "UPDATE Driver SET Phone = ? WHERE DriverID = ?";

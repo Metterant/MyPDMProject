@@ -39,7 +39,7 @@ CREATE TABLE Driver(
     DriverName VARCHAR(50),
     Age INT,
     License VARCHAR(20),
-    Phone INT,
+    Phone VARCHAR(15),
     CHECK (Age >= 0)
 );
 

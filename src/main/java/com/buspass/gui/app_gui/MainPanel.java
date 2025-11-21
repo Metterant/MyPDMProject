@@ -4,10 +4,17 @@
  */
 package com.buspass.gui.app_gui;
 
+import com.buspass.gui.app_gui.middle_panels.TicketsPanel;
+import com.buspass.gui.app_gui.middle_panels.PaymentsPanel;
+import com.buspass.gui.app_gui.middle_panels.DriversPanel;
+import com.buspass.gui.app_gui.middle_panels.CusomSQLPanel;
+import com.buspass.gui.app_gui.middle_panels.BusesPanel;
+import com.buspass.gui.app_gui.middle_panels.RoutesPanel;
+import com.buspass.gui.app_gui.middle_panels.UsersPanel;
+import com.buspass.gui.app_gui.middle_panels.TripsPanel;
 import com.buspass.auth.UserLoginSession;
 import com.buspass.auth.UserRegister;
 import com.buspass.gui.PanelSwitcher;
-import com.buspass.gui.app_gui.admin.*;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
