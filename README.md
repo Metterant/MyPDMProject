@@ -37,6 +37,7 @@ DB_MAX_POOL_SIZE=10
 ```
 
 **Notes**:
+
 - `DB_URL` should include the database name.
 - `DB_USER` and `DB_PASSWORD` are your database JDBC URL and password, respectively.
 - `DB_MAX_POOL_SIZE` is optional (default is 10).
