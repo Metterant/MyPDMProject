@@ -34,7 +34,7 @@ public class TripsPanel extends javax.swing.JPanel {
 
         buttonScrollPane = new javax.swing.JScrollPane();
         buttonPanel = new javax.swing.JPanel();
-        availableTripsButton = new javax.swing.JButton();
+        upcomingTripsButton = new javax.swing.JButton();
         getTripByIdButton = new javax.swing.JButton();
         getAllTripsButton = new javax.swing.JButton();
         routesAndTripsButton = new javax.swing.JButton();
@@ -59,14 +59,14 @@ public class TripsPanel extends javax.swing.JPanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        availableTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        availableTripsButton.setText("Available Trips");
-        availableTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        availableTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        availableTripsButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        availableTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        availableTripsButton.addActionListener(this::availableTripsButtonActionPerformed);
-        buttonPanel.add(availableTripsButton);
+        upcomingTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        upcomingTripsButton.setText("Upcoming Trips");
+        upcomingTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        upcomingTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        upcomingTripsButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        upcomingTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        upcomingTripsButton.addActionListener(this::upcomingTripsButtonActionPerformed);
+        buttonPanel.add(upcomingTripsButton);
 
         getTripByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getTripByIdButton.setText("Get Trip By ID");
@@ -179,9 +179,9 @@ public class TripsPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void availableTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availableTripsButtonActionPerformed
-        middlePanel.setTableContents(resultTable, tripQuery.getAvailableTrips());
-    }//GEN-LAST:event_availableTripsButtonActionPerformed
+    private void upcomingTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upcomingTripsButtonActionPerformed
+        middlePanel.setTableContents(resultTable, tripQuery.getUpcomingTrips());
+    }//GEN-LAST:event_upcomingTripsButtonActionPerformed
 
     private void updateTripButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_updateTripButtonActionPerformed
         // TODO add your handling code here:
@@ -295,7 +295,6 @@ public class TripsPanel extends javax.swing.JPanel {
     }// GEN-LAST:event_deleteTriprButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton availableTripsButton;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
     private javax.swing.JButton createTripButton;
@@ -308,6 +307,7 @@ public class TripsPanel extends javax.swing.JPanel {
     private javax.swing.JTable resultTable;
     private javax.swing.JButton routesAndTripsButton;
     private javax.swing.JScrollPane tableScrollPane;
+    private javax.swing.JButton upcomingTripsButton;
     private javax.swing.JButton updateTripButton;
     // End of variables declaration//GEN-END:variables
 }

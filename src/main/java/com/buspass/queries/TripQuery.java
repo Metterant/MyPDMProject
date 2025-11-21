@@ -11,7 +11,7 @@ import com.buspass.db.QueryExecutionModule;
 
 public class TripQuery {
 
-    public List<Map<String, Object>> getAvailableTrips() {
+    public List<Map<String, Object>> getUpcomingTrips() {
         String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" + //
                         "    RouteName, StartLocation, EndLocation, Duration\r\n" + //
                         "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" + //
