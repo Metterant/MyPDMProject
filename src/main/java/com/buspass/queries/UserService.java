@@ -36,6 +36,18 @@ public class UserService {
     }
 
     /**
+     * Same as registerUser but propagates any underlying SQL exception for detailed UI reporting.
+     * @throws Exception if the insert fails
+     */
+    public boolean registerUserDetailed(String username, String plainPassword, String fullName, int age, String phone, String address, int userRoleID) throws Exception {
+        String sql = "INSERT INTO user(Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String hashPW = AuthUtils.hashPassword(plainPassword);
+        fullName = StringUtils.normalizeStr(fullName);
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, hashPW, fullName, age, phone, address, userRoleID);
+        return rowsAffected > 0;
+    }
+
+    /**
      * Create a User with only username and password
      * @param username
      * @param plainPassword
