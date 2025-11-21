@@ -33,8 +33,8 @@ public class TripQuery {
     }
 
     public List<Map<String, Object>> getAllTrips() {
-        String sql = "SELECT * FROM Trip" +
-                     "ORDER BY TripDate, DepartureTime";;
+        String sql = "SELECT * FROM Trip\r\n" +
+                     "ORDER BY TripDate, DepartureTime";
         return QueryExecutionModule.executeQuery(sql);
     }
 
