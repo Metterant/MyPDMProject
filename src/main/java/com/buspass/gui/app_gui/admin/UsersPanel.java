@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import com.buspass.gui.app_gui.dialogs.UserCreatePanel;
 import com.buspass.queries.UserService;
+import com.buspass.utils.*;
 
 /**
  *
@@ -217,15 +218,26 @@ public class UsersPanel extends javax.swing.JPanel {
         panel.getCancelButton().addActionListener(e -> dialog.dispose());
         panel.getCreateButton().addActionListener(e -> {
             try {
-                userService.registerUser(
-                    panel.getUsername(),
-                    panel.getPassword(),
-                    panel.getFullName(),
-                    panel.getAge(),
-                    panel.getPhone(),
-                    panel.getAddress(),
-                    panel.getUserRoleId()
-                );
+                String username = panel.getUsername();
+                String password = panel.getPassword();
+
+                if (!AuthUtils.isValidUsername(username)) {
+                    DialogUtils.showDialogInvalidUsername();
+                }
+                else if (!AuthUtils.isValidPassword(password)) {
+                    DialogUtils.showDialogInvalidPWs();
+                }
+                else {
+                    userService.registerUser(
+                        username,
+                        password,
+                        panel.getFullName(),
+                        panel.getAge(),
+                        panel.getPhone(),
+                        panel.getAddress(),
+                        panel.getUserRoleId()
+                    );
+                }
             } catch (Exception ex) {
                 JOptionPane.showConfirmDialog(panel, ex.getMessage());
             }
