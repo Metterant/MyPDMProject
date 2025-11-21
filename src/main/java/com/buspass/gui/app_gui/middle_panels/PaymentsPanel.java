@@ -329,6 +329,6 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
     public void showAdminButtons() {
         createTransactionButton.setVisible(true);
         deletePaymentButton.setVisible(true);
-        getPaymentsOfUserButton.setVisible(false);
+        getPaymentsOfUserButton.setVisible(true);
     }
 }
