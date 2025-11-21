@@ -4,6 +4,9 @@
  */
 package com.buspass.gui.app_gui.admin;
 
+import javax.swing.JOptionPane;
+
+import com.buspass.gui.app_gui.dialogs.UserCreatePanel;
 import com.buspass.queries.UserService;
 
 /**
@@ -203,7 +206,33 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getAllUsersButtonActionPerformed
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
-        
+        // Open modal dialog with UserCreatePanel; only close on CREATE or CANCEL
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        UserCreatePanel panel = new UserCreatePanel();
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+        panel.getCreateButton().addActionListener(e -> {
+            try {
+                userService.registerUser(
+                    panel.getUsername(),
+                    panel.getPassword(),
+                    panel.getFullName(),
+                    panel.getAge(),
+                    panel.getPhone(),
+                    panel.getAddress(),
+                    panel.getUserRoleId()
+                );
+            } catch (Exception ex) {
+                JOptionPane.showConfirmDialog(panel, ex.getMessage());
+            }
+            // For now just close; real creation logic will be added later
+            dialog.dispose();
+        });
+        dialog.setVisible(true); // blocks until closed
     }//GEN-LAST:event_createUserButtonActionPerformed
 
     private void findIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIdButtonActionPerformed

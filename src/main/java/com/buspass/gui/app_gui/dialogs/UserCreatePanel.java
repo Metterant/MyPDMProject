@@ -180,4 +180,17 @@ public class UserCreatePanel extends javax.swing.JPanel {
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
+
+    // Expose buttons for external listeners (e.g., dialog wrapper)
+    public javax.swing.JButton getCreateButton() { return createButton; }
+    public javax.swing.JButton getCancelButton() { return cancelButton; }
+
+    // Text getters for form fields
+    public String getUsername() { return usernameField.getText().trim(); }
+    public String getPassword() { return new String(passwordField.getPassword()); }
+    public String getFullName() { return fullNameField.getText().trim(); }
+    public Integer getAge() { return Integer.parseInt(ageField.getText().trim()); }
+    public String getPhone() { return phoneField.getText().trim(); }
+    public String getAddress() { return addressField.getText().trim(); }
+    public Integer getUserRoleId() { return Integer.parseInt(userRoleIdField.getText().trim()); }
 }
