@@ -379,13 +379,21 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
 
     @Override
     public void hideAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hideAdminButtons'");
+        createUserButton.setVisible(false);
+        deleteUserButton.setVisible(false);
+        findIdButton.setVisible(false);
+        getAllUsersButton.setVisible(false);
+        getUserByIdButton.setVisible(false);
+        updateUserButton.setVisible(false);
     }
 
     @Override
     public void showAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'showAdminButtons'");
+        createUserButton.setVisible(true);
+        deleteUserButton.setVisible(true);
+        findIdButton.setVisible(true);
+        getAllUsersButton.setVisible(true);
+        getUserByIdButton.setVisible(true);
+        updateUserButton.setVisible(true);
     }
 }

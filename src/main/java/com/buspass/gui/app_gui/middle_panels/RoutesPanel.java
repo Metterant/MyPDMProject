@@ -10,7 +10,7 @@ import com.buspass.queries.RouteQuery;
  *
  * @author USER
  */
-public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel{
+public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
     /**
      * Creates new form UsersPanel
@@ -256,13 +256,15 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel{
 
     @Override
     public void hideAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hideAdminButtons'");
+        createRouteButton.setVisible(false);
+        deleteRouteButton.setVisible(false);
+        updateRouteButton.setVisible(false);
     }
 
     @Override
     public void showAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'showAdminButtons'");
+        createRouteButton.setVisible(true);
+        deleteRouteButton.setVisible(true);
+        updateRouteButton.setVisible(true);
     }
 }

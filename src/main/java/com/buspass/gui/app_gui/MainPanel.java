@@ -342,17 +342,19 @@ public class MainPanel extends javax.swing.JPanel {
     }
 
     private void showAdminButtons() {
-        for (int i = 1; i <= NUMBER_OF_INMIDDLE_PANELS; i++) {
+        for (int i = 1; i < NUMBER_OF_INMIDDLE_PANELS; i++) {
             middlePanels[i].showAdminButtons();
         }
         panels[CUSTOM_SQL_PANEL].setVisible(true);
+        customSqlButton.setVisible(true);
     }
 
     private void hideAdminButtons() {
-        for (int i = 1; i <= NUMBER_OF_INMIDDLE_PANELS; i++) {
+        for (int i = 1; i < NUMBER_OF_INMIDDLE_PANELS; i++) {
             middlePanels[i].hideAdminButtons();
         }
         panels[CUSTOM_SQL_PANEL].setVisible(false);
+        customSqlButton.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

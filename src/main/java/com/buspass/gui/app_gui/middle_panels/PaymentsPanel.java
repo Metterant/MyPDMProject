@@ -242,13 +242,15 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
     @Override
     public void hideAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hideAdminButtons'");
+        createTransactionButton.setVisible(false);
+        deletePaymentButton.setVisible(false);
+        getPaymentsOfUserButton.setVisible(false);
     }
 
     @Override
     public void showAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'showAdminButtons'");
+        createTransactionButton.setVisible(true);
+        deletePaymentButton.setVisible(true);
+        getPaymentsOfUserButton.setVisible(false);
     }
 }

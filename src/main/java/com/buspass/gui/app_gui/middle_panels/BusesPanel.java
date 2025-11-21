@@ -320,13 +320,15 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
     @Override
     public void hideAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hideAdminButtons'");
+        createBusButton.setVisible(false);
+        deleteBusButton.setVisible(false);
+        updateBusButton.setVisible(false);
     }
 
     @Override
     public void showAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'showAdminButtons'");
+        createBusButton.setVisible(true);
+        deleteBusButton.setVisible(true);
+        updateBusButton.setVisible(true);
     }
 }

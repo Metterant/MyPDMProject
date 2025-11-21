@@ -36,8 +36,8 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane = new javax.swing.JScrollPane();
         buttonPanel = new javax.swing.JPanel();
-        getBusByIdButton = new javax.swing.JButton();
-        getAllBusesButton = new javax.swing.JButton();
+        getDriverByIdButton = new javax.swing.JButton();
+        getAllDriversButton = new javax.swing.JButton();
         getTripsWithBusButton = new javax.swing.JButton();
         getTripsDrivenButton = new javax.swing.JButton();
         updateDriverButton = new javax.swing.JButton();
@@ -60,23 +60,23 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        getBusByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getBusByIdButton.setText("Get Driver By ID");
-        getBusByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getBusByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        getBusByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        getBusByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getBusByIdButton.addActionListener(this::getBusByIdButtonActionPerformed);
-        buttonPanel.add(getBusByIdButton);
+        getDriverByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getDriverByIdButton.setText("Get Driver By ID");
+        getDriverByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getDriverByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        getDriverByIdButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        getDriverByIdButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        getDriverByIdButton.addActionListener(this::getDriverByIdButtonActionPerformed);
+        buttonPanel.add(getDriverByIdButton);
 
-        getAllBusesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getAllBusesButton.setText("Get All Drivers");
-        getAllBusesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getAllBusesButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        getAllBusesButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        getAllBusesButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        getAllBusesButton.addActionListener(this::getAllBusesButtonActionPerformed);
-        buttonPanel.add(getAllBusesButton);
+        getAllDriversButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getAllDriversButton.setText("Get All Drivers");
+        getAllDriversButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getAllDriversButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        getAllDriversButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        getAllDriversButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        getAllDriversButton.addActionListener(this::getAllDriversButtonActionPerformed);
+        buttonPanel.add(getAllDriversButton);
 
         getTripsWithBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getTripsWithBusButton.setText(" Get Buses Driven");
@@ -194,7 +194,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
     }// GEN-LAST:event_getTripsDrivenButtonActionPerformed
 
-    private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_getBusByIdButtonActionPerformed
+    private void getDriverByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_getBusByIdButtonActionPerformed
         String input = javax.swing.JOptionPane.showInputDialog(this, "Enter DriverID:", "Find Driver",
                 javax.swing.JOptionPane.QUESTION_MESSAGE);
         if (input == null)
@@ -233,7 +233,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
     }// GEN-LAST:event_getBusByIdButtonActionPerformed
 
-    private void getAllBusesButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_getAllBusesButtonActionPerformed
+    private void getAllDriversButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_getAllBusesButtonActionPerformed
         middlePanel.setTableContents(resultTable, driverQuery.getAllDrivers());
     }// GEN-LAST:event_getAllBusesButtonActionPerformed
 
@@ -339,8 +339,8 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
     private javax.swing.JScrollPane buttonScrollPane;
     private javax.swing.JButton createDriverButton;
     private javax.swing.JButton deleteDriverButton;
-    private javax.swing.JButton getAllBusesButton;
-    private javax.swing.JButton getBusByIdButton;
+    private javax.swing.JButton getAllDriversButton;
+    private javax.swing.JButton getDriverByIdButton;
     private javax.swing.JButton getTripsDrivenButton;
     private javax.swing.JButton getTripsWithBusButton;
     private javax.swing.JLabel headerLabel;
@@ -352,13 +352,15 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
 
     @Override
     public void hideAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hideAdminButtons'");
+        createDriverButton.setVisible(false);
+        deleteDriverButton.setVisible(false);
+        updateDriverButton.setVisible(false);
     }
 
     @Override
     public void showAdminButtons() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'showAdminButtons'");
+        createDriverButton.setVisible(true);
+        deleteDriverButton.setVisible(true);
+        updateDriverButton.setVisible(true);
     }
 }
