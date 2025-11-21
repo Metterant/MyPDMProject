@@ -1,4 +1,4 @@
-package com.buspass.gui.app_gui.admin;
+package com.buspass.gui.app_gui.middle_panels;
 
 import java.util.List;
 import java.util.Map;

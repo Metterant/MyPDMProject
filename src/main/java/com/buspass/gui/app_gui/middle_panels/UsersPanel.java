@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.buspass.gui.app_gui.admin;
+package com.buspass.gui.app_gui.middle_panels;
 
 
 import java.util.Map;
@@ -167,7 +167,7 @@ public class UsersPanel extends javax.swing.JPanel {
 
     private void updateUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserButtonActionPerformed
         java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
-        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Update User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         UserUpdatePanel panel = new UserUpdatePanel(userService);
         dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
         dialog.setContentPane(panel);
@@ -219,7 +219,7 @@ public class UsersPanel extends javax.swing.JPanel {
                     dialog.dispose();
                     middlePanel.setTableContents(resultTable, userService.getAllUsers());
                 } else {
-                    JOptionPane.showMessageDialog(panel, "User could not be updated (no rows affected).", "Failure", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(panel, "User could not be created (no rows affected).", "Failure", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(panel, "SQL Error: " + ex.getClass().getSimpleName() + ": " + ex.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
@@ -313,7 +313,7 @@ public class UsersPanel extends javax.swing.JPanel {
         String username = javax.swing.JOptionPane.showInputDialog(this, "Enter username to find UserID:", "Find UserID", javax.swing.JOptionPane.QUESTION_MESSAGE);
         if (username == null) return;
         username = username.trim();
-        if (username.isEmpty()) {
+        if (username.isEmpty()) { 
             javax.swing.JOptionPane.showMessageDialog(this, "Username cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
