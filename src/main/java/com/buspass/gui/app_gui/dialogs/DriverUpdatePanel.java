@@ -232,11 +232,10 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
     private void setDriverFields(Map<String,Object> driver) {
         driverNameField.setText(asString(driver.get("DriverName")));
         ageField.setText(asString(driver.get("Age")));
-        licenseField.setText(asString(driver.get(""), asString(driver.get("DriverID"))));
-        phoneField.setText(asString(driver.get("RouteID")));
-        
-        System.out.println(driver.get("Capacity"));
+        licenseField.setText(asString(driver.get(""), asString(driver.get("License"))));
+        phoneField.setText(asString(driver.get("Phone")));        
     }
+
     private String asString(Object o) { return o==null?"":o.toString(); }
     private String asString(Object primary, String alt) { return primary!=null?primary.toString(): (alt==null?"":alt); }
 
@@ -287,7 +286,7 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
                     anyChange = true; 
                 }
             }
-            if (newPhoneNumber != null && !asString(currentDriver.get("RouteID")).equals(String.valueOf(newPhoneNumber))) {
+            if (newPhoneNumber != null && !asString(currentDriver.get("Phone")).equals(String.valueOf(newPhoneNumber))) {
                 if (driverQuery.updatePhoneNumber(driverId, newPhoneNumber)) { 
                     summary.append("RouteID updated.\n"); 
                     anyChange = true; 
