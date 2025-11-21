@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import com.buspass.auth.UserRegister;
 import com.buspass.gui.PanelSwitcher;
+import com.buspass.utils.DialogUtils;
 
 /**
  *
@@ -211,11 +212,11 @@ public class RegisterPanel extends javax.swing.JPanel {
                 showDialogInvalidUsername();
                 break;
             case 0:
-                showDialogUserAlreadyExists(username);
+                DialogUtils.showDialogUserAlreadyExists(username);
                 usernameField.setText("");
                 break;
             case 1:
-                showDialogRegistrationSuccess(username);
+                DialogUtils.showDialogRegistrationSuccess(username);
                 usernameField.setText("");
                 break;
             default:
@@ -255,14 +256,6 @@ public class RegisterPanel extends javax.swing.JPanel {
 
     private void showDialogInvalidUsername() {
         JOptionPane.showMessageDialog(null, "Invalid Username!", "Error", JOptionPane.WARNING_MESSAGE);
-    }
-    
-    private void showDialogUserAlreadyExists(String username) {
-        JOptionPane.showMessageDialog(null, "User with Username: " + username + " already exists.", "Registration Failed", JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    private void showDialogRegistrationSuccess(String username) {
-        JOptionPane.showMessageDialog(null, "Registration Successful with Username: " + username, "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
