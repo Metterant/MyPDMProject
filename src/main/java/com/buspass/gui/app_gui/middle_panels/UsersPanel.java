@@ -18,7 +18,7 @@ import com.buspass.utils.*;
  *
  * @author USER
  */
-public class UsersPanel extends javax.swing.JPanel {
+public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
 
     /**
      * Creates new form UsersPanel
@@ -376,4 +376,16 @@ public class UsersPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane tableScrollPane;
     private javax.swing.JButton updateUserButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void hideAdminButtons() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'hideAdminButtons'");
+    }
+
+    @Override
+    public void showAdminButtons() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'showAdminButtons'");
+    }
 }

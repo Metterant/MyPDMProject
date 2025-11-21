@@ -10,7 +10,7 @@ import com.buspass.queries.BusQuery;
  *
  * @author USER
  */
-public class TicketsPanel extends javax.swing.JPanel {
+public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
 
     /**
      * Creates new form UsersPanel
@@ -182,4 +182,16 @@ public class TicketsPanel extends javax.swing.JPanel {
     private javax.swing.JTable resultTable;
     private javax.swing.JScrollPane tableScrollPane;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void hideAdminButtons() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'hideAdminButtons'");
+    }
+
+    @Override
+    public void showAdminButtons() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'showAdminButtons'");
+    }
 }

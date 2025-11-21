@@ -12,7 +12,7 @@ import com.buspass.queries.TripQuery;
  *
  * @author USER
  */
-public class TripsPanel extends javax.swing.JPanel {
+public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
     /**
      * Creates new form UsersPanel
@@ -334,4 +334,20 @@ public class TripsPanel extends javax.swing.JPanel {
     private javax.swing.JButton upcomingTripsButton;
     private javax.swing.JButton updateTripButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void hideAdminButtons() {
+        getAllTripsButton.setVisible(false);
+        createTripButton.setVisible(false);
+        updateTripButton.setVisible(false);
+        deleteTriprButton.setVisible(false);
+    }
+
+    @Override
+    public void showAdminButtons() {
+        getAllTripsButton.setVisible(true);
+        createTripButton.setVisible(true);
+        updateTripButton.setVisible(true);
+        deleteTriprButton.setVisible(true);
+    }
 }

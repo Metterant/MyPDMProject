@@ -12,7 +12,7 @@ import com.buspass.queries.DriverQuery;
  *
  * @author USER
  */
-public class DriversPanel extends javax.swing.JPanel {
+public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
 
     /**
      * Creates new form UsersPanel
@@ -349,4 +349,16 @@ public class DriversPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane tableScrollPane;
     private javax.swing.JButton updateDriverButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void hideAdminButtons() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'hideAdminButtons'");
+    }
+
+    @Override
+    public void showAdminButtons() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'showAdminButtons'");
+    }
 }
