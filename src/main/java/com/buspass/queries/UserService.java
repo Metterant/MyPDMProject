@@ -71,7 +71,7 @@ public class UserService {
 
 
     public Map<String, Object> getUserById(int userId) {
-        String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, User.UserRoleID, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID WHERE UserID = ?";
 
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
