@@ -281,8 +281,6 @@ public class UserUpdatePanel extends javax.swing.JPanel {
     public int retrieveUserId() {
         String userIdString = userIdField.getText().trim();
 
-        if (userIdString == null) return -1; // user cancelled
-        userIdString = userIdString.trim();
         if (userIdString.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "UserID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
             return -1;
