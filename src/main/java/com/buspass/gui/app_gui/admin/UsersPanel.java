@@ -184,8 +184,9 @@ public class UsersPanel extends javax.swing.JPanel {
             String phone = panel.getPhone();
             String address = panel.getAddress();
 
+
             if (!AuthUtils.isValidUsername(username)) { DialogUtils.showDialogInvalidUsername(); return; }
-            if (!AuthUtils.isValidPassword(password)) { DialogUtils.showDialogInvalidPWs(); return; }
+            if (!password.isEmpty() && !AuthUtils.isValidPassword(password)) { DialogUtils.showDialogInvalidPWs(); return; }
 
             int age = 0; // default
             try { age = panel.getAge(); } catch (Exception exNum) { JOptionPane.showMessageDialog(panel, "Age must be an integer.", "Validation", JOptionPane.WARNING_MESSAGE); return; }
@@ -195,6 +196,7 @@ public class UsersPanel extends javax.swing.JPanel {
             try {
                 boolean ok = true;
                 
+                // Username Validation
                 if (ok) { 
                     int result = userService.updateUsername(userId, username);
                     if (result == 0) {
@@ -202,7 +204,10 @@ public class UsersPanel extends javax.swing.JPanel {
                         return;
                     }
                 }
-                if (ok) ok = userService.updatePassword(userId, password);
+                // Check if password update is necessary
+                if (ok && !password.isEmpty())
+                    ok = userService.updatePassword(userId, password);
+
                 if (ok) ok = userService.updateFullName(userId, fullName);
                 if (ok) ok = userService.updateAge(userId, age);
                 if (ok) ok = userService.updatePhoneNumber(userId, phone);
@@ -321,6 +326,7 @@ public class UsersPanel extends javax.swing.JPanel {
             }
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error finding user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            // ex.printStackTrace();
         }
     }//GEN-LAST:event_findIdButtonActionPerformed
 
