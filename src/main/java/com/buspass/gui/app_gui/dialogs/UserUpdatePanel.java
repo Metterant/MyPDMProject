@@ -1,5 +1,10 @@
 package com.buspass.gui.app_gui.dialogs;
 
+import java.util.Map;
+
+
+import com.buspass.queries.UserService;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -14,8 +19,11 @@ public class UserUpdatePanel extends javax.swing.JPanel {
     /**
      * Creates new form UserCreatePanel
      */
-    public UserUpdatePanel() {
+    UserService userService;
+
+    public UserUpdatePanel(UserService userService) {
         initComponents();
+        this.userService = userService;
     }
 
     /**
@@ -28,7 +36,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         optionPanel = new javax.swing.JPanel();
-        createButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
@@ -55,9 +63,10 @@ public class UserUpdatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        createButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        createButton.setText("CREATE");
-        optionPanel.add(createButton);
+        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        updateButton.setText("UPDATE");
+        updateButton.addActionListener(this::updateButtonActionPerformed);
+        optionPanel.add(updateButton);
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
@@ -119,6 +128,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
 
         findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         findIdButton.setText("Find");
+        findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
         javax.swing.GroupLayout UserIdPanelLayout = new javax.swing.GroupLayout(UserIdPanel);
         UserIdPanel.setLayout(UserIdPanelLayout);
@@ -194,6 +204,14 @@ public class UserUpdatePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_userIdFieldActionPerformed
 
+    private void findIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIdButtonActionPerformed
+        fetchUser();
+    }//GEN-LAST:event_findIdButtonActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+
+    }//GEN-LAST:event_updateButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel UserIdPanel;
@@ -202,7 +220,6 @@ public class UserUpdatePanel extends javax.swing.JPanel {
     private javax.swing.JTextField ageField;
     private javax.swing.JLabel ageLabel;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton createButton;
     private javax.swing.JButton findIdButton;
     private javax.swing.JTextField fullNameField;
     private javax.swing.JLabel fullNameLabel;
@@ -215,6 +232,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
     private javax.swing.JTextField phoneField;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel rightPanel;
+    private javax.swing.JButton updateButton;
     private javax.swing.JTextField userIdField;
     private javax.swing.JLabel userIdLabel;
     private javax.swing.JTextField userRoleIdField;
@@ -224,15 +242,62 @@ public class UserUpdatePanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     // Expose buttons for external listeners (e.g., dialog wrapper)
-    public javax.swing.JButton getCreateButton() { return createButton; }
+    public javax.swing.JButton getUpdateButton() { return updateButton; }
     public javax.swing.JButton getCancelButton() { return cancelButton; }
+    public javax.swing.JButton getFindIdButton() { return findIdButton; }
 
     // Text getters for form fields
-    public String getUsername() { return usernameField.getText().trim(); }
-    public String getPassword() { return new String(passwordField.getPassword()); }
-    public String getFullName() { return fullNameField.getText().trim(); }
-    public Integer getAge() { return Integer.parseInt(ageField.getText().trim()); }
-    public String getPhone() { return phoneField.getText().trim(); }
-    public String getAddress() { return addressField.getText().trim(); }
+    public String getUsername()    { return usernameField.getText().trim(); }
+    public String getPassword()    { return new String(passwordField.getPassword()); }
+    public String getFullName()    { return fullNameField.getText().trim(); }
+    public Integer getAge()        { return Integer.parseInt(ageField.getText().trim()); }
+    public String getPhone()       { return phoneField.getText().trim(); }
+    public String getAddress()     { return addressField.getText().trim(); }
     public Integer getUserRoleId() { return Integer.parseInt(userRoleIdField.getText().trim()); }
+
+    private void setUsernameField(String username) { usernameField.setText(username); }
+    private void setFullNameField(String fullName) { fullNameField.setText(fullName); }
+    private void setAgeField(String age)           { ageField.setText(age); }
+    private void setPhoneField(String phoneNumber) { phoneField.setText(phoneNumber); }
+    private void setAddressField(String address)   { addressField.setText(address); }
+    private void setRoleIdField(String userRoleId) { userRoleIdField.setText(userRoleId); }
+
+    private void fetchUser() {
+        
+        int userId = retrieveUserId();
+        if (userId <= 0) return;
+
+        // Bad Practice
+        Map<String, Object> user = userService.getUserById(userId);
+
+        setUsernameField(user.get("Username").toString());
+        setFullNameField(user.get("FullName").toString());
+        setAgeField(user.get("Age").toString());
+        setPhoneField(user.get("Phone").toString());
+        setAddressField(user.get("UserAddress").toString());
+        setRoleIdField(user.get("UserRoleID").toString());
+    }
+
+    public int retrieveUserId() {
+        String userIdString = userIdField.getText().trim();
+
+        if (userIdString == null) return -1; // user cancelled
+        userIdString = userIdString.trim();
+        if (userIdString.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "UserID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return -1;
+        }
+
+        int userId;
+        try {
+            userId = Integer.parseInt(userIdString);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric UserID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+        
+        Map<String, Object> user = userService.getUserById(userId);
+        
+        return (user != null) ? userId : -1;
+    }
 }
