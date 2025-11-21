@@ -65,7 +65,7 @@ public class BusQuery {
     }
 
     public boolean updateDriverID(int busId, int driverId) {
-        String sql = "UPDATE Bus_info SET DriveID = ? WHERE BusID = ? " + busId;
+        String sql = "UPDATE Bus_info SET DriveID = ? WHERE BusID = ?";
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, driverId, busId);
         return rowsAffected > 0;
     }

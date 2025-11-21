@@ -4,7 +4,13 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
+import javax.swing.JOptionPane;
+
+import com.buspass.gui.app_gui.dialogs.BusUpdatePanel;
+import com.buspass.gui.app_gui.dialogs.UserUpdatePanel;
 import com.buspass.queries.BusQuery;
+import com.buspass.utils.AuthUtils;
+import com.buspass.utils.DialogUtils;
 
 /**
  *
@@ -159,7 +165,16 @@ public class BusesPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBusButtonActionPerformed
-        // TODO add your handling code here:
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        BusUpdatePanel panel = new BusUpdatePanel(busQuery);
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+    
+        dialog.setVisible(true); // blocks until closed
     }//GEN-LAST:event_updateBusButtonActionPerformed
 
     private void getBusByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getBusByIdButtonActionPerformed
