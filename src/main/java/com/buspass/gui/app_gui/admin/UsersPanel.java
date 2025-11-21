@@ -5,9 +5,12 @@
 package com.buspass.gui.app_gui.admin;
 
 
+import java.util.Map;
+
 import javax.swing.JOptionPane;
 
 import com.buspass.gui.app_gui.dialogs.UserCreatePanel;
+import com.buspass.gui.app_gui.dialogs.UserUpdatePanel;
 import com.buspass.queries.UserService;
 import com.buspass.utils.*;
 
@@ -163,7 +166,61 @@ public class UsersPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserButtonActionPerformed
-        // TODO add your handling code here:
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        UserUpdatePanel panel = new UserUpdatePanel(userService);
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+        panel.getUpdateButton().addActionListener(e -> {
+            int userId = panel.retrieveUserId();
+            if (userId <= 0) return;
+
+            String username = panel.getUsername();
+            String password = panel.getPassword();
+            String fullName = panel.getFullName();
+            String phone = panel.getPhone();
+            String address = panel.getAddress();
+
+            if (!AuthUtils.isValidUsername(username)) { DialogUtils.showDialogInvalidUsername(); return; }
+            if (!AuthUtils.isValidPassword(password)) { DialogUtils.showDialogInvalidPWs(); return; }
+
+            int age = 0; // default
+            try { age = panel.getAge(); } catch (Exception exNum) { JOptionPane.showMessageDialog(panel, "Age must be an integer.", "Validation", JOptionPane.WARNING_MESSAGE); return; }
+            int roleId = 1; // default passenger
+            try { roleId = panel.getUserRoleId(); } catch (Exception exNum) { JOptionPane.showMessageDialog(panel, "UserRoleID must be an integer.", "Validation", JOptionPane.WARNING_MESSAGE); return; }
+
+            try {
+                boolean ok = true;
+                
+                if (ok) { 
+                    int result = userService.updateUsername(userId, username);
+                    if (result == 0) {
+                        DialogUtils.showDialogUserAlreadyExists(username);
+                        return;
+                    }
+                }
+                if (ok) ok = userService.updatePassword(userId, password);
+                if (ok) ok = userService.updateFullName(userId, fullName);
+                if (ok) ok = userService.updateAge(userId, age);
+                if (ok) ok = userService.updatePhoneNumber(userId, phone);
+                if (ok) ok = userService.updateAddress(userId, address);
+                if (ok) ok = userService.updateRoleID(userId, roleId);
+
+                if (ok) {
+                    JOptionPane.showMessageDialog(panel, "User Update success.", "Updated", JOptionPane.INFORMATION_MESSAGE);
+                    dialog.dispose();
+                    middlePanel.setTableContents(resultTable, userService.getAllUsers());
+                } else {
+                    JOptionPane.showMessageDialog(panel, "User could not be created (no rows affected).", "Failure", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(panel, "SQL Error: " + ex.getClass().getSimpleName() + ": " + ex.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+        dialog.setVisible(true); // blocks until closed
     }//GEN-LAST:event_updateUserButtonActionPerformed
 
     private void getUserByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUserByIdButtonActionPerformed
@@ -186,7 +243,7 @@ public class UsersPanel extends javax.swing.JPanel {
         }
 
         try {
-            java.util.Map<String, Object> user = userService.getUserById(userId);
+            Map<String, Object> user = userService.getUserById(userId);
             if (user == null || user.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No user found with ID: " + userId, "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 resultTable.setModel(new javax.swing.table.DefaultTableModel());
@@ -207,7 +264,7 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getAllUsersButtonActionPerformed
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
-        // Open modal dialog with UserCreatePanel; only close on CREATE or CANCEL
+        // Open modal dialog with UserCreatePanel; only close on CANCEL or closing the Window
         java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
         final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         UserCreatePanel panel = new UserCreatePanel();
@@ -264,7 +321,6 @@ public class UsersPanel extends javax.swing.JPanel {
             }
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error finding user: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
         }
     }//GEN-LAST:event_findIdButtonActionPerformed
 
