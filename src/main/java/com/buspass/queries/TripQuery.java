@@ -73,6 +73,22 @@ public class TripQuery {
         return rowsAffected > 0;
     }
 
+    /* Update operations */
+    public boolean updateTripDate(int tripId, String newDate) {
+        String sql = "UPDATE Trip SET TripDate = ? WHERE TripID = ?";
+        return QueryExecutionModule.executeUpdate(sql, newDate, tripId) > 0;
+    }
+
+    public boolean updateTimes(int tripId, String departureTime, String arrivalTime) {
+        String sql = "UPDATE Trip SET DepartureTime = ?, ArrivalTime = ? WHERE TripID = ?";
+        return QueryExecutionModule.executeUpdate(sql, departureTime, arrivalTime, tripId) > 0;
+    }
+
+    public boolean updateBusId(int tripId, int busId) {
+        String sql = "UPDATE Trip SET BusID = ? WHERE TripID = ?";
+        return QueryExecutionModule.executeUpdate(sql, busId, tripId) > 0;
+    }
+
     /**
      * Generate random Trips between today and today + daysAhead.
      * Departure time random between 06:00 and 20:00, duration 30 - 240 minutes.
