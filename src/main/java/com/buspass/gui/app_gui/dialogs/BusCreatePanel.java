@@ -20,7 +20,6 @@ public class BusCreatePanel extends javax.swing.JPanel {
      * Creates new form UserCreatePanel
      */
     private final BusQuery busQuery;
-    private Map<String,Object> currentBus; // cached fetched bus row
 
     public BusCreatePanel(BusQuery busQuery) {
         initComponents();
