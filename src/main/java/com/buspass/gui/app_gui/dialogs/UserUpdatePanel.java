@@ -250,7 +250,19 @@ public class UserUpdatePanel extends javax.swing.JPanel {
     public String getUsername()    { return usernameField.getText().trim(); }
     public String getPassword()    { return new String(passwordField.getPassword()); }
     public String getFullName()    { return fullNameField.getText().trim(); }
-    public Integer getAge()        { return Integer.parseInt(ageField.getText().trim()); }
+    public Integer getAge() {
+        String ageString = ageField.getText().trim();
+        if (ageString == null || ageString.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Age cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return null;
+        }
+        try {
+            return Integer.parseInt(ageString);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric age.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
     public String getPhone()       { return phoneField.getText().trim(); }
     public String getAddress()     { return addressField.getText().trim(); }
     public Integer getUserRoleId() { return Integer.parseInt(userRoleIdField.getText().trim()); }
