@@ -219,7 +219,7 @@ public class UsersPanel extends javax.swing.JPanel {
                     dialog.dispose();
                     middlePanel.setTableContents(resultTable, userService.getAllUsers());
                 } else {
-                    JOptionPane.showMessageDialog(panel, "User could not be created (no rows affected).", "Failure", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(panel, "User could not be updated (no rows affected).", "Failure", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(panel, "SQL Error: " + ex.getClass().getSimpleName() + ": " + ex.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
