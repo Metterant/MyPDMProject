@@ -48,7 +48,7 @@
         <Property name="horizontalGap" type="int" value="30"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="updateButton">
+        <Component class="javax.swing.JButton" name="createButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -56,7 +56,7 @@
             <Property name="text" type="java.lang.String" value="CREATE"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cancelButton">

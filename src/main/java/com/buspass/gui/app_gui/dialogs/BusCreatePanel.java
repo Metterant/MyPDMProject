@@ -35,7 +35,7 @@ public class BusCreatePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         optionPanel = new javax.swing.JPanel();
-        updateButton = new javax.swing.JButton();
+        createButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
@@ -52,10 +52,10 @@ public class BusCreatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        updateButton.setText("CREATE");
-        updateButton.addActionListener(this::updateButtonActionPerformed);
-        optionPanel.add(updateButton);
+        createButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createButton.setText("CREATE");
+        createButton.addActionListener(this::createButtonActionPerformed);
+        optionPanel.add(createButton);
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
@@ -129,15 +129,16 @@ public class BusCreatePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         performInsert();
-    }//GEN-LAST:event_updateButtonActionPerformed
+    }//GEN-LAST:event_createButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField capacityField;
     private javax.swing.JLabel capacityLabel;
+    private javax.swing.JButton createButton;
     private javax.swing.JTextField driverIdField;
     private javax.swing.JLabel driverIdLabel;
     private javax.swing.JLabel headerLabel;
@@ -149,11 +150,10 @@ public class BusCreatePanel extends javax.swing.JPanel {
     private javax.swing.JPanel rightPanel;
     private javax.swing.JTextField routeIdField;
     private javax.swing.JLabel routeIdLabel;
-    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 
     // Expose buttons for external listeners (e.g., dialog wrapper)
-    public javax.swing.JButton getUpdateButton() { return updateButton; }
+    public javax.swing.JButton getCreateButton() { return createButton; }
     public javax.swing.JButton getCancelButton() { return cancelButton; }
 
     // Field getters specific to Bus
