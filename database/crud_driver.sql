@@ -10,8 +10,8 @@ SELECT * FROM Driver WHERE DriverID=?;
 -- Update
 UPDATE Driver
 SET DriverName=?, Age=?, License=?, Phone=?
-WHERE DriveID=?;
+WHERE DriverID=?;
 
 -- Delete
-DELETE FROM Driver WHERE DriveID=?
+DELETE FROM Driver WHERE DriverID=?
 

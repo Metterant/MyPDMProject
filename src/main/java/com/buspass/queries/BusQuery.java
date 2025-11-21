@@ -32,7 +32,7 @@ public class BusQuery {
     /* ADMIN PRIVILEDGES */
     
     public boolean registerBus(String plateNumber, int capacity, int driverId, int routeId) {
-        String sql = "INSERT INTO bus_info (PlateNumber, Capacity, DriveID, RouteID) " + 
+        String sql = "INSERT INTO bus_info (PlateNumber, Capacity, DriverID, RouteID) " + 
             "VALUES(?,?,?,?);";
 
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, plateNumber, capacity , driverId, routeId);
@@ -65,7 +65,7 @@ public class BusQuery {
     }
 
     public boolean updateDriverID(int busId, int driverId) {
-        String sql = "UPDATE Bus_info SET DriveID = ? WHERE BusID = ?";
+        String sql = "UPDATE Bus_info SET DriverID = ? WHERE BusID = ?";
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, driverId, busId);
         return rowsAffected > 0;
     }
