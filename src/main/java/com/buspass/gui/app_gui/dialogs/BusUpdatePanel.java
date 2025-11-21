@@ -47,7 +47,7 @@ public class BusUpdatePanel extends javax.swing.JPanel {
         driverIdLabel = new javax.swing.JLabel();
         routeIdLabel = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
-        UserIdPanel = new javax.swing.JPanel();
+        busIdPanel = new javax.swing.JPanel();
         busIdField = new javax.swing.JTextField();
         findIdButton = new javax.swing.JButton();
         plateNumberField = new javax.swing.JTextField();
@@ -109,24 +109,24 @@ public class BusUpdatePanel extends javax.swing.JPanel {
         findIdButton.setText("Find");
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
-        javax.swing.GroupLayout UserIdPanelLayout = new javax.swing.GroupLayout(UserIdPanel);
-        UserIdPanel.setLayout(UserIdPanelLayout);
-        UserIdPanelLayout.setHorizontalGroup(
-            UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserIdPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout busIdPanelLayout = new javax.swing.GroupLayout(busIdPanel);
+        busIdPanel.setLayout(busIdPanelLayout);
+        busIdPanelLayout.setHorizontalGroup(
+            busIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, busIdPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(busIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(findIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        UserIdPanelLayout.setVerticalGroup(
-            UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        busIdPanelLayout.setVerticalGroup(
+            busIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(busIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(findIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(busIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        rightPanel.add(UserIdPanel);
+        rightPanel.add(busIdPanel);
 
         plateNumberField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rightPanel.add(plateNumberField);
@@ -179,9 +179,9 @@ public class BusUpdatePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel UserIdPanel;
     private javax.swing.JTextField busIdField;
     private javax.swing.JLabel busIdLabel;
+    private javax.swing.JPanel busIdPanel;
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField capacityField;
     private javax.swing.JLabel capacityLabel;

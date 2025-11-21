@@ -147,7 +147,7 @@
         <Property name="rows" type="int" value="8"/>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="UserIdPanel">
+        <Container class="javax.swing.JPanel" name="busIdPanel">
 
           <Layout>
             <DimensionLayout dim="0">
