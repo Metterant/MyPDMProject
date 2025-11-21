@@ -43,8 +43,8 @@ public class BusesPanel extends javax.swing.JPanel {
         getBusByIdButton = new javax.swing.JButton();
         getAllBusesButton = new javax.swing.JButton();
         getTripsWithBusButton = new javax.swing.JButton();
-        updateBusButton = new javax.swing.JButton();
         createBusButton = new javax.swing.JButton();
+        updateBusButton = new javax.swing.JButton();
         deleteBusButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
@@ -90,15 +90,6 @@ public class BusesPanel extends javax.swing.JPanel {
         getTripsWithBusButton.addActionListener(this::getTripsWithBusButtonActionPerformed);
         buttonPanel.add(getTripsWithBusButton);
 
-        updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        updateBusButton.setText("Update Bus");
-        updateBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        updateBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        updateBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateBusButton.addActionListener(this::updateBusButtonActionPerformed);
-        buttonPanel.add(updateBusButton);
-
         createBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         createBusButton.setText("Create Bus");
         createBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -107,6 +98,15 @@ public class BusesPanel extends javax.swing.JPanel {
         createBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
         createBusButton.addActionListener(this::createBusButtonActionPerformed);
         buttonPanel.add(createBusButton);
+
+        updateBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateBusButton.setText("Update Bus");
+        updateBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        updateBusButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        updateBusButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        updateBusButton.addActionListener(this::updateBusButtonActionPerformed);
+        buttonPanel.add(updateBusButton);
 
         deleteBusButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         deleteBusButton.setText("Delete Bus");

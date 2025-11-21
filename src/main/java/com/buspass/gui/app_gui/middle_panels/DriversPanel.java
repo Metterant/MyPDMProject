@@ -38,8 +38,8 @@ public class DriversPanel extends javax.swing.JPanel {
         getAllBusesButton = new javax.swing.JButton();
         getTripsWithBusButton = new javax.swing.JButton();
         getTripsDrivenButton = new javax.swing.JButton();
-        createDriverButton = new javax.swing.JButton();
         updateDriverButton = new javax.swing.JButton();
+        createDriverButton = new javax.swing.JButton();
         deleteDriverButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
@@ -94,15 +94,6 @@ public class DriversPanel extends javax.swing.JPanel {
         getTripsDrivenButton.addActionListener(this::getTripsDrivenButtonActionPerformed);
         buttonPanel.add(getTripsDrivenButton);
 
-        createDriverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        createDriverButton.setText("Create Driver");
-        createDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        createDriverButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        createDriverButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        createDriverButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        createDriverButton.addActionListener(this::createDriverButtonActionPerformed);
-        buttonPanel.add(createDriverButton);
-
         updateDriverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         updateDriverButton.setText("Update Driver");
         updateDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -111,6 +102,15 @@ public class DriversPanel extends javax.swing.JPanel {
         updateDriverButton.setPreferredSize(new java.awt.Dimension(180, 40));
         updateDriverButton.addActionListener(this::updateDriverButtonActionPerformed);
         buttonPanel.add(updateDriverButton);
+
+        createDriverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createDriverButton.setText("Create Driver");
+        createDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        createDriverButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        createDriverButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        createDriverButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        createDriverButton.addActionListener(this::createDriverButtonActionPerformed);
+        buttonPanel.add(createDriverButton);
 
         deleteDriverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         deleteDriverButton.setText("Delete Driver");
