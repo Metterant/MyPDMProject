@@ -42,8 +42,8 @@ public class UsersPanel extends javax.swing.JPanel {
         buttonPanel = new javax.swing.JPanel();
         getUserByIdButton = new javax.swing.JButton();
         getAllUsersButton = new javax.swing.JButton();
-        updateUserButton = new javax.swing.JButton();
         createUserButton = new javax.swing.JButton();
+        updateUserButton = new javax.swing.JButton();
         findIdButton = new javax.swing.JButton();
         deleteUserButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
@@ -81,15 +81,6 @@ public class UsersPanel extends javax.swing.JPanel {
         getAllUsersButton.addActionListener(this::getAllUsersButtonActionPerformed);
         buttonPanel.add(getAllUsersButton);
 
-        updateUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        updateUserButton.setText("Update User");
-        updateUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        updateUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        updateUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateUserButton.addActionListener(this::updateUserButtonActionPerformed);
-        buttonPanel.add(updateUserButton);
-
         createUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         createUserButton.setText("Create User");
         createUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -98,6 +89,15 @@ public class UsersPanel extends javax.swing.JPanel {
         createUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
         createUserButton.addActionListener(this::createUserButtonActionPerformed);
         buttonPanel.add(createUserButton);
+
+        updateUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateUserButton.setText("Update User");
+        updateUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        updateUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        updateUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        updateUserButton.addActionListener(this::updateUserButtonActionPerformed);
+        buttonPanel.add(updateUserButton);
 
         findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         findIdButton.setText("Find UserID By Username");

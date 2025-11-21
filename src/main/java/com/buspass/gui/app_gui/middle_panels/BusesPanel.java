@@ -6,6 +6,7 @@ package com.buspass.gui.app_gui.middle_panels;
 
 import javax.swing.JOptionPane;
 
+import com.buspass.gui.app_gui.dialogs.BusCreatePanel;
 import com.buspass.gui.app_gui.dialogs.BusUpdatePanel;
 import com.buspass.gui.app_gui.dialogs.UserUpdatePanel;
 import com.buspass.queries.BusQuery;
@@ -238,7 +239,16 @@ public class BusesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_getTripsWithBusButtonActionPerformed
 
     private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBusButtonActionPerformed
-        
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        BusCreatePanel panel = new BusCreatePanel(busQuery);
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+    
+        dialog.setVisible(true); // blocks until closed
     }//GEN-LAST:event_createBusButtonActionPerformed
 
     private void deleteBusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusButtonActionPerformed

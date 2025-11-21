@@ -232,7 +232,7 @@ public class BusUpdatePanel extends javax.swing.JPanel {
     private void setBusFields(Map<String,Object> bus) {
         plateNumberField.setText(asString(bus.get("PlateNumber")));
         capacityField.setText(asString(bus.get("Capacity")));
-        driverIdField.setText(asString(bus.get("DriveID"), asString(bus.get("DriverID"))));
+        driverIdField.setText(asString(bus.get("DriverID"), asString(bus.get("DriverID"))));
         routeIdField.setText(asString(bus.get("RouteID")));
         
         System.out.println(bus.get("Capacity"));
@@ -275,7 +275,7 @@ public class BusUpdatePanel extends javax.swing.JPanel {
             if (newCapacity != null && !asString(currentBus.get("Capacity")).equals(String.valueOf(newCapacity))) {
                 if (busQuery.updateCapacity(busId, newCapacity)) { summary.append("Capacity updated.\n"); anyChange = true; }
             }
-            if (newDriverId != null && !asString(currentBus.get("DriveID"), asString(currentBus.get("DriverID"))).equals(String.valueOf(newDriverId))) {
+            if (newDriverId != null && !asString(currentBus.get("DriverID"), asString(currentBus.get("DriverID"))).equals(String.valueOf(newDriverId))) {
                 if (busQuery.updateDriverID(busId, newDriverId)) { summary.append("DriverID updated.\n"); anyChange = true; }
             }
             if (newRouteId != null && !asString(currentBus.get("RouteID")).equals(String.valueOf(newRouteId))) {

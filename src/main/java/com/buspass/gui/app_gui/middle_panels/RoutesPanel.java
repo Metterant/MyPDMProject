@@ -36,8 +36,8 @@ public class RoutesPanel extends javax.swing.JPanel {
         buttonPanel = new javax.swing.JPanel();
         getRouteByIdButton = new javax.swing.JButton();
         getAllRoutesButton = new javax.swing.JButton();
-        updateRouteButton = new javax.swing.JButton();
         createRouteButton = new javax.swing.JButton();
+        updateRouteButton = new javax.swing.JButton();
         deleteRouteButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
@@ -74,15 +74,6 @@ public class RoutesPanel extends javax.swing.JPanel {
         getAllRoutesButton.addActionListener(this::getAllRoutesButtonActionPerformed);
         buttonPanel.add(getAllRoutesButton);
 
-        updateRouteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        updateRouteButton.setText("Update Route");
-        updateRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        updateRouteButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        updateRouteButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateRouteButton.addActionListener(this::updateRouteButtonActionPerformed);
-        buttonPanel.add(updateRouteButton);
-
         createRouteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         createRouteButton.setText("Create Route");
         createRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -91,6 +82,15 @@ public class RoutesPanel extends javax.swing.JPanel {
         createRouteButton.setPreferredSize(new java.awt.Dimension(180, 40));
         createRouteButton.addActionListener(this::createRouteButtonActionPerformed);
         buttonPanel.add(createRouteButton);
+
+        updateRouteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateRouteButton.setText("Update Route");
+        updateRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        updateRouteButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        updateRouteButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        updateRouteButton.addActionListener(this::updateRouteButtonActionPerformed);
+        buttonPanel.add(updateRouteButton);
 
         deleteRouteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         deleteRouteButton.setText("Delete Route");

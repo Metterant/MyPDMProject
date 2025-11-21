@@ -37,8 +37,8 @@ public class TripsPanel extends javax.swing.JPanel {
         getAllTripsButton = new javax.swing.JButton();
         routesAndTripsButton = new javax.swing.JButton();
         joinedQueryButton = new javax.swing.JButton();
-        updateTripButton = new javax.swing.JButton();
         createTripButton = new javax.swing.JButton();
+        updateTripButton = new javax.swing.JButton();
         deleteTriprButton = new javax.swing.JButton();
         tableScrollPane = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
@@ -93,15 +93,6 @@ public class TripsPanel extends javax.swing.JPanel {
         joinedQueryButton.addActionListener(this::joinedQueryButtonActionPerformed);
         buttonPanel.add(joinedQueryButton);
 
-        updateTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        updateTripButton.setText("Update Trip");
-        updateTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        updateTripButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        updateTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        updateTripButton.addActionListener(this::updateTripButtonActionPerformed);
-        buttonPanel.add(updateTripButton);
-
         createTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         createTripButton.setText("Create Trip");
         createTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -110,6 +101,15 @@ public class TripsPanel extends javax.swing.JPanel {
         createTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
         createTripButton.addActionListener(this::createTripButtonActionPerformed);
         buttonPanel.add(createTripButton);
+
+        updateTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateTripButton.setText("Update Trip");
+        updateTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        updateTripButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        updateTripButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        updateTripButton.addActionListener(this::updateTripButtonActionPerformed);
+        buttonPanel.add(updateTripButton);
 
         deleteTriprButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         deleteTriprButton.setText("Delete Trip");
