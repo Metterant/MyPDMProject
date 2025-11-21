@@ -87,7 +87,6 @@ public class UserLoginSession {
 
     private void setInfo(Map<String, Object> userInfo) {
         clearSessionInfo();
-        setUsername(username);
 
         Object usernameObj = userInfo.get("Username");
         Object userIdObj   = userInfo.get("UserID");
