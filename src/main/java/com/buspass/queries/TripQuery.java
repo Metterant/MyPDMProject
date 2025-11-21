@@ -12,24 +12,29 @@ import com.buspass.db.QueryExecutionModule;
 public class TripQuery {
 
     public List<Map<String, Object>> getAvailableTrips() {
-        String sql = "SELECT * FROM Trip \r\n" + //
+        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" + //
+                        "    RouteName, StartLocation, EndLocation, Duration\r\n" + //
+                        "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" + //
+                        "    JOIN Route r ON b.RouteID = r.RouteID\r\n" + //
                         "WHERE TripDate > CURDATE()\r\n" + //
-                        "   OR (TripDate = CURDATE()\r\n" + //
-                        "   AND DepartureTime >= NOW())";
+                        "    OR (TripDate = CURDATE()\r\n" + //
+                        "       AND DepartureTime >= NOW())\r\n" +
+                        "ORDER BY TripDate, DepartureTime";
         return QueryExecutionModule.executeQuery(sql);
     }
 
     //#region ADMIN PRIVILEDGES
     
     public Map<String, Object> getTripById(int tripId) {
-        String sql = "SELECT * FROM Trip WHERE TripID = ?";
+        String sql = "SELECT * FROM Trip WHERE TripID = ? ";
         List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
         if (!trips.isEmpty()) return trips.get(0);
         return null;
     }
 
     public List<Map<String, Object>> getAllTrips() {
-        String sql = "SELECT * FROM Trip";
+        String sql = "SELECT * FROM Trip" +
+                     "ORDER BY TripDate, DepartureTime";;
         return QueryExecutionModule.executeQuery(sql);
     }
 
@@ -38,7 +43,8 @@ public class TripQuery {
         String sql = "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName "
                    + "FROM Trip t "
                    + "    LEFT JOIN Bus_info b ON t.BusID = b.BusID "
-                   + "    LEFT JOIN Route r ON b.RouteID = r.RouteID";
+                   + "    LEFT JOIN Route r ON b.RouteID = r.RouteID "
+                   + "ORDER BY TripDate, DepartureTime";
         return QueryExecutionModule.executeQuery(sql);
     }
 
@@ -49,7 +55,8 @@ public class TripQuery {
                 + "FROM Trip t "
                 + "LEFT JOIN Bus_info b ON t.BusID = b.BusID "
                 + "LEFT JOIN Route r ON b.RouteID = r.RouteID "
-                + "LEFT JOIN Driver d ON b.DriverID = d.DriverID";
+                + "LEFT JOIN Driver d ON b.DriverID = d.DriverID"
+                + "ORDER BY TripDate, DepartureTime";
         return QueryExecutionModule.executeQuery(sql);
     }
 
@@ -82,7 +89,7 @@ public class TripQuery {
         LocalDate today = LocalDate.now();
         ThreadLocalRandom rng = ThreadLocalRandom.current();
         DateTimeFormatter timeFmt = DateTimeFormatter.ofPattern("HH:mm:ss");
-        
+
         int inserted = 0;
         for (int i = 0; i < count; i++) {
             int busIndex = rng.nextInt(buses.size());
