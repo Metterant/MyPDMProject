@@ -167,7 +167,7 @@ public class UsersPanel extends javax.swing.JPanel {
 
     private void updateUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserButtonActionPerformed
         java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
-        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Update User", java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         UserUpdatePanel panel = new UserUpdatePanel(userService);
         dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
         dialog.setContentPane(panel);
