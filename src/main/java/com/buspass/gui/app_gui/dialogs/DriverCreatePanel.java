@@ -3,7 +3,7 @@ package com.buspass.gui.app_gui.dialogs;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
-import com.buspass.queries.BusQuery;
+import com.buspass.queries.DriverQuery;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,17 +14,16 @@ import com.buspass.queries.BusQuery;
  *
  * @author USER
  */
-public class BusCreatePanel extends javax.swing.JPanel {
+public class DriverCreatePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UserCreatePanel
      */
-    private final BusQuery busQuery;
-    private Map<String,Object> currentBus; // cached fetched bus row
+    private final DriverQuery driverQuery;
 
-    public BusCreatePanel(BusQuery busQuery) {
+    public DriverCreatePanel(DriverQuery driverQuery) {
         initComponents();
-        this.busQuery = busQuery != null ? busQuery : new BusQuery();
+        this.driverQuery = driverQuery != null ? driverQuery : new DriverQuery();
     }
 
     /**
@@ -36,27 +35,27 @@ public class BusCreatePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         optionPanel = new javax.swing.JPanel();
-        updateButton = new javax.swing.JButton();
+        createButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         leftPanel = new javax.swing.JPanel();
-        plateNumberLabel = new javax.swing.JLabel();
-        capacityLabel = new javax.swing.JLabel();
-        driverIdLabel = new javax.swing.JLabel();
-        routeIdLabel = new javax.swing.JLabel();
+        driverNameLabel = new javax.swing.JLabel();
+        ageLabel = new javax.swing.JLabel();
+        licenseLabel = new javax.swing.JLabel();
+        phoneLabel = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
-        plateNumberField = new javax.swing.JTextField();
-        capacityField = new javax.swing.JTextField();
-        driverIdField = new javax.swing.JTextField();
-        routeIdField = new javax.swing.JTextField();
+        driverNameField = new javax.swing.JTextField();
+        ageField = new javax.swing.JTextField();
+        licenseField = new javax.swing.JTextField();
+        phoneField = new javax.swing.JTextField();
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        updateButton.setText("CREATE");
-        updateButton.addActionListener(this::updateButtonActionPerformed);
-        optionPanel.add(updateButton);
+        createButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createButton.setText("CREATE");
+        createButton.addActionListener(this::createButtonActionPerformed);
+        optionPanel.add(createButton);
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
@@ -66,44 +65,44 @@ public class BusCreatePanel extends javax.swing.JPanel {
 
         headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headerLabel.setText("CREATE BUS");
+        headerLabel.setText("CREATE DRIVER");
         headerPanel.add(headerLabel);
 
         leftPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        plateNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        plateNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        plateNumberLabel.setText("PlateNumber");
-        leftPanel.add(plateNumberLabel);
+        driverNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        driverNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        driverNameLabel.setText("Driver Name");
+        leftPanel.add(driverNameLabel);
 
-        capacityLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        capacityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        capacityLabel.setText("Capacity");
-        leftPanel.add(capacityLabel);
+        ageLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ageLabel.setText("Age");
+        leftPanel.add(ageLabel);
 
-        driverIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        driverIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        driverIdLabel.setText("DriverID");
-        leftPanel.add(driverIdLabel);
+        licenseLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        licenseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        licenseLabel.setText("License");
+        leftPanel.add(licenseLabel);
 
-        routeIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        routeIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        routeIdLabel.setText("RouteID");
-        leftPanel.add(routeIdLabel);
+        phoneLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        phoneLabel.setText("Phone Number");
+        leftPanel.add(phoneLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        plateNumberField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(plateNumberField);
+        driverNameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rightPanel.add(driverNameField);
 
-        capacityField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(capacityField);
+        ageField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rightPanel.add(ageField);
 
-        driverIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(driverIdField);
+        licenseField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rightPanel.add(licenseField);
 
-        routeIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(routeIdField);
+        phoneField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rightPanel.add(phoneField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -130,38 +129,38 @@ public class BusCreatePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         performInsert();
-    }//GEN-LAST:event_updateButtonActionPerformed
+    }//GEN-LAST:event_createButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ageField;
+    private javax.swing.JLabel ageLabel;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JTextField capacityField;
-    private javax.swing.JLabel capacityLabel;
-    private javax.swing.JTextField driverIdField;
-    private javax.swing.JLabel driverIdLabel;
+    private javax.swing.JButton createButton;
+    private javax.swing.JTextField driverNameField;
+    private javax.swing.JLabel driverNameLabel;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel leftPanel;
+    private javax.swing.JTextField licenseField;
+    private javax.swing.JLabel licenseLabel;
     private javax.swing.JPanel optionPanel;
-    private javax.swing.JTextField plateNumberField;
-    private javax.swing.JLabel plateNumberLabel;
+    private javax.swing.JTextField phoneField;
+    private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel rightPanel;
-    private javax.swing.JTextField routeIdField;
-    private javax.swing.JLabel routeIdLabel;
-    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 
     // Expose buttons for external listeners (e.g., dialog wrapper)
-    public javax.swing.JButton getUpdateButton() { return updateButton; }
+    public javax.swing.JButton getCreateButton() { return createButton; }
     public javax.swing.JButton getCancelButton() { return cancelButton; }
 
     // Field getters specific to Bus
-    private String getPlateNumber() { return plateNumberField.getText().trim(); }
-    private Integer getCapacity() { return parseIntNullable(capacityField.getText().trim()); } // Updated to use JTextField
-    private Integer getDriverId() { return parseIntNullable(driverIdField.getText().trim()); }
-    private Integer getRouteId() { return parseIntNullable(routeIdField.getText().trim()); }
+    private String getDriverName() { return driverNameField.getText().trim(); }
+    private Integer getAge() { return parseIntNullable(ageField.getText().trim()); } // Updated to use JTextField
+    private String getLicense() { return licenseField.getText().trim(); }
+    private String getPhoneNumber() { return phoneField.getText().trim(); }
 
     private Integer parseIntNullable(String s) { 
         if (s==null||s.isEmpty()) return null; 
@@ -174,21 +173,21 @@ public class BusCreatePanel extends javax.swing.JPanel {
 
     private void performInsert() {
 
-        String plateNumber = getPlateNumber();
-        Integer capacity = getCapacity();
-        Integer driverId = getDriverId();
-        Integer routeId = getRouteId();
+        String driverName = getDriverName();
+        Integer age = getAge();
+        String license = getLicense();
+        String phoneNumber = getPhoneNumber();
 
         boolean ok;
         try {
-            ok = busQuery.registerBus(plateNumber, capacity, driverId, routeId);
+            ok = driverQuery.registerDriver(driverName, age, license, phoneNumber);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Creation failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Record Creation failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!ok) 
-            JOptionPane.showMessageDialog(this, "Creation failed.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Record Creation failed.", "Error", JOptionPane.ERROR_MESSAGE);
         else
-            JOptionPane.showMessageDialog(this, "New Bus Created.", "Info", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "New Driver Record Created.", "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 }
