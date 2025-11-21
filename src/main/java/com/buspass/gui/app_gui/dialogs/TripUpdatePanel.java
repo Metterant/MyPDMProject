@@ -2,10 +2,9 @@ package com.buspass.gui.app_gui.dialogs;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.Map;
 
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
-import javax.swing.text.DateFormatter;
 import javax.swing.text.NumberFormatter;
 
 import com.buspass.queries.TripQuery;
@@ -19,14 +18,16 @@ import com.buspass.queries.TripQuery;
  *
  * @author USER
  */
-public class TripCreatePanel extends javax.swing.JPanel {
+public class TripUpdatePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UserCreatePanel
      */
     private final TripQuery tripQuery;
+    private Map<String,Object> currentTrip;
 
-    public TripCreatePanel(TripQuery tripQuery) {
+    public TripUpdatePanel(TripQuery tripQuery) {
+        integerFormat.setGroupingUsed(false); // no commas
         numberFormatter.setAllowsInvalid(false); // Disallow invalid edits
         numberFormatter.setCommitsOnValidEdit(true);
 
@@ -43,16 +44,20 @@ public class TripCreatePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         optionPanel = new javax.swing.JPanel();
-        createButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         leftPanel = new javax.swing.JPanel();
+        tripIdLabel = new javax.swing.JLabel();
         tripDateLabel = new javax.swing.JLabel();
         departureLabel = new javax.swing.JLabel();
         arrivalLabel = new javax.swing.JLabel();
         busIdLabel = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
+        driverIdPanel = new javax.swing.JPanel();
+        tripIdField = new javax.swing.JFormattedTextField(numberFormatter);
+        findIdButton = new javax.swing.JButton();
         tripDateField = new javax.swing.JFormattedTextField(df);
         departureField = new javax.swing.JFormattedTextField(tf);
         arrivalField = new javax.swing.JFormattedTextField(tf);
@@ -60,10 +65,10 @@ public class TripCreatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        createButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        createButton.setText("CREATE");
-        createButton.addActionListener(this::createButtonActionPerformed);
-        optionPanel.add(createButton);
+        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        updateButton.setText("UPDATE");
+        updateButton.addActionListener(this::updateButtonActionPerformed);
+        optionPanel.add(updateButton);
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
@@ -73,10 +78,15 @@ public class TripCreatePanel extends javax.swing.JPanel {
 
         headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headerLabel.setText("CREATE TRIP");
+        headerLabel.setText("UPDATE TRIP");
         headerPanel.add(headerLabel);
 
         leftPanel.setLayout(new java.awt.GridLayout(6, 1));
+
+        tripIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tripIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tripIdLabel.setText("Trip ID");
+        leftPanel.add(tripIdLabel);
 
         tripDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tripDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -99,6 +109,35 @@ public class TripCreatePanel extends javax.swing.JPanel {
         leftPanel.add(busIdLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(6, 1));
+
+        tripIdField.setMaximumSize(new java.awt.Dimension(64, 26));
+        tripIdField.setName(""); // NOI18N
+        tripIdField.addActionListener(this::tripIdFieldActionPerformed);
+
+        findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        findIdButton.setText("Find");
+        findIdButton.addActionListener(this::findIdButtonActionPerformed);
+
+        javax.swing.GroupLayout driverIdPanelLayout = new javax.swing.GroupLayout(driverIdPanel);
+        driverIdPanel.setLayout(driverIdPanelLayout);
+        driverIdPanelLayout.setHorizontalGroup(
+            driverIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, driverIdPanelLayout.createSequentialGroup()
+                .addGap(0, 247, Short.MAX_VALUE)
+                .addComponent(findIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(driverIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(driverIdPanelLayout.createSequentialGroup()
+                    .addComponent(tripIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 89, Short.MAX_VALUE)))
+        );
+        driverIdPanelLayout.setVerticalGroup(
+            driverIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(findIdButton, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addGroup(driverIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(tripIdField, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+        );
+
+        rightPanel.add(driverIdPanel);
 
         tripDateField.addActionListener(this::tripDateFieldActionPerformed);
         rightPanel.add(tripDateField);
@@ -137,9 +176,9 @@ public class TripCreatePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        performInsert();
-    }//GEN-LAST:event_createButtonActionPerformed
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        performUpdate();
+    }//GEN-LAST:event_updateButtonActionPerformed
 
     private void tripDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tripDateFieldActionPerformed
         // TODO add your handling code here:
@@ -157,6 +196,14 @@ public class TripCreatePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_busIdFieldActionPerformed
 
+    private void findIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIdButtonActionPerformed
+        fetchTrip();
+    }//GEN-LAST:event_findIdButtonActionPerformed
+
+    private void tripIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tripIdFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tripIdFieldActionPerformed
+
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat tf = new SimpleDateFormat("HH:mm:ss");
     // Create a formatter that only allows integers
@@ -169,9 +216,10 @@ public class TripCreatePanel extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField busIdField;
     private javax.swing.JLabel busIdLabel;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton createButton;
     private javax.swing.JFormattedTextField departureField;
     private javax.swing.JLabel departureLabel;
+    private javax.swing.JPanel driverIdPanel;
+    private javax.swing.JButton findIdButton;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel leftPanel;
@@ -179,17 +227,26 @@ public class TripCreatePanel extends javax.swing.JPanel {
     private javax.swing.JPanel rightPanel;
     private javax.swing.JFormattedTextField tripDateField;
     private javax.swing.JLabel tripDateLabel;
+    private javax.swing.JFormattedTextField tripIdField;
+    private javax.swing.JLabel tripIdLabel;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 
     // Expose buttons for external listeners (e.g., dialog wrapper)
-    public javax.swing.JButton getCreateButton() { return createButton; }
+    public javax.swing.JButton getCreateButton() { return updateButton; }
     public javax.swing.JButton getCancelButton() { return cancelButton; }
 
     // Field getters specific to Bus
+    private Integer getTripId() { return parseIntNullable(tripIdField.getText().trim()); }
     private String getTripDate() { return tripDateField.getText().trim(); }
     private String getDepartureTime() { return departureField.getText().trim(); }
     private String getArrivalTime() { return arrivalField.getText().trim(); }
     private Integer getBusId() { return parseIntNullable(busIdField.getText().trim()); }
+
+    public void setTripDate(String tripDate) { tripDateField.setText(tripDate);} 
+    public void setDepartureTime(String departureTime) { departureField.setText(departureTime);}
+    public void setArrivalTime(String arrivalTime) { arrivalField.setText(arrivalTime);} 
+    public void setBusId(String busId) { busIdField.setText(busId); }    
 
     private Integer parseIntNullable(String s) { 
         if (s==null||s.isEmpty()) return null; 
@@ -199,24 +256,77 @@ public class TripCreatePanel extends javax.swing.JPanel {
             return null; 
         } 
     }
+    
+    private String asString(Object o) { return o==null?"":o.toString(); }
+    private boolean isBlank(String s) { return s==null || s.trim().isEmpty(); }
 
-    private void performInsert() {
+    private void setTripFields(Map<String,Object> trip) {
+        setTripDate(asString(trip.get("TripDate")));
+        setDepartureTime(asString(trip.get("DepartureTime")));
+        setArrivalTime(asString(trip.get("ArrivalTime")));
+        setBusId(asString(trip.get("BusID")));
+    }
 
-        String tripDate = getTripDate();
-        String departureTime = getDepartureTime();
-        String arrivalTime = getArrivalTime();
-        Integer busId = getBusId();
+    private void fetchTrip() {
+        Integer tripId = getTripId();
+        if (tripId == null || tripId <= 0) { 
+            JOptionPane.showMessageDialog(this, "Enter a valid TripID.", "Input", JOptionPane.WARNING_MESSAGE); 
+            return; 
+        }
+        currentTrip = tripQuery.getTripById(tripId);
+        if (currentTrip == null) { 
+            JOptionPane.showMessageDialog(this, "Trip not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE); 
+            return; 
+        }
+        setTripFields(currentTrip);
+    }
 
-        boolean ok = true;
+    private void performUpdate() {
+        Integer tripId = getTripId();
+        if (tripId == null || tripId <= 0) { 
+            JOptionPane.showMessageDialog(this, "Provide TripID first.", "Validation", JOptionPane.WARNING_MESSAGE); return; 
+        }
+        if (currentTrip == null) currentTrip = tripQuery.getTripById(tripId);
+        if (currentTrip == null) { 
+            JOptionPane.showMessageDialog(this, "Fetch trip before updating.", "Validation", JOptionPane.WARNING_MESSAGE); return; 
+        }
+
+        String newDate = getTripDate();
+        String newDep = getDepartureTime();
+        String newArr = getArrivalTime();
+        Integer newBusId = getBusId();
+
+        StringBuilder summary = new StringBuilder();
+        boolean anyChange = false;
         try {
-            ok = tripQuery.createTrip(tripDate, departureTime, arrivalTime, busId);
+            if (!isBlank(newDate) && !newDate.equals(asString(currentTrip.get("TripDate")))) {
+                if (tripQuery.updateTripDate(tripId, newDate)) { 
+                    summary.append("TripDate updated.\n"); 
+                    anyChange = true;
+                }
+            }
+            if (!isBlank(newDep) && !isBlank(newArr) && (!newDep.equals(asString(currentTrip.get("DepartureTime"))) || !newArr.equals(asString(currentTrip.get("ArrivalTime"))))) {
+                if (tripQuery.updateTimes(tripId, newDep, newArr)) { 
+                    summary.append("Times updated.\n"); 
+                    anyChange = true; 
+                }
+            }
+            if (newBusId != null && !String.valueOf(newBusId).equals(asString(currentTrip.get("BusID")))) {
+                if (tripQuery.updateBusId(tripId, newBusId)) { 
+                    summary.append("BusID updated.\n"); 
+                    anyChange = true; 
+                }
+            }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Trip Creation failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Update failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (!ok) 
-            JOptionPane.showMessageDialog(this, "Trip Creation failed.", "Error", JOptionPane.ERROR_MESSAGE);
-        else
-            JOptionPane.showMessageDialog(this, "New Trip Record Created.", "Info", JOptionPane.INFORMATION_MESSAGE);
+        if (anyChange) {
+            JOptionPane.showMessageDialog(this, summary.toString(), "Update Success", JOptionPane.INFORMATION_MESSAGE);
+            currentTrip = tripQuery.getTripById(tripId); // refresh cache
+            setTripFields(currentTrip);
+        } else {
+            JOptionPane.showMessageDialog(this, "No changes applied.", "Info", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 }
