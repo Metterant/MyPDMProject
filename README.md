@@ -1,6 +1,7 @@
 # Project Manual
 
 ## Creating the Database
+
 In your MySQL Instance of choice, run the `create_tables.sql` file found in `.\database` folder. Once completed, you can execute the statements in `data.sql` to insert some data into the database to test with it.
 
 ## Store Credentials in a `.env` file
