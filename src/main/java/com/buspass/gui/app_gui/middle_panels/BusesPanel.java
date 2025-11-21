@@ -170,7 +170,7 @@ public class BusesPanel extends javax.swing.JPanel {
 
     private void updateBusButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_updateBusButtonActionPerformed
         java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
-        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User",
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Update Bus",
                 java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         BusUpdatePanel panel = new BusUpdatePanel(busQuery);
         dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
@@ -255,7 +255,7 @@ public class BusesPanel extends javax.swing.JPanel {
 
     private void createBusButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_createBusButtonActionPerformed
         java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
-        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create User",
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create Bus",
                 java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         BusCreatePanel panel = new BusCreatePanel(busQuery);
         dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
