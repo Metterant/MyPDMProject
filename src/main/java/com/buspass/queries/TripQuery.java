@@ -131,6 +131,32 @@ public class TripQuery {
         return inserted;
     }
 
+    /**
+     * Lấy giá vé (Fare) của một chuyến đi cụ thể.
+     * @param tripId ID của chuyến đi.
+     * @return Giá vé (Double) hoặc null nếu không tìm thấy chuyến đi/tuyến đường.
+     */
+    public Double getFareByTripId(int tripId) {
+        // SQL: Join Trip, Bus_info, và Route để lấy giá Fare
+        String sql = "SELECT r.Fare " +
+                    "FROM Trip t " +
+                    "JOIN Bus_info b ON t.BusID = b.BusID " +
+                    "JOIN Route r ON b.RouteID = r.RouteID " +
+                    "WHERE t.TripID = ?";
+        
+        // Giả sử QueryExecutionModule.executeQuery trả về List<Map<String, Object>>
+        List<Map<String, Object>> result = QueryExecutionModule.executeQuery(sql, tripId);
+        
+        if (result != null && !result.isEmpty()) {
+            Object fareObj = result.get(0).get("Fare");
+            // Chuyển đổi giá trị DECIMAL từ SQL sang Double trong Java
+            if (fareObj instanceof Number) {
+                return ((Number) fareObj).doubleValue();
+            }
+        }
+        return null;
+    }
+
     /** Convenience method to generate 50 trips over next 20 days */
     public int generateRandomTripsDefault() { return generateRandomTrips(50, 20); }
 
