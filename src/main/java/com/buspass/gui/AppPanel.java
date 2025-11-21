@@ -41,7 +41,7 @@ public class AppPanel extends JPanel implements PanelSwitcher {
     @Override
     public void showPanel(String name) {
         if (name == MAIN)
-            mainPanel.updateButtons();
+            mainPanel.updatePanel();
         // ensure change happens on EDT
         if (SwingUtilities.isEventDispatchThread()) {
             cardLayout.show(cards, name);
