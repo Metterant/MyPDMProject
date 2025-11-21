@@ -2,13 +2,20 @@ package com.buspass.queries;
 
 import java.util.List;
 import java.util.Map;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.ThreadLocalRandom;
 
 import com.buspass.db.QueryExecutionModule;
 
 public class TripQuery {
 
     public List<Map<String, Object>> getAvailableTrips() {
-        String sql = "SELECT * FROM Trip WHERE TripDate >= CURDATE() AND DepartureTime > NOW()";
+        String sql = "SELECT * FROM Trip \r\n" + //
+                        "WHERE TripDate > CURDATE()\r\n" + //
+                        "   OR (TripDate = CURDATE()\r\n" + //
+                        "   AND DepartureTime >= NOW())";
         return QueryExecutionModule.executeQuery(sql);
     }
 
@@ -46,9 +53,10 @@ public class TripQuery {
         return QueryExecutionModule.executeQuery(sql);
     }
 
-    public boolean createTrip(String tripDate, String departureTime, String arrivalTime, int busId, int routeId) {
-        String sql = "INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID, RouteID) VALUES (?, ?, ?, ?, ?);";
-        int rowsAffected = QueryExecutionModule.executeUpdate(sql, tripDate, departureTime, arrivalTime, busId, routeId);
+    public boolean createTrip(String tripDate, String departureTime, String arrivalTime, int busId) {
+        // Schema Trip: TripDate, DepartureTime, ArrivalTime, BusID (no RouteID column)
+        String sql = "INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID) VALUES (?, ?, ?, ?);";
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, tripDate, departureTime, arrivalTime, busId);
         return rowsAffected > 0;
     }
 
@@ -57,6 +65,51 @@ public class TripQuery {
         int rowsAffected = QueryExecutionModule.executeUpdate(sql, tripId);
         return rowsAffected > 0;
     }
+
+    /**
+     * Generate random Trips between today and today + daysAhead.
+     * Departure time random between 06:00 and 20:00, duration 30 - 240 minutes.
+     * Picks random BusID from existing buses.
+     * @param count number of trips to generate
+     * @param daysAhead inclusive upper bound of day offset from today
+     * @return number of trips successfully inserted
+     */
+    public int generateRandomTrips(int count, int daysAhead) {
+        List<Map<String,Object>> buses = QueryExecutionModule.executeQuery("SELECT BusID FROM Bus_info");
+
+        if (buses == null || buses.isEmpty()) return 0;
+
+        LocalDate today = LocalDate.now();
+        ThreadLocalRandom rng = ThreadLocalRandom.current();
+        DateTimeFormatter timeFmt = DateTimeFormatter.ofPattern("HH:mm:ss");
+        
+        int inserted = 0;
+        for (int i = 0; i < count; i++) {
+            int busIndex = rng.nextInt(buses.size());
+            int busId = Integer.parseInt(buses.get(busIndex).get("BusID").toString());
+            int dayOffset = rng.nextInt(daysAhead + 1); // 0..daysAhead
+            LocalDate tripDate = today.plusDays(dayOffset);
+            int depMinutes = rng.nextInt(6 * 60, 20 * 60); // 06:00 to <20:00
+            int durationMinutes = rng.nextInt(30, 241); // 30..240
+            LocalTime departure = LocalTime.of(depMinutes / 60, depMinutes % 60);
+            LocalTime arrival = departure.plusMinutes(durationMinutes);
+
+            if (arrival.isBefore(departure)) arrival = departure.plusHours(1); // safety
+            String dateStr = tripDate.toString();
+            String depStr = departure.format(timeFmt);
+            String arrStr = arrival.format(timeFmt);
+
+            int rows = QueryExecutionModule.executeUpdate(
+                "INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID) VALUES (?, ?, ?, ?)",
+                dateStr, depStr, arrStr, busId
+            );
+            if (rows > 0) inserted += 1;
+        }
+        return inserted;
+    }
+
+    /** Convenience method to generate 50 trips over next 20 days */
+    public int generateRandomTripsDefault() { return generateRandomTrips(50, 20); }
 
     //#endregion
 }
