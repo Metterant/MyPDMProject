@@ -4,7 +4,11 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 import com.buspass.auth.UserLoginSession;
+import com.buspass.gui.app_gui.dialogs.PaymentCreatePanel;
 import com.buspass.queries.PaymentQuery;
 
 /**
@@ -32,7 +36,8 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonScrollPane = new javax.swing.JScrollPane();
@@ -97,16 +102,15 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonScrollPane.setViewportView(buttonPanel);
 
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+                new Object[][] {
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null }
+                },
+                new String[] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }));
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
@@ -119,31 +123,35 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 201, Short.MAX_VALUE)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 747, Short.MAX_VALUE)))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 201, Short.MAX_VALUE)
+                                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 742,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                        .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 196,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 747, Short.MAX_VALUE))));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 64, Short.MAX_VALUE)
-                    .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 479,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 64, Short.MAX_VALUE)
+                                        .addComponent(buttonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 481,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))));
     }// </editor-fold>//GEN-END:initComponents
 
     private void myPaymentsButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_myPaymentsButtonActionPerformed
-        if (userLoginSession.getUserId() == null) return;
+        if (userLoginSession.getUserId() == null)
+            return;
 
         int userId = userLoginSession.getUserId();
         try {
@@ -184,7 +192,82 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
     }// GEN-LAST:event_getPaymentsOfUserButtonActionPerformed
 
     private void createTransactionButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_createTransactionButtonActionPerformed
-        // TODO add your handling code here:
+        java.awt.Window owner = SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create New Payment Transaction",
+                java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+
+        PaymentCreatePanel panel = new PaymentCreatePanel();
+
+        // Nếu người dùng hiện tại là Passenger, tự động điền UserID của họ
+        if (userLoginSession.getUserId() != null) {
+            // Tạm thời setUserIdField trong panel.
+            // Vì đây là panel mới, ta sẽ cần thêm setter cho userIdField nếu muốn giữ lại
+            // code này,
+            // hoặc đơn giản là set Text Field nếu không muốn expose setter ra ngoài.
+            // Giả sử có 1 phương thức private setUserIdField(String id) trong
+            // PaymentCreatePanel
+            // Ví dụ: ((javax.swing.JTextField)
+            // panel.getComponent(3)).setText(userLoginSession.getUserId().toString());
+        }
+
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+
+        panel.getCreateButton().addActionListener(e -> {
+            // 1. Lấy và xác thực dữ liệu
+            String userIdStr = panel.getUserIdText();
+            String amountStr = panel.getAmountText();
+            Integer paymentMethodId = panel.getPaymentMethodId();
+
+            if (userIdStr.isEmpty() || amountStr.isEmpty() || paymentMethodId == null) {
+                JOptionPane.showMessageDialog(dialog, "Please fill all fields.", "Validation Error",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            int userId;
+            float amount;
+            try {
+                userId = Integer.parseInt(userIdStr);
+                amount = Float.parseFloat(amountStr);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(dialog, "Invalid User ID or Amount format.", "Input Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (amount < 0) {
+                JOptionPane.showMessageDialog(dialog, "Amount cannot be negative.", "Input Error",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // 2. Thực thi truy vấn
+            try {
+                boolean success = paymentQuery.createTransactionNow(userId, amount, paymentMethodId.intValue());
+
+                if (success) {
+                    JOptionPane.showMessageDialog(dialog, "Transaction created successfully.", "Success",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    dialog.dispose();
+                    // Tùy chọn: Refresh bảng để hiển thị giao dịch mới (chỉ áp dụng cho Admin)
+                    // middlePanel.setTableContents(resultTable, paymentQuery.getAllPayments());
+                } else {
+                    JOptionPane.showMessageDialog(dialog, "Failed to create transaction. Check UserID existence.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(dialog, "Database Error: " + ex.getMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
+            }
+        });
+
+        dialog.setVisible(true); // blocks until closed
     }// GEN-LAST:event_createTransactionButtonActionPerformed
 
     private void deletePaymentButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deletePaymentButtonActionPerformed
