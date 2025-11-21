@@ -7,6 +7,13 @@ import com.buspass.db.QueryExecutionModule;
 
 public class TripQuery {
 
+    public List<Map<String, Object>> getAvailableTrips() {
+        String sql = "SELECT * FROM Trip WHERE TripDate >= CURDATE() AND DepartureTime > NOW()";
+        return QueryExecutionModule.executeQuery(sql);
+    }
+
+    //#region ADMIN PRIVILEDGES
+    
     public Map<String, Object> getTripById(int tripId) {
         String sql = "SELECT * FROM Trip WHERE TripID = ?";
         List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
@@ -38,8 +45,6 @@ public class TripQuery {
                 + "LEFT JOIN Driver d ON b.DriverID = d.DriverID";
         return QueryExecutionModule.executeQuery(sql);
     }
-
-    //#region ADMIN PRIVILEDGES
 
     public boolean createTrip(String tripDate, String departureTime, String arrivalTime, int busId, int routeId) {
         String sql = "INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID, RouteID) VALUES (?, ?, ?, ?, ?);";
