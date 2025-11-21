@@ -4,6 +4,7 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
+import com.buspass.gui.app_gui.dialogs.DriverUpdatePanel;
 import com.buspass.queries.DriverQuery;
 
 /**
@@ -268,7 +269,17 @@ public class DriversPanel extends javax.swing.JPanel {
     }// GEN-LAST:event_createDriverButtonActionPerformed
 
     private void updateDriverButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_updateDriverButtonActionPerformed
-        // This button is labelled 'Update Driver' in the UI; leave for update flows.
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Update Driver",
+                java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        DriverUpdatePanel panel = new DriverUpdatePanel(driverQuery);
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+
+        dialog.setVisible(true); // blocks until closed
     }// GEN-LAST:event_updateDriverButtonActionPerformed
 
     private void deleteDriverButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteDriverButtonActionPerformed
