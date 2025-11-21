@@ -4,7 +4,7 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
-import com.buspass.queries.BusQuery;
+import com.buspass.queries.TicketQuery;
 
 /**
  *
@@ -20,7 +20,7 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
     }
 
     private MiddlePanel middlePanel = new MiddlePanel();
-    private BusQuery busQuery = new BusQuery();
+    private TicketQuery ticketQuery = new TicketQuery();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,7 +153,7 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
     }//GEN-LAST:event_getTicketsOfUserButtonActionPerformed
 
     private void buyTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyTicketButtonActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_buyTicketButtonActionPerformed
 
     private void myTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTicketsButtonActionPerformed
