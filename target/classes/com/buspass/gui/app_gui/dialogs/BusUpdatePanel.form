@@ -126,7 +126,7 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Driver ID"/>
+            <Property name="text" type="java.lang.String" value="DriverID"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="routeIdLabel">
@@ -135,7 +135,7 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Route ID"/>
+            <Property name="text" type="java.lang.String" value="RouteID"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -92,12 +92,12 @@ public class BusUpdatePanel extends javax.swing.JPanel {
 
         driverIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         driverIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        driverIdLabel.setText("Driver ID");
+        driverIdLabel.setText("DriverID");
         leftPanel.add(driverIdLabel);
 
         routeIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         routeIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        routeIdLabel.setText("Route ID");
+        routeIdLabel.setText("RouteID");
         leftPanel.add(routeIdLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(8, 1));
