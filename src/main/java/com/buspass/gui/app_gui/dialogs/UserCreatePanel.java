@@ -189,8 +189,20 @@ public class UserCreatePanel extends javax.swing.JPanel {
     public String getUsername() { return usernameField.getText().trim(); }
     public String getPassword() { return new String(passwordField.getPassword()); }
     public String getFullName() { return fullNameField.getText().trim(); }
-    public Integer getAge() { return Integer.parseInt(ageField.getText().trim()); }
+    public Integer getAge() { return safeParseInt(ageField.getText().trim()); }
     public String getPhone() { return phoneField.getText().trim(); }
     public String getAddress() { return addressField.getText().trim(); }
-    public Integer getUserRoleId() { return Integer.parseInt(userRoleIdField.getText().trim()); }
+    public Integer getUserRoleId() { return safeParseInt(userRoleIdField.getText().trim()); }
+
+    // Helper method to safely parse integers, returns null if invalid
+    private Integer safeParseInt(String text) {
+        if (text == null || text.isEmpty()) {
+            return null;
+        }
+        try {
+            return Integer.parseInt(text);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
 }
