@@ -233,10 +233,9 @@ public class BusUpdatePanel extends javax.swing.JPanel {
         plateNumberField.setText(asString(bus.get("PlateNumber")));
         capacityField.setText(asString(bus.get("Capacity")));
         driverIdField.setText(asString(bus.get("DriverID"), asString(bus.get("DriverID"))));
-        routeIdField.setText(asString(bus.get("RouteID")));
-        
-        System.out.println(bus.get("Capacity"));
+        routeIdField.setText(asString(bus.get("RouteID")));        
     }
+    
     private String asString(Object o) { return o==null?"":o.toString(); }
     private String asString(Object primary, String alt) { return primary!=null?primary.toString(): (alt==null?"":alt); }
 
