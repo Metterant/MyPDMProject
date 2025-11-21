@@ -3,7 +3,7 @@ package com.buspass.gui.app_gui.dialogs;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
-import com.buspass.queries.BusQuery;
+import com.buspass.queries.DriverQuery;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,12 +19,12 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
     /**
      * Creates new form UserCreatePanel
      */
-    private final BusQuery busQuery;
-    private Map<String,Object> currentBus; // cached fetched bus row
+    private final DriverQuery driverQuery;
+    private Map<String,Object> currentDriver; // cached fetched bus row
 
-    public DriverUpdatePanel(BusQuery busQuery) {
+    public DriverUpdatePanel(DriverQuery driverQuery) {
         initComponents();
-        this.busQuery = busQuery != null ? busQuery : new BusQuery();
+        this.driverQuery = driverQuery != null ? driverQuery : new DriverQuery();
     }
 
     /**
@@ -50,7 +50,7 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
         driverIdPanel = new javax.swing.JPanel();
         driverIdField = new javax.swing.JTextField();
         findIdButton = new javax.swing.JButton();
-        plateNumberField = new javax.swing.JTextField();
+        driverNameField = new javax.swing.JTextField();
         ageField = new javax.swing.JTextField();
         licenseField = new javax.swing.JTextField();
         phoneField = new javax.swing.JTextField();
@@ -128,8 +128,8 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
 
         rightPanel.add(driverIdPanel);
 
-        plateNumberField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(plateNumberField);
+        driverNameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rightPanel.add(driverNameField);
 
         ageField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rightPanel.add(ageField);
@@ -170,7 +170,7 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_driverIdFieldActionPerformed
 
     private void findIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIdButtonActionPerformed
-        fetchBus();
+        fetchDriver();
     }//GEN-LAST:event_findIdButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
@@ -185,6 +185,7 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
     private javax.swing.JTextField driverIdField;
     private javax.swing.JLabel driverIdLabel;
     private javax.swing.JPanel driverIdPanel;
+    private javax.swing.JTextField driverNameField;
     private javax.swing.JLabel driverNameLabel;
     private javax.swing.JButton findIdButton;
     private javax.swing.JLabel headerLabel;
@@ -195,7 +196,6 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
     private javax.swing.JPanel optionPanel;
     private javax.swing.JTextField phoneField;
     private javax.swing.JLabel phoneLabel;
-    private javax.swing.JTextField plateNumberField;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
@@ -206,11 +206,11 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
     public javax.swing.JButton getFindBusButton() { return findIdButton; }
 
     // Field getters specific to Bus
-    private int getBusId() { return parseInt(driverIdField.getText().trim(), -1); }
-    private String getPlateNumber() { return plateNumberField.getText().trim(); }
-    private Integer getCapacity() { return parseIntNullable(ageField.getText().trim()); } // Updated to use JTextField
-    private Integer getDriverId() { return parseIntNullable(licenseField.getText().trim()); }
-    private Integer getRouteId() { return parseIntNullable(phoneField.getText().trim()); }
+    private int getDriverId() { return parseInt(driverIdField.getText().trim(), -1); }
+    private String getDriverName() { return driverNameField.getText().trim(); }
+    private Integer getAge() { return parseIntNullable(ageField.getText().trim()); } // Updated to use JTextField
+    private String getLicense() { return licenseField.getText().trim(); }
+    private String getPhoneNumber() { return phoneField.getText().trim(); }
 
     private int parseInt(String s, int fallback) { 
         try { 
@@ -229,57 +229,69 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
         } 
     }
 
-    private void setBusFields(Map<String,Object> bus) {
-        plateNumberField.setText(asString(bus.get("PlateNumber")));
-        ageField.setText(asString(bus.get("Capacity")));
-        licenseField.setText(asString(bus.get("DriverID"), asString(bus.get("DriverID"))));
-        phoneField.setText(asString(bus.get("RouteID")));
+    private void setDriverFields(Map<String,Object> driver) {
+        driverNameField.setText(asString(driver.get("DriverName")));
+        ageField.setText(asString(driver.get("Age")));
+        licenseField.setText(asString(driver.get(""), asString(driver.get("DriverID"))));
+        phoneField.setText(asString(driver.get("RouteID")));
         
-        System.out.println(bus.get("Capacity"));
+        System.out.println(driver.get("Capacity"));
     }
     private String asString(Object o) { return o==null?"":o.toString(); }
     private String asString(Object primary, String alt) { return primary!=null?primary.toString(): (alt==null?"":alt); }
 
-    private void fetchBus() {
-        int busId = getBusId();
-        if (busId <= 0) { 
-            JOptionPane.showMessageDialog(this, "Enter a valid BusID.", "Input", JOptionPane.WARNING_MESSAGE); 
+    private void fetchDriver() {
+        int driverId = getDriverId();
+        if (driverId <= 0) { 
+            JOptionPane.showMessageDialog(this, "Enter a valid DriverID.", "Input", JOptionPane.WARNING_MESSAGE); 
             return; 
         }
-        currentBus = busQuery.getBusInfoById(busId);
+        currentDriver = driverQuery.getDriverById(driverId);
 
-        if (currentBus == null) { 
-            JOptionPane.showMessageDialog(this, "Bus not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE); 
+        if (currentDriver == null) { 
+            JOptionPane.showMessageDialog(this, "Driver not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE); 
             return; 
         }
-        setBusFields(currentBus);
+        setDriverFields(currentDriver);
     }
 
     private void performUpdate() {
-        int busId = getBusId();
-        if (busId <= 0) { JOptionPane.showMessageDialog(this, "Provide BusID first.", "Validation", JOptionPane.WARNING_MESSAGE); return; }
-        if (currentBus == null) currentBus = busQuery.getBusInfoById(busId);
-        if (currentBus == null) { JOptionPane.showMessageDialog(this, "Fetch bus before updating.", "Validation", JOptionPane.WARNING_MESSAGE); return; }
+        int driverId = getDriverId();
+        if (driverId <= 0) { JOptionPane.showMessageDialog(this, "Provide DriverID first.", "Validation", JOptionPane.WARNING_MESSAGE); return; }
+        if (currentDriver == null) currentDriver = driverQuery.getDriverById(driverId);
+        if (currentDriver == null) { JOptionPane.showMessageDialog(this, "Fetch driver before updating.", "Validation", JOptionPane.WARNING_MESSAGE); return; }
 
-        String newPlate = getPlateNumber();
-        Integer newCapacity = getCapacity();
-        Integer newDriverId = getDriverId();
-        Integer newRouteId = getRouteId();
+        String newDriverName = getDriverName();
+        Integer newAge = getAge();
+        String newLicense = getLicense();
+        String newPhoneNumber = getPhoneNumber();
 
         StringBuilder summary = new StringBuilder();
         boolean anyChange = false;
         try {
-            if (!newPlate.isEmpty() && !newPlate.equals(asString(currentBus.get("PlateNumber")))) {
-                if (busQuery.updateBusPlate(busId, newPlate)) { summary.append("Plate updated.\n"); anyChange = true; }
+            if (!newDriverName.isEmpty() && !newDriverName.equals(asString(currentDriver.get("DriverName")))) {
+                if (driverQuery.updateName(driverId, newDriverName)) { 
+                    summary.append("Driver Name updated.\n"); 
+                    anyChange = true; 
+                }
             }
-            if (newCapacity != null && !asString(currentBus.get("Capacity")).equals(String.valueOf(newCapacity))) {
-                if (busQuery.updateCapacity(busId, newCapacity)) { summary.append("Capacity updated.\n"); anyChange = true; }
+            if (newAge != null && !asString(currentDriver.get("Age")).equals(String.valueOf(newAge))) {
+                if (driverQuery.updateAge(driverId, newAge)) { 
+                    summary.append("Age updated.\n"); 
+                    anyChange = true; 
+                }
             }
-            if (newDriverId != null && !asString(currentBus.get("DriverID"), asString(currentBus.get("DriverID"))).equals(String.valueOf(newDriverId))) {
-                if (busQuery.updateDriverID(busId, newDriverId)) { summary.append("DriverID updated.\n"); anyChange = true; }
+            if (newLicense != null && !asString(currentDriver.get("License"), asString(currentDriver.get(""))).equals(String.valueOf(newLicense))) {
+                if (driverQuery.updateLicense(driverId, newLicense)) { 
+                    summary.append("DriverID updated.\n"); 
+                    anyChange = true; 
+                }
             }
-            if (newRouteId != null && !asString(currentBus.get("RouteID")).equals(String.valueOf(newRouteId))) {
-                if (busQuery.updateRouteID(busId, newRouteId)) { summary.append("RouteID updated.\n"); anyChange = true; }
+            if (newPhoneNumber != null && !asString(currentDriver.get("RouteID")).equals(String.valueOf(newPhoneNumber))) {
+                if (driverQuery.updatePhoneNumber(driverId, newPhoneNumber)) { 
+                    summary.append("RouteID updated.\n"); 
+                    anyChange = true; 
+                }
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Update failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -287,8 +299,8 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
         }
         if (anyChange) {
             JOptionPane.showMessageDialog(this, summary.toString(), "Update Success", JOptionPane.INFORMATION_MESSAGE);
-            currentBus = busQuery.getBusInfoById(busId); // refresh cache
-            setBusFields(currentBus);
+            currentDriver = driverQuery.getDriverById(driverId); // refresh cache
+            setDriverFields(currentDriver);
         } else {
             JOptionPane.showMessageDialog(this, "No changes applied.", "Info", JOptionPane.INFORMATION_MESSAGE);
         }
