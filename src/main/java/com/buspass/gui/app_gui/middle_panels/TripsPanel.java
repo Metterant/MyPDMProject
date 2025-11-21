@@ -4,6 +4,7 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
+import com.buspass.gui.app_gui.dialogs.TripCreatePanel;
 import com.buspass.queries.TripQuery;
 
 /**
@@ -251,7 +252,18 @@ public class TripsPanel extends javax.swing.JPanel {
     }// GEN-LAST:event_joinedQueryButtonActionPerformed
 
     private void createTripButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_createTripButtonActionPerformed
-        // TODO add your handling code here:
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create Trip",
+                java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        TripCreatePanel panel = new TripCreatePanel(tripQuery);
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+        panel.getCreateButton().addActionListener(e -> dialog.dispose());
+
+        dialog.setVisible(true); // blocks until closed
     }// GEN-LAST:event_createTripButtonActionPerformed
 
     private void deleteTriprButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteTriprButtonActionPerformed

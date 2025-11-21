@@ -1,9 +1,14 @@
 package com.buspass.gui.app_gui.dialogs;
 
-import java.util.Map;
-import javax.swing.JOptionPane;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 
-import com.buspass.queries.DriverQuery;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.text.DateFormatter;
+import javax.swing.text.NumberFormatter;
+
+import com.buspass.queries.TripQuery;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,16 +19,19 @@ import com.buspass.queries.DriverQuery;
  *
  * @author USER
  */
-public class DriverCreatePanel extends javax.swing.JPanel {
+public class TripCreatePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UserCreatePanel
      */
-    private final DriverQuery driverQuery;
+    private final TripQuery tripQuery;
 
-    public DriverCreatePanel(DriverQuery driverQuery) {
+    public TripCreatePanel(TripQuery tripQuery) {
+        numberFormatter.setAllowsInvalid(false); // Disallow invalid edits
+        numberFormatter.setCommitsOnValidEdit(true);
+
         initComponents();
-        this.driverQuery = driverQuery != null ? driverQuery : new DriverQuery();
+        this.tripQuery = tripQuery != null ? tripQuery : new TripQuery();
     }
 
     /**
@@ -40,15 +48,15 @@ public class DriverCreatePanel extends javax.swing.JPanel {
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         leftPanel = new javax.swing.JPanel();
-        driverNameLabel = new javax.swing.JLabel();
-        ageLabel = new javax.swing.JLabel();
-        licenseLabel = new javax.swing.JLabel();
-        phoneLabel = new javax.swing.JLabel();
+        tripDateLabel = new javax.swing.JLabel();
+        departureLabel = new javax.swing.JLabel();
+        arrivalLabel = new javax.swing.JLabel();
+        busIdLabel = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
-        driverNameField = new javax.swing.JTextField();
-        ageField = new javax.swing.JTextField();
-        licenseField = new javax.swing.JTextField();
-        phoneField = new javax.swing.JTextField();
+        tripDateField = new javax.swing.JFormattedTextField(df);
+        departureField = new javax.swing.JFormattedTextField(tf);
+        arrivalField = new javax.swing.JFormattedTextField(tf);
+        busIdField = new javax.swing.JFormattedTextField(numberFormatter);
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
@@ -65,44 +73,44 @@ public class DriverCreatePanel extends javax.swing.JPanel {
 
         headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headerLabel.setText("CREATE DRIVER");
+        headerLabel.setText("CREATE TRIP");
         headerPanel.add(headerLabel);
 
         leftPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        driverNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        driverNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        driverNameLabel.setText("Driver Name");
-        leftPanel.add(driverNameLabel);
+        tripDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tripDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tripDateLabel.setText("Trip Date");
+        leftPanel.add(tripDateLabel);
 
-        ageLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ageLabel.setText("Age");
-        leftPanel.add(ageLabel);
+        departureLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        departureLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        departureLabel.setText("Departure Time");
+        leftPanel.add(departureLabel);
 
-        licenseLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        licenseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        licenseLabel.setText("License");
-        leftPanel.add(licenseLabel);
+        arrivalLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        arrivalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        arrivalLabel.setText("Arrival Time");
+        leftPanel.add(arrivalLabel);
 
-        phoneLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        phoneLabel.setText("Phone Number");
-        leftPanel.add(phoneLabel);
+        busIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        busIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        busIdLabel.setText("Bus ID");
+        leftPanel.add(busIdLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        driverNameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(driverNameField);
+        tripDateField.addActionListener(this::tripDateFieldActionPerformed);
+        rightPanel.add(tripDateField);
 
-        ageField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(ageField);
+        departureField.addActionListener(this::departureFieldActionPerformed);
+        rightPanel.add(departureField);
 
-        licenseField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(licenseField);
+        arrivalField.addActionListener(this::arrivalFieldActionPerformed);
+        rightPanel.add(arrivalField);
 
-        phoneField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rightPanel.add(phoneField);
+        busIdField.addActionListener(this::busIdFieldActionPerformed);
+        rightPanel.add(busIdField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -133,23 +141,44 @@ public class DriverCreatePanel extends javax.swing.JPanel {
         performInsert();
     }//GEN-LAST:event_createButtonActionPerformed
 
+    private void tripDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tripDateFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tripDateFieldActionPerformed
+
+    private void departureFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departureFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_departureFieldActionPerformed
+
+    private void arrivalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrivalFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_arrivalFieldActionPerformed
+
+    private void busIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busIdFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busIdFieldActionPerformed
+
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat tf = new SimpleDateFormat("HH:mm:ss");
+    // Create a formatter that only allows integers
+    NumberFormat integerFormat = NumberFormat.getIntegerInstance();
+    NumberFormatter numberFormatter = new NumberFormatter(integerFormat);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ageField;
-    private javax.swing.JLabel ageLabel;
+    private javax.swing.JFormattedTextField arrivalField;
+    private javax.swing.JLabel arrivalLabel;
+    private javax.swing.JFormattedTextField busIdField;
+    private javax.swing.JLabel busIdLabel;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton createButton;
-    private javax.swing.JTextField driverNameField;
-    private javax.swing.JLabel driverNameLabel;
+    private javax.swing.JFormattedTextField departureField;
+    private javax.swing.JLabel departureLabel;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel leftPanel;
-    private javax.swing.JTextField licenseField;
-    private javax.swing.JLabel licenseLabel;
     private javax.swing.JPanel optionPanel;
-    private javax.swing.JTextField phoneField;
-    private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel rightPanel;
+    private javax.swing.JFormattedTextField tripDateField;
+    private javax.swing.JLabel tripDateLabel;
     // End of variables declaration//GEN-END:variables
 
     // Expose buttons for external listeners (e.g., dialog wrapper)
@@ -157,10 +186,10 @@ public class DriverCreatePanel extends javax.swing.JPanel {
     public javax.swing.JButton getCancelButton() { return cancelButton; }
 
     // Field getters specific to Bus
-    private String getDriverName() { return driverNameField.getText().trim(); }
-    private Integer getAge() { return parseIntNullable(ageField.getText().trim()); } // Updated to use JTextField
-    private String getLicense() { return licenseField.getText().trim(); }
-    private String getPhoneNumber() { return phoneField.getText().trim(); }
+    private String getTripDate() { return tripDateField.getText().trim(); }
+    private String getDepartureTime() { return departureField.getText().trim(); }
+    private String getArrivalTime() { return arrivalField.getText().trim(); }
+    private Integer getBusId() { return parseIntNullable(busIdField.getText().trim()); }
 
     private Integer parseIntNullable(String s) { 
         if (s==null||s.isEmpty()) return null; 
@@ -173,21 +202,21 @@ public class DriverCreatePanel extends javax.swing.JPanel {
 
     private void performInsert() {
 
-        String driverName = getDriverName();
-        Integer age = getAge();
-        String license = getLicense();
-        String phoneNumber = getPhoneNumber();
+        String tripDate = getTripDate();
+        String departureTime = getDepartureTime();
+        String arrivalTime = getArrivalTime();
+        Integer busId = getBusId();
 
-        boolean ok;
+        boolean ok = true;
         try {
-            ok = driverQuery.registerDriver(driverName, age, license, phoneNumber);
+            ok = tripQuery.createTrip(tripDate, departureTime, arrivalTime, busId);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Record Creation failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Trip Creation failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!ok) 
-            JOptionPane.showMessageDialog(this, "Record Creation failed.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Trip Creation failed.", "Error", JOptionPane.ERROR_MESSAGE);
         else
-            JOptionPane.showMessageDialog(this, "New Driver Record Created.", "Info", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "New Trip Record Created.", "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 }
