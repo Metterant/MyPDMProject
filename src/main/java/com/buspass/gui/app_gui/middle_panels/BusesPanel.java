@@ -263,6 +263,7 @@ public class BusesPanel extends javax.swing.JPanel {
         dialog.pack();
         dialog.setLocationRelativeTo(this);
         panel.getCancelButton().addActionListener(e -> dialog.dispose());
+        panel.getCreateButton().addActionListener(e -> dialog.dispose());
 
         dialog.setVisible(true); // blocks until closed
     }// GEN-LAST:event_createBusButtonActionPerformed
