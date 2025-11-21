@@ -6,6 +6,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ThreadLocalRandom;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.ThreadLocalRandom;
 
 import com.buspass.db.QueryExecutionModule;
 
@@ -35,6 +39,7 @@ public class TripQuery {
     public List<Map<String, Object>> getAllTrips() {
         String sql = "SELECT * FROM Trip\r\n" +
                      "ORDER BY TripDate, DepartureTime";
+
         return QueryExecutionModule.executeQuery(sql);
     }
 
