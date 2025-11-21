@@ -1,5 +1,10 @@
 package com.buspass.gui.app_gui.dialogs;
 
+import java.util.Map;
+
+
+import com.buspass.queries.UserService;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -9,13 +14,16 @@ package com.buspass.gui.app_gui.dialogs;
  *
  * @author USER
  */
-public class UserCreatePanel extends javax.swing.JPanel {
+public class UserUpdatePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UserCreatePanel
      */
-    public UserCreatePanel() {
+    UserService userService;
+
+    public UserUpdatePanel(UserService userService) {
         initComponents();
+        this.userService = userService;
     }
 
     /**
@@ -28,11 +36,12 @@ public class UserCreatePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         optionPanel = new javax.swing.JPanel();
-        createButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         leftPanel = new javax.swing.JPanel();
+        userIdLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         fullNameLabel = new javax.swing.JLabel();
@@ -41,6 +50,9 @@ public class UserCreatePanel extends javax.swing.JPanel {
         addressLabel = new javax.swing.JLabel();
         userRoleIdLabel = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
+        UserIdPanel = new javax.swing.JPanel();
+        userIdField = new javax.swing.JTextField();
+        findIdButton = new javax.swing.JButton();
         usernameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         fullNameField = new javax.swing.JTextField();
@@ -51,9 +63,10 @@ public class UserCreatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        createButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        createButton.setText("CREATE");
-        optionPanel.add(createButton);
+        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        updateButton.setText("UPDATE");
+        updateButton.addActionListener(this::updateButtonActionPerformed);
+        optionPanel.add(updateButton);
 
         cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
@@ -63,10 +76,15 @@ public class UserCreatePanel extends javax.swing.JPanel {
 
         headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headerLabel.setText("CREATE USER");
+        headerLabel.setText("UPDATE USER");
         headerPanel.add(headerLabel);
 
-        leftPanel.setLayout(new java.awt.GridLayout(7, 1));
+        leftPanel.setLayout(new java.awt.GridLayout(8, 1));
+
+        userIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userIdLabel.setText("UserID");
+        leftPanel.add(userIdLabel);
 
         usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -103,7 +121,33 @@ public class UserCreatePanel extends javax.swing.JPanel {
         userRoleIdLabel.setText("UserRoleID");
         leftPanel.add(userRoleIdLabel);
 
-        rightPanel.setLayout(new java.awt.GridLayout(7, 1));
+        rightPanel.setLayout(new java.awt.GridLayout(8, 1));
+
+        userIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userIdField.addActionListener(this::userIdFieldActionPerformed);
+
+        findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        findIdButton.setText("Find");
+        findIdButton.addActionListener(this::findIdButtonActionPerformed);
+
+        javax.swing.GroupLayout UserIdPanelLayout = new javax.swing.GroupLayout(UserIdPanel);
+        UserIdPanel.setLayout(UserIdPanelLayout);
+        UserIdPanelLayout.setHorizontalGroup(
+            UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserIdPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(userIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(findIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        UserIdPanelLayout.setVerticalGroup(
+            UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UserIdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(findIdButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        rightPanel.add(UserIdPanel);
 
         usernameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rightPanel.add(usernameField);
@@ -145,7 +189,7 @@ public class UserCreatePanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -156,14 +200,27 @@ public class UserCreatePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
 
+    private void userIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userIdFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userIdFieldActionPerformed
+
+    private void findIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIdButtonActionPerformed
+        fetchUser();
+    }//GEN-LAST:event_findIdButtonActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+
+    }//GEN-LAST:event_updateButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel UserIdPanel;
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField ageField;
     private javax.swing.JLabel ageLabel;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton createButton;
+    private javax.swing.JButton findIdButton;
     private javax.swing.JTextField fullNameField;
     private javax.swing.JLabel fullNameLabel;
     private javax.swing.JLabel headerLabel;
@@ -175,6 +232,9 @@ public class UserCreatePanel extends javax.swing.JPanel {
     private javax.swing.JTextField phoneField;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel rightPanel;
+    private javax.swing.JButton updateButton;
+    private javax.swing.JTextField userIdField;
+    private javax.swing.JLabel userIdLabel;
     private javax.swing.JTextField userRoleIdField;
     private javax.swing.JLabel userRoleIdLabel;
     private javax.swing.JTextField usernameField;
@@ -182,27 +242,72 @@ public class UserCreatePanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     // Expose buttons for external listeners (e.g., dialog wrapper)
-    public javax.swing.JButton getCreateButton() { return createButton; }
+    public javax.swing.JButton getUpdateButton() { return updateButton; }
     public javax.swing.JButton getCancelButton() { return cancelButton; }
+    public javax.swing.JButton getFindIdButton() { return findIdButton; }
 
     // Text getters for form fields
-    public String getUsername() { return usernameField.getText().trim(); }
-    public String getPassword() { return new String(passwordField.getPassword()); }
-    public String getFullName() { return fullNameField.getText().trim(); }
-    public Integer getAge() { return safeParseInt(ageField.getText().trim()); }
-    public String getPhone() { return phoneField.getText().trim(); }
-    public String getAddress() { return addressField.getText().trim(); }
-    public Integer getUserRoleId() { return safeParseInt(userRoleIdField.getText().trim()); }
-
-    // Helper method to safely parse integers, returns null if invalid
-    private Integer safeParseInt(String text) {
-        if (text == null || text.isEmpty()) {
+    public String getUsername()    { return usernameField.getText().trim(); }
+    public String getPassword()    { return new String(passwordField.getPassword()); }
+    public String getFullName()    { return fullNameField.getText().trim(); }
+    public Integer getAge() {
+        String ageString = ageField.getText().trim();
+        if (ageString == null || ageString.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Age cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
             return null;
         }
         try {
-            return Integer.parseInt(text);
+            return Integer.parseInt(ageString);
         } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric age.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return null;
         }
+    }
+    public String getPhone()       { return phoneField.getText().trim(); }
+    public String getAddress()     { return addressField.getText().trim(); }
+    public Integer getUserRoleId() { return Integer.parseInt(userRoleIdField.getText().trim()); }
+
+    private void setUsernameField(String username) { usernameField.setText(username); }
+    private void setFullNameField(String fullName) { fullNameField.setText(fullName); }
+    private void setAgeField(String age)           { ageField.setText(age); }
+    private void setPhoneField(String phoneNumber) { phoneField.setText(phoneNumber); }
+    private void setAddressField(String address)   { addressField.setText(address); }
+    private void setRoleIdField(String userRoleId) { userRoleIdField.setText(userRoleId); }
+
+    private void fetchUser() {
+        
+        int userId = retrieveUserId();
+        if (userId <= 0) return;
+
+        // Bad Practice
+        Map<String, Object> user = userService.getUserById(userId);
+
+        setUsernameField(user.get("Username").toString());
+        setFullNameField(user.get("FullName").toString());
+        setAgeField(user.get("Age").toString());
+        setPhoneField(user.get("Phone").toString());
+        setAddressField(user.get("UserAddress").toString());
+        setRoleIdField(user.get("UserRoleID").toString());
+    }
+
+    public int retrieveUserId() {
+        String userIdString = userIdField.getText().trim();
+
+        if (userIdString.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "UserID cannot be empty.", "Input error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return -1;
+        }
+
+        int userId;
+        try {
+            userId = Integer.parseInt(userIdString);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid numeric UserID.", "Input error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+        
+        Map<String, Object> user = userService.getUserById(userId);
+        
+        return (user != null) ? userId : -1;
     }
 }

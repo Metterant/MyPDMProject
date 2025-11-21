@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import com.buspass.auth.UserRegister;
 import com.buspass.gui.PanelSwitcher;
+import com.buspass.utils.DialogUtils;
 
 /**
  *
@@ -202,20 +203,20 @@ public class RegisterPanel extends javax.swing.JPanel {
 
         switch(result) {
             case -3:
-                showDialogInvalidPWs();
+                DialogUtils.showDialogInvalidPWs();
                 break;
             case -2:
                 showDialogUnidenticalPWs();
                 break;
             case -1:
-                showDialogInvalidUsername();
+                DialogUtils.showDialogInvalidUsername();
                 break;
             case 0:
-                showDialogUserAlreadyExists(username);
+                DialogUtils.showDialogUserAlreadyExists(username);
                 usernameField.setText("");
                 break;
             case 1:
-                showDialogRegistrationSuccess(username);
+                DialogUtils.showDialogRegistrationSuccess(username);
                 usernameField.setText("");
                 break;
             default:
@@ -245,25 +246,11 @@ public class RegisterPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_loginLabelMousePressed
 
-    private void showDialogInvalidPWs() {
-        JOptionPane.showMessageDialog(null, "Invalid Password!", "Error", JOptionPane.WARNING_MESSAGE);
-    }
-
     private void showDialogUnidenticalPWs() {
         JOptionPane.showMessageDialog(null, "Password and Confirm Password are unidentical!", "Error", JOptionPane.WARNING_MESSAGE);
     }
 
-    private void showDialogInvalidUsername() {
-        JOptionPane.showMessageDialog(null, "Invalid Username!", "Error", JOptionPane.WARNING_MESSAGE);
-    }
     
-    private void showDialogUserAlreadyExists(String username) {
-        JOptionPane.showMessageDialog(null, "User with Username: " + username + " already exists.", "Registration Failed", JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    private void showDialogRegistrationSuccess(String username) {
-        JOptionPane.showMessageDialog(null, "Registration Successful with Username: " + username, "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel centerPanel;

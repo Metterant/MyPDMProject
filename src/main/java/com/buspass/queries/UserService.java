@@ -8,7 +8,6 @@ import com.buspass.utils.AuthUtils;
 import com.buspass.utils.StringUtils;
 
 public class UserService {
-    //1: Đăng ký người dùng mới (Dùng INSERT)
     /**
      * A method used to create a new user
      * @param username
@@ -36,6 +35,18 @@ public class UserService {
     }
 
     /**
+     * Same as registerUser but propagates any underlying SQL exception for detailed UI reporting.
+     * @throws Exception if the insert fails
+     */
+    public boolean registerUserDetailed(String username, String plainPassword, String fullName, int age, String phone, String address, int userRoleID) throws Exception {
+        String sql = "INSERT INTO user(Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String hashPW = AuthUtils.hashPassword(plainPassword);
+        fullName = StringUtils.normalizeStr(fullName);
+        int rowsAffected = QueryExecutionModule.executeUpdate(sql, username, hashPW, fullName, age, phone, address, userRoleID);
+        return rowsAffected > 0;
+    }
+
+    /**
      * Create a User with only username and password
      * @param username
      * @param plainPassword
@@ -59,7 +70,7 @@ public class UserService {
 
 
     public Map<String, Object> getUserById(int userId) {
-        String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, User.UserRoleID, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID WHERE UserID = ?";
 
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
@@ -108,7 +119,7 @@ public class UserService {
     public int getIdByUsername(String username) {
         String sql = "SELECT UserID FROM User WHERE Username = ? ";
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, username);
-        if (users == null)
+        if (users == null || users.isEmpty()) 
             return -1;
             
         Map<String, Object> user = users.get(0);
@@ -118,7 +129,7 @@ public class UserService {
     }
 
     public List<Map<String, Object>> getAllUsers() {
-        String sql = "SELECT UserID, Username, Age, Phone, UserAddress, RoleDescription " + //
+        String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
             
         List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql);
