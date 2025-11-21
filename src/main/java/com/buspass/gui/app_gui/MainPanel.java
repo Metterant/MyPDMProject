@@ -333,7 +333,12 @@ public class MainPanel extends javax.swing.JPanel {
         }
     }
 
-    public void updateButtons() {
+    public void updatePanel() {
+        usernameLabel.setText(userLoginSession.getUsername());
+        updateButtons();
+    }
+
+    private void updateButtons() {
         int userRoleID = userLoginSession.getUserRoleId();
         if (userRoleID == 1)
             hideAdminButtons();
