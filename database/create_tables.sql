@@ -96,4 +96,4 @@ FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID
 WHERE (TripDate > CURDATE()
 	OR (TripDate = CURDATE()
 		AND DepartureTime > NOW()))
-ORDER BY TripDate, DepartureTime
+ORDER BY TripDate, DepartureTime;
