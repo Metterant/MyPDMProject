@@ -53,6 +53,6 @@ DB_MAX_POOL_SIZE=10
 
 ### The GUI fonts are ugly
 
-This problem occurs because this project uses "Google Sans" as its main font for the GUI. To fix this problem, you can retrieve `GoogleSans-Regular.ttf` file found in `src\main\java\com\buspass\res` and then install the font. Once the font is installed, you can try to run the application again to make sure the project works as intended.
+This problem occurs because this project uses "Google Sans" as its main font for the GUI. To fix this problem, you can retrieve `GoogleSans-Regular.ttf` file found in `src\main\java\com\buspass\res` and then install the font. Once the font is installed, you can try running the application again to make sure the project works as intended.
 
-You may find this solution ridiculous because we fix this by creating an `java.awt.Font` and use it instead from your system downloaded fonts. However, due to limited time we've got, we have decided to play it safe and finish the project early.
+You may find this solution ridiculous because we could have fixed this by creating an `java.awt.Font` and use it instead of getting the font from your system downloaded fonts. However, due to limited time we've got, we have decided to play it safe and finish the project early.
