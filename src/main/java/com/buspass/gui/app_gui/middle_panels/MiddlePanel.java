@@ -23,7 +23,12 @@ public class MiddlePanel {
         String[] columns = firstRow.keySet().toArray(new String[0]);
 
         // Table model
-        DefaultTableModel model = new DefaultTableModel(columns, 0);
+        DefaultTableModel model = new DefaultTableModel(columns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
         // Fill rows using the column order
         for (LinkedHashMap<String, Object> row : results) {

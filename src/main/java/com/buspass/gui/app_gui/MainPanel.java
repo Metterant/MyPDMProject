@@ -62,7 +62,7 @@ public class MainPanel extends javax.swing.JPanel {
         DriversPanel  driversPanel  = new DriversPanel();
         BusesPanel    busesPanel    = new BusesPanel();
         RoutesPanel   routesPanel   = new RoutesPanel(); 
-        TripsPanel    tripsPanel    = new TripsPanel();
+        TripsPanel    tripsPanel    = new TripsPanel(userLoginSession);
         TicketsPanel  ticketsPanel  = new TicketsPanel(userLoginSession);
         PaymentsPanel paymentsPanel = new PaymentsPanel(userLoginSession);
         CusomSQLPanel cusomSQLPanel = new CusomSQLPanel();

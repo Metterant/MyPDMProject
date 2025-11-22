@@ -2,6 +2,8 @@ package com.buspass.gui.app_gui.dialogs;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.LinkedHashMap;
 
 import javax.swing.JOptionPane;
@@ -306,9 +308,20 @@ public class TripUpdatePanel extends javax.swing.JPanel {
                 }
             }
             if (!isBlank(newDep) && !isBlank(newArr) && (!newDep.equals(asString(currentTrip.get("DepartureTime"))) || !newArr.equals(asString(currentTrip.get("ArrivalTime"))))) {
-                if (tripQuery.updateTimes(tripId, newDep, newArr)) { 
-                    summary.append("Times updated.\n"); 
-                    anyChange = true; 
+                // validate times: arrival must not be before departure
+                try {
+                    LocalTime dep = LocalTime.parse(newDep);
+                    LocalTime arr = LocalTime.parse(newArr);
+                    if (arr.isBefore(dep)) {
+                        JOptionPane.showMessageDialog(this, "Arrival time cannot be before departure time.", "Validation", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        if (tripQuery.updateTimes(tripId, newDep, newArr)) { 
+                            summary.append("Times updated.\n"); 
+                            anyChange = true; 
+                        }
+                    }
+                } catch (DateTimeParseException dtpe) {
+                    JOptionPane.showMessageDialog(this, "Invalid time format. Use HH:mm:ss.", "Validation", JOptionPane.WARNING_MESSAGE);
                 }
             }
             if (newBusId != null && !String.valueOf(newBusId).equals(asString(currentTrip.get("BusID")))) {

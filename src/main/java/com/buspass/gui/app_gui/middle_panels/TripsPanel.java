@@ -8,11 +8,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.LinkedHashMap;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
+import com.buspass.auth.UserLoginSession;
 import com.buspass.gui.app_gui.dialogs.TripCreatePanel;
 import com.buspass.gui.app_gui.dialogs.TripFilterPanel;
 import com.buspass.gui.app_gui.dialogs.TripUpdatePanel;
+import com.buspass.gui.app_gui.etc.TicketTableCellEditor;
 import com.buspass.gui.app_gui.etc.TicketTableCellRenderer;
 import com.buspass.queries.TripQuery;
 
@@ -25,12 +29,50 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
     /**
      * Creates new form UsersPanel
      */
-    public TripsPanel() {
+
+    public TripsPanel(UserLoginSession userLoginSession) {
         initComponents();
+        this.userLoginSession = userLoginSession;
+    }
+
+    private void customSetTable(JTable table, List<LinkedHashMap<String, Object>> results) {
+        // Defensive handling for empty or null results
+        if (results == null || results.isEmpty()) {
+            table.setModel(new DefaultTableModel());
+            return;
+        }
+
+        // Extract column names from first row (preserve order)
+        LinkedHashMap<String, Object> firstRow = results.get(0);
+        if (firstRow == null || firstRow.isEmpty()) {
+            table.setModel(new DefaultTableModel());
+            return;
+        }
+        String[] columns = firstRow.keySet().toArray(new String[0]);
+
+        // Table model
+        DefaultTableModel model = new DefaultTableModel(columns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column == (columns.length - 1);
+            }
+        };
+
+        // Fill rows using the column order
+        for (LinkedHashMap<String, Object> row : results) {
+            Object[] rowData = new Object[columns.length];
+            for (int i = 0; i < columns.length; i++) {
+                rowData[i] = row.get(columns[i]);
+            }
+            model.addRow(rowData);
+        }
+
+        table.setModel(model);
     }
 
     private MiddlePanel middlePanel = new MiddlePanel();
     private TripQuery tripQuery = new TripQuery();
+    private UserLoginSession userLoginSession;
 
     private String savedFromDate, savedRouteNames;
 
@@ -211,15 +253,20 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
             result.put("Buy", null);
         }
 
-        middlePanel.setTableContents(resultTable, results);
-        
+        customSetTable(resultTable, results);
         int colCount = resultTable.getColumnCount();
-        resultTable.getColumnModel().getColumn(colCount - 1).setCellRenderer(new TicketTableCellRenderer());
+        
+        resultTable.getColumnModel()
+                .getColumn(colCount - 1)
+                .setCellRenderer(new TicketTableCellRenderer(userLoginSession, tripQuery));
+        resultTable.getColumnModel()
+                .getColumn(colCount - 1)
+                .setCellEditor(new TicketTableCellEditor(userLoginSession, tripQuery));
+
         // set the "Buy" column width to 48 pixels
         resultTable.getColumnModel().getColumn(colCount - 1).setMinWidth(48);
         resultTable.getColumnModel().getColumn(colCount - 1).setMaxWidth(48);
-        resultTable.getColumnModel().getColumn(colCount - 1).setPreferredWidth(48);
-
+        resultTable.getColumnModel().getColumn(colCount - 1).setPreferredWidth(48);        
     }//GEN-LAST:event_upcomingTripsButtonActionPerformed
 
     private void filterTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterTripsButtonActionPerformed
