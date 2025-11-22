@@ -190,6 +190,7 @@ public class TripFilterPanel extends javax.swing.JPanel {
         }
 
         // System.out.println(routeNames);
+        
 
         List<Map<String, Object>> trips;
         try {
