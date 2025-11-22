@@ -175,7 +175,7 @@ public class LoginPanel extends javax.swing.JPanel {
             .addGroup(centerPanelLayout.createSequentialGroup()
                 .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centerPanelLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addGap(45, 45, 45)
                         .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(centerPanelLayout.createSequentialGroup()
                                 .addComponent(userLoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
