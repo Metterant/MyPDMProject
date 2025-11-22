@@ -57,6 +57,13 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
 
     @Override
     public void showPanel(String name) {
+        if (name.compareTo(LOGIN) == 0)
+            loginPanel.clearFields();
+        if (name.compareTo(REGISTER) == 0)
+            registerPanel.clearFields();
+        if (name.compareTo(RESET_PW) == 0)
+            resetPasswordPanel.clearFields();
+
         // ensure change happens on EDT
         if (SwingUtilities.isEventDispatchThread()) {
             cardLayout.show(cards, name);

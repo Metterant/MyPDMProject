@@ -227,6 +227,7 @@ public class LoginPanel extends javax.swing.JPanel {
 
                     if (appPanelSwitcher != null) {
                         appPanelSwitcher.showPanel(AppPanel.MAIN);
+                        clearFields();
                     }
                     break;
             default:
@@ -266,6 +267,11 @@ public class LoginPanel extends javax.swing.JPanel {
 
     private void showDialogLoginSuccess(String username) {
         JOptionPane.showMessageDialog(null, "Login Successful with Username: " + username, "Login Successful", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void clearFields() {
+        usernameField.setText("");
+        passwordField.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

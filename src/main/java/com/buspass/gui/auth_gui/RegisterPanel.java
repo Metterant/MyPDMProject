@@ -215,11 +215,11 @@ public class RegisterPanel extends javax.swing.JPanel {
                 break;
             case 0:
                 DialogUtils.showDialogUserAlreadyExists(username);
-                usernameField.setText("");
+                clearFields();
                 break;
             case 1:
                 DialogUtils.showDialogRegistrationSuccess(username);
-                usernameField.setText("");
+                clearFields();
                 break;
             default:
                 break;
@@ -247,6 +247,12 @@ public class RegisterPanel extends javax.swing.JPanel {
             switcher.showPanel(AuthPanel.LOGIN);
         }
     }//GEN-LAST:event_loginLabelMousePressed
+
+    public void clearFields() {
+        usernameField.setText("");
+        passwordField.setText("");
+        confirmPasswordField.setText("");
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

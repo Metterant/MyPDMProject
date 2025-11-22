@@ -196,15 +196,14 @@ public class ResetPasswordPanel extends javax.swing.JPanel {
             return;
         }
 
-        userPasswordField.setText("");
-        confirmPasswordField.setText("");
-
         boolean ok = userService.updatePassword(userId, plainPW);
 
         if (ok) 
             JOptionPane.showMessageDialog(null, "Password has been reset", "Reset Success", JOptionPane.DEFAULT_OPTION);
         else
             JOptionPane.showMessageDialog(null, "Failed to reset Password", "Reset Failed", JOptionPane.DEFAULT_OPTION);
+
+        clearFields();
         
     }//GEN-LAST:event_resetPasswordButtonActionPerformed
 
@@ -225,6 +224,12 @@ public class ResetPasswordPanel extends javax.swing.JPanel {
             switcher.showPanel(AuthPanel.LOGIN);
         }
     }//GEN-LAST:event_backLoginLabelMouseClicked
+
+    public void clearFields() {
+        usernameField.setText("");
+        userPasswordField.setText("");
+        confirmPasswordField.setText("");
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
