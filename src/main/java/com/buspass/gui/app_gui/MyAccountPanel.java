@@ -7,6 +7,9 @@ package com.buspass.gui.app_gui;
 import java.awt.Panel;
 
 import com.buspass.auth.UserLoginSession;
+import com.buspass.queries.UserService;
+import com.buspass.utils.AuthUtils;
+import com.buspass.utils.DialogUtils;
 import com.buspass.gui.AppPanel;
 import com.buspass.gui.PanelSwitcher;
 
@@ -28,6 +31,8 @@ public class MyAccountPanel extends javax.swing.JPanel {
         this.userLoginSession = userLoginSession;
         userIdField.setEnabled(false);
     }
+
+    private UserService userService = new UserService();
 
     public void setPanelSwitcher(PanelSwitcher switcher) {
         this.appPanelSwitcher = switcher;
@@ -77,7 +82,7 @@ public class MyAccountPanel extends javax.swing.JPanel {
         headerLabel.setText("MY USER INFORMATION");
         headerPanel.add(headerLabel);
 
-        leftPanel.setLayout(new java.awt.GridLayout(10, 1, 0, 5));
+        leftPanel.setLayout(new java.awt.GridLayout(9, 1, 0, 5));
 
         userIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         userIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -114,7 +119,7 @@ public class MyAccountPanel extends javax.swing.JPanel {
         addressLabel.setText("Address");
         leftPanel.add(addressLabel);
 
-        rightPanel.setLayout(new java.awt.GridLayout(10, 1, 0, 5));
+        rightPanel.setLayout(new java.awt.GridLayout(9, 1, 0, 5));
 
         userIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         userIdField.addActionListener(this::userIdFieldActionPerformed);
@@ -155,20 +160,22 @@ public class MyAccountPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, middlePanelLayout.createSequentialGroup()
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                .addGap(45, 45, 45))
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
         saveButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        saveButton.setForeground(new java.awt.Color(51, 102, 0));
         saveButton.setText("Save Changes");
         saveButton.addActionListener(this::saveButtonActionPerformed);
         optionPanel.add(saveButton);
 
         discardButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        discardButton.setForeground(new java.awt.Color(204, 0, 0));
         discardButton.setText("Discard Changes");
         discardButton.addActionListener(this::discardButtonActionPerformed);
         optionPanel.add(discardButton);
@@ -217,7 +224,49 @@ public class MyAccountPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        if (userLoginSession == null || userLoginSession.getUserId() == null) return;
 
+        int userId = userLoginSession.getUserId();
+        String username = usernameField.getText().trim();
+        String password = new String(passwordField.getPassword()).trim();
+        String fullName = fullNameField.getText().trim();
+        String ageText = ageField.getText().trim();
+        String phone = phoneField.getText().trim();
+        String address = addressField.getText().trim();
+
+        if (!AuthUtils.isValidUsername(username)) { DialogUtils.showDialogInvalidUsername(); return; }
+        if (!password.isEmpty() && !AuthUtils.isValidPassword(password)) { DialogUtils.showDialogInvalidPWs(); return; }
+
+        int age = 0;
+        try { age = Integer.parseInt(ageText); } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Age must be an integer.", "Validation", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+
+        try {
+            boolean ok = true;
+            // username update returns 1 on success, 0 if exists, -1 if invalid
+            int unameResult = userService.updateUsername(userId, username);
+            if (unameResult == 0) { DialogUtils.showDialogUserAlreadyExists(username); return; }
+            if (unameResult == -1) { DialogUtils.showDialogInvalidUsername(); return; }
+
+            if (!password.isEmpty()) {
+                ok = userService.updatePassword(userId, password);
+            }
+
+            if (ok) ok = userService.updateFullName(userId, fullName);
+            if (ok) ok = userService.updateAge(userId, age);
+            if (ok) ok = userService.updatePhoneNumber(userId, phone);
+            if (ok) ok = userService.updateAddress(userId, address);
+
+            if (ok) {
+                // refresh session info from DB and update UI
+                try { userLoginSession.reload(); } catch (Exception e) { /* ignore */ }
+                updatePanel();
+                javax.swing.JOptionPane.showMessageDialog(this, "Account updated successfully.", "Updated", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Account update failed.", "Failure", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "SQL Error: " + ex.getClass().getSimpleName() + ": " + ex.getMessage(), "Database Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void userIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userIdFieldActionPerformed
@@ -229,15 +278,11 @@ public class MyAccountPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void discardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardButtonActionPerformed
-        // TODO add your handling code here:
+        updatePanel();
     }//GEN-LAST:event_discardButtonActionPerformed
 
-    private void userRoleIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userRoleIdFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userRoleIdFieldActionPerformed
-
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        System.out.println(appPanelSwitcher);
+        // System.out.println(appPanelSwitcher);
         if (appPanelSwitcher != null) {
             appPanelSwitcher.showPanel(AppPanel.MAIN);
         }

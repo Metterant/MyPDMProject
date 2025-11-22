@@ -36,5 +36,8 @@ public class Main {
         // System.out.println(busQuery.getTripsTraveledById(1));
         // System.out.println(userService.getTicketsByUserId(1));
         // tripQuery.generateRandomTrips(30, 5);
+
+        // System.out.println(tripQuery.getFilteredRoutesTrips("8, 10"));
+        // System.out.println(TripQuery.wrapRouteNamesForSql("8, 10, 20, 67-69, '69-69'"));
     }
 }

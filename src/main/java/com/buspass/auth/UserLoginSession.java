@@ -121,4 +121,16 @@ public class UserLoginSession {
         address = null;
         phoneNumber = null;
     }
+
+    /**
+     * Reload user information from the database for the current userId.
+     * Safe to call when userId is null (no-op).
+     */
+    public void reload() {
+        if (this.userId == null) return;
+        LinkedHashMap<String, Object> user = userService.getUserById(this.userId);
+        if (user != null) {
+            setInfo(user);
+        }
+    }
 }

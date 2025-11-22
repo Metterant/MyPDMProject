@@ -31,7 +31,7 @@ public class AppPanel extends JPanel implements PanelSwitcher {
         // give child panels the callback so they can ask the parent to switch
         authPanel.setPanelSwitcher(this);
         mainPanel.setPanelSwitcher(this);
-        myAccountPanel.setPanelSwitcher(authPanel);
+        myAccountPanel.setPanelSwitcher(this);
 
         cards.add(authPanel, AUTH);
         cards.add(mainPanel, MAIN);
