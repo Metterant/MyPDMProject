@@ -1,5 +1,7 @@
 package com.buspass.gui.app_gui.dialogs;
 
+import java.util.LinkedHashMap;
+
 import javax.swing.JButton;
 
 import com.buspass.queries.TripQuery;
@@ -276,9 +278,8 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
     private String getEndLocation() { return endLocationField.getText().trim(); }
     private String getBusPlateNumber() { return busPlateNumberField.getText().trim(); }
     private String getFare() { return fareField.getText().trim(); }
-    private String getPaymentMethod() {
-        Object sel = paymentMethodComboBox.getSelectedItem();
-        return sel == null ? "" : sel.toString();
+    public int getPaymentMethod() {
+        return paymentMethodComboBox.getSelectedIndex();
     }
     
 
@@ -311,12 +312,20 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
         endLocationField.setText(endLocation == null ? "" : endLocation);
     }
 
+    public void setCapacity(String capacity) {
+        capacityField.setText(capacity == null ? "" : capacity);
+    }
+
+    public void setDuration(String duration) {
+        durationField.setText(duration == null ? "" : duration);
+    }
+
     public void setBusPlateNumber(String plate) {
         busPlateNumberField.setText(plate == null ? "" : plate);
     }
 
     public void setFare(String fare) {
-        fareField.setText(fare == null ? "" : fare);
+        fareField.setText(fare == null ? "0" : fare + " VND");
     }
 
     public void setPaymentMethod(String method) {
@@ -348,5 +357,20 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
         durationField.setEnabled(editable);
         busPlateNumberField.setEnabled(editable);
         fareField.setEnabled(editable);
+    }
+
+    public void setFields(int tripId) {
+        LinkedHashMap<String, Object> trip = tripQuery.getTripDetailedById(tripId);
+
+        setRouteName(trip.get("RouteName").toString());
+        setTripDate(trip.get("TripDate").toString());
+        setDepartureTime(trip.get("DepartureTime").toString());
+        setArrivalTime(trip.get("ArrivalTime").toString());
+        setStartLocation(trip.get("StartLocation").toString());
+        setEndLocation(trip.get("EndLocation").toString());
+        setCapacity(trip.get("Capacity").toString());
+        setDuration(trip.get("Duration").toString());
+        setBusPlateNumber(trip.get("PlateNumber").toString());
+        setFare(trip.get("Fare").toString());
     }
 }

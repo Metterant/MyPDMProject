@@ -48,7 +48,7 @@ public class TripQuery {
                    + "       AND DepartureTime > NOW())) "
                    + "    AND RouteName IN (" + quotedRoutes + ") "
                    + "ORDER BY TripDate, DepartureTime";
-        System.out.println(sql);
+        // System.out.println(sql);
 
         return QueryExecutionModule.executeQuery(sql);
     }
@@ -97,6 +97,13 @@ public class TripQuery {
     
     public LinkedHashMap<String, Object> getTripById(int tripId) {
         String sql = "SELECT * FROM Trip WHERE TripID = ? ";
+        List<LinkedHashMap<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
+        if (!trips.isEmpty()) return trips.get(0);
+        return null;
+    }
+
+    public LinkedHashMap<String, Object> getTripDetailedById(int tripId) {
+        String sql = "SELECT * FROM trip_detailed_view WHERE TripID = ? ";
         List<LinkedHashMap<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
         if (!trips.isEmpty()) return trips.get(0);
         return null;

@@ -4,7 +4,10 @@
  */
 package com.buspass.gui.app_gui.etc;
 
+import javax.swing.JOptionPane;
+
 import com.buspass.gui.app_gui.dialogs.PurchaseTicketPanel;
+import com.buspass.queries.TicketQuery;
 import com.buspass.queries.TripQuery;
 
 /**
@@ -62,14 +65,9 @@ public class TicketAction extends javax.swing.JPanel {
         Integer injectedId = (tripInject == null) ? null : tripInject.getTripID();
         if (injectedId != null) {
             panel.setTripId(String.valueOf(injectedId));
-            // optionally fetch fare and populate
-            try {
-                Double fare = tq == null ? null : tq.getFareByTripId(injectedId);
-                if (fare != null) panel.setFare(String.format("%.2f", fare));
-            } catch (Exception e) {
-                // ignore fare fetch errors
-            }
+            panel.setFields(injectedId);
         }
+
         dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
         dialog.setContentPane(panel);
         dialog.pack();
@@ -78,12 +76,23 @@ public class TicketAction extends javax.swing.JPanel {
         panel.getCancelButton().addActionListener(e -> dialog.dispose());
         panel.getPurchaseButton().addActionListener(e -> {
 
-            // LinkedHashMap<String, Object> trip = 
+            int paymentMethodId = panel.getPaymentMethod();
+            if (paymentMethodId != 0) {
+                TicketQuery ticketQuery = new TicketQuery();
+                
+                int userId = tripInject.getUserLoginSession().getUserId();
+                boolean ok = ticketQuery.purchaseTicket(userId, injectedId, paymentMethodId);
 
+                if (!ok) {
+                    JOptionPane.showMessageDialog(panel, "Failed to complete transaction", "Purchase Failed", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    JOptionPane.showMessageDialog(panel, "Transaction for Ticket with TripID: " + injectedId + " is completed.", "Payment Success", JOptionPane.DEFAULT_OPTION);
+                }
 
-            dialog.dispose();
-        } 
-        );
+                dialog.dispose();
+            } 
+        });
 
         dialog.setVisible(true); // blocks until closed
     }//GEN-LAST:event_buyButtonActionPerformed

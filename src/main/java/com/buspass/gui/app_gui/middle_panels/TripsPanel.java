@@ -68,6 +68,20 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
 
         table.setModel(model);
+
+        int colCount = resultTable.getColumnCount();
+        
+        resultTable.getColumnModel()
+                .getColumn(colCount - 1)
+                .setCellRenderer(new TicketTableCellRenderer(userLoginSession, tripQuery));
+        resultTable.getColumnModel()
+                .getColumn(colCount - 1)
+                .setCellEditor(new TicketTableCellEditor(userLoginSession, tripQuery));
+
+        // set the "Buy" column width to 48 pixels
+        resultTable.getColumnModel().getColumn(colCount - 1).setMinWidth(48);
+        resultTable.getColumnModel().getColumn(colCount - 1).setMaxWidth(48);
+        resultTable.getColumnModel().getColumn(colCount - 1).setPreferredWidth(48); 
     }
 
     private MiddlePanel middlePanel = new MiddlePanel();
@@ -254,19 +268,6 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
 
         customSetTable(resultTable, results);
-        int colCount = resultTable.getColumnCount();
-        
-        resultTable.getColumnModel()
-                .getColumn(colCount - 1)
-                .setCellRenderer(new TicketTableCellRenderer(userLoginSession, tripQuery));
-        resultTable.getColumnModel()
-                .getColumn(colCount - 1)
-                .setCellEditor(new TicketTableCellEditor(userLoginSession, tripQuery));
-
-        // set the "Buy" column width to 48 pixels
-        resultTable.getColumnModel().getColumn(colCount - 1).setMinWidth(48);
-        resultTable.getColumnModel().getColumn(colCount - 1).setMaxWidth(48);
-        resultTable.getColumnModel().getColumn(colCount - 1).setPreferredWidth(48);        
     }//GEN-LAST:event_upcomingTripsButtonActionPerformed
 
     private void filterTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterTripsButtonActionPerformed
@@ -286,7 +287,20 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         panel.getFilterButton().addActionListener(e -> {
             savedFromDate = panel.getFromDate();
             savedRouteNames = panel.getRouteNames();
-            middlePanel.setTableContents(resultTable, panel.getFilteredTrips());
+            List<LinkedHashMap<String, Object>> results = panel.getFilteredTrips();
+            
+            middlePanel.setTableContents(resultTable, results);
+        
+            if (results == null || results.size() == 0) {
+                resultTable.setModel(new DefaultTableModel());
+                return;
+            }
+            
+            for (LinkedHashMap<String, Object> result : results) {
+                result.put("Buy", null);
+            }
+
+            customSetTable(resultTable, results);
 
             dialog.dispose();
         });
