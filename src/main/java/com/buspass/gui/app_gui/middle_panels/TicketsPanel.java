@@ -4,7 +4,7 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import com.buspass.auth.UserLoginSession;
 import com.buspass.queries.TicketQuery;
@@ -115,6 +115,7 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
 
             }
         ));
+        resultTable.setRowHeight(32);
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
