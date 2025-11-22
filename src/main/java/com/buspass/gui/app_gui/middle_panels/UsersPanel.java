@@ -5,7 +5,7 @@
 package com.buspass.gui.app_gui.middle_panels;
 
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import javax.swing.JOptionPane;
 
@@ -119,6 +119,7 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
 
         buttonScrollPane.setViewportView(buttonPanel);
 
+        resultTable.setRowHeight(32);
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.CardLayout());
@@ -237,14 +238,14 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
         }
 
         try {
-            Map<String, Object> user = userService.getUserById(userId);
+            LinkedHashMap<String, Object> user = userService.getUserById(userId);
             if (user == null || user.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No user found with ID: " + userId, "Not found", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 resultTable.setModel(new javax.swing.table.DefaultTableModel());
                 return;
             }
 
-            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            java.util.List<java.util.LinkedHashMap<String, Object>> rows = new java.util.ArrayList<>();
             rows.add(user);
             middlePanel.setTableContents(resultTable, rows);
         } catch (Exception ex) {

@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 import com.buspass.db.QueryExecutionModule;
 import com.buspass.queries.UserService;
 
@@ -71,7 +71,7 @@ public class SqlQuery extends JFrame {
     private void runSelectQuery(String sql) {
         UserService userService = new UserService();
 
-        List<Map<String, Object>> results;
+        List<LinkedHashMap<String, Object>> results;
         // results = userService.getAllUsers();
         results = QueryExecutionModule.executeQuery(sql);
 
@@ -82,14 +82,14 @@ public class SqlQuery extends JFrame {
         }
 
         // Extract column names
-        Map<String, Object> firstRow = results.get(0);
+        LinkedHashMap<String, Object> firstRow = results.get(0);
         String[] columns = firstRow.keySet().toArray(new String[0]);
 
         // Table model
         DefaultTableModel model = new DefaultTableModel(columns, 0);
 
         // Fill rows
-        for (Map<String, Object> row : results) {
+        for (LinkedHashMap<String, Object> row : results) {
             Object[] rowData = row.values().toArray();
             model.addRow(rowData);
         }

@@ -2,7 +2,7 @@ package com.buspass.gui.app_gui.dialogs;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import javax.swing.JOptionPane;
 import javax.swing.text.NumberFormatter;
@@ -24,7 +24,7 @@ public class TripUpdatePanel extends javax.swing.JPanel {
      * Creates new form UserCreatePanel
      */
     private final TripQuery tripQuery;
-    private Map<String,Object> currentTrip;
+    private LinkedHashMap<String,Object> currentTrip;
 
     public TripUpdatePanel(TripQuery tripQuery) {
         integerFormat.setGroupingUsed(false); // no commas
@@ -260,7 +260,7 @@ public class TripUpdatePanel extends javax.swing.JPanel {
     private String asString(Object o) { return o==null?"":o.toString(); }
     private boolean isBlank(String s) { return s==null || s.trim().isEmpty(); }
 
-    private void setTripFields(Map<String,Object> trip) {
+    private void setTripFields(LinkedHashMap<String,Object> trip) {
         setTripDate(asString(trip.get("TripDate")));
         setDepartureTime(asString(trip.get("DepartureTime")));
         setArrivalTime(asString(trip.get("ArrivalTime")));

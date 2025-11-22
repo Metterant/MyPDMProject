@@ -1,7 +1,7 @@
 package com.buspass.queries;
 
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -11,7 +11,7 @@ import com.buspass.db.QueryExecutionModule;
 
 public class TripQuery {
 
-    public List<Map<String, Object>> getUpcomingTrips() {
+    public List<LinkedHashMap<String, Object>> getUpcomingTrips() {
         String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" +
                         "    RouteName, StartLocation, EndLocation, Duration\r\n" +
                         "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" +
@@ -23,7 +23,7 @@ public class TripQuery {
         return QueryExecutionModule.executeQuery(sql);
     }
 
-    public List<Map<String, Object>> getFilteredTrips(String date, String routes) {
+    public List<LinkedHashMap<String, Object>> getFilteredTrips(String date, String routes) {
         // ensure routes are quoted for SQL IN clause
         String quotedRoutes = wrapRouteNamesForSql(routes);
 
@@ -40,7 +40,7 @@ public class TripQuery {
         return QueryExecutionModule.executeQuery(sql, date, date);
     }
 
-    public List<Map<String, Object>> getFilteredRoutesTrips(String routes) {
+    public List<LinkedHashMap<String, Object>> getFilteredRoutesTrips(String routes) {
         String quotedRoutes = wrapRouteNamesForSql(routes);
 
         String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" +
@@ -84,7 +84,7 @@ public class TripQuery {
         return sb.toString();
     }
 
-    public List<Map<String, Object>> getFilteredDateTrips(String date) {
+    public List<LinkedHashMap<String, Object>> getFilteredDateTrips(String date) {
         String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" + //
                         "    RouteName, StartLocation, EndLocation, Duration\r\n" + //
                         "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" + //
@@ -99,14 +99,14 @@ public class TripQuery {
 
     //#region ADMIN PRIVILEDGES
     
-    public Map<String, Object> getTripById(int tripId) {
+    public LinkedHashMap<String, Object> getTripById(int tripId) {
         String sql = "SELECT * FROM Trip WHERE TripID = ? ";
-        List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
+        List<LinkedHashMap<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
         if (!trips.isEmpty()) return trips.get(0);
         return null;
     }
 
-    public List<Map<String, Object>> getAllTrips() {
+    public List<LinkedHashMap<String, Object>> getAllTrips() {
         String sql = "SELECT * FROM Trip\r\n" +
                      "ORDER BY TripDate, DepartureTime";
 
@@ -114,7 +114,7 @@ public class TripQuery {
     }
 
     /** Trips joined with Buses and Routes */
-    public List<Map<String, Object>> getTripsWithJoin() {
+    public List<LinkedHashMap<String, Object>> getTripsWithJoin() {
         String sql = "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName "
                    + "FROM Trip t "
                    + "    LEFT JOIN Bus_info b ON t.BusID = b.BusID "
@@ -124,7 +124,7 @@ public class TripQuery {
     }
 
     /** Trips joined with Buses and Routes */
-    public List<Map<String, Object>> getTripsWithJoinAndDrivers() {
+    public List<LinkedHashMap<String, Object>> getTripsWithJoinAndDrivers() {
         String sql = 
                 "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName, DriverName "
                 + "FROM Trip t "
@@ -173,7 +173,7 @@ public class TripQuery {
      * @return number of trips successfully inserted
      */
     public int generateRandomTrips(int count, int daysAhead) {
-        List<Map<String,Object>> buses = QueryExecutionModule.executeQuery("SELECT BusID FROM Bus_info");
+        List<LinkedHashMap<String,Object>> buses = QueryExecutionModule.executeQuery("SELECT BusID FROM Bus_info");
 
         if (buses == null || buses.isEmpty()) return 0;
 
@@ -219,8 +219,8 @@ public class TripQuery {
                     "JOIN Route r ON b.RouteID = r.RouteID " +
                     "WHERE t.TripID = ?";
         
-        // Giả sử QueryExecutionModule.executeQuery trả về List<Map<String, Object>>
-        List<Map<String, Object>> result = QueryExecutionModule.executeQuery(sql, tripId);
+        // Giả sử QueryExecutionModule.executeQuery trả về List<LinkedHashMap<String, Object>>
+        List<LinkedHashMap<String, Object>> result = QueryExecutionModule.executeQuery(sql, tripId);
         
         if (result != null && !result.isEmpty()) {
             Object fareObj = result.get(0).get("Fare");

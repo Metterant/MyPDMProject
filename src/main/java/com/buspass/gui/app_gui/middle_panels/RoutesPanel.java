@@ -111,6 +111,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
             }
         ));
+        resultTable.setRowHeight(32);
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
@@ -172,14 +173,14 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
 
         try {
-            java.util.Map<String, Object> route = routeQuery.getRouteById(routeId);
+            java.util.LinkedHashMap<String, Object> route = routeQuery.getRouteById(routeId);
             if (route == null || route.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No route found with ID: " + routeId, "Not found",
                         javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 resultTable.setModel(new javax.swing.table.DefaultTableModel());
                 return;
             }
-            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            java.util.List<java.util.LinkedHashMap<String, Object>> rows = new java.util.ArrayList<>();
             rows.add(route);
             middlePanel.setTableContents(resultTable, rows);
         } catch (Exception ex) {

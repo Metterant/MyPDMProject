@@ -1,7 +1,7 @@
 package com.buspass.queries;
 
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import com.buspass.db.QueryExecutionModule;
 
@@ -60,7 +60,7 @@ public class TicketQuery {
     
     //#region ADMIN PRIVILEDGES
 
-    public List<Map<String, Object>> getTicketsOfUser(int userId) {
+    public List<LinkedHashMap<String, Object>> getTicketsOfUser(int userId) {
         String sql = "SELECT TicketID, TicketDateTime, t.TripID, RouteName, StartLocation, EndLocation, TripDate, DepartureTime, ArrivalTime\r\n" + //
                         "FROM User u JOIN Ticket t ON u.UserID = t.TicketID\r\n" + //
                         "    JOIN Trip tr ON tr.TripID = t.TripID\r\n" + //
@@ -68,7 +68,7 @@ public class TicketQuery {
                         "    JOIN Route r ON b.RouteID = r.RouteID\r\n" + //
                         "WHERE u.UserID = ?";
             
-        List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
+        List<LinkedHashMap<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
         
         return users;
     }

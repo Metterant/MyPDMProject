@@ -1,6 +1,6 @@
 package com.buspass.gui.app_gui.dialogs;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 
 import com.buspass.queries.UserService;
@@ -280,7 +280,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
         if (userId <= 0) return;
 
         // Bad Practice
-        Map<String, Object> user = userService.getUserById(userId);
+        LinkedHashMap<String, Object> user = userService.getUserById(userId);
 
         setUsernameField(user.get("Username").toString());
         setFullNameField(user.get("FullName").toString());
@@ -306,7 +306,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
             return -1;
         }
         
-        Map<String, Object> user = userService.getUserById(userId);
+        LinkedHashMap<String, Object> user = userService.getUserById(userId);
         
         return (user != null) ? userId : -1;
     }

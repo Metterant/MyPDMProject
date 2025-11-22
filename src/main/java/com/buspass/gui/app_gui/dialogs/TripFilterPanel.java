@@ -3,7 +3,7 @@ package com.buspass.gui.app_gui.dialogs;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 import java.awt.Color;
 
@@ -175,7 +175,7 @@ public class TripFilterPanel extends javax.swing.JPanel {
     public void setFromDate(String date) { fromDateField.setText(date); }
     public void setRouteNames(String routeNames) { routeNamesField.setText(routeNames); }
 
-    public List<Map<String, Object>> getFilteredTrips() {
+    public List<LinkedHashMap<String, Object>> getFilteredTrips() {
 
         String tripDate = getFromDate();
         String routeNames = getRouteNames();
@@ -190,9 +190,9 @@ public class TripFilterPanel extends javax.swing.JPanel {
         }
 
         // System.out.println(routeNames);
-        
 
-        List<Map<String, Object>> trips;
+
+        List<LinkedHashMap<String, Object>> trips;
         try {
             if (tripDate.isBlank() && routeNames.isBlank())
                 trips = tripQuery.getUpcomingTrips();

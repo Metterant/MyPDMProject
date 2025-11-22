@@ -1,20 +1,20 @@
 package com.buspass.queries;
 
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import com.buspass.db.QueryExecutionModule;
 import com.buspass.utils.MathUtils;
 
 public class RouteQuery {
-	public Map<String, Object> getRouteById(int routeId) {
+	public LinkedHashMap<String, Object> getRouteById(int routeId) {
 		String sql = "SELECT * FROM Route WHERE RouteID = ?";
-		List<Map<String, Object>> routes = QueryExecutionModule.executeQuery(sql, routeId);
+		List<LinkedHashMap<String, Object>> routes = QueryExecutionModule.executeQuery(sql, routeId);
 		if (!routes.isEmpty()) return routes.get(0);
 		return null;
 	}
 
-	public List<Map<String, Object>> getAllRoutes() {
+	public List<LinkedHashMap<String, Object>> getAllRoutes() {
 		String sql = "SELECT * FROM Route";
 		return QueryExecutionModule.executeQuery(sql);
 	}

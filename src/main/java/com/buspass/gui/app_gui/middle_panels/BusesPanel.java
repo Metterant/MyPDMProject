@@ -123,6 +123,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
             }
         ));
+        resultTable.setRowHeight(32);
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
@@ -194,14 +195,14 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
 
         try {
-            java.util.Map<String, Object> bus = busQuery.getBusInfoById(busId);
+            java.util.LinkedHashMap<String, Object> bus = busQuery.getBusInfoById(busId);
             if (bus == null || bus.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No bus found with ID: " + busId, "Not found",
                         javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 resultTable.setModel(new javax.swing.table.DefaultTableModel());
                 return;
             }
-            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            java.util.List<java.util.LinkedHashMap<String, Object>> rows = new java.util.ArrayList<>();
             rows.add(bus);
             middlePanel.setTableContents(resultTable, rows);
         } catch (Exception ex) {

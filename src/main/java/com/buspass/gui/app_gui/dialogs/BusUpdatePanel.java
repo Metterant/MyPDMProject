@@ -1,6 +1,6 @@
 package com.buspass.gui.app_gui.dialogs;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 import javax.swing.JOptionPane;
 
 import com.buspass.queries.BusQuery;
@@ -20,7 +20,7 @@ public class BusUpdatePanel extends javax.swing.JPanel {
      * Creates new form UserCreatePanel
      */
     private final BusQuery busQuery;
-    private Map<String,Object> currentBus; // cached fetched bus row
+    private LinkedHashMap<String,Object> currentBus; // cached fetched bus row
 
     public BusUpdatePanel(BusQuery busQuery) {
         initComponents();
@@ -229,7 +229,7 @@ public class BusUpdatePanel extends javax.swing.JPanel {
         } 
     }
 
-    private void setBusFields(Map<String,Object> bus) {
+    private void setBusFields(LinkedHashMap<String,Object> bus) {
         plateNumberField.setText(asString(bus.get("PlateNumber")));
         capacityField.setText(asString(bus.get("Capacity")));
         driverIdField.setText(asString(bus.get("DriverID"), asString(bus.get("DriverID"))));

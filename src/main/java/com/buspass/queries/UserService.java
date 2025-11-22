@@ -1,7 +1,7 @@
 package com.buspass.queries;
 
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import com.buspass.db.QueryExecutionModule;
 import com.buspass.utils.AuthUtils;
@@ -69,11 +69,11 @@ public class UserService {
     }
 
 
-    public Map<String, Object> getUserById(int userId) {
+    public LinkedHashMap<String, Object> getUserById(int userId) {
         String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, User.UserRoleID, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID WHERE UserID = ?";
 
-        List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
+        List<LinkedHashMap<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
         if (!users.isEmpty()) {
             return users.get(0); // Return the first User
         }
@@ -81,7 +81,7 @@ public class UserService {
     }
 
     /** Returns basic details related to Tickets used for Trips */
-    public List<Map<String, Object>> getTicketsByUserId(int userId) {
+    public List<LinkedHashMap<String, Object>> getTicketsByUserId(int userId) {
         String sql = "SELECT TicketID, t.TicketDateTime, b.PlateNumber, RouteName, t.TripID, b.BusID, r.RouteID, t.PaymentID\r\n" + //
                      "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
                      "    LEFT JOIN Trip tr ON t.TripID = tr.TripID\r\n"         +
@@ -89,13 +89,13 @@ public class UserService {
                      "    LEFT JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
                      "WHERE u.UserID = ?";
             
-        List<Map<String, Object>> tickets = QueryExecutionModule.executeQuery(sql, userId);
+        List<LinkedHashMap<String, Object>> tickets = QueryExecutionModule.executeQuery(sql, userId);
         
         return tickets;
     }
 
     /** Returns the details about the trips a specific User has bought Tickets for */
-    public List<Map<String, Object>> getTripsTravelByUserId(int userId) {
+    public List<LinkedHashMap<String, Object>> getTripsTravelByUserId(int userId) {
         String sql = "SELECT tr.Date, b.PlateNumber, RouteName, DepartureTime, " +
                         "ArrivalTime, TicketID, t.TripID, b.BusID, r.RouteID\r\n" + //
                      "FROM User u JOIN Ticket t ON u.UserID = t.UserID\r\n" +
@@ -104,7 +104,7 @@ public class UserService {
                      "    LEFT JOIN Route r ON r.RouteID = b.RouteID\r\n"       +
                      "WHERE u.UserID = ?";
             
-        List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, userId);
+        List<LinkedHashMap<String, Object>> trips = QueryExecutionModule.executeQuery(sql, userId);
         
         return trips;
     }
@@ -118,21 +118,21 @@ public class UserService {
      */
     public int getIdByUsername(String username) {
         String sql = "SELECT UserID FROM User WHERE Username = ? ";
-        List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql, username);
+        List<LinkedHashMap<String, Object>> users = QueryExecutionModule.executeQuery(sql, username);
         if (users == null || users.isEmpty()) 
             return -1;
             
-        Map<String, Object> user = users.get(0);
+        LinkedHashMap<String, Object> user = users.get(0);
         int userId = Integer.parseInt(user.get("UserID").toString());
 
         return userId;
     }
 
-    public List<Map<String, Object>> getAllUsers() {
+    public List<LinkedHashMap<String, Object>> getAllUsers() {
         String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, RoleDescription " + //
             "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
             
-        List<Map<String, Object>> users = QueryExecutionModule.executeQuery(sql);
+        List<LinkedHashMap<String, Object>> users = QueryExecutionModule.executeQuery(sql);
         
         return users;
     }
