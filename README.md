@@ -45,4 +45,6 @@ DB_MAX_POOL_SIZE=10
 
 ## Running the App
 
-To run the application, navigate to the `Main` class from `com.buspass` project package, run the `main` method.
+- **Method 1**: To run the application, navigate to the `Main` class from `com.buspass` project package, run the `main` method.
+
+- **Method 2**: Run `MyPDMProject.jar` file found in project root.
