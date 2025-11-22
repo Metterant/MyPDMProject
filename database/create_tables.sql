@@ -31,7 +31,8 @@ CREATE TABLE Route(
     EndLocation VARCHAR(50),
     Fare DECIMAL(10,2),
     Distance float,
-    Duration TIME
+    Duration TIME,
+    CONSTRAINT CHK_RouteName CHECK (RouteName REGEXP '^[0-9]+(-[0-9]+)?$')
 );
 
 CREATE TABLE Driver(

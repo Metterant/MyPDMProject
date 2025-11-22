@@ -34,11 +34,11 @@ VALUES
 
 INSERT INTO `Route` (RouteName, StartLocation, EndLocation, Fare, Distance, Duration)
 VALUES
-('Route A', 'Station A', 'Station B', 1.50, 12.3, '00:45:00'),
-('Route B', 'Station B', 'Station C', 1.50, 12.3, '00:45:00'),
-('Route C', 'Station C', 'Station D', 1.50, 10.3, '00:35:00'),
-('Route D', 'Station D', 'Station E', 2.00, 15.0, '01:00:00'),
-('Route E', 'Station E', 'Station F', 1.00, 8.5, '00:25:00');
+('8', 'Station A', 'Station B', 1.50, 12.3, '00:45:00'),
+('10', 'Station B', 'Station C', 1.50, 12.3, '00:45:00'),
+('19', 'Station C', 'Station D', 1.50, 10.3, '00:35:00'),
+('21', 'Station D', 'Station E', 2.00, 15.0, '01:00:00'),
+('67-69', 'Station E', 'Station F', 1.00, 8.5, '00:25:00');
 
 INSERT INTO Bus_Info (PlateNumber, Capacity, DriverID, RouteID)
 VALUES
