@@ -1,7 +1,7 @@
 package com.buspass.queries;
 
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -11,28 +11,105 @@ import com.buspass.db.QueryExecutionModule;
 
 public class TripQuery {
 
-    public List<Map<String, Object>> getUpcomingTrips() {
-        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" + //
-                        "    RouteName, StartLocation, EndLocation, Duration\r\n" + //
-                        "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" + //
-                        "    JOIN Route r ON b.RouteID = r.RouteID\r\n" + //
-                        "WHERE TripDate > CURDATE()\r\n" + //
-                        "    OR (TripDate = CURDATE()\r\n" + //
-                        "       AND DepartureTime >= NOW())\r\n" +
-                        "ORDER BY TripDate, DepartureTime";
+    public List<LinkedHashMap<String, Object>> getUpcomingTrips() {
+        // Use the database view `UpcomingTrips` to centralize the join and filtering logic.
+        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, "
+                   + "RouteName, StartLocation, EndLocation, Duration "
+                   + "FROM trips_upcoming_view "
+                   + "ORDER BY TripDate, DepartureTime";
+
         return QueryExecutionModule.executeQuery(sql);
+    }
+
+    public List<LinkedHashMap<String, Object>> getFilteredTrips(String date, String routes) {
+        // ensure routes are quoted for SQL IN clause
+        String quotedRoutes = wrapRouteNamesForSql(routes);
+
+        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, "
+                   + "RouteName, StartLocation, EndLocation, Duration "
+                   + "FROM trips_upcoming_view "
+                   + "WHERE (TripDate > ? "
+                   + "    OR (TripDate = ? "
+                   + "       AND DepartureTime > NOW())) "
+                   + "    AND RouteName IN (" + quotedRoutes + ") "
+                   + "ORDER BY TripDate, DepartureTime";
+
+        return QueryExecutionModule.executeQuery(sql, date, date);
+    }
+
+    public List<LinkedHashMap<String, Object>> getFilteredRoutesTrips(String routes) {
+        String quotedRoutes = wrapRouteNamesForSql(routes);
+
+        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, "
+                   + "RouteName, StartLocation, EndLocation, Duration "
+                   + "FROM trips_upcoming_view "
+                   + "WHERE (TripDate > CURDATE() "
+                   + "    OR (TripDate = CURDATE() "
+                   + "       AND DepartureTime > NOW())) "
+                   + "    AND RouteName IN (" + quotedRoutes + ") "
+                   + "ORDER BY TripDate, DepartureTime";
+        // System.out.println(sql);
+
+        return QueryExecutionModule.executeQuery(sql);
+    }
+
+    
+    public List<LinkedHashMap<String, Object>> getFilteredDateTrips(String date) {
+        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, "
+                   + "RouteName, StartLocation, EndLocation, Duration "
+                   + "FROM trips_upcoming_view "
+                   + "WHERE (TripDate > ? "
+                   + "    OR (TripDate = ? "
+                   + "       AND DepartureTime > NOW())) "
+                   + "ORDER BY TripDate, DepartureTime";
+
+        return QueryExecutionModule.executeQuery(sql, date, date);
+    }
+
+    /**
+     * Wrap each comma-separated token in the provided routeNames string with single quotes
+     * so it can be safely embedded into an SQL IN clause.
+     * Example: "8, 10-12" -> "'8','10-12'"
+     */
+    public static String wrapRouteNamesForSql(String routeNames) {
+        if (routeNames == null) return "''";
+        
+        String trimmed = routeNames.trim();
+        if (trimmed.isEmpty()) return "''";
+
+        String[] parts = trimmed.split("\\s*,\\s*");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < parts.length; i++) {
+            String p = parts[i].trim();
+            if (p.isEmpty()) continue;
+            // escape any single quotes just in case (though tokens are digits/hyphen)
+            p = p.replace("'", "''");
+            if (sb.length() > 0) sb.append(',');
+            sb.append('\'').append(p).append('\'');
+        }
+
+        if (sb.length() == 0) return "''";
+        return sb.toString();
     }
 
     //#region ADMIN PRIVILEDGES
     
-    public Map<String, Object> getTripById(int tripId) {
+    public LinkedHashMap<String, Object> getTripById(int tripId) {
         String sql = "SELECT * FROM Trip WHERE TripID = ? ";
-        List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
+        List<LinkedHashMap<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
         if (!trips.isEmpty()) return trips.get(0);
         return null;
     }
 
-    public List<Map<String, Object>> getAllTrips() {
+    public LinkedHashMap<String, Object> getTripDetailedById(int tripId) {
+        String sql = "SELECT * FROM trip_detailed_view WHERE TripID = ? ";
+        List<LinkedHashMap<String, Object>> trips = QueryExecutionModule.executeQuery(sql, tripId);
+        if (!trips.isEmpty()) return trips.get(0);
+        return null;
+    }
+
+    public List<LinkedHashMap<String, Object>> getAllTrips() {
         String sql = "SELECT * FROM Trip\r\n" +
                      "ORDER BY TripDate, DepartureTime";
 
@@ -40,7 +117,7 @@ public class TripQuery {
     }
 
     /** Trips joined with Buses and Routes */
-    public List<Map<String, Object>> getTripsWithJoin() {
+    public List<LinkedHashMap<String, Object>> getTripsWithJoin() {
         String sql = "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName "
                    + "FROM Trip t "
                    + "    LEFT JOIN Bus_info b ON t.BusID = b.BusID "
@@ -50,7 +127,7 @@ public class TripQuery {
     }
 
     /** Trips joined with Buses and Routes */
-    public List<Map<String, Object>> getTripsWithJoinAndDrivers() {
+    public List<LinkedHashMap<String, Object>> getTripsWithJoinAndDrivers() {
         String sql = 
                 "SELECT t.TripID, t.TripDate, t.DepartureTime, t.ArrivalTime, b.PlateNumber, r.RouteName, DriverName "
                 + "FROM Trip t "
@@ -99,7 +176,7 @@ public class TripQuery {
      * @return number of trips successfully inserted
      */
     public int generateRandomTrips(int count, int daysAhead) {
-        List<Map<String,Object>> buses = QueryExecutionModule.executeQuery("SELECT BusID FROM Bus_info");
+        List<LinkedHashMap<String,Object>> buses = QueryExecutionModule.executeQuery("SELECT BusID FROM Bus_info");
 
         if (buses == null || buses.isEmpty()) return 0;
 
@@ -145,8 +222,8 @@ public class TripQuery {
                     "JOIN Route r ON b.RouteID = r.RouteID " +
                     "WHERE t.TripID = ?";
         
-        // Giả sử QueryExecutionModule.executeQuery trả về List<Map<String, Object>>
-        List<Map<String, Object>> result = QueryExecutionModule.executeQuery(sql, tripId);
+        // Giả sử QueryExecutionModule.executeQuery trả về List<LinkedHashMap<String, Object>>
+        List<LinkedHashMap<String, Object>> result = QueryExecutionModule.executeQuery(sql, tripId);
         
         if (result != null && !result.isEmpty()) {
             Object fareObj = result.get(0).get("Fare");

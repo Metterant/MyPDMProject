@@ -1,6 +1,6 @@
 package com.buspass.gui.app_gui.dialogs;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 import javax.swing.JOptionPane;
 
 import com.buspass.queries.DriverQuery;
@@ -20,7 +20,7 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
      * Creates new form UserCreatePanel
      */
     private final DriverQuery driverQuery;
-    private Map<String,Object> currentDriver; // cached fetched bus row
+    private LinkedHashMap<String,Object> currentDriver; // cached fetched bus row
 
     public DriverUpdatePanel(DriverQuery driverQuery) {
         initComponents();
@@ -229,7 +229,7 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
         } 
     }
 
-    private void setDriverFields(Map<String,Object> driver) {
+    private void setDriverFields(LinkedHashMap<String,Object> driver) {
         driverNameField.setText(asString(driver.get("DriverName")));
         ageField.setText(asString(driver.get("Age")));
         licenseField.setText(asString(driver.get(""), asString(driver.get("License"))));

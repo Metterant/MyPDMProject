@@ -4,7 +4,7 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import com.buspass.auth.UserLoginSession;
 import com.buspass.queries.TicketQuery;
@@ -38,7 +38,6 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
 
         buttonScrollPane = new javax.swing.JScrollPane();
         buttonPanel = new javax.swing.JPanel();
-        buyTicketButton = new javax.swing.JButton();
         myTicketsButton = new javax.swing.JButton();
         changeToTripButton = new javax.swing.JButton();
         getTicketsOfUserButton = new javax.swing.JButton();
@@ -59,15 +58,6 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
         buttonPanel.setMaximumSize(new java.awt.Dimension(85, 33));
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
-
-        buyTicketButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        buyTicketButton.setText("Buy Ticket");
-        buyTicketButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buyTicketButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        buyTicketButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        buyTicketButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        buyTicketButton.addActionListener(this::buyTicketButtonActionPerformed);
-        buttonPanel.add(buyTicketButton);
 
         myTicketsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         myTicketsButton.setText("My Tickets");
@@ -109,15 +99,13 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
 
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
+        resultTable.setRowHeight(32);
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
@@ -181,10 +169,6 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
         }
     }//GEN-LAST:event_getTicketsOfUserButtonActionPerformed
 
-    private void buyTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyTicketButtonActionPerformed
-
-    }//GEN-LAST:event_buyTicketButtonActionPerformed
-
     private void myTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTicketsButtonActionPerformed
         middlePanel.setTableContents(resultTable, ticketQuery.getTicketsOfUser(userLoginSession.getUserId()));
     }//GEN-LAST:event_myTicketsButtonActionPerformed
@@ -201,7 +185,6 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JScrollPane buttonScrollPane;
-    private javax.swing.JButton buyTicketButton;
     private javax.swing.JButton changeToTripButton;
     private javax.swing.JButton deleteTicketButton;
     private javax.swing.JButton getTicketsOfUserButton;

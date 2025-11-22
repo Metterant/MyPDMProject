@@ -67,6 +67,7 @@
                 <Column editable="true" title="Title 4" type="java.lang.Object"/>
               </Table>
             </Property>
+            <Property name="rowHeight" type="int" value="32"/>
           </Properties>
         </Component>
       </SubComponents>

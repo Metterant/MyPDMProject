@@ -2,6 +2,8 @@ package com.buspass.gui.app_gui.dialogs;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
@@ -206,6 +208,20 @@ public class TripCreatePanel extends javax.swing.JPanel {
         String departureTime = getDepartureTime();
         String arrivalTime = getArrivalTime();
         Integer busId = getBusId();
+        // Validate that arrival time is not before departure time
+        if (departureTime != null && !departureTime.isBlank() && arrivalTime != null && !arrivalTime.isBlank()) {
+            try {
+                LocalTime dep = LocalTime.parse(departureTime);
+                LocalTime arr = LocalTime.parse(arrivalTime);
+                if (arr.isBefore(dep)) {
+                    JOptionPane.showMessageDialog(this, "Arrival time cannot be before departure time.", "Validation", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            } catch (DateTimeParseException dtpe) {
+                JOptionPane.showMessageDialog(this, "Invalid time format. Use HH:mm:ss.", "Validation", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
 
         boolean ok = true;
         try {

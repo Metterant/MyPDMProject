@@ -1,7 +1,7 @@
 package com.buspass.queries;
 
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import com.buspass.db.QueryExecutionModule;
 
@@ -12,12 +12,12 @@ public class PaymentQuery {
      * @param userId the UserID of the User who has made payments
      * @return the list of Payments
      */
-    public List<Map<String, Object>> getPaymentsByUserId(int userId) {
+    public List<LinkedHashMap<String, Object>> getPaymentsByUserId(int userId) {
         String sql = "SELECT PaymentID, Amount, PaymentDate, Method " +
                      "FROM Payment p LEFT JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID " +
                      "WHERE UserID = ?";
         
-        List<Map<String, Object>> payments = QueryExecutionModule.executeQuery(sql, userId);
+        List<LinkedHashMap<String, Object>> payments = QueryExecutionModule.executeQuery(sql, userId);
 		return payments;  
     }
 
@@ -36,7 +36,7 @@ public class PaymentQuery {
 		return rowsAffected > 0;
     }
 
-    public Map<String, Object> getPaymentById(int paymentId) {
+    public LinkedHashMap<String, Object> getPaymentById(int paymentId) {
         String sql = "SELECT p.Amount,\r\n" +
                      "   p.PaymentDate AS TransactionTime,\r\n" +
                      "   u.FullName,\r\n" +
@@ -46,7 +46,7 @@ public class PaymentQuery {
                      "   LEFT JOIN Payment_Methods pm ON p.Payment_Method_ID = pm.Payment_Method_ID\r\n" +
                      "WHERE p.PaymentID = ?;";
 
-        List<Map<String, Object>> payments = QueryExecutionModule.executeQuery(sql, paymentId);
+        List<LinkedHashMap<String, Object>> payments = QueryExecutionModule.executeQuery(sql, paymentId);
         if (!payments.isEmpty()) {
             return payments.get(0);
         }

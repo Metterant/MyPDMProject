@@ -1,7 +1,7 @@
 package com.buspass.queries;
 
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import com.buspass.db.QueryExecutionModule;
 
@@ -9,10 +9,10 @@ public class DriverQuery {
     
     //#region ADMIN PRIVILEDGES
 
-    public Map<String, Object> getDriverById(int driverId) {
+    public LinkedHashMap<String, Object> getDriverById(int driverId) {
         String sql = "SELECT * FROM Driver WHERE DriverID = ?;";
 
-        List<Map<String, Object>> drivers = QueryExecutionModule.executeQuery(sql, driverId);
+        List<LinkedHashMap<String, Object>> drivers = QueryExecutionModule.executeQuery(sql, driverId);
 
         if (!drivers.isEmpty()) {
             return drivers.get(0);
@@ -20,25 +20,25 @@ public class DriverQuery {
         return null;
     }
 
-    public List<Map<String, Object>> getAllDrivers() {
+    public List<LinkedHashMap<String, Object>> getAllDrivers() {
         String sql = "SELECT * FROM Driver";
-        List<Map<String, Object>> drivers = QueryExecutionModule.executeQuery(sql);
+        List<LinkedHashMap<String, Object>> drivers = QueryExecutionModule.executeQuery(sql);
 
         return drivers;
     }
      
-    public List<Map<String, Object>> getAllDrivenBuses(int driverId) {
+    public List<LinkedHashMap<String, Object>> getAllDrivenBuses(int driverId) {
         String sql = "SELECT d.DriverID, DriverName, busID, plateNumber, r.RouteID, StartLocation, EndLocation, Distance, Duration\r\n" + 
                      "FROM Driver d JOIN Bus_Info b ON d.DriverID = b.DriverID\r\n" +
 		             "JOIN Route r on b.RouteID = r.RouteID\r\n" +
                      "WHERE d.DriverID = ?;";
                      
-        List<Map<String, Object>> buses = QueryExecutionModule.executeQuery(sql, driverId);
+        List<LinkedHashMap<String, Object>> buses = QueryExecutionModule.executeQuery(sql, driverId);
 
         return buses;
     }
 
-    public List<Map<String, Object>> getTripsTraveledById(int driverId) {
+    public List<LinkedHashMap<String, Object>> getTripsTraveledById(int driverId) {
         String sql = "SELECT TripID, TripDate, b.BusID, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime\n" + //
                     "FROM Trip t\n" + //
                     "JOIN Bus_info b ON t.BusID = b.BusID\n" + //
@@ -46,7 +46,7 @@ public class DriverQuery {
                     "JOIN Driver d ON b.DriverID = d.DriverID\n" + //
                     "WHERE d.DriverID = ?;";
                      
-        List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, driverId);
+        List<LinkedHashMap<String, Object>> trips = QueryExecutionModule.executeQuery(sql, driverId);
 
         return trips;
     }

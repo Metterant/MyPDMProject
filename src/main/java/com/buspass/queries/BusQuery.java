@@ -1,16 +1,16 @@
 package com.buspass.queries;
 
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 import com.buspass.db.QueryExecutionModule;
 
 public class BusQuery {
     
-    public Map<String, Object> getBusInfoById(int busId) {
+    public LinkedHashMap<String, Object> getBusInfoById(int busId) {
         String sql = "SELECT * FROM bus_info WHERE BusID = ?";
         
-        List<Map<String, Object>> bus = QueryExecutionModule.executeQuery(sql, busId);
+        List<LinkedHashMap<String, Object>> bus = QueryExecutionModule.executeQuery(sql, busId);
         if (!bus.isEmpty()) {
             return bus.get(0);
         }
@@ -18,13 +18,13 @@ public class BusQuery {
     }
 
     
-    public List<Map<String, Object>> getAllBuses() {
+    public List<LinkedHashMap<String, Object>> getAllBuses() {
         String sql = "SELECT b.BusID, b.PlateNumber, b.Capacity, DriverName, r.RouteName\r\n" + //
                     "FROM Bus_info b\r\n" + //
                     "LEFT JOIN Driver d ON b.DriverID = d.DriverID\r\n" + //
                     "LEFT JOIN Route r ON b.RouteID = r.RouteID;";
         
-        List<Map<String, Object>> buses = QueryExecutionModule.executeQuery(sql);
+        List<LinkedHashMap<String, Object>> buses = QueryExecutionModule.executeQuery(sql);
         
         return buses; // Not found    
     }
@@ -39,7 +39,7 @@ public class BusQuery {
         return rowsAffected > 0;
     }
 
-    public List<Map<String, Object>> getTripsTraveledById(int busId) {
+    public List<LinkedHashMap<String, Object>> getTripsTraveledById(int busId) {
         String sql = "SELECT TripID, TripDate, r.RouteID, RouteName, Distance, DepartureTime, ArrivalTime, b.DriverID, DriverName\n" + //
                     "FROM Trip t\n" + //
                     "LEFT JOIN Bus_info b ON t.BusID = b.BusID\n" + //
@@ -47,7 +47,7 @@ public class BusQuery {
                     "LEFT JOIN Driver d ON b.DriverID = d.DriverID\n" + //
                     "WHERE b.BusID = ?;";
         
-        List<Map<String, Object>> trips = QueryExecutionModule.executeQuery(sql, busId);
+        List<LinkedHashMap<String, Object>> trips = QueryExecutionModule.executeQuery(sql, busId);
         
         return trips; // Not found    
     }

@@ -4,6 +4,9 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
+import com.buspass.gui.app_gui.dialogs.DriverUpdatePanel;
+import com.buspass.gui.app_gui.dialogs.RouteCreatePanel;
+import com.buspass.gui.app_gui.dialogs.RouteUpdatePanel;
 import com.buspass.queries.RouteQuery;
 
 /**
@@ -111,6 +114,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
             }
         ));
+        resultTable.setRowHeight(32);
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
@@ -147,7 +151,17 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateRouteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_updateRouteButtonActionPerformed
-        // TODO add your handling code here:
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Update Route",
+                java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        RouteUpdatePanel panel = new RouteUpdatePanel(routeQuery);
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+
+        dialog.setVisible(true); // blocks until closed
     }// GEN-LAST:event_updateRouteButtonActionPerformed
 
     private void getRouteByIdButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_getRouteByIdButtonActionPerformed
@@ -172,14 +186,14 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
 
         try {
-            java.util.Map<String, Object> route = routeQuery.getRouteById(routeId);
+            java.util.LinkedHashMap<String, Object> route = routeQuery.getRouteById(routeId);
             if (route == null || route.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No route found with ID: " + routeId, "Not found",
                         javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 resultTable.setModel(new javax.swing.table.DefaultTableModel());
                 return;
             }
-            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            java.util.List<java.util.LinkedHashMap<String, Object>> rows = new java.util.ArrayList<>();
             rows.add(route);
             middlePanel.setTableContents(resultTable, rows);
         } catch (Exception ex) {
@@ -194,7 +208,17 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
     }// GEN-LAST:event_getAllRoutesButtonActionPerformed
 
     private void createRouteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_createRouteButtonActionPerformed
-        
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Create Route",
+                java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        RouteCreatePanel panel = new RouteCreatePanel(routeQuery);
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+
+        dialog.setVisible(true); // blocks until closed
     }// GEN-LAST:event_createRouteButtonActionPerformed
 
     private void deleteRouteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteRouteButtonActionPerformed

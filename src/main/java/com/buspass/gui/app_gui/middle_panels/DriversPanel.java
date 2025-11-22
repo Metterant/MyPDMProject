@@ -133,6 +133,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
 
             }
         ));
+        resultTable.setRowHeight(32);
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.CardLayout());
@@ -213,14 +214,14 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
 
         try {
-            java.util.Map<String, Object> drv = driverQuery.getDriverById(driverId);
+            java.util.LinkedHashMap<String, Object> drv = driverQuery.getDriverById(driverId);
             if (drv == null || drv.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No driver found with ID: " + driverId, "Not found",
                         javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 resultTable.setModel(new javax.swing.table.DefaultTableModel());
                 return;
             }
-            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            java.util.List<java.util.LinkedHashMap<String, Object>> rows = new java.util.ArrayList<>();
             rows.add(drv);
             middlePanel.setTableContents(resultTable, rows);
         } catch (Exception ex) {

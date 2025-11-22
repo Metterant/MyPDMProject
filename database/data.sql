@@ -12,7 +12,7 @@ VALUES
 
 INSERT INTO `User` (Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID)
 VALUES
-('Admin', "admin", 'I AM BETTER', 67, '113', 'An India Telecom Center', 2),
+('Admin', NULL, 'I AM BETTER', 67, '113', 'An India Telecom Center', 2),
 ('UserA', NULL, 'Nguyen Van A', 24, '0912345678', '81 LA', 1),
 ('UserB', NULL, 'Le Van B', 30, '0987654321', '35 WA', 1),
 ('UserC', NULL, 'Nguyen Van C', 52, '0965432987', '56 TA', 2),
@@ -34,11 +34,11 @@ VALUES
 
 INSERT INTO `Route` (RouteName, StartLocation, EndLocation, Fare, Distance, Duration)
 VALUES
-('Route A', 'Station A', 'Station B', 1.50, 12.3, '00:45:00'),
-('Route B', 'Station B', 'Station C', 1.50, 12.3, '00:45:00'),
-('Route C', 'Station C', 'Station D', 1.50, 10.3, '00:35:00'),
-('Route D', 'Station D', 'Station E', 2.00, 15.0, '01:00:00'),
-('Route E', 'Station E', 'Station F', 1.00, 8.5, '00:25:00');
+('8', 'Station A', 'Station B', 7000.0, 12.3, '00:45:00'),
+('10', 'Station B', 'Station C', 7000.0, 12.3, '00:45:00'),
+('19', 'Station C', 'Station D', 6000.0, 10.3, '00:35:00'),
+('21', 'Station D', 'Station E', 6000.0, 15.0, '01:00:00'),
+('67-69', 'Station E', 'Station F', 5000.0, 8.5, '00:25:00');
 
 INSERT INTO Bus_Info (PlateNumber, Capacity, DriverID, RouteID)
 VALUES

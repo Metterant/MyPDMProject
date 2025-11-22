@@ -1,6 +1,6 @@
 package com.buspass.gui.app_gui.dialogs;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 import javax.swing.JOptionPane;
 
 import com.buspass.queries.BusQuery;

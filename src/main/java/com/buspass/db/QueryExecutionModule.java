@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 public class QueryExecutionModule {
     //Phương thức dùng chung cho INSERT, UPDATE, DELETE.
@@ -27,8 +27,8 @@ public class QueryExecutionModule {
         }
     }
 
-    public static List<Map<String, Object>> executeQuery(String sql, Object... params) {
-        List<Map<String, Object>> results = new ArrayList<>();
+    public static List<LinkedHashMap<String, Object>> executeQuery(String sql, Object... params) {
+        List<LinkedHashMap<String, Object>> results = new ArrayList<>();
 
         // try-with-resources sẽ tự động đóng Connection, PreparedStatement, và ResultSet
         try (Connection conn = databaseConnection.getConnection();
@@ -42,7 +42,7 @@ public class QueryExecutionModule {
                 int columnCount = metaData.getColumnCount();
                 // 4. Duyệt qua từng dòng kết quả
                 while (rs.next()) {
-                    Map<String, Object> row = new HashMap<>();
+                    LinkedHashMap<String, Object> row = new LinkedHashMap<>();
                     for (int i = 1; i <= columnCount; i++) {
                         String columnName = metaData.getColumnLabel(i); // Lấy tên cột
                         Object value = rs.getObject(i); // Lấy giá trị

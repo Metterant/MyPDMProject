@@ -4,8 +4,20 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.LinkedHashMap;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import com.buspass.auth.UserLoginSession;
 import com.buspass.gui.app_gui.dialogs.TripCreatePanel;
+import com.buspass.gui.app_gui.dialogs.TripFilterPanel;
 import com.buspass.gui.app_gui.dialogs.TripUpdatePanel;
+import com.buspass.gui.app_gui.etc.TicketTableCellEditor;
+import com.buspass.gui.app_gui.etc.TicketTableCellRenderer;
 import com.buspass.queries.TripQuery;
 
 /**
@@ -17,12 +29,66 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
     /**
      * Creates new form UsersPanel
      */
-    public TripsPanel() {
+
+    public TripsPanel(UserLoginSession userLoginSession) {
         initComponents();
+        this.userLoginSession = userLoginSession;
+    }
+
+    private void customSetTable(JTable table, List<LinkedHashMap<String, Object>> results) {
+        // Defensive handling for empty or null results
+        if (results == null || results.isEmpty()) {
+            table.setModel(new DefaultTableModel());
+            return;
+        }
+
+        // Extract column names from first row (preserve order)
+        LinkedHashMap<String, Object> firstRow = results.get(0);
+        if (firstRow == null || firstRow.isEmpty()) {
+            table.setModel(new DefaultTableModel());
+            return;
+        }
+        String[] columns = firstRow.keySet().toArray(new String[0]);
+
+        // Table model
+        DefaultTableModel model = new DefaultTableModel(columns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column == (columns.length - 1);
+            }
+        };
+
+        // Fill rows using the column order
+        for (LinkedHashMap<String, Object> row : results) {
+            Object[] rowData = new Object[columns.length];
+            for (int i = 0; i < columns.length; i++) {
+                rowData[i] = row.get(columns[i]);
+            }
+            model.addRow(rowData);
+        }
+
+        table.setModel(model);
+
+        int colCount = resultTable.getColumnCount();
+        
+        resultTable.getColumnModel()
+                .getColumn(colCount - 1)
+                .setCellRenderer(new TicketTableCellRenderer(userLoginSession, tripQuery));
+        resultTable.getColumnModel()
+                .getColumn(colCount - 1)
+                .setCellEditor(new TicketTableCellEditor(userLoginSession, tripQuery));
+
+        // set the "Buy" column width to 48 pixels
+        resultTable.getColumnModel().getColumn(colCount - 1).setMinWidth(48);
+        resultTable.getColumnModel().getColumn(colCount - 1).setMaxWidth(48);
+        resultTable.getColumnModel().getColumn(colCount - 1).setPreferredWidth(48); 
     }
 
     private MiddlePanel middlePanel = new MiddlePanel();
     private TripQuery tripQuery = new TripQuery();
+    private UserLoginSession userLoginSession;
+
+    private String savedFromDate, savedRouteNames;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,6 +103,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonScrollPane = new javax.swing.JScrollPane();
         buttonPanel = new javax.swing.JPanel();
         upcomingTripsButton = new javax.swing.JButton();
+        filterTripsButton = new javax.swing.JButton();
         getTripByIdButton = new javax.swing.JButton();
         getAllTripsButton = new javax.swing.JButton();
         routesAndTripsButton = new javax.swing.JButton();
@@ -69,6 +136,15 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         upcomingTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
         upcomingTripsButton.addActionListener(this::upcomingTripsButtonActionPerformed);
         buttonPanel.add(upcomingTripsButton);
+
+        filterTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        filterTripsButton.setText("Filter Trips");
+        filterTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        filterTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        filterTripsButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        filterTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        filterTripsButton.addActionListener(this::filterTripsButtonActionPerformed);
+        buttonPanel.add(filterTripsButton);
 
         getTripByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getTripByIdButton.setText("Get Trip By ID");
@@ -143,6 +219,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
             }
         ));
+        resultTable.setRowHeight(48);
         tableScrollPane.setViewportView(resultTable);
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
@@ -179,8 +256,57 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void upcomingTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upcomingTripsButtonActionPerformed
-        middlePanel.setTableContents(resultTable, tripQuery.getUpcomingTrips());
+        List<LinkedHashMap<String, Object>> results = tripQuery.getUpcomingTrips();
+        
+        if (results == null || results.size() == 0) {
+            resultTable.setModel(new DefaultTableModel());
+            return;
+        }
+           
+        for (LinkedHashMap<String, Object> result : results) {
+            result.put("Buy", null);
+        }
+
+        customSetTable(resultTable, results);
     }//GEN-LAST:event_upcomingTripsButtonActionPerformed
+
+    private void filterTripsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterTripsButtonActionPerformed
+        java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
+        final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Update Trip",
+                java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        TripFilterPanel panel = new TripFilterPanel(tripQuery);
+        panel.setFromDate(savedFromDate);
+        panel.setRouteNames(savedRouteNames);
+
+        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
+
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+        panel.getFilterButton().addActionListener(e -> {
+            savedFromDate = panel.getFromDate();
+            savedRouteNames = panel.getRouteNames();
+            List<LinkedHashMap<String, Object>> results = panel.getFilteredTrips();
+            
+            middlePanel.setTableContents(resultTable, results);
+        
+            if (results == null || results.size() == 0) {
+                resultTable.setModel(new DefaultTableModel());
+                return;
+            }
+            
+            for (LinkedHashMap<String, Object> result : results) {
+                result.put("Buy", null);
+            }
+
+            customSetTable(resultTable, results);
+
+            dialog.dispose();
+        });
+    
+        dialog.setVisible(true); // blocks until closed
+    }//GEN-LAST:event_filterTripsButtonActionPerformed
 
     private void updateTripButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_updateTripButtonActionPerformed
         java.awt.Window owner = javax.swing.SwingUtilities.getWindowAncestor(this);
@@ -219,14 +345,14 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         }
 
         try {
-            java.util.Map<String, Object> trip = tripQuery.getTripById(tripId);
+            java.util.LinkedHashMap<String, Object> trip = tripQuery.getTripById(tripId);
             if (trip == null || trip.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No trip found with ID: " + tripId, "Not found",
                         javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 resultTable.setModel(new javax.swing.table.DefaultTableModel());
                 return;
             }
-            java.util.List<java.util.Map<String, Object>> rows = new java.util.ArrayList<>();
+            java.util.List<java.util.LinkedHashMap<String, Object>> rows = new java.util.ArrayList<>();
             rows.add(trip);
             middlePanel.setTableContents(resultTable, rows);
         } catch (Exception ex) {
@@ -320,6 +446,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
     private javax.swing.JScrollPane buttonScrollPane;
     private javax.swing.JButton createTripButton;
     private javax.swing.JButton deleteTriprButton;
+    private javax.swing.JButton filterTripsButton;
     private javax.swing.JButton getAllTripsButton;
     private javax.swing.JButton getTripByIdButton;
     private javax.swing.JLabel headerLabel;

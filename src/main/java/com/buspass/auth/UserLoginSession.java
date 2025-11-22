@@ -1,6 +1,6 @@
 package com.buspass.auth;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import com.buspass.db.QueryExecutionModule;
@@ -44,7 +44,7 @@ public class UserLoginSession {
      */
     public int attemptLogin(String username, String plainPW) {
         // Fetch stored hash and role id for the user
-        List<Map<String, Object>> results;
+        List<LinkedHashMap<String, Object>> results;
         results = QueryExecutionModule.executeQuery(
             "SELECT UserID, Username, UserPassword, FullName, Age, Phone, UserAddress, UserRoleID FROM `User` WHERE Username = ?", 
             username
@@ -55,7 +55,7 @@ public class UserLoginSession {
             return -1;
         }
 
-        Map<String, Object> user = results.get(0);
+        LinkedHashMap<String, Object> user = results.get(0);
         Object pwObj = user.get("UserPassword");
         if (pwObj == null) {
             setInfo(user);
@@ -85,9 +85,8 @@ public class UserLoginSession {
         return 0;
     }
 
-    private void setInfo(Map<String, Object> userInfo) {
+    private void setInfo(LinkedHashMap<String, Object> userInfo) {
         clearSessionInfo();
-        setUsername(username);
 
         Object usernameObj = userInfo.get("Username");
         Object userIdObj   = userInfo.get("UserID");
