@@ -24,6 +24,9 @@ public class TripQuery {
     }
 
     public List<Map<String, Object>> getFilteredTrips(String date, String routes) {
+        // ensure routes are quoted for SQL IN clause
+        String quotedRoutes = wrapRouteNamesForSql(routes);
+
         String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" +
                         "    RouteName, StartLocation, EndLocation, Duration\r\n" +
                         "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" +
@@ -31,13 +34,15 @@ public class TripQuery {
                         "WHERE (TripDate > ?\r\n" +
                         "    OR (TripDate = ?\r\n" +
                         "       AND DepartureTime = NOW()))\r\n" +
-                        "    AND RouteName IN (" + routes + ")\r\n" +
+                        "    AND RouteName IN (" + quotedRoutes + ")\r\n" +
                         "ORDER BY TripDate, DepartureTime";
 
         return QueryExecutionModule.executeQuery(sql, date, date);
     }
 
     public List<Map<String, Object>> getFilteredRoutesTrips(String routes) {
+        String quotedRoutes = wrapRouteNamesForSql(routes);
+
         String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" +
                         "    RouteName, StartLocation, EndLocation, Duration\r\n" +
                         "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" +
@@ -45,11 +50,38 @@ public class TripQuery {
                         "WHERE (TripDate > CURDATE()\r\n" +
                         "    OR (TripDate = CURDATE()\r\n" +
                         "       AND DepartureTime > NOW()))\r\n" +
-                        "    AND RouteName IN (" + routes + ")\r\n" +
+                        "    AND RouteName IN (" + quotedRoutes + ")\r\n" +
                         "ORDER BY TripDate, DepartureTime";
         System.out.println(sql);
 
         return QueryExecutionModule.executeQuery(sql);
+    }
+
+    /**
+     * Wrap each comma-separated token in the provided routeNames string with single quotes
+     * so it can be safely embedded into an SQL IN clause.
+     * Example: "8, 10-12" -> "'8','10-12'"
+     */
+    public static String wrapRouteNamesForSql(String routeNames) {
+        if (routeNames == null) return "''";
+        
+        String trimmed = routeNames.trim();
+        if (trimmed.isEmpty()) return "''";
+
+        String[] parts = trimmed.split("\\s*,\\s*");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < parts.length; i++) {
+            String p = parts[i].trim();
+            if (p.isEmpty()) continue;
+            // escape any single quotes just in case (though tokens are digits/hyphen)
+            p = p.replace("'", "''");
+            if (sb.length() > 0) sb.append(',');
+            sb.append('\'').append(p).append('\'');
+        }
+
+        if (sb.length() == 0) return "''";
+        return sb.toString();
     }
 
     public List<Map<String, Object>> getFilteredDateTrips(String date) {
