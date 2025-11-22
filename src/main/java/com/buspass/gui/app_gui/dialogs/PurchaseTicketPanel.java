@@ -76,12 +76,12 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        purchaseButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        purchaseButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         purchaseButton.setText("PURCHASE");
         purchaseButton.addActionListener(this::purchaseButtonActionPerformed);
         optionPanel.add(purchaseButton);
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -94,64 +94,64 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(13, 1));
 
-        tripIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tripIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         tripIdLabel.setForeground(new java.awt.Color(0, 102, 102));
         tripIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tripIdLabel.setText("Trip ID");
         leftPanel.add(tripIdLabel);
 
-        routeNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeNameLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routeNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeNameLabel.setText("Route Name");
         leftPanel.add(routeNameLabel);
 
-        tripDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tripDateLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         tripDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tripDateLabel.setText("Trip Date");
         leftPanel.add(tripDateLabel);
 
-        departureTimeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        departureTimeLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         departureTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         departureTimeLabel.setText("Departure Time");
         leftPanel.add(departureTimeLabel);
 
-        arrivalTimeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        arrivalTimeLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         arrivalTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         arrivalTimeLabel.setText("Arrival Time");
         leftPanel.add(arrivalTimeLabel);
 
-        startLocationLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        startLocationLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         startLocationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         startLocationLabel.setText("Start Location");
         leftPanel.add(startLocationLabel);
 
-        endLocationLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        endLocationLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         endLocationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         endLocationLabel.setText("End Location");
         leftPanel.add(endLocationLabel);
 
-        capacityLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        capacityLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         capacityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         capacityLabel.setText("Capacity");
         leftPanel.add(capacityLabel);
 
-        durationLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        durationLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         durationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         durationLabel.setText("Duration");
         leftPanel.add(durationLabel);
 
-        busPlateNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        busPlateNumberLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         busPlateNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         busPlateNumberLabel.setText("Bus Plate Number");
         leftPanel.add(busPlateNumberLabel);
 
-        fareLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        fareLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         fareLabel.setForeground(new java.awt.Color(153, 0, 153));
         fareLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fareLabel.setText("Fare");
         leftPanel.add(fareLabel);
 
-        paymentMethodLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        paymentMethodLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         paymentMethodLabel.setForeground(new java.awt.Color(153, 0, 153));
         paymentMethodLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paymentMethodLabel.setText("Payment Method");
@@ -159,40 +159,52 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
 
         rightPanel.setLayout(new java.awt.GridLayout(13, 1));
 
-        tripIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tripIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        tripIdField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(tripIdField);
 
-        routeNameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeNameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeNameField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(routeNameField);
 
-        tripDateField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tripDateField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        tripDateField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(tripDateField);
 
-        departureTimeField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        departureTimeField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        departureTimeField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(departureTimeField);
 
-        arrivalTimeField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        arrivalTimeField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        arrivalTimeField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(arrivalTimeField);
 
-        startLocationField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        startLocationField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        startLocationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(startLocationField);
 
-        endLocationField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        endLocationField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        endLocationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(endLocationField);
 
-        capacityField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        capacityField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        capacityField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(capacityField);
 
-        durationField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        durationField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        durationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(durationField);
 
-        busPlateNumberField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        busPlateNumberField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        busPlateNumberField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(busPlateNumberField);
 
-        fareField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        fareField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fareField.setDisabledTextColor(new java.awt.Color(102, 0, 153));
         rightPanel.add(fareField);
 
-        paymentMethodComboBox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        paymentMethodComboBox.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        paymentMethodComboBox.setForeground(new java.awt.Color(102, 0, 102));
         paymentMethodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Chosen", "Card", "Online Banking" }));
         paymentMethodComboBox.addActionListener(this::paymentMethodComboBoxActionPerformed);
         rightPanel.add(paymentMethodComboBox);
@@ -215,7 +227,7 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

@@ -64,12 +64,12 @@ public class RouteUpdatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         updateButton.setText("UPDATE");
         updateButton.addActionListener(this::updateButtonActionPerformed);
         optionPanel.add(updateButton);
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -82,47 +82,47 @@ public class RouteUpdatePanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(8, 1));
 
-        routeIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routeIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeIdLabel.setText("RouteID");
         leftPanel.add(routeIdLabel);
 
-        routeNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeNameLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routeNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeNameLabel.setText("RouteName");
         leftPanel.add(routeNameLabel);
 
-        startLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        startLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         startLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         startLabel.setText("Start Location");
         leftPanel.add(startLabel);
 
-        endLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        endLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         endLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         endLabel.setText("End Location");
         leftPanel.add(endLabel);
 
-        fareLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fareLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         fareLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fareLabel.setText("Fare");
         leftPanel.add(fareLabel);
 
-        distanceLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        distanceLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         distanceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         distanceLabel.setText("Distance");
         leftPanel.add(distanceLabel);
 
-        durationLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        durationLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         durationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         durationLabel.setText("Duration");
         leftPanel.add(durationLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(8, 1));
 
-        routeIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routeIdField.addActionListener(this::routeIdFieldActionPerformed);
 
-        findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        findIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         findIdButton.setText("Find");
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
@@ -144,22 +144,22 @@ public class RouteUpdatePanel extends javax.swing.JPanel {
 
         rightPanel.add(routeIdPanel);
 
-        routeNameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeNameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(routeNameField);
 
-        startField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        startField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(startField);
 
-        endField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        endField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(endField);
 
-        fareField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fareField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(fareField);
 
-        distanceField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        distanceField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(distanceField);
 
-        durationField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        durationField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(durationField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -60,12 +60,12 @@ public class TripFilterPanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        filterButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        filterButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         filterButton.setText("FILTER");
         filterButton.addActionListener(this::filterButtonActionPerformed);
         optionPanel.add(filterButton);
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -78,21 +78,23 @@ public class TripFilterPanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        fromDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fromDateLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         fromDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fromDateLabel.setText("From Date");
         leftPanel.add(fromDateLabel);
 
-        routeNamesLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeNamesLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routeNamesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeNamesLabel.setText("Route Names");
         leftPanel.add(routeNamesLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(3, 1));
 
+        fromDateField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         fromDateField.addActionListener(this::fromDateFieldActionPerformed);
         rightPanel.add(fromDateField);
 
+        routeNamesField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routeNamesField.addActionListener(this::routeNamesFieldActionPerformed);
         rightPanel.add(routeNamesField);
 
@@ -114,7 +116,7 @@ public class TripFilterPanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

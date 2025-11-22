@@ -31,11 +31,11 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="headerPanel" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="rightPanel" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="rightPanel" pref="223" max="32767" attributes="0"/>
                   <Component id="leftPanel" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="optionPanel" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -51,7 +51,7 @@
         <Component class="javax.swing.JButton" name="updateButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="0"/>
+              <Font name="Google Sans" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="UPDATE"/>
           </Properties>
@@ -62,7 +62,7 @@
         <Component class="javax.swing.JButton" name="cancelButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="0"/>
+              <Font name="Google Sans" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CANCEL"/>
           </Properties>
@@ -90,13 +90,13 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
         <Property name="columns" type="int" value="1"/>
-        <Property name="rows" type="int" value="8"/>
+        <Property name="rows" type="int" value="6"/>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="driverIdLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Driver ID"/>
@@ -105,7 +105,7 @@
         <Component class="javax.swing.JLabel" name="driverNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Driver Name"/>
@@ -114,7 +114,7 @@
         <Component class="javax.swing.JLabel" name="ageLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Age"/>
@@ -123,7 +123,7 @@
         <Component class="javax.swing.JLabel" name="licenseLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="License"/>
@@ -132,7 +132,7 @@
         <Component class="javax.swing.JLabel" name="phoneLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Phone Number"/>
@@ -144,7 +144,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
         <Property name="columns" type="int" value="1"/>
-        <Property name="rows" type="int" value="8"/>
+        <Property name="rows" type="int" value="6"/>
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="driverIdPanel">
@@ -162,10 +162,8 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="findIdButton" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="driverIdField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="driverIdField" max="32767" attributes="0"/>
+                  <Component id="findIdButton" alignment="0" pref="37" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -173,7 +171,7 @@
             <Component class="javax.swing.JTextField" name="driverIdField">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Google Sans" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -183,7 +181,7 @@
             <Component class="javax.swing.JButton" name="findIdButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Google Sans" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Find"/>
               </Properties>
@@ -196,28 +194,28 @@
         <Component class="javax.swing.JTextField" name="driverNameField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="ageField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="licenseField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="phoneField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
+              <Font name="Google Sans" size="14" style="0"/>
             </Property>
           </Properties>
         </Component>

@@ -63,12 +63,12 @@ public class UserUpdatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         updateButton.setText("UPDATE");
         updateButton.addActionListener(this::updateButtonActionPerformed);
         optionPanel.add(updateButton);
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -79,54 +79,54 @@ public class UserUpdatePanel extends javax.swing.JPanel {
         headerLabel.setText("UPDATE USER");
         headerPanel.add(headerLabel);
 
-        leftPanel.setLayout(new java.awt.GridLayout(8, 1));
+        leftPanel.setLayout(new java.awt.GridLayout(9, 1));
 
-        userIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         userIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userIdLabel.setText("UserID");
         leftPanel.add(userIdLabel);
 
-        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usernameLabel.setText("Username");
         leftPanel.add(usernameLabel);
 
-        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passwordLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         passwordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         passwordLabel.setText("Password");
         leftPanel.add(passwordLabel);
 
-        fullNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fullNameLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         fullNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fullNameLabel.setText("Full Name");
         leftPanel.add(fullNameLabel);
 
-        ageLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ageLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         ageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ageLabel.setText("Age");
         leftPanel.add(ageLabel);
 
-        phoneLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        phoneLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         phoneLabel.setText("Phone Number");
         leftPanel.add(phoneLabel);
 
-        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         addressLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         addressLabel.setText("Address");
         leftPanel.add(addressLabel);
 
-        userRoleIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userRoleIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         userRoleIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRoleIdLabel.setText("UserRoleID");
         leftPanel.add(userRoleIdLabel);
 
-        rightPanel.setLayout(new java.awt.GridLayout(8, 1));
+        rightPanel.setLayout(new java.awt.GridLayout(9, 1));
 
-        userIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         userIdField.addActionListener(this::userIdFieldActionPerformed);
 
-        findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        findIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         findIdButton.setText("Find");
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
@@ -149,26 +149,26 @@ public class UserUpdatePanel extends javax.swing.JPanel {
 
         rightPanel.add(userIdPanel);
 
-        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        usernameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(usernameField);
 
-        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passwordField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         passwordField.addActionListener(this::passwordFieldActionPerformed);
         rightPanel.add(passwordField);
 
-        fullNameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fullNameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(fullNameField);
 
-        ageField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ageField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(ageField);
 
-        phoneField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        phoneField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(phoneField);
 
-        addressField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(addressField);
 
-        userRoleIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userRoleIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(userRoleIdField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -189,7 +189,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

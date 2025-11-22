@@ -52,12 +52,12 @@ public class BusCreatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        createButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         createButton.setText("CREATE");
         createButton.addActionListener(this::createButtonActionPerformed);
         optionPanel.add(createButton);
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -70,38 +70,38 @@ public class BusCreatePanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        plateNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        plateNumberLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         plateNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         plateNumberLabel.setText("PlateNumber");
         leftPanel.add(plateNumberLabel);
 
-        capacityLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        capacityLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         capacityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         capacityLabel.setText("Capacity");
         leftPanel.add(capacityLabel);
 
-        driverIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        driverIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         driverIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         driverIdLabel.setText("DriverID");
         leftPanel.add(driverIdLabel);
 
-        routeIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routeIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeIdLabel.setText("RouteID");
         leftPanel.add(routeIdLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        plateNumberField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        plateNumberField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(plateNumberField);
 
-        capacityField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        capacityField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(capacityField);
 
-        driverIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        driverIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(driverIdField);
 
-        routeIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routeIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         rightPanel.add(routeIdField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -122,7 +122,7 @@ public class BusCreatePanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
