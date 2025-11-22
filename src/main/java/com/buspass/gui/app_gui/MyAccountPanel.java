@@ -69,6 +69,7 @@ public class MyAccountPanel extends javax.swing.JPanel {
         optionPanel = new javax.swing.JPanel();
         saveButton = new javax.swing.JButton();
         discardButton = new javax.swing.JButton();
+        signOutButton = new javax.swing.JButton();
         permissionLabel = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
 
@@ -166,7 +167,7 @@ public class MyAccountPanel extends javax.swing.JPanel {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
+        optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 5));
 
         saveButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         saveButton.setForeground(new java.awt.Color(51, 102, 0));
@@ -180,6 +181,13 @@ public class MyAccountPanel extends javax.swing.JPanel {
         discardButton.addActionListener(this::discardButtonActionPerformed);
         optionPanel.add(discardButton);
 
+        signOutButton.setBackground(new java.awt.Color(255, 0, 0));
+        signOutButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        signOutButton.setForeground(new java.awt.Color(255, 255, 255));
+        signOutButton.setText("Sign Out");
+        signOutButton.addActionListener(this::signOutButtonActionPerformed);
+        optionPanel.add(signOutButton);
+
         permissionLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         permissionLabel.setText("You logged in as an");
 
@@ -192,20 +200,20 @@ public class MyAccountPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addComponent(middlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(298, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(backButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(permissionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(280, 280, 280)
+                                .addComponent(middlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(backButton))
+                        .addGap(17, 298, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,6 +298,11 @@ public class MyAccountPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void signOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutButtonActionPerformed
+        userLoginSession.clearSessionInfo();
+        appPanelSwitcher.showPanel(AppPanel.AUTH);
+    }//GEN-LAST:event_signOutButtonActionPerformed
+
     public void updatePanel() {
         if (userLoginSession == null) return;
 
@@ -325,6 +338,7 @@ public class MyAccountPanel extends javax.swing.JPanel {
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JButton saveButton;
+    private javax.swing.JButton signOutButton;
     private javax.swing.JTextField userIdField;
     private javax.swing.JLabel userIdLabel;
     private javax.swing.JTextField usernameField;
