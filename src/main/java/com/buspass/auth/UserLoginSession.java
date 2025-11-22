@@ -112,7 +112,7 @@ public class UserLoginSession {
             setPhoneNumber(phoneObj.toString());
     }
 
-    private void clearSessionInfo() {
+    public void clearSessionInfo() {
         userId = null;
         userRoleId = null;
         age = null;
