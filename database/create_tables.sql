@@ -88,3 +88,12 @@ CREATE TABLE Ticket (
     FOREIGN KEY (TripID) REFERENCES Trip(TripID),
     FOREIGN KEY (PaymentID) REFERENCES Payment(PaymentID)
 );
+
+CREATE VIEW trip_detailed_view AS
+SELECT TripID, RouteName, TripDate, DepartureTime, ArrivalTime, StartLocation, EndLocation, Capacity, Duration, PlateNumber, Fare
+FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID
+	JOIN Route r ON b.RouteID = r.RouteID
+WHERE (TripDate > CURDATE()
+	OR (TripDate = CURDATE()
+		AND DepartureTime > NOW()))
+ORDER BY TripDate, DepartureTime
