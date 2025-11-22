@@ -31,6 +31,7 @@ public class AppPanel extends JPanel implements PanelSwitcher {
         // give child panels the callback so they can ask the parent to switch
         authPanel.setPanelSwitcher(this);
         mainPanel.setPanelSwitcher(this);
+        myAccountPanel.setPanelSwitcher(authPanel);
 
         cards.add(authPanel, AUTH);
         cards.add(mainPanel, MAIN);
@@ -49,7 +50,7 @@ public class AppPanel extends JPanel implements PanelSwitcher {
             mainPanel.updatePanel();
         if (name == MY_ACCOUNT)
             myAccountPanel.updatePanel();
-        
+
         // ensure change happens on EDT
         if (SwingUtilities.isEventDispatchThread()) {
             cardLayout.show(cards, name);
