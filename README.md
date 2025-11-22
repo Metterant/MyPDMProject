@@ -48,3 +48,11 @@ DB_MAX_POOL_SIZE=10
 - **Method 1**: To run the application, navigate to the `Main` class from `com.buspass` project package, run the `main` method.
 
 - **Method 2**: Run `MyPDMProject.jar` file found in project root.
+
+## Issues and Fixes
+
+### The GUI fonts are ugly
+
+This problem occurs because this project uses "Google Sans" as its main font for the GUI. To fix this problem, you can retrieve `GoogleSans-Regular.ttf` file found in `src\main\java\com\buspass\res` and then install the font. Once the font is installed, you can try to run the application again to make sure the project works as intended.
+
+You may find this solution ridiculous because we fix this by creating an `java.awt.Font` and use it instead from your system downloaded fonts. However, due to limited time we've got, we have decided to play it safe and finish the project early.
