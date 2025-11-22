@@ -89,6 +89,24 @@ CREATE TABLE Ticket (
     FOREIGN KEY (PaymentID) REFERENCES Payment(PaymentID)
 );
 
+DROP VIEW IF EXISTS trips_upcoming_view;
+CREATE VIEW trips_upcoming_view AS
+SELECT
+    t.TripID,
+    t.TripDate,
+    t.DepartureTime,
+    t.ArrivalTime,
+    b.Capacity,
+    r.RouteName,
+    r.StartLocation,
+    r.EndLocation,
+    TIMEDIFF(t.ArrivalTime, t.DepartureTime) AS Duration
+FROM Trip t
+JOIN Bus_info b ON t.BusID = b.BusID
+JOIN Route r ON b.RouteID = r.RouteID
+WHERE (t.TripDate > CURDATE()
+       OR (t.TripDate = CURDATE() AND t.DepartureTime > NOW()));
+
 CREATE VIEW trip_detailed_view AS
 SELECT TripID, RouteName, TripDate, DepartureTime, ArrivalTime, StartLocation, EndLocation, Capacity, Duration, PlateNumber, Fare
 FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID
