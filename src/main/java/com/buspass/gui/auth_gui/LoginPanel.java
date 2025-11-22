@@ -7,6 +7,7 @@ package com.buspass.gui.auth_gui;
 import javax.swing.JOptionPane;
 
 import com.buspass.auth.UserLoginSession;
+import com.buspass.gui.AppPanel;
 import com.buspass.gui.PanelSwitcher;
 
 /**
@@ -60,7 +61,7 @@ public class LoginPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1100, 600));
         setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        registerLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        registerLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         registerLabel.setForeground(new java.awt.Color(0, 0, 255));
         registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         registerLabel.setText("Register Account");
@@ -73,7 +74,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        messageLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        messageLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         messageLabel.setText("New to Digital Bus Pass?");
 
@@ -83,8 +84,8 @@ public class LoginPanel extends javax.swing.JPanel {
             registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerMessagePanelLayout.createSequentialGroup()
                 .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         registerMessagePanelLayout.setVerticalGroup(
             registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,16 +97,16 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGap(16, 16, 16))
         );
 
-        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         usernameLabel.setText("Username");
 
-        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        usernameField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
-        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passwordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         passwordLabel.setText("Password");
 
-        forgotPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        forgotPasswordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         forgotPasswordLabel.setForeground(new java.awt.Color(0, 0, 255));
         forgotPasswordLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         forgotPasswordLabel.setText("Forgot Password?");
@@ -116,10 +117,10 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passwordField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         passwordField.addActionListener(this::passwordFieldActionPerformed);
 
-        loginButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loginButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         loginButton.setText("Login");
         loginButton.addActionListener(this::loginButtonActionPerformed);
 
@@ -135,7 +136,7 @@ public class LoginPanel extends javax.swing.JPanel {
                         .addGroup(loginFieldsLayout.createSequentialGroup()
                             .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(forgotPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(forgotPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,7 +164,7 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        userLoginLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        userLoginLabel.setFont(new java.awt.Font("Lexend Medium", 0, 18)); // NOI18N
         userLoginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userLoginLabel.setText("LOGIN");
 
@@ -172,15 +173,18 @@ public class LoginPanel extends javax.swing.JPanel {
         centerPanelLayout.setHorizontalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centerPanelLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centerPanelLayout.createSequentialGroup()
-                        .addComponent(userLoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74))
-                    .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(registerMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(loginFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                        .addGap(61, 61, 61)
+                        .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(centerPanelLayout.createSequentialGroup()
+                                .addComponent(userLoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(74, 74, 74))
+                            .addComponent(loginFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(centerPanelLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(registerMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         centerPanelLayout.setVerticalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +226,7 @@ public class LoginPanel extends javax.swing.JPanel {
                     // System.out.println(userLoginSession.getUserRoleId());
 
                     if (appPanelSwitcher != null) {
-                        appPanelSwitcher.showPanel("main");
+                        appPanelSwitcher.showPanel(AppPanel.MAIN);
                     }
                     break;
             default:

@@ -56,25 +56,25 @@ public class RegisterPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1100, 600));
         setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passwordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         passwordLabel.setText("Password");
 
-        usernameField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        usernameField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
-        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passwordField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         passwordField.addActionListener(this::passwordFieldActionPerformed);
 
-        confirmPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        confirmPasswordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         confirmPasswordLabel.setText("Confirm Password");
 
-        confirmPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        confirmPasswordField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         confirmPasswordField.addActionListener(this::confirmPasswordFieldActionPerformed);
 
-        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         usernameLabel.setText("Username");
 
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
         registerButton.setText("Register");
         registerButton.addActionListener(this::registerButtonActionPerformed);
 
@@ -115,11 +115,11 @@ public class RegisterPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        userRegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        userRegisterLabel.setFont(new java.awt.Font("Lexend Medium", 0, 18)); // NOI18N
         userRegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRegisterLabel.setText("REGISTER");
 
-        loginLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        loginLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         loginLabel.setForeground(new java.awt.Color(0, 0, 255));
         loginLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loginLabel.setText("Login Now");
@@ -132,7 +132,7 @@ public class RegisterPanel extends javax.swing.JPanel {
             }
         });
 
-        messageLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        messageLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         messageLabel.setText("Already have an account?");
 
@@ -141,10 +141,10 @@ public class RegisterPanel extends javax.swing.JPanel {
         loginMessagePanelLayout.setHorizontalGroup(
             loginMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginMessagePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         loginMessagePanelLayout.setVerticalGroup(
@@ -162,15 +162,17 @@ public class RegisterPanel extends javax.swing.JPanel {
         centerPanelLayout.setHorizontalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centerPanelLayout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(loginMessagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(registerFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(centerPanelLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(userRegisterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(66, 66, 66))
+            .addGroup(centerPanelLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(loginMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         centerPanelLayout.setVerticalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -8,13 +8,13 @@ import com.buspass.gui.app_gui.middle_panels.TicketsPanel;
 import com.buspass.gui.app_gui.middle_panels.PaymentsPanel;
 import com.buspass.gui.app_gui.middle_panels.DriversPanel;
 import com.buspass.gui.app_gui.middle_panels.InMiddlePanel;
-import com.buspass.gui.app_gui.middle_panels.CusomSQLPanel;
 import com.buspass.gui.app_gui.middle_panels.BusesPanel;
 import com.buspass.gui.app_gui.middle_panels.RoutesPanel;
 import com.buspass.gui.app_gui.middle_panels.UsersPanel;
 import com.buspass.gui.app_gui.middle_panels.TripsPanel;
 import com.buspass.auth.UserLoginSession;
 import com.buspass.auth.UserRegister;
+import com.buspass.gui.AppPanel;
 import com.buspass.gui.PanelSwitcher;
 
 import java.awt.BorderLayout;
@@ -31,7 +31,7 @@ public class MainPanel extends javax.swing.JPanel {
      */
     UserLoginSession userLoginSession;
 
-    public static final int NUMBER_OF_MIDDLE_PANELS = 9;
+    public static final int NUMBER_OF_MIDDLE_PANELS = 8;
     public static final int NUMBER_OF_INMIDDLE_PANELS = 8;
     private static final int USERS_PANEL      = 1;
     private static final int DRIVERS_PANEL    = 2;
@@ -40,7 +40,6 @@ public class MainPanel extends javax.swing.JPanel {
     private static final int TRIPS_PANEL      = 5;
     private static final int TICKETS_PANEL    = 6;
     private static final int PAYMENTS_PANEL   = 7;
-    private static final int CUSTOM_SQL_PANEL = 8;
 
     private PanelSwitcher switcher;
 
@@ -65,7 +64,6 @@ public class MainPanel extends javax.swing.JPanel {
         TripsPanel    tripsPanel    = new TripsPanel(userLoginSession);
         TicketsPanel  ticketsPanel  = new TicketsPanel(userLoginSession);
         PaymentsPanel paymentsPanel = new PaymentsPanel(userLoginSession);
-        CusomSQLPanel cusomSQLPanel = new CusomSQLPanel();
 
         panels[USERS_PANEL]      = usersPanel;
         panels[DRIVERS_PANEL]    = driversPanel;
@@ -74,7 +72,6 @@ public class MainPanel extends javax.swing.JPanel {
         panels[TRIPS_PANEL]      = tripsPanel;   
         panels[TICKETS_PANEL]    = ticketsPanel; 
         panels[PAYMENTS_PANEL]   = paymentsPanel;
-        panels[CUSTOM_SQL_PANEL] = cusomSQLPanel;
 
         middlePanels[USERS_PANEL]      = usersPanel;
         middlePanels[DRIVERS_PANEL]    = driversPanel; 
@@ -105,7 +102,6 @@ public class MainPanel extends javax.swing.JPanel {
         tripButton = new javax.swing.JButton();
         ticketsButton = new javax.swing.JButton();
         paymentsButton = new javax.swing.JButton();
-        customSqlButton = new javax.swing.JButton();
         topPanel = new javax.swing.JPanel();
         usernameLabel = new javax.swing.JLabel();
         permissionLabel = new javax.swing.JLabel();
@@ -137,7 +133,7 @@ public class MainPanel extends javax.swing.JPanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        mainButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        mainButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         mainButton.setText("Main");
         mainButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         mainButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -146,7 +142,7 @@ public class MainPanel extends javax.swing.JPanel {
         mainButton.addActionListener(this::mainButtonActionPerformed);
         buttonPanel.add(mainButton);
 
-        usersButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        usersButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         usersButton.setText("Users");
         usersButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         usersButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -155,7 +151,7 @@ public class MainPanel extends javax.swing.JPanel {
         usersButton.addActionListener(this::usersButtonActionPerformed);
         buttonPanel.add(usersButton);
 
-        driversButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        driversButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         driversButton.setText("Drivers");
         driversButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         driversButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -164,7 +160,7 @@ public class MainPanel extends javax.swing.JPanel {
         driversButton.addActionListener(this::driversButtonActionPerformed);
         buttonPanel.add(driversButton);
 
-        busesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        busesButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         busesButton.setText("Buses");
         busesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         busesButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -173,7 +169,7 @@ public class MainPanel extends javax.swing.JPanel {
         busesButton.addActionListener(this::busesButtonActionPerformed);
         buttonPanel.add(busesButton);
 
-        routesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routesButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routesButton.setText("Routes");
         routesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         routesButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -182,7 +178,7 @@ public class MainPanel extends javax.swing.JPanel {
         routesButton.addActionListener(this::routesButtonActionPerformed);
         buttonPanel.add(routesButton);
 
-        tripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tripButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         tripButton.setText("Trips");
         tripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         tripButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -191,7 +187,7 @@ public class MainPanel extends javax.swing.JPanel {
         tripButton.addActionListener(this::tripButtonActionPerformed);
         buttonPanel.add(tripButton);
 
-        ticketsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ticketsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         ticketsButton.setText("Tickets");
         ticketsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         ticketsButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -200,7 +196,7 @@ public class MainPanel extends javax.swing.JPanel {
         ticketsButton.addActionListener(this::ticketsButtonActionPerformed);
         buttonPanel.add(ticketsButton);
 
-        paymentsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        paymentsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         paymentsButton.setText("Payments");
         paymentsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         paymentsButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -209,30 +205,26 @@ public class MainPanel extends javax.swing.JPanel {
         paymentsButton.addActionListener(this::paymentsButtonActionPerformed);
         buttonPanel.add(paymentsButton);
 
-        customSqlButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        customSqlButton.setText("CustomSQL");
-        customSqlButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        customSqlButton.setMaximumSize(new java.awt.Dimension(125, 40));
-        customSqlButton.setMinimumSize(new java.awt.Dimension(125, 40));
-        customSqlButton.setPreferredSize(new java.awt.Dimension(125, 40));
-        customSqlButton.addActionListener(this::customSqlButtonActionPerformed);
-        buttonPanel.add(customSqlButton);
-
         scrollPane.setViewportView(buttonPanel);
 
         topPanel.setBackground(new java.awt.Color(220, 220, 220));
         topPanel.setPreferredSize(new java.awt.Dimension(100, 70));
 
-        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 15)); // NOI18N
         usernameLabel.setForeground(new java.awt.Color(0, 0, 255));
         usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         usernameLabel.setText("Username");
         usernameLabel.setToolTipText("Click to go to your User Panel");
+        usernameLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usernameLabelMouseClicked(evt);
+            }
+        });
 
-        permissionLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        permissionLabel.setFont(new java.awt.Font("Google Sans", 0, 15)); // NOI18N
         permissionLabel.setText("Session Permission: ");
 
-        permissionTextLabel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        permissionTextLabel.setFont(new java.awt.Font("Google Sans", 0, 15)); // NOI18N
         permissionTextLabel.setText("Passenger");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
@@ -244,7 +236,7 @@ public class MainPanel extends javax.swing.JPanel {
                 .addComponent(permissionLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(permissionTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 724, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 722, Short.MAX_VALUE)
                 .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -315,9 +307,9 @@ public class MainPanel extends javax.swing.JPanel {
         switchMiddlePanel(PAYMENTS_PANEL);
     }//GEN-LAST:event_paymentsButtonActionPerformed
 
-    private void customSqlButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customSqlButtonActionPerformed
-        switchMiddlePanel(CUSTOM_SQL_PANEL);
-    }//GEN-LAST:event_customSqlButtonActionPerformed
+    private void usernameLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameLabelMouseClicked
+        switcher.showPanel(AppPanel.MY_ACCOUNT);
+    }//GEN-LAST:event_usernameLabelMouseClicked
 
     private void switchMiddlePanel(int childPanel) {
         // embed the UsersPanel into the middlePanel
@@ -354,22 +346,17 @@ public class MainPanel extends javax.swing.JPanel {
         for (int i = 1; i < NUMBER_OF_INMIDDLE_PANELS; i++) {
             middlePanels[i].showAdminButtons();
         }
-        panels[CUSTOM_SQL_PANEL].setVisible(true);
-        customSqlButton.setVisible(true);
     }
 
     private void hideAdminButtons() {
         for (int i = 1; i < NUMBER_OF_INMIDDLE_PANELS; i++) {
             middlePanels[i].hideAdminButtons();
         }
-        panels[CUSTOM_SQL_PANEL].setVisible(false);
-        customSqlButton.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton busesButton;
     private javax.swing.JPanel buttonPanel;
-    private javax.swing.JButton customSqlButton;
     private javax.swing.JButton driversButton;
     private javax.swing.JButton mainButton;
     private javax.swing.JPanel middlePanel;
