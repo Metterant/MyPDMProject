@@ -100,7 +100,7 @@ public class LoginPanel extends javax.swing.JPanel {
         usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         usernameLabel.setText("Username");
 
-        usernameField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        usernameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
         passwordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
@@ -117,7 +117,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        passwordField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        passwordField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         passwordField.addActionListener(this::passwordFieldActionPerformed);
 
         loginButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
@@ -243,7 +243,7 @@ public class LoginPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void forgotPasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordLabelMouseClicked
-        // TODO add your handling code here:
+        authPanelSwitcher.showPanel(AuthPanel.RESET_PW);
     }//GEN-LAST:event_forgotPasswordLabelMouseClicked
 
     private void registerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLabelMouseClicked

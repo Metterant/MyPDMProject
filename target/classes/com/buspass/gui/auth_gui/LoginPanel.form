@@ -185,7 +185,7 @@
             <Component class="javax.swing.JTextField" name="usernameField">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="13" style="0"/>
+                  <Font name="Google Sans" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -219,7 +219,7 @@
             <Component class="javax.swing.JPasswordField" name="passwordField">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="13" style="0"/>
+                  <Font name="Google Sans" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>

@@ -128,7 +128,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        upcomingTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        upcomingTripsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         upcomingTripsButton.setText("Upcoming Trips");
         upcomingTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         upcomingTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -137,7 +137,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         upcomingTripsButton.addActionListener(this::upcomingTripsButtonActionPerformed);
         buttonPanel.add(upcomingTripsButton);
 
-        filterTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        filterTripsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         filterTripsButton.setText("Filter Trips");
         filterTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         filterTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -146,7 +146,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         filterTripsButton.addActionListener(this::filterTripsButtonActionPerformed);
         buttonPanel.add(filterTripsButton);
 
-        getTripByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getTripByIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         getTripByIdButton.setText("Get Trip By ID");
         getTripByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getTripByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -155,7 +155,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         getTripByIdButton.addActionListener(this::getTripByIdButtonActionPerformed);
         buttonPanel.add(getTripByIdButton);
 
-        getAllTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getAllTripsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         getAllTripsButton.setText("Get All Trips");
         getAllTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getAllTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -164,7 +164,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         getAllTripsButton.addActionListener(this::getAllTripsButtonActionPerformed);
         buttonPanel.add(getAllTripsButton);
 
-        routesAndTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        routesAndTripsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         routesAndTripsButton.setText("Routes and Trips");
         routesAndTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         routesAndTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -173,7 +173,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         routesAndTripsButton.addActionListener(this::routesAndTripsButtonActionPerformed);
         buttonPanel.add(routesAndTripsButton);
 
-        joinedQueryButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        joinedQueryButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         joinedQueryButton.setText("Joined Query");
         joinedQueryButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         joinedQueryButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -182,7 +182,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         joinedQueryButton.addActionListener(this::joinedQueryButtonActionPerformed);
         buttonPanel.add(joinedQueryButton);
 
-        createTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createTripButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         createTripButton.setText("Create Trip");
         createTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         createTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -191,7 +191,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         createTripButton.addActionListener(this::createTripButtonActionPerformed);
         buttonPanel.add(createTripButton);
 
-        updateTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateTripButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         updateTripButton.setText("Update Trip");
         updateTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         updateTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -200,7 +200,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         updateTripButton.addActionListener(this::updateTripButtonActionPerformed);
         buttonPanel.add(updateTripButton);
 
-        deleteTriprButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteTriprButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         deleteTriprButton.setText("Delete Trip");
         deleteTriprButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteTriprButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -211,6 +211,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
+        resultTable.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

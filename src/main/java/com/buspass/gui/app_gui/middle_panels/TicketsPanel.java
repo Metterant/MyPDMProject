@@ -59,7 +59,7 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        myTicketsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        myTicketsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         myTicketsButton.setText("My Tickets");
         myTicketsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         myTicketsButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -68,7 +68,7 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
         myTicketsButton.addActionListener(this::myTicketsButtonActionPerformed);
         buttonPanel.add(myTicketsButton);
 
-        changeToTripButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        changeToTripButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         changeToTripButton.setText("Change Ticket Trip");
         changeToTripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         changeToTripButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -77,7 +77,7 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
         changeToTripButton.addActionListener(this::changeToTripButtonActionPerformed);
         buttonPanel.add(changeToTripButton);
 
-        getTicketsOfUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getTicketsOfUserButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         getTicketsOfUserButton.setText("Get Tickets Of User");
         getTicketsOfUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getTicketsOfUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -86,7 +86,7 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
         getTicketsOfUserButton.addActionListener(this::getTicketsOfUserButtonActionPerformed);
         buttonPanel.add(getTicketsOfUserButton);
 
-        deleteTicketButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteTicketButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         deleteTicketButton.setText("Delete Ticket");
         deleteTicketButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteTicketButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -97,6 +97,7 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
 
         buttonScrollPane.setViewportView(buttonPanel);
 
+        resultTable.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

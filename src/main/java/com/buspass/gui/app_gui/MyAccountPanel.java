@@ -267,6 +267,8 @@ public class MyAccountPanel extends javax.swing.JPanel {
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "SQL Error: " + ex.getClass().getSimpleName() + ": " + ex.getMessage(), "Database Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
+        passwordField.setText("");
+        
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void userIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userIdFieldActionPerformed
@@ -297,6 +299,7 @@ public class MyAccountPanel extends javax.swing.JPanel {
         ageField.setText(userLoginSession.getAge().toString());
         phoneField.setText(userLoginSession.getPhoneNumber());
         addressField.setText(userLoginSession.getAddress());
+        passwordField.setText("");
 
         permissionLabel.setText(USER_ROLE_PREFIX + ((userLoginSession.getUserRoleId() == 2) ? "Administrator.": "Passenger"));
     }

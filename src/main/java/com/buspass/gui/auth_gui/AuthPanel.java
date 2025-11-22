@@ -13,12 +13,15 @@ import java.awt.*;
 public class AuthPanel extends JPanel implements PanelSwitcher {
     public static final String LOGIN = "login";
     public static final String REGISTER = "register";
+    public static final String RESET_PW = "reset_pw";
 
     private final CardLayout cardLayout = new CardLayout();
     private final JPanel cards = new JPanel(cardLayout);
 
     private final LoginPanel loginPanel;
     private final RegisterPanel registerPanel;
+    private final ResetPasswordPanel resetPasswordPanel;
+
     private PanelSwitcher appPanelSwitcher;
 
     public void setPanelSwitcher(PanelSwitcher s) {
@@ -34,14 +37,17 @@ public class AuthPanel extends JPanel implements PanelSwitcher {
 
         loginPanel = new LoginPanel(userLoginSession);
         registerPanel = new RegisterPanel();
+        resetPasswordPanel = new ResetPasswordPanel();
 
         // give child panels the callback so they can ask the parent to switch
         loginPanel.setAuthPanelSwitcher(this);
         // appPanelSwitcher will be forwarded to children when set via setPanelSwitcher(...)
         registerPanel.setPanelSwitcher(this);
+        resetPasswordPanel.setPanelSwitcher(this);
 
         cards.add(loginPanel, LOGIN);
         cards.add(registerPanel, REGISTER);
+        cards.add(resetPasswordPanel, RESET_PW);
 
         add(cards, BorderLayout.CENTER);
 

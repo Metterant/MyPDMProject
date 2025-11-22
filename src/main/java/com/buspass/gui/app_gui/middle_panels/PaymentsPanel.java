@@ -63,7 +63,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        myPaymentsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        myPaymentsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         myPaymentsButton.setText("My Payments");
         myPaymentsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         myPaymentsButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -72,7 +72,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         myPaymentsButton.addActionListener(this::myPaymentsButtonActionPerformed);
         buttonPanel.add(myPaymentsButton);
 
-        getPaymentsOfUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getPaymentsOfUserButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         getPaymentsOfUserButton.setText("Get Payments Of User");
         getPaymentsOfUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getPaymentsOfUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -81,7 +81,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         getPaymentsOfUserButton.addActionListener(this::getPaymentsOfUserButtonActionPerformed);
         buttonPanel.add(getPaymentsOfUserButton);
 
-        createTransactionButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createTransactionButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         createTransactionButton.setText("Create Transaction");
         createTransactionButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         createTransactionButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -90,7 +90,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         createTransactionButton.addActionListener(this::createTransactionButtonActionPerformed);
         buttonPanel.add(createTransactionButton);
 
-        deletePaymentButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deletePaymentButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         deletePaymentButton.setText("Delete Payment");
         deletePaymentButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deletePaymentButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -101,6 +101,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
+        resultTable.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

@@ -63,7 +63,7 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        getUserByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getUserByIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         getUserByIdButton.setText("Get User By ID");
         getUserByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getUserByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -72,7 +72,7 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
         getUserByIdButton.addActionListener(this::getUserByIdButtonActionPerformed);
         buttonPanel.add(getUserByIdButton);
 
-        getAllUsersButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getAllUsersButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         getAllUsersButton.setText("Get All Users");
         getAllUsersButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getAllUsersButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -81,7 +81,7 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
         getAllUsersButton.addActionListener(this::getAllUsersButtonActionPerformed);
         buttonPanel.add(getAllUsersButton);
 
-        createUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        createUserButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         createUserButton.setText("Create User");
         createUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         createUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -90,7 +90,7 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
         createUserButton.addActionListener(this::createUserButtonActionPerformed);
         buttonPanel.add(createUserButton);
 
-        updateUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateUserButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         updateUserButton.setText("Update User");
         updateUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         updateUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -99,7 +99,7 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
         updateUserButton.addActionListener(this::updateUserButtonActionPerformed);
         buttonPanel.add(updateUserButton);
 
-        findIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        findIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         findIdButton.setText("Find UserID By Username");
         findIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         findIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -108,7 +108,7 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
         buttonPanel.add(findIdButton);
 
-        deleteUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteUserButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
         deleteUserButton.setText("Delete User");
         deleteUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteUserButton.setMaximumSize(new java.awt.Dimension(180, 40));

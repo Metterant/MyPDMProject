@@ -208,7 +208,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                 DialogUtils.showDialogInvalidPWs();
                 break;
             case -2:
-                showDialogUnidenticalPWs();
+                DialogUtils.showDialogUnidenticalPWs();
                 break;
             case -1:
                 DialogUtils.showDialogInvalidUsername();
@@ -247,11 +247,6 @@ public class RegisterPanel extends javax.swing.JPanel {
             switcher.showPanel(AuthPanel.LOGIN);
         }
     }//GEN-LAST:event_loginLabelMousePressed
-
-    private void showDialogUnidenticalPWs() {
-        JOptionPane.showMessageDialog(null, "Password and Confirm Password are unidentical!", "Error", JOptionPane.WARNING_MESSAGE);
-    }
-
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,11 +4,11 @@ import javax.swing.JOptionPane;
 
 public class DialogUtils {
     public static void showDialogUserAlreadyExists(String username) {
-        JOptionPane.showMessageDialog(null, "User with Username: " + username + " already exists.", "Registration Failed", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "User with Username: " + username + " already exists.", "Registration Failed", JOptionPane.DEFAULT_OPTION);
     }
 
     public static void showDialogRegistrationSuccess(String username) {
-        JOptionPane.showMessageDialog(null, "Registration Successful with Username: " + username, "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Registration Successful with Username: " + username, "Registration Successful", JOptionPane.DEFAULT_OPTION);
     }
 
     public static void showDialogInvalidUsername() {
@@ -17,5 +17,9 @@ public class DialogUtils {
 
     public static void showDialogInvalidPWs() {
         JOptionPane.showMessageDialog(null, "Invalid Password!", "Error", JOptionPane.WARNING_MESSAGE);
+    }
+
+    public static void showDialogUnidenticalPWs() {
+        JOptionPane.showMessageDialog(null, "Password and Confirm Password are unidentical!", "Error", JOptionPane.WARNING_MESSAGE);
     }
 }
