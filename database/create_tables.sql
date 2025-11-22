@@ -107,8 +107,20 @@ JOIN Route r ON b.RouteID = r.RouteID
 WHERE (t.TripDate > CURDATE()
        OR (t.TripDate = CURDATE() AND t.DepartureTime > NOW()));
 
+DROP VIEW IF EXISTS trips_upcoming_view;
 CREATE VIEW trip_detailed_view AS
-SELECT TripID, RouteName, TripDate, DepartureTime, ArrivalTime, StartLocation, EndLocation, Capacity, Duration, PlateNumber, Fare
+SELECT 
+    TripID, 
+    RouteName, 
+    TripDate, 
+    DepartureTime, 
+    ArrivalTime, 
+    StartLocation, 
+    EndLocation, 
+    Capacity, 
+    TIMEDIFF(ArrivalTime, DepartureTime) AS Duration, 
+    PlateNumber, 
+    Fare
 FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID
 	JOIN Route r ON b.RouteID = r.RouteID
 WHERE (TripDate > CURDATE()
