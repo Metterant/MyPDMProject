@@ -4,9 +4,14 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
+import java.awt.Color;
 
+import javax.swing.InputVerifier;
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.text.DateFormatter;
 import javax.swing.text.NumberFormatter;
 
@@ -29,9 +34,6 @@ public class TripFilterPanel extends javax.swing.JPanel {
     private final TripQuery tripQuery;
 
     public TripFilterPanel(TripQuery tripQuery) {
-        numberFormatter.setAllowsInvalid(false); // Disallow invalid edits
-        numberFormatter.setCommitsOnValidEdit(true);
-
         initComponents();
         this.tripQuery = tripQuery != null ? tripQuery : new TripQuery();
     }
@@ -50,11 +52,11 @@ public class TripFilterPanel extends javax.swing.JPanel {
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         leftPanel = new javax.swing.JPanel();
-        tripDateLabel = new javax.swing.JLabel();
+        fromDateLabel = new javax.swing.JLabel();
         routeNamesLabel = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
-        tripDateField = new javax.swing.JFormattedTextField(df);
-        routeNamesField = new javax.swing.JFormattedTextField(numberFormatter);
+        fromDateField = new javax.swing.JFormattedTextField(df);
+        routeNamesField = new javax.swing.JFormattedTextField();
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
@@ -76,10 +78,10 @@ public class TripFilterPanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        tripDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tripDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tripDateLabel.setText("Trip Date");
-        leftPanel.add(tripDateLabel);
+        fromDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fromDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fromDateLabel.setText("From Date");
+        leftPanel.add(fromDateLabel);
 
         routeNamesLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         routeNamesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -88,8 +90,8 @@ public class TripFilterPanel extends javax.swing.JPanel {
 
         rightPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        tripDateField.addActionListener(this::tripDateFieldActionPerformed);
-        rightPanel.add(tripDateField);
+        fromDateField.addActionListener(this::fromDateFieldActionPerformed);
+        rightPanel.add(fromDateField);
 
         routeNamesField.addActionListener(this::routeNamesFieldActionPerformed);
         rightPanel.add(routeNamesField);
@@ -123,23 +125,36 @@ public class TripFilterPanel extends javax.swing.JPanel {
         getFilteredTrips();
     }//GEN-LAST:event_filterButtonActionPerformed
 
-    private void tripDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tripDateFieldActionPerformed
+    private void fromDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromDateFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tripDateFieldActionPerformed
+    }//GEN-LAST:event_fromDateFieldActionPerformed
 
     private void routeNamesFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routeNamesFieldActionPerformed
-        // TODO add your handling code here:
+        String text = routeNamesField.getText();
+        if (text == null) text = "";
+        text = text.trim();
+        if (!text.isEmpty() && !routeNamesPattern.matcher(text).matches()) {
+            JOptionPane.showMessageDialog(this,
+                    "Invalid route names format. Use numbers or ranges separated by commas, e.g. \"8, 10-12\".",
+                    "Invalid input",
+                    JOptionPane.WARNING_MESSAGE);
+            routeNamesField.requestFocusInWindow();
+            return;
+        }
+        // trigger filter when Enter pressed in the field
+        getFilteredTrips();
     }//GEN-LAST:event_routeNamesFieldActionPerformed
 
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-    SimpleDateFormat tf = new SimpleDateFormat("HH:mm:ss");
-    // Create a formatter that only allows integers
-    NumberFormat integerFormat = NumberFormat.getIntegerInstance();
-    NumberFormatter numberFormatter = new NumberFormatter(integerFormat);
+    String routeNamesFormatter = "^\\s*[0-9]+(-[0-9]+)?(\\s*,\\s*[0-9]+(-[0-9]+)?)*\\s*$";
+    Pattern routeNamesPattern = Pattern.compile(routeNamesFormatter);
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton filterButton;
+    private javax.swing.JFormattedTextField fromDateField;
+    private javax.swing.JLabel fromDateLabel;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel leftPanel;
@@ -147,8 +162,6 @@ public class TripFilterPanel extends javax.swing.JPanel {
     private javax.swing.JPanel rightPanel;
     private javax.swing.JFormattedTextField routeNamesField;
     private javax.swing.JLabel routeNamesLabel;
-    private javax.swing.JFormattedTextField tripDateField;
-    private javax.swing.JLabel tripDateLabel;
     // End of variables declaration//GEN-END:variables
 
     // Expose buttons for external listeners (e.g., dialog wrapper)
@@ -156,22 +169,38 @@ public class TripFilterPanel extends javax.swing.JPanel {
     public javax.swing.JButton getCancelButton() { return cancelButton; }
 
     // Field getters specific to Bus
-    private String getTripDate() { return tripDateField.getText().trim(); }
-    private String getRouteNames() { return routeNamesField.getText().trim(); }
+    public String getFromDate() { return fromDateField.getText().trim(); }
+    public String getRouteNames() { return routeNamesField.getText().trim(); }
+
+    public void setFromDate(String date) { fromDateField.setText(date); }
+    public void setRouteNames(String routeNames) { routeNamesField.setText(routeNames); }
 
     public List<Map<String, Object>> getFilteredTrips() {
 
-        String tripDate = getTripDate();
+        String tripDate = getFromDate();
         String routeNames = getRouteNames();
+
+        // validate routeNames before querying
+        if (!routeNames.isBlank() && !routeNamesPattern.matcher(routeNames).matches()) {
+            JOptionPane.showMessageDialog(this,
+                    "Invalid route names format. Use numbers or ranges separated by commas, e.g. \"8, 10-12\".",
+                    "Invalid input",
+                    JOptionPane.WARNING_MESSAGE);
+            return null;
+        }
+
+        // System.out.println(routeNames);
 
         List<Map<String, Object>> trips;
         try {
-            if (tripDate.isBlank())
+            if (tripDate.isBlank() && routeNames.isBlank())
+                trips = tripQuery.getUpcomingTrips();
+            else if (tripDate.isBlank())
                 trips = tripQuery.getFilteredRoutesTrips(routeNames);
             else if (routeNames.isBlank())
                 trips = tripQuery.getFilteredDateTrips(tripDate);
-            else 
-                trips = tripQuery.getUpcomingTrips();
+            else
+                trips = tripQuery.getFilteredTrips(tripDate, routeNames);
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Trips Retrieval failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

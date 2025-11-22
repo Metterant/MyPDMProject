@@ -25,6 +25,8 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
     private MiddlePanel middlePanel = new MiddlePanel();
     private TripQuery tripQuery = new TripQuery();
 
+    private String savedFromDate, savedRouteNames;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,9 +40,9 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonScrollPane = new javax.swing.JScrollPane();
         buttonPanel = new javax.swing.JPanel();
         upcomingTripsButton = new javax.swing.JButton();
+        filterTripsButton = new javax.swing.JButton();
         getTripByIdButton = new javax.swing.JButton();
         getAllTripsButton = new javax.swing.JButton();
-        filterTripsButton = new javax.swing.JButton();
         routesAndTripsButton = new javax.swing.JButton();
         joinedQueryButton = new javax.swing.JButton();
         createTripButton = new javax.swing.JButton();
@@ -72,6 +74,15 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         upcomingTripsButton.addActionListener(this::upcomingTripsButtonActionPerformed);
         buttonPanel.add(upcomingTripsButton);
 
+        filterTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        filterTripsButton.setText("Filter Trips");
+        filterTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        filterTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        filterTripsButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        filterTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        filterTripsButton.addActionListener(this::filterTripsButtonActionPerformed);
+        buttonPanel.add(filterTripsButton);
+
         getTripByIdButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getTripByIdButton.setText("Get Trip By ID");
         getTripByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -89,15 +100,6 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         getAllTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
         getAllTripsButton.addActionListener(this::getAllTripsButtonActionPerformed);
         buttonPanel.add(getAllTripsButton);
-
-        filterTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        filterTripsButton.setText("Filter Trips");
-        filterTripsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        filterTripsButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        filterTripsButton.setMinimumSize(new java.awt.Dimension(180, 40));
-        filterTripsButton.setPreferredSize(new java.awt.Dimension(180, 40));
-        filterTripsButton.addActionListener(this::filterTripsButtonActionPerformed);
-        buttonPanel.add(filterTripsButton);
 
         routesAndTripsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         routesAndTripsButton.setText("Routes and Trips");
@@ -198,13 +200,23 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
         final javax.swing.JDialog dialog = new javax.swing.JDialog(owner, "Update Trip",
                 java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         TripFilterPanel panel = new TripFilterPanel(tripQuery);
+        panel.setFromDate(savedFromDate);
+        panel.setRouteNames(savedRouteNames);
+
         dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
         dialog.setContentPane(panel);
         dialog.pack();
         dialog.setLocationRelativeTo(this);
-        panel.getCancelButton().addActionListener(e -> dialog.dispose());
-        panel.getFilterButton().addActionListener(e -> dialog.dispose());
 
+        panel.getCancelButton().addActionListener(e -> dialog.dispose());
+        panel.getFilterButton().addActionListener(e -> {
+            savedFromDate = panel.getFromDate();
+            savedRouteNames = panel.getRouteNames();
+            middlePanel.setTableContents(resultTable, panel.getFilteredTrips());
+
+            dialog.dispose();
+        });
+    
         dialog.setVisible(true); // blocks until closed
     }//GEN-LAST:event_filterTripsButtonActionPerformed
 

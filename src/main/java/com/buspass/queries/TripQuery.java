@@ -31,10 +31,10 @@ public class TripQuery {
                         "WHERE (TripDate > ?\r\n" +
                         "    OR (TripDate = ?\r\n" +
                         "       AND DepartureTime = NOW()))\r\n" +
-                        "    AND RouteName IN (?)\r\n" +
+                        "    AND RouteName IN (" + routes + ")\r\n" +
                         "ORDER BY TripDate, DepartureTime";
 
-        return QueryExecutionModule.executeQuery(sql, date, date, routes);
+        return QueryExecutionModule.executeQuery(sql, date, date);
     }
 
     public List<Map<String, Object>> getFilteredRoutesTrips(String routes) {
@@ -45,10 +45,11 @@ public class TripQuery {
                         "WHERE (TripDate > CURDATE()\r\n" +
                         "    OR (TripDate = CURDATE()\r\n" +
                         "       AND DepartureTime > NOW()))\r\n" +
-                        "    AND RouteName IN (?)\r\n" +
+                        "    AND RouteName IN (" + routes + ")\r\n" +
                         "ORDER BY TripDate, DepartureTime";
+        System.out.println(sql);
 
-        return QueryExecutionModule.executeQuery(sql, routes);
+        return QueryExecutionModule.executeQuery(sql);
     }
 
     public List<Map<String, Object>> getFilteredDateTrips(String date) {
