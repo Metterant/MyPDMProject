@@ -12,15 +12,56 @@ import com.buspass.db.QueryExecutionModule;
 public class TripQuery {
 
     public List<Map<String, Object>> getUpcomingTrips() {
+        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" +
+                        "    RouteName, StartLocation, EndLocation, Duration\r\n" +
+                        "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" +
+                        "    JOIN Route r ON b.RouteID = r.RouteID\r\n" +
+                        "WHERE (TripDate > CURDATE()\r\n" +
+                        "    OR (TripDate = CURDATE()\r\n" +
+                        "       AND DepartureTime > NOW()))\r\n" +
+                        "ORDER BY TripDate, DepartureTime";
+        return QueryExecutionModule.executeQuery(sql);
+    }
+
+    public List<Map<String, Object>> getFilteredTrips(String date, String routes) {
+        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" +
+                        "    RouteName, StartLocation, EndLocation, Duration\r\n" +
+                        "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" +
+                        "    JOIN Route r ON b.RouteID = r.RouteID\r\n" +
+                        "WHERE (TripDate > ?\r\n" +
+                        "    OR (TripDate = ?\r\n" +
+                        "       AND DepartureTime = NOW()))\r\n" +
+                        "    AND RouteName IN (?)\r\n" +
+                        "ORDER BY TripDate, DepartureTime";
+
+        return QueryExecutionModule.executeQuery(sql, date, date, routes);
+    }
+
+    public List<Map<String, Object>> getFilteredRoutesTrips(String routes) {
+        String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" +
+                        "    RouteName, StartLocation, EndLocation, Duration\r\n" +
+                        "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" +
+                        "    JOIN Route r ON b.RouteID = r.RouteID\r\n" +
+                        "WHERE (TripDate > CURDATE()\r\n" +
+                        "    OR (TripDate = CURDATE()\r\n" +
+                        "       AND DepartureTime > NOW()))\r\n" +
+                        "    AND RouteName IN (?)\r\n" +
+                        "ORDER BY TripDate, DepartureTime";
+
+        return QueryExecutionModule.executeQuery(sql, routes);
+    }
+
+    public List<Map<String, Object>> getFilteredDateTrips(String date) {
         String sql = "SELECT TripID, TripDate, DepartureTime, ArrivalTime, Capacity, \r\n" + //
                         "    RouteName, StartLocation, EndLocation, Duration\r\n" + //
                         "FROM Trip tr JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" + //
                         "    JOIN Route r ON b.RouteID = r.RouteID\r\n" + //
-                        "WHERE TripDate > CURDATE()\r\n" + //
+                        "WHERE TripDate > ?\r\n" + //
                         "    OR (TripDate = CURDATE()\r\n" + //
                         "       AND DepartureTime >= NOW())\r\n" +
                         "ORDER BY TripDate, DepartureTime";
-        return QueryExecutionModule.executeQuery(sql);
+
+        return QueryExecutionModule.executeQuery(sql, date);
     }
 
     //#region ADMIN PRIVILEDGES
