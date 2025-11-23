@@ -86,8 +86,8 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="upcomingTripsButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Upcoming Trips"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -111,8 +111,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="filterTripsButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Filter Trips"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -136,8 +136,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="getTripByIdButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Get Trip By ID"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -161,8 +161,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="getAllTripsButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Get All Trips"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -186,8 +186,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="routesAndTripsButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Routes and Trips"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -211,8 +211,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="joinedQueryButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Joined Query"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -236,8 +236,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="createTripButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Create Trip"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -261,8 +261,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="updateTripButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Update Trip"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -286,8 +286,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="deleteTriprButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete Trip"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

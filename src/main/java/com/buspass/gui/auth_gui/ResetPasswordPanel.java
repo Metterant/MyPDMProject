@@ -10,6 +10,7 @@ import com.buspass.gui.PanelSwitcher;
 import com.buspass.queries.UserService;
 import com.buspass.utils.AuthUtils;
 import com.buspass.utils.DialogUtils;
+import com.buspass.utils.GuiUtils;
 
 /**
  *
@@ -59,26 +60,26 @@ public class ResetPasswordPanel extends javax.swing.JPanel {
         userRegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRegisterLabel.setText("RESET PASSWORD");
 
-        resetPasswordButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        resetPasswordButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         resetPasswordButton.setText("Reset Password");
         resetPasswordButton.addActionListener(this::resetPasswordButtonActionPerformed);
 
-        passwordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         passwordLabel.setText("Password");
 
-        userPasswordField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        userPasswordField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         userPasswordField.addActionListener(this::userPasswordFieldActionPerformed);
 
-        confirmPasswordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        confirmPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         confirmPasswordLabel.setText("Confirm Password");
 
-        confirmPasswordField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        confirmPasswordField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         confirmPasswordField.addActionListener(this::confirmPasswordFieldActionPerformed);
 
-        usernameField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        usernameField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
-        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         usernameLabel.setText("Username");
 
         javax.swing.GroupLayout registerFieldsLayout = new javax.swing.GroupLayout(registerFields);
@@ -118,7 +119,7 @@ public class ResetPasswordPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        backLoginLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        backLoginLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         backLoginLabel.setForeground(new java.awt.Color(0, 0, 255));
         backLoginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         backLoginLabel.setText("Back to Login");

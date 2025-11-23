@@ -4,6 +4,8 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 
 import com.buspass.queries.RouteQuery;
+import com.buspass.utils.GuiUtils;
+
 import static java.lang.Double.parseDouble;
 import static java.lang.Float.parseFloat;
 
@@ -64,12 +66,12 @@ public class RouteUpdatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        updateButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        updateButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         updateButton.setText("UPDATE");
         updateButton.addActionListener(this::updateButtonActionPerformed);
         optionPanel.add(updateButton);
 
-        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -82,47 +84,47 @@ public class RouteUpdatePanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(8, 1));
 
-        routeIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routeIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeIdLabel.setText("RouteID");
         leftPanel.add(routeIdLabel);
 
-        routeNameLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeNameLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routeNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeNameLabel.setText("RouteName");
         leftPanel.add(routeNameLabel);
 
-        startLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        startLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         startLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         startLabel.setText("Start Location");
         leftPanel.add(startLabel);
 
-        endLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        endLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         endLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         endLabel.setText("End Location");
         leftPanel.add(endLabel);
 
-        fareLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fareLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         fareLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fareLabel.setText("Fare");
         leftPanel.add(fareLabel);
 
-        distanceLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        distanceLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         distanceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         distanceLabel.setText("Distance");
         leftPanel.add(distanceLabel);
 
-        durationLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        durationLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         durationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         durationLabel.setText("Duration");
         leftPanel.add(durationLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(8, 1));
 
-        routeIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routeIdField.addActionListener(this::routeIdFieldActionPerformed);
 
-        findIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        findIdButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         findIdButton.setText("Find");
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
@@ -144,22 +146,22 @@ public class RouteUpdatePanel extends javax.swing.JPanel {
 
         rightPanel.add(routeIdPanel);
 
-        routeNameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeNameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(routeNameField);
 
-        startField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        startField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(startField);
 
-        endField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        endField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(endField);
 
-        fareField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fareField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(fareField);
 
-        distanceField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        distanceField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(distanceField);
 
-        durationField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        durationField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(durationField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

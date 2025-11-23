@@ -4,11 +4,15 @@
  */
 package com.buspass.gui.auth_gui;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.swing.JOptionPane;
 
 import com.buspass.auth.UserLoginSession;
 import com.buspass.gui.AppPanel;
 import com.buspass.gui.PanelSwitcher;
+import com.buspass.utils.GuiUtils;
 
 /**
  *
@@ -61,7 +65,7 @@ public class LoginPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1100, 600));
         setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        registerLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        registerLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         registerLabel.setForeground(new java.awt.Color(0, 0, 255));
         registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         registerLabel.setText("Register Account");
@@ -74,7 +78,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        messageLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        messageLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         messageLabel.setText("New to Digital Bus Pass?");
 
@@ -97,16 +101,16 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGap(16, 16, 16))
         );
 
-        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         usernameLabel.setText("Username");
 
-        usernameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        usernameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
-        passwordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         passwordLabel.setText("Password");
 
-        forgotPasswordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        forgotPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         forgotPasswordLabel.setForeground(new java.awt.Color(0, 0, 255));
         forgotPasswordLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         forgotPasswordLabel.setText("Forgot Password?");
@@ -117,10 +121,10 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        passwordField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        passwordField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         passwordField.addActionListener(this::passwordFieldActionPerformed);
 
-        loginButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        loginButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         loginButton.setText("Login");
         loginButton.addActionListener(this::loginButtonActionPerformed);
 

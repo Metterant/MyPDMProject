@@ -16,6 +16,7 @@ import javax.swing.text.DateFormatter;
 import javax.swing.text.NumberFormatter;
 
 import com.buspass.queries.TripQuery;
+import com.buspass.utils.GuiUtils;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -60,12 +61,12 @@ public class TripFilterPanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        filterButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        filterButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         filterButton.setText("FILTER");
         filterButton.addActionListener(this::filterButtonActionPerformed);
         optionPanel.add(filterButton);
 
-        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -78,23 +79,23 @@ public class TripFilterPanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        fromDateLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fromDateLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         fromDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fromDateLabel.setText("From Date");
         leftPanel.add(fromDateLabel);
 
-        routeNamesLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeNamesLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routeNamesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeNamesLabel.setText("Route Names");
         leftPanel.add(routeNamesLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        fromDateField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fromDateField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         fromDateField.addActionListener(this::fromDateFieldActionPerformed);
         rightPanel.add(fromDateField);
 
-        routeNamesField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeNamesField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routeNamesField.addActionListener(this::routeNamesFieldActionPerformed);
         rightPanel.add(routeNamesField);
 

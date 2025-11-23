@@ -11,6 +11,7 @@ import com.buspass.gui.app_gui.middle_panels.InMiddlePanel;
 import com.buspass.gui.app_gui.middle_panels.BusesPanel;
 import com.buspass.gui.app_gui.middle_panels.RoutesPanel;
 import com.buspass.gui.app_gui.middle_panels.UsersPanel;
+import com.buspass.utils.GuiUtils;
 import com.buspass.gui.app_gui.middle_panels.TripsPanel;
 import com.buspass.auth.UserLoginSession;
 import com.buspass.auth.UserRegister;
@@ -133,7 +134,7 @@ public class MainPanel extends javax.swing.JPanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        mainButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        mainButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         mainButton.setText("Main");
         mainButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         mainButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -142,7 +143,7 @@ public class MainPanel extends javax.swing.JPanel {
         mainButton.addActionListener(this::mainButtonActionPerformed);
         buttonPanel.add(mainButton);
 
-        usersButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        usersButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         usersButton.setText("Users");
         usersButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         usersButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -151,7 +152,7 @@ public class MainPanel extends javax.swing.JPanel {
         usersButton.addActionListener(this::usersButtonActionPerformed);
         buttonPanel.add(usersButton);
 
-        driversButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        driversButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         driversButton.setText("Drivers");
         driversButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         driversButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -160,7 +161,7 @@ public class MainPanel extends javax.swing.JPanel {
         driversButton.addActionListener(this::driversButtonActionPerformed);
         buttonPanel.add(driversButton);
 
-        busesButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        busesButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         busesButton.setText("Buses");
         busesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         busesButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -169,7 +170,7 @@ public class MainPanel extends javax.swing.JPanel {
         busesButton.addActionListener(this::busesButtonActionPerformed);
         buttonPanel.add(busesButton);
 
-        routesButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routesButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routesButton.setText("Routes");
         routesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         routesButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -178,7 +179,7 @@ public class MainPanel extends javax.swing.JPanel {
         routesButton.addActionListener(this::routesButtonActionPerformed);
         buttonPanel.add(routesButton);
 
-        tripButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        tripButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         tripButton.setText("Trips");
         tripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         tripButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -187,7 +188,7 @@ public class MainPanel extends javax.swing.JPanel {
         tripButton.addActionListener(this::tripButtonActionPerformed);
         buttonPanel.add(tripButton);
 
-        ticketsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        ticketsButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         ticketsButton.setText("Tickets");
         ticketsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         ticketsButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -196,7 +197,7 @@ public class MainPanel extends javax.swing.JPanel {
         ticketsButton.addActionListener(this::ticketsButtonActionPerformed);
         buttonPanel.add(ticketsButton);
 
-        paymentsButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        paymentsButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         paymentsButton.setText("Payments");
         paymentsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         paymentsButton.setMaximumSize(new java.awt.Dimension(125, 40));

@@ -7,6 +7,7 @@ package com.buspass.gui.app_gui.middle_panels;
 import com.buspass.gui.app_gui.dialogs.DriverCreatePanel;
 import com.buspass.gui.app_gui.dialogs.DriverUpdatePanel;
 import com.buspass.queries.DriverQuery;
+import com.buspass.utils.GuiUtils;
 
 /**
  *
@@ -60,7 +61,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        getDriverByIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        getDriverByIdButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         getDriverByIdButton.setText("Get Driver By ID");
         getDriverByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getDriverByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -69,7 +70,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         getDriverByIdButton.addActionListener(this::getDriverByIdButtonActionPerformed);
         buttonPanel.add(getDriverByIdButton);
 
-        getAllDriversButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        getAllDriversButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         getAllDriversButton.setText("Get All Drivers");
         getAllDriversButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getAllDriversButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -78,7 +79,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         getAllDriversButton.addActionListener(this::getAllDriversButtonActionPerformed);
         buttonPanel.add(getAllDriversButton);
 
-        getTripsWithBusButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        getTripsWithBusButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         getTripsWithBusButton.setText(" Get Buses Driven");
         getTripsWithBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getTripsWithBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -87,7 +88,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         getTripsWithBusButton.addActionListener(this::getTripsWithBusButtonActionPerformed);
         buttonPanel.add(getTripsWithBusButton);
 
-        getTripsDrivenButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        getTripsDrivenButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         getTripsDrivenButton.setText("Get Trips Driven");
         getTripsDrivenButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getTripsDrivenButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -96,7 +97,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         getTripsDrivenButton.addActionListener(this::getTripsDrivenButtonActionPerformed);
         buttonPanel.add(getTripsDrivenButton);
 
-        updateDriverButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        updateDriverButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         updateDriverButton.setText("Update Driver");
         updateDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         updateDriverButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -105,7 +106,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         updateDriverButton.addActionListener(this::updateDriverButtonActionPerformed);
         buttonPanel.add(updateDriverButton);
 
-        createDriverButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        createDriverButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         createDriverButton.setText("Create Driver");
         createDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         createDriverButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -114,7 +115,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
         createDriverButton.addActionListener(this::createDriverButtonActionPerformed);
         buttonPanel.add(createDriverButton);
 
-        deleteDriverButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        deleteDriverButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         deleteDriverButton.setText("Delete Driver");
         deleteDriverButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteDriverButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -125,7 +126,7 @@ public class DriversPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
-        resultTable.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        resultTable.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import javax.swing.JButton;
 
 import com.buspass.queries.TripQuery;
+import com.buspass.utils.GuiUtils;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -76,12 +77,12 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        purchaseButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        purchaseButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         purchaseButton.setText("PURCHASE");
         purchaseButton.addActionListener(this::purchaseButtonActionPerformed);
         optionPanel.add(purchaseButton);
 
-        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -94,64 +95,64 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(13, 1));
 
-        tripIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        tripIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         tripIdLabel.setForeground(new java.awt.Color(0, 102, 102));
         tripIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tripIdLabel.setText("Trip ID");
         leftPanel.add(tripIdLabel);
 
-        routeNameLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeNameLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routeNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeNameLabel.setText("Route Name");
         leftPanel.add(routeNameLabel);
 
-        tripDateLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        tripDateLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         tripDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tripDateLabel.setText("Trip Date");
         leftPanel.add(tripDateLabel);
 
-        departureTimeLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        departureTimeLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         departureTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         departureTimeLabel.setText("Departure Time");
         leftPanel.add(departureTimeLabel);
 
-        arrivalTimeLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        arrivalTimeLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         arrivalTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         arrivalTimeLabel.setText("Arrival Time");
         leftPanel.add(arrivalTimeLabel);
 
-        startLocationLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        startLocationLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         startLocationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         startLocationLabel.setText("Start Location");
         leftPanel.add(startLocationLabel);
 
-        endLocationLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        endLocationLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         endLocationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         endLocationLabel.setText("End Location");
         leftPanel.add(endLocationLabel);
 
-        capacityLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        capacityLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         capacityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         capacityLabel.setText("Capacity");
         leftPanel.add(capacityLabel);
 
-        durationLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        durationLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         durationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         durationLabel.setText("Duration");
         leftPanel.add(durationLabel);
 
-        busPlateNumberLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        busPlateNumberLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         busPlateNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         busPlateNumberLabel.setText("Bus Plate Number");
         leftPanel.add(busPlateNumberLabel);
 
-        fareLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fareLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         fareLabel.setForeground(new java.awt.Color(153, 0, 153));
         fareLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fareLabel.setText("Fare");
         leftPanel.add(fareLabel);
 
-        paymentMethodLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        paymentMethodLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         paymentMethodLabel.setForeground(new java.awt.Color(153, 0, 153));
         paymentMethodLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paymentMethodLabel.setText("Payment Method");
@@ -159,51 +160,51 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
 
         rightPanel.setLayout(new java.awt.GridLayout(13, 1));
 
-        tripIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        tripIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         tripIdField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(tripIdField);
 
-        routeNameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeNameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routeNameField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(routeNameField);
 
-        tripDateField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        tripDateField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         tripDateField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(tripDateField);
 
-        departureTimeField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        departureTimeField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         departureTimeField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(departureTimeField);
 
-        arrivalTimeField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        arrivalTimeField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         arrivalTimeField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(arrivalTimeField);
 
-        startLocationField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        startLocationField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         startLocationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(startLocationField);
 
-        endLocationField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        endLocationField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         endLocationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(endLocationField);
 
-        capacityField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        capacityField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         capacityField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(capacityField);
 
-        durationField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        durationField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         durationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(durationField);
 
-        busPlateNumberField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        busPlateNumberField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         busPlateNumberField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(busPlateNumberField);
 
-        fareField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fareField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         fareField.setDisabledTextColor(new java.awt.Color(102, 0, 153));
         rightPanel.add(fareField);
 
-        paymentMethodComboBox.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        paymentMethodComboBox.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         paymentMethodComboBox.setForeground(new java.awt.Color(102, 0, 102));
         paymentMethodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Chosen", "Card", "Online Banking" }));
         paymentMethodComboBox.addActionListener(this::paymentMethodComboBoxActionPerformed);

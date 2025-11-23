@@ -119,6 +119,7 @@ public class UsersPanel extends javax.swing.JPanel implements InMiddlePanel{
 
         buttonScrollPane.setViewportView(buttonPanel);
 
+        resultTable.setFont(GuiUtils.GOOGLE_SANS_13);
         resultTable.setRowHeight(32);
         tableScrollPane.setViewportView(resultTable);
 

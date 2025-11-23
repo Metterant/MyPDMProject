@@ -8,6 +8,7 @@ import com.buspass.gui.app_gui.dialogs.DriverUpdatePanel;
 import com.buspass.gui.app_gui.dialogs.RouteCreatePanel;
 import com.buspass.gui.app_gui.dialogs.RouteUpdatePanel;
 import com.buspass.queries.RouteQuery;
+import com.buspass.utils.GuiUtils;
 
 /**
  *
@@ -59,7 +60,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        getRouteByIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        getRouteByIdButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         getRouteByIdButton.setText("Get Route By ID");
         getRouteByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getRouteByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -68,7 +69,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         getRouteByIdButton.addActionListener(this::getRouteByIdButtonActionPerformed);
         buttonPanel.add(getRouteByIdButton);
 
-        getAllRoutesButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        getAllRoutesButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         getAllRoutesButton.setText("Get All Routes");
         getAllRoutesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getAllRoutesButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -77,7 +78,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         getAllRoutesButton.addActionListener(this::getAllRoutesButtonActionPerformed);
         buttonPanel.add(getAllRoutesButton);
 
-        createRouteButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        createRouteButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         createRouteButton.setText("Create Route");
         createRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         createRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -86,7 +87,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         createRouteButton.addActionListener(this::createRouteButtonActionPerformed);
         buttonPanel.add(createRouteButton);
 
-        updateRouteButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        updateRouteButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         updateRouteButton.setText("Update Route");
         updateRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         updateRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -95,7 +96,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         updateRouteButton.addActionListener(this::updateRouteButtonActionPerformed);
         buttonPanel.add(updateRouteButton);
 
-        deleteRouteButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        deleteRouteButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         deleteRouteButton.setText("Delete Route");
         deleteRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -106,7 +107,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
-        resultTable.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        resultTable.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

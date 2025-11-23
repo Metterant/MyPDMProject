@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import com.buspass.auth.UserRegister;
 import com.buspass.gui.PanelSwitcher;
 import com.buspass.utils.DialogUtils;
+import com.buspass.utils.GuiUtils;
 
 /**
  *
@@ -56,25 +57,25 @@ public class RegisterPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1100, 600));
         setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        passwordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         passwordLabel.setText("Password");
 
-        usernameField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        usernameField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
-        passwordField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        passwordField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         passwordField.addActionListener(this::passwordFieldActionPerformed);
 
-        confirmPasswordLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        confirmPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         confirmPasswordLabel.setText("Confirm Password");
 
-        confirmPasswordField.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        confirmPasswordField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         confirmPasswordField.addActionListener(this::confirmPasswordFieldActionPerformed);
 
-        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         usernameLabel.setText("Username");
 
-        registerButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        registerButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         registerButton.setText("Register");
         registerButton.addActionListener(this::registerButtonActionPerformed);
 
@@ -119,7 +120,7 @@ public class RegisterPanel extends javax.swing.JPanel {
         userRegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRegisterLabel.setText("REGISTER");
 
-        loginLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        loginLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         loginLabel.setForeground(new java.awt.Color(0, 0, 255));
         loginLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loginLabel.setText("Login Now");
@@ -132,7 +133,7 @@ public class RegisterPanel extends javax.swing.JPanel {
             }
         });
 
-        messageLabel.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        messageLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         messageLabel.setText("Already have an account?");
 

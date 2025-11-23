@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import javax.swing.JOptionPane;
 
 import com.buspass.queries.BusQuery;
+import com.buspass.utils.GuiUtils;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -57,12 +58,12 @@ public class BusUpdatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        updateButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        updateButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         updateButton.setText("UPDATE");
         updateButton.addActionListener(this::updateButtonActionPerformed);
         optionPanel.add(updateButton);
 
-        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -75,37 +76,37 @@ public class BusUpdatePanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(8, 1));
 
-        busIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        busIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         busIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         busIdLabel.setText("BusID");
         leftPanel.add(busIdLabel);
 
-        plateNumberLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        plateNumberLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         plateNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         plateNumberLabel.setText("Plate Number");
         leftPanel.add(plateNumberLabel);
 
-        capacityLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        capacityLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         capacityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         capacityLabel.setText("Capacity");
         leftPanel.add(capacityLabel);
 
-        driverIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        driverIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         driverIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         driverIdLabel.setText("DriverID");
         leftPanel.add(driverIdLabel);
 
-        routeIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         routeIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeIdLabel.setText("RouteID");
         leftPanel.add(routeIdLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(8, 1));
 
-        busIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        busIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         busIdField.addActionListener(this::busIdFieldActionPerformed);
 
-        findIdButton.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        findIdButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         findIdButton.setText("Find");
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
@@ -128,16 +129,16 @@ public class BusUpdatePanel extends javax.swing.JPanel {
 
         rightPanel.add(busIdPanel);
 
-        plateNumberField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        plateNumberField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(plateNumberField);
 
-        capacityField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        capacityField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(capacityField);
 
-        driverIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        driverIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(driverIdField);
 
-        routeIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        routeIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(routeIdField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

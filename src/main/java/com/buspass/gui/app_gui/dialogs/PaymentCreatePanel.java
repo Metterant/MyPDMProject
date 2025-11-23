@@ -1,6 +1,9 @@
 package com.buspass.gui.app_gui.dialogs;
 
 import javax.swing.JOptionPane;
+
+import com.buspass.utils.GuiUtils;
+
 import javax.swing.JComboBox;
 
 public class PaymentCreatePanel extends javax.swing.JPanel {
@@ -65,7 +68,7 @@ public class PaymentCreatePanel extends javax.swing.JPanel {
 
         headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 10));
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.GOOGLE_SANS_18); // NOI18N
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("CREATE PAYMENT TRANSACTION");
         headerPanel.add(headerLabel);
@@ -76,17 +79,17 @@ public class PaymentCreatePanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        userIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         userIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         userIdLabel.setText("User ID:");
         leftPanel.add(userIdLabel);
 
-        amountLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        amountLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         amountLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         amountLabel.setText("Amount (VND):");
         leftPanel.add(amountLabel);
 
-        methodLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        methodLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         methodLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         methodLabel.setText("Method:");
         leftPanel.add(methodLabel);
@@ -98,13 +101,13 @@ public class PaymentCreatePanel extends javax.swing.JPanel {
 
         rightPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        userIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(userIdField);
 
-        amountField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        amountField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(amountField);
 
-        paymentMethodComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        paymentMethodComboBox.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(paymentMethodComboBox);
 
         gridBagConstraints = new java.awt.GridBagConstraints();

@@ -37,7 +37,7 @@ public class TicketAction extends javax.swing.JPanel {
 
         buyButton = new javax.swing.JButton();
 
-        buyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/buspass/gui/app_gui/etc/buying_icon.png"))); // NOI18N
+        buyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/buspass/gui/app_gui/etc/buying_icon.png.png"))); // NOI18N
         buyButton.setMaximumSize(new java.awt.Dimension(48, 48));
         buyButton.setMinimumSize(new java.awt.Dimension(48, 48));
         buyButton.setPreferredSize(new java.awt.Dimension(48, 48));

@@ -1,5 +1,7 @@
 package com.buspass.gui.app_gui.dialogs;
 
+import com.buspass.utils.GuiUtils;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -51,11 +53,11 @@ public class UserCreatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        createButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        createButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         createButton.setText("CREATE");
         optionPanel.add(createButton);
 
-        cancelButton.setFont(new java.awt.Font("Google Sans", 0, 16)); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
@@ -68,63 +70,63 @@ public class UserCreatePanel extends javax.swing.JPanel {
 
         leftPanel.setLayout(new java.awt.GridLayout(8, 1));
 
-        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usernameLabel.setText("Username");
         leftPanel.add(usernameLabel);
 
-        passwordLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         passwordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         passwordLabel.setText("Password");
         leftPanel.add(passwordLabel);
 
-        fullNameLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fullNameLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         fullNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fullNameLabel.setText("Full Name");
         leftPanel.add(fullNameLabel);
 
-        ageLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        ageLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         ageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ageLabel.setText("Age");
         leftPanel.add(ageLabel);
 
-        phoneLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        phoneLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         phoneLabel.setText("Phone Number");
         leftPanel.add(phoneLabel);
 
-        addressLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        addressLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         addressLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         addressLabel.setText("Address");
         leftPanel.add(addressLabel);
 
-        userRoleIdLabel.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        userRoleIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         userRoleIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRoleIdLabel.setText("UserRoleID");
         leftPanel.add(userRoleIdLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(8, 1));
 
-        usernameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        usernameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(usernameField);
 
-        passwordField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        passwordField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         passwordField.addActionListener(this::passwordFieldActionPerformed);
         rightPanel.add(passwordField);
 
-        fullNameField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        fullNameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(fullNameField);
 
-        ageField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        ageField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(ageField);
 
-        phoneField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        phoneField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(phoneField);
 
-        addressField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        addressField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(addressField);
 
-        userRoleIdField.setFont(new java.awt.Font("Google Sans", 0, 14)); // NOI18N
+        userRoleIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
         rightPanel.add(userRoleIdField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
