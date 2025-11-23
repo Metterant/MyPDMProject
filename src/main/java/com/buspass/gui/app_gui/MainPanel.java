@@ -44,7 +44,6 @@ public class MainPanel extends javax.swing.JPanel {
 
     private PanelSwitcher switcher;
 
-    private UsersPanel usersPanel;
     private JPanel[] panels = new JPanel[NUMBER_OF_MIDDLE_PANELS];
     private InMiddlePanel[] middlePanels = new InMiddlePanel[NUMBER_OF_INMIDDLE_PANELS];
 
@@ -81,6 +80,9 @@ public class MainPanel extends javax.swing.JPanel {
         middlePanels[TRIPS_PANEL]      = tripsPanel;   
         middlePanels[TICKETS_PANEL]    = ticketsPanel; 
         middlePanels[PAYMENTS_PANEL]   = paymentsPanel;
+
+        // Hide "Main" button since its unused
+        mainButton.setVisible(false);
     }
 
     /**
