@@ -134,7 +134,7 @@ public class MainPanel extends javax.swing.JPanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        mainButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        mainButton.setFont(GuiUtils.GOOGLE_SANS_14);
         mainButton.setText("Main");
         mainButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         mainButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -143,7 +143,7 @@ public class MainPanel extends javax.swing.JPanel {
         mainButton.addActionListener(this::mainButtonActionPerformed);
         buttonPanel.add(mainButton);
 
-        usersButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        usersButton.setFont(GuiUtils.GOOGLE_SANS_14);
         usersButton.setText("Users");
         usersButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         usersButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -152,7 +152,7 @@ public class MainPanel extends javax.swing.JPanel {
         usersButton.addActionListener(this::usersButtonActionPerformed);
         buttonPanel.add(usersButton);
 
-        driversButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        driversButton.setFont(GuiUtils.GOOGLE_SANS_14);
         driversButton.setText("Drivers");
         driversButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         driversButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -161,7 +161,7 @@ public class MainPanel extends javax.swing.JPanel {
         driversButton.addActionListener(this::driversButtonActionPerformed);
         buttonPanel.add(driversButton);
 
-        busesButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        busesButton.setFont(GuiUtils.GOOGLE_SANS_14);
         busesButton.setText("Buses");
         busesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         busesButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -170,7 +170,7 @@ public class MainPanel extends javax.swing.JPanel {
         busesButton.addActionListener(this::busesButtonActionPerformed);
         buttonPanel.add(busesButton);
 
-        routesButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        routesButton.setFont(GuiUtils.GOOGLE_SANS_14);
         routesButton.setText("Routes");
         routesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         routesButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -179,7 +179,7 @@ public class MainPanel extends javax.swing.JPanel {
         routesButton.addActionListener(this::routesButtonActionPerformed);
         buttonPanel.add(routesButton);
 
-        tripButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        tripButton.setFont(GuiUtils.GOOGLE_SANS_14);
         tripButton.setText("Trips");
         tripButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         tripButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -188,7 +188,7 @@ public class MainPanel extends javax.swing.JPanel {
         tripButton.addActionListener(this::tripButtonActionPerformed);
         buttonPanel.add(tripButton);
 
-        ticketsButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        ticketsButton.setFont(GuiUtils.GOOGLE_SANS_14);
         ticketsButton.setText("Tickets");
         ticketsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         ticketsButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -197,7 +197,7 @@ public class MainPanel extends javax.swing.JPanel {
         ticketsButton.addActionListener(this::ticketsButtonActionPerformed);
         buttonPanel.add(ticketsButton);
 
-        paymentsButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        paymentsButton.setFont(GuiUtils.GOOGLE_SANS_14);
         paymentsButton.setText("Payments");
         paymentsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         paymentsButton.setMaximumSize(new java.awt.Dimension(125, 40));
@@ -211,7 +211,7 @@ public class MainPanel extends javax.swing.JPanel {
         topPanel.setBackground(new java.awt.Color(220, 220, 220));
         topPanel.setPreferredSize(new java.awt.Dimension(100, 70));
 
-        usernameLabel.setFont(new java.awt.Font("Google Sans", 0, 15)); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_15);
         usernameLabel.setForeground(new java.awt.Color(0, 0, 255));
         usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         usernameLabel.setText("Username");
@@ -222,10 +222,10 @@ public class MainPanel extends javax.swing.JPanel {
             }
         });
 
-        permissionLabel.setFont(new java.awt.Font("Google Sans", 0, 15)); // NOI18N
+        permissionLabel.setFont(GuiUtils.GOOGLE_SANS_15);
         permissionLabel.setText("Session Permission: ");
 
-        permissionTextLabel.setFont(new java.awt.Font("Google Sans", 0, 15)); // NOI18N
+        permissionTextLabel.setFont(GuiUtils.GOOGLE_SANS_15);
         permissionTextLabel.setText("Passenger");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
@@ -237,7 +237,7 @@ public class MainPanel extends javax.swing.JPanel {
                 .addComponent(permissionLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(permissionTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 722, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 754, Short.MAX_VALUE)
                 .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -275,11 +275,7 @@ public class MainPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
-        // switchMiddlePanel(USERS_PANEL);
-    }//GEN-LAST:event_mainButtonActionPerformed
-    
+        
     private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
         switchMiddlePanel(USERS_PANEL);
     }//GEN-LAST:event_usersButtonActionPerformed
@@ -311,6 +307,10 @@ public class MainPanel extends javax.swing.JPanel {
     private void usernameLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameLabelMouseClicked
         switcher.showPanel(AppPanel.MY_ACCOUNT);
     }//GEN-LAST:event_usernameLabelMouseClicked
+
+    private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
+        // switchMiddlePanel(USERS_PANEL);
+    }//GEN-LAST:event_mainButtonActionPerformed
 
     private void switchMiddlePanel(int childPanel) {
         // embed the UsersPanel into the middlePanel
