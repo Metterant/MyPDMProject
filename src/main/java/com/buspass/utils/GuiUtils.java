@@ -9,6 +9,7 @@ public class GuiUtils {
     public static final Font GOOGLE_SANS;
     public static final Font GOOGLE_SANS_13;
     public static final Font GOOGLE_SANS_14;
+    public static final Font GOOGLE_SANS_15;
     public static final Font GOOGLE_SANS_16;
     public static final Font GOOGLE_SANS_18;
 
@@ -24,6 +25,7 @@ public class GuiUtils {
 
             GOOGLE_SANS_13 = GOOGLE_SANS.deriveFont(13f);
             GOOGLE_SANS_14 = GOOGLE_SANS.deriveFont(14f);
+            GOOGLE_SANS_15 = GOOGLE_SANS.deriveFont(15f);
             GOOGLE_SANS_16 = GOOGLE_SANS.deriveFont(16f);
             GOOGLE_SANS_18 = GOOGLE_SANS.deriveFont(18f);
 
