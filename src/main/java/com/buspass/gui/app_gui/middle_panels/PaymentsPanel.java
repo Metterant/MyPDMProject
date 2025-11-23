@@ -64,7 +64,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        myPaymentsButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        myPaymentsButton.setFont(GuiUtils.GOOGLE_SANS_14);
         myPaymentsButton.setText("My Payments");
         myPaymentsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         myPaymentsButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -73,7 +73,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         myPaymentsButton.addActionListener(this::myPaymentsButtonActionPerformed);
         buttonPanel.add(myPaymentsButton);
 
-        getPaymentsOfUserButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        getPaymentsOfUserButton.setFont(GuiUtils.GOOGLE_SANS_14);
         getPaymentsOfUserButton.setText("Get Payments Of User");
         getPaymentsOfUserButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getPaymentsOfUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -82,7 +82,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         getPaymentsOfUserButton.addActionListener(this::getPaymentsOfUserButtonActionPerformed);
         buttonPanel.add(getPaymentsOfUserButton);
 
-        createTransactionButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        createTransactionButton.setFont(GuiUtils.GOOGLE_SANS_14);
         createTransactionButton.setText("Create Transaction");
         createTransactionButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         createTransactionButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -91,7 +91,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
         createTransactionButton.addActionListener(this::createTransactionButtonActionPerformed);
         buttonPanel.add(createTransactionButton);
 
-        deletePaymentButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        deletePaymentButton.setFont(GuiUtils.GOOGLE_SANS_14);
         deletePaymentButton.setText("Delete Payment");
         deletePaymentButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deletePaymentButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -102,7 +102,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
-        resultTable.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        resultTable.setFont(GuiUtils.GOOGLE_SANS_13);
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -116,7 +116,7 @@ public class PaymentsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("PAYMENTS");
         headerPanel.add(headerLabel, new java.awt.GridBagConstraints());

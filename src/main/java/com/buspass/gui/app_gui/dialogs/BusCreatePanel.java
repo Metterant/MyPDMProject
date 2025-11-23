@@ -53,56 +53,56 @@ public class BusCreatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        createButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        createButton.setFont(GuiUtils.GOOGLE_SANS_16);
         createButton.setText("CREATE");
         createButton.addActionListener(this::createButtonActionPerformed);
         optionPanel.add(createButton);
 
-        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16);
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
-        headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
+        headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 15));
 
         headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("CREATE BUS");
         headerPanel.add(headerLabel);
 
-        leftPanel.setLayout(new java.awt.GridLayout(6, 1));
+        leftPanel.setLayout(new java.awt.GridLayout(5, 1));
 
-        plateNumberLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        plateNumberLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         plateNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         plateNumberLabel.setText("PlateNumber");
         leftPanel.add(plateNumberLabel);
 
-        capacityLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        capacityLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         capacityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         capacityLabel.setText("Capacity");
         leftPanel.add(capacityLabel);
 
-        driverIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        driverIdLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         driverIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         driverIdLabel.setText("DriverID");
         leftPanel.add(driverIdLabel);
 
-        routeIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        routeIdLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         routeIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeIdLabel.setText("RouteID");
         leftPanel.add(routeIdLabel);
 
-        rightPanel.setLayout(new java.awt.GridLayout(6, 1));
+        rightPanel.setLayout(new java.awt.GridLayout(5, 1));
 
-        plateNumberField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        plateNumberField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(plateNumberField);
 
-        capacityField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        capacityField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(capacityField);
 
-        driverIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        driverIdField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(driverIdField);
 
-        routeIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        routeIdField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(routeIdField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -123,7 +123,7 @@ public class BusCreatePanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

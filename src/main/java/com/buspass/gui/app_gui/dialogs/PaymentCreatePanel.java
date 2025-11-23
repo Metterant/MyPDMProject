@@ -68,7 +68,7 @@ public class PaymentCreatePanel extends javax.swing.JPanel {
 
         headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 10));
 
-        headerLabel.setFont(GuiUtils.GOOGLE_SANS_18); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18); // NOI18N
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("CREATE PAYMENT TRANSACTION");
         headerPanel.add(headerLabel);
@@ -120,11 +120,11 @@ public class PaymentCreatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        createButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         createButton.setText("CREATE");
         optionPanel.add(createButton);
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 

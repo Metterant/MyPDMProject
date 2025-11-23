@@ -61,41 +61,41 @@ public class TripFilterPanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        filterButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        filterButton.setFont(GuiUtils.GOOGLE_SANS_16);
         filterButton.setText("FILTER");
         filterButton.addActionListener(this::filterButtonActionPerformed);
         optionPanel.add(filterButton);
 
-        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16);
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
         headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("FILTER UPCOMING TRIP");
         headerPanel.add(headerLabel);
 
         leftPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        fromDateLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        fromDateLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         fromDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fromDateLabel.setText("From Date");
         leftPanel.add(fromDateLabel);
 
-        routeNamesLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        routeNamesLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         routeNamesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeNamesLabel.setText("Route Names");
         leftPanel.add(routeNamesLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(3, 1));
 
-        fromDateField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        fromDateField.setFont(GuiUtils.GOOGLE_SANS_14);
         fromDateField.addActionListener(this::fromDateFieldActionPerformed);
         rightPanel.add(fromDateField);
 
-        routeNamesField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        routeNamesField.setFont(GuiUtils.GOOGLE_SANS_14);
         routeNamesField.addActionListener(this::routeNamesFieldActionPerformed);
         rightPanel.add(routeNamesField);
 
@@ -117,7 +117,7 @@ public class TripFilterPanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

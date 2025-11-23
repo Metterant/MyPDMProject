@@ -60,7 +60,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        getBusByIdButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        getBusByIdButton.setFont(GuiUtils.GOOGLE_SANS_14);
         getBusByIdButton.setText("Get Bus By ID");
         getBusByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getBusByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -69,7 +69,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
         getBusByIdButton.addActionListener(this::getBusByIdButtonActionPerformed);
         buttonPanel.add(getBusByIdButton);
 
-        getAllBusesButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        getAllBusesButton.setFont(GuiUtils.GOOGLE_SANS_14);
         getAllBusesButton.setText("Get All Buses");
         getAllBusesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getAllBusesButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -78,7 +78,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
         getAllBusesButton.addActionListener(this::getAllBusesButtonActionPerformed);
         buttonPanel.add(getAllBusesButton);
 
-        getTripsWithBusButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        getTripsWithBusButton.setFont(GuiUtils.GOOGLE_SANS_14);
         getTripsWithBusButton.setText("Get Trips with Bus");
         getTripsWithBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getTripsWithBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -87,7 +87,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
         getTripsWithBusButton.addActionListener(this::getTripsWithBusButtonActionPerformed);
         buttonPanel.add(getTripsWithBusButton);
 
-        createBusButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        createBusButton.setFont(GuiUtils.GOOGLE_SANS_14);
         createBusButton.setText("Create Bus");
         createBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         createBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -96,7 +96,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
         createBusButton.addActionListener(this::createBusButtonActionPerformed);
         buttonPanel.add(createBusButton);
 
-        updateBusButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        updateBusButton.setFont(GuiUtils.GOOGLE_SANS_14);
         updateBusButton.setText("Update Bus");
         updateBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         updateBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -105,7 +105,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
         updateBusButton.addActionListener(this::updateBusButtonActionPerformed);
         buttonPanel.add(updateBusButton);
 
-        deleteBusButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        deleteBusButton.setFont(GuiUtils.GOOGLE_SANS_14);
         deleteBusButton.setText("Delete Bus");
         deleteBusButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteBusButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -116,7 +116,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
-        resultTable.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        resultTable.setFont(GuiUtils.GOOGLE_SANS_13);
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -130,7 +130,7 @@ public class BusesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("BUSES");
         headerPanel.add(headerLabel, new java.awt.GridBagConstraints());

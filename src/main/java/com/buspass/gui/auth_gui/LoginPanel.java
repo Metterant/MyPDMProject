@@ -65,7 +65,7 @@ public class LoginPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1100, 600));
         setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        registerLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        registerLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         registerLabel.setForeground(new java.awt.Color(0, 0, 255));
         registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         registerLabel.setText("Register Account");
@@ -78,7 +78,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        messageLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        messageLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         messageLabel.setText("New to Digital Bus Pass?");
 
@@ -87,9 +87,10 @@ public class LoginPanel extends javax.swing.JPanel {
         registerMessagePanelLayout.setHorizontalGroup(
             registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerMessagePanelLayout.createSequentialGroup()
-                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         registerMessagePanelLayout.setVerticalGroup(
             registerMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,16 +102,16 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGap(16, 16, 16))
         );
 
-        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         usernameLabel.setText("Username");
 
-        usernameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        usernameField.setFont(GuiUtils.GOOGLE_SANS_14);
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
-        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         passwordLabel.setText("Password");
 
-        forgotPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        forgotPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         forgotPasswordLabel.setForeground(new java.awt.Color(0, 0, 255));
         forgotPasswordLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         forgotPasswordLabel.setText("Forgot Password?");
@@ -121,10 +122,10 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        passwordField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        passwordField.setFont(GuiUtils.GOOGLE_SANS_14);
         passwordField.addActionListener(this::passwordFieldActionPerformed);
 
-        loginButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        loginButton.setFont(GuiUtils.GOOGLE_SANS_16);
         loginButton.setText("Login");
         loginButton.addActionListener(this::loginButtonActionPerformed);
 
@@ -137,14 +138,13 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(loginFieldsLayout.createSequentialGroup()
-                            .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginFieldsLayout.createSequentialGroup()
+                            .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(forgotPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(loginFieldsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         loginFieldsLayout.setVerticalGroup(
@@ -168,7 +168,7 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        userLoginLabel.setFont(new java.awt.Font("Lexend Medium", 0, 18)); // NOI18N
+        userLoginLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         userLoginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userLoginLabel.setText("LOGIN");
 
@@ -186,9 +186,9 @@ public class LoginPanel extends javax.swing.JPanel {
                                 .addGap(74, 74, 74))
                             .addComponent(loginFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(centerPanelLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(29, 29, 29)
                         .addComponent(registerMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         centerPanelLayout.setVerticalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

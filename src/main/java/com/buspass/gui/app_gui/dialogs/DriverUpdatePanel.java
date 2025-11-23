@@ -58,55 +58,55 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        updateButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        updateButton.setFont(GuiUtils.GOOGLE_SANS_16);
         updateButton.setText("UPDATE");
         updateButton.addActionListener(this::updateButtonActionPerformed);
         optionPanel.add(updateButton);
 
-        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16);
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
         headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("UPDATE DRIVER");
         headerPanel.add(headerLabel);
 
         leftPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        driverIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        driverIdLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         driverIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         driverIdLabel.setText("Driver ID");
         leftPanel.add(driverIdLabel);
 
-        driverNameLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        driverNameLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         driverNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         driverNameLabel.setText("Driver Name");
         leftPanel.add(driverNameLabel);
 
-        ageLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        ageLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         ageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ageLabel.setText("Age");
         leftPanel.add(ageLabel);
 
-        licenseLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        licenseLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         licenseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         licenseLabel.setText("License");
         leftPanel.add(licenseLabel);
 
-        phoneLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        phoneLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         phoneLabel.setText("Phone Number");
         leftPanel.add(phoneLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        driverIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        driverIdField.setFont(GuiUtils.GOOGLE_SANS_14);
         driverIdField.addActionListener(this::driverIdFieldActionPerformed);
 
-        findIdButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        findIdButton.setFont(GuiUtils.GOOGLE_SANS_14);
         findIdButton.setText("Find");
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
@@ -128,16 +128,16 @@ public class DriverUpdatePanel extends javax.swing.JPanel {
 
         rightPanel.add(driverIdPanel);
 
-        driverNameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        driverNameField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(driverNameField);
 
-        ageField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        ageField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(ageField);
 
-        licenseField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        licenseField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(licenseField);
 
-        phoneField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        phoneField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(phoneField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

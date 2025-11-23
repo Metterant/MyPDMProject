@@ -77,82 +77,82 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        purchaseButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        purchaseButton.setFont(GuiUtils.GOOGLE_SANS_16);
         purchaseButton.setText("PURCHASE");
         purchaseButton.addActionListener(this::purchaseButtonActionPerformed);
         optionPanel.add(purchaseButton);
 
-        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16);
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
         headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("PURCHASE TICKET FOR TRIP");
         headerPanel.add(headerLabel);
 
         leftPanel.setLayout(new java.awt.GridLayout(13, 1));
 
-        tripIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        tripIdLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         tripIdLabel.setForeground(new java.awt.Color(0, 102, 102));
         tripIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tripIdLabel.setText("Trip ID");
         leftPanel.add(tripIdLabel);
 
-        routeNameLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        routeNameLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         routeNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         routeNameLabel.setText("Route Name");
         leftPanel.add(routeNameLabel);
 
-        tripDateLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        tripDateLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         tripDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tripDateLabel.setText("Trip Date");
         leftPanel.add(tripDateLabel);
 
-        departureTimeLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        departureTimeLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         departureTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         departureTimeLabel.setText("Departure Time");
         leftPanel.add(departureTimeLabel);
 
-        arrivalTimeLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        arrivalTimeLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         arrivalTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         arrivalTimeLabel.setText("Arrival Time");
         leftPanel.add(arrivalTimeLabel);
 
-        startLocationLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        startLocationLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         startLocationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         startLocationLabel.setText("Start Location");
         leftPanel.add(startLocationLabel);
 
-        endLocationLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        endLocationLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         endLocationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         endLocationLabel.setText("End Location");
         leftPanel.add(endLocationLabel);
 
-        capacityLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        capacityLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         capacityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         capacityLabel.setText("Capacity");
         leftPanel.add(capacityLabel);
 
-        durationLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        durationLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         durationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         durationLabel.setText("Duration");
         leftPanel.add(durationLabel);
 
-        busPlateNumberLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        busPlateNumberLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         busPlateNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         busPlateNumberLabel.setText("Bus Plate Number");
         leftPanel.add(busPlateNumberLabel);
 
-        fareLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        fareLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         fareLabel.setForeground(new java.awt.Color(153, 0, 153));
         fareLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fareLabel.setText("Fare");
         leftPanel.add(fareLabel);
 
-        paymentMethodLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        paymentMethodLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         paymentMethodLabel.setForeground(new java.awt.Color(153, 0, 153));
         paymentMethodLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paymentMethodLabel.setText("Payment Method");
@@ -160,51 +160,51 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
 
         rightPanel.setLayout(new java.awt.GridLayout(13, 1));
 
-        tripIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        tripIdField.setFont(GuiUtils.GOOGLE_SANS_14);
         tripIdField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(tripIdField);
 
-        routeNameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        routeNameField.setFont(GuiUtils.GOOGLE_SANS_14);
         routeNameField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(routeNameField);
 
-        tripDateField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        tripDateField.setFont(GuiUtils.GOOGLE_SANS_14);
         tripDateField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(tripDateField);
 
-        departureTimeField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        departureTimeField.setFont(GuiUtils.GOOGLE_SANS_14);
         departureTimeField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(departureTimeField);
 
-        arrivalTimeField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        arrivalTimeField.setFont(GuiUtils.GOOGLE_SANS_14);
         arrivalTimeField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(arrivalTimeField);
 
-        startLocationField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        startLocationField.setFont(GuiUtils.GOOGLE_SANS_14);
         startLocationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(startLocationField);
 
-        endLocationField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        endLocationField.setFont(GuiUtils.GOOGLE_SANS_14);
         endLocationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(endLocationField);
 
-        capacityField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        capacityField.setFont(GuiUtils.GOOGLE_SANS_14);
         capacityField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(capacityField);
 
-        durationField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        durationField.setFont(GuiUtils.GOOGLE_SANS_14);
         durationField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(durationField);
 
-        busPlateNumberField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        busPlateNumberField.setFont(GuiUtils.GOOGLE_SANS_14);
         busPlateNumberField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         rightPanel.add(busPlateNumberField);
 
-        fareField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        fareField.setFont(GuiUtils.GOOGLE_SANS_14);
         fareField.setDisabledTextColor(new java.awt.Color(102, 0, 153));
         rightPanel.add(fareField);
 
-        paymentMethodComboBox.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        paymentMethodComboBox.setFont(GuiUtils.GOOGLE_SANS_14);
         paymentMethodComboBox.setForeground(new java.awt.Color(102, 0, 102));
         paymentMethodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Chosen", "Card", "Online Banking" }));
         paymentMethodComboBox.addActionListener(this::paymentMethodComboBoxActionPerformed);
@@ -228,7 +228,7 @@ public class PurchaseTicketPanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

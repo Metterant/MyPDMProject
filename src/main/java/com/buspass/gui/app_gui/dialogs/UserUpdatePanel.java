@@ -64,70 +64,70 @@ public class UserUpdatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        updateButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        updateButton.setFont(GuiUtils.GOOGLE_SANS_16);
         updateButton.setText("UPDATE");
         updateButton.addActionListener(this::updateButtonActionPerformed);
         optionPanel.add(updateButton);
 
-        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16);
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
         headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("UPDATE USER");
         headerPanel.add(headerLabel);
 
         leftPanel.setLayout(new java.awt.GridLayout(9, 1));
 
-        userIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        userIdLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         userIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userIdLabel.setText("UserID");
         leftPanel.add(userIdLabel);
 
-        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usernameLabel.setText("Username");
         leftPanel.add(usernameLabel);
 
-        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         passwordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         passwordLabel.setText("Password");
         leftPanel.add(passwordLabel);
 
-        fullNameLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        fullNameLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         fullNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fullNameLabel.setText("Full Name");
         leftPanel.add(fullNameLabel);
 
-        ageLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        ageLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         ageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ageLabel.setText("Age");
         leftPanel.add(ageLabel);
 
-        phoneLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        phoneLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         phoneLabel.setText("Phone Number");
         leftPanel.add(phoneLabel);
 
-        addressLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        addressLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         addressLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         addressLabel.setText("Address");
         leftPanel.add(addressLabel);
 
-        userRoleIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        userRoleIdLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         userRoleIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRoleIdLabel.setText("UserRoleID");
         leftPanel.add(userRoleIdLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(9, 1));
 
-        userIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        userIdField.setFont(GuiUtils.GOOGLE_SANS_14);
         userIdField.addActionListener(this::userIdFieldActionPerformed);
 
-        findIdButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        findIdButton.setFont(GuiUtils.GOOGLE_SANS_14);
         findIdButton.setText("Find");
         findIdButton.addActionListener(this::findIdButtonActionPerformed);
 
@@ -150,26 +150,26 @@ public class UserUpdatePanel extends javax.swing.JPanel {
 
         rightPanel.add(userIdPanel);
 
-        usernameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        usernameField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(usernameField);
 
-        passwordField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        passwordField.setFont(GuiUtils.GOOGLE_SANS_14);
         passwordField.addActionListener(this::passwordFieldActionPerformed);
         rightPanel.add(passwordField);
 
-        fullNameField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        fullNameField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(fullNameField);
 
-        ageField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        ageField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(ageField);
 
-        phoneField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        phoneField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(phoneField);
 
-        addressField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        addressField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(addressField);
 
-        userRoleIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        userRoleIdField.setFont(GuiUtils.GOOGLE_SANS_14);
         rightPanel.add(userRoleIdField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -190,7 +190,7 @@ public class UserUpdatePanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

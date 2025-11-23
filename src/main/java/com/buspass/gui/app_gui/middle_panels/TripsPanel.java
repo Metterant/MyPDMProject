@@ -212,7 +212,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
-        resultTable.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        resultTable.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -226,7 +226,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("TRIPS");
         headerPanel.add(headerLabel, new java.awt.GridBagConstraints());

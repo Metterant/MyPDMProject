@@ -56,30 +56,30 @@ public class ResetPasswordPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1100, 600));
         setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        userRegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        userRegisterLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         userRegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRegisterLabel.setText("RESET PASSWORD");
 
-        resetPasswordButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        resetPasswordButton.setFont(GuiUtils.GOOGLE_SANS_16);
         resetPasswordButton.setText("Reset Password");
         resetPasswordButton.addActionListener(this::resetPasswordButtonActionPerformed);
 
-        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         passwordLabel.setText("Password");
 
-        userPasswordField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        userPasswordField.setFont(GuiUtils.GOOGLE_SANS_14);
         userPasswordField.addActionListener(this::userPasswordFieldActionPerformed);
 
-        confirmPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        confirmPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         confirmPasswordLabel.setText("Confirm Password");
 
-        confirmPasswordField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        confirmPasswordField.setFont(GuiUtils.GOOGLE_SANS_14);
         confirmPasswordField.addActionListener(this::confirmPasswordFieldActionPerformed);
 
-        usernameField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        usernameField.setFont(GuiUtils.GOOGLE_SANS_14);
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
-        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         usernameLabel.setText("Username");
 
         javax.swing.GroupLayout registerFieldsLayout = new javax.swing.GroupLayout(registerFields);
@@ -119,7 +119,7 @@ public class ResetPasswordPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        backLoginLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        backLoginLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         backLoginLabel.setForeground(new java.awt.Color(0, 0, 255));
         backLoginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         backLoginLabel.setText("Back to Login");
@@ -170,7 +170,7 @@ public class ResetPasswordPanel extends javax.swing.JPanel {
                 .addComponent(registerFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -63,59 +63,59 @@ public class TripCreatePanel extends javax.swing.JPanel {
 
         optionPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 5));
 
-        createButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        createButton.setFont(GuiUtils.GOOGLE_SANS_16);
         createButton.setText("CREATE");
         createButton.addActionListener(this::createButtonActionPerformed);
         optionPanel.add(createButton);
 
-        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        cancelButton.setFont(GuiUtils.GOOGLE_SANS_16);
         cancelButton.setText("CANCEL");
         optionPanel.add(cancelButton);
 
         headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("CREATE TRIP");
         headerPanel.add(headerLabel);
 
         leftPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        tripDateLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        tripDateLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         tripDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tripDateLabel.setText("Trip Date");
         leftPanel.add(tripDateLabel);
 
-        departureLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        departureLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         departureLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         departureLabel.setText("Departure Time");
         leftPanel.add(departureLabel);
 
-        arrivalLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        arrivalLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         arrivalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         arrivalLabel.setText("Arrival Time");
         leftPanel.add(arrivalLabel);
 
-        busIdLabel.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        busIdLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         busIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         busIdLabel.setText("Bus ID");
         leftPanel.add(busIdLabel);
 
         rightPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        tripDateField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        tripDateField.setFont(GuiUtils.GOOGLE_SANS_14);
         tripDateField.addActionListener(this::tripDateFieldActionPerformed);
         rightPanel.add(tripDateField);
 
-        departureField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        departureField.setFont(GuiUtils.GOOGLE_SANS_14);
         departureField.addActionListener(this::departureFieldActionPerformed);
         rightPanel.add(departureField);
 
-        arrivalField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        arrivalField.setFont(GuiUtils.GOOGLE_SANS_14);
         arrivalField.addActionListener(this::arrivalFieldActionPerformed);
         rightPanel.add(arrivalField);
 
-        busIdField.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        busIdField.setFont(GuiUtils.GOOGLE_SANS_14);
         busIdField.addActionListener(this::busIdFieldActionPerformed);
         rightPanel.add(busIdField);
 
@@ -137,7 +137,7 @@ public class TripCreatePanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                     .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

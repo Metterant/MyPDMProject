@@ -86,8 +86,8 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="getDriverByIdButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Get Driver By ID"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -111,8 +111,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="getAllDriversButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Get All Drivers"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -136,8 +136,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="getTripsWithBusButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=" Get Buses Driven"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -161,8 +161,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="getTripsDrivenButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Get Trips Driven"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -186,8 +186,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="updateDriverButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Update Driver"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -211,8 +211,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="createDriverButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Create Driver"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -236,8 +236,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="deleteDriverButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete Driver"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -272,8 +272,8 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="resultTable">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Google Sans" size="13" style="0"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="GuiUtils.GOOGLE_SANS_13" type="code"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="0" rowCount="0"/>
@@ -295,8 +295,8 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="headerLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="GuiUtils.LEXEND_MEDIUM_18" type="code"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="DRIVERS"/>

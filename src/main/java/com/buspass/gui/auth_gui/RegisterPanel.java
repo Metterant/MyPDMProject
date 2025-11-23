@@ -57,25 +57,25 @@ public class RegisterPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1100, 600));
         setPreferredSize(new java.awt.Dimension(1100, 600));
 
-        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        passwordLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         passwordLabel.setText("Password");
 
-        usernameField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        usernameField.setFont(GuiUtils.GOOGLE_SANS_14);
         usernameField.addActionListener(this::usernameFieldActionPerformed);
 
-        passwordField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        passwordField.setFont(GuiUtils.GOOGLE_SANS_14);
         passwordField.addActionListener(this::passwordFieldActionPerformed);
 
-        confirmPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        confirmPasswordLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         confirmPasswordLabel.setText("Confirm Password");
 
-        confirmPasswordField.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        confirmPasswordField.setFont(GuiUtils.GOOGLE_SANS_14);
         confirmPasswordField.addActionListener(this::confirmPasswordFieldActionPerformed);
 
-        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        usernameLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         usernameLabel.setText("Username");
 
-        registerButton.setFont(GuiUtils.GOOGLE_SANS_16); // NOI18N
+        registerButton.setFont(GuiUtils.GOOGLE_SANS_16);
         registerButton.setText("Register");
         registerButton.addActionListener(this::registerButtonActionPerformed);
 
@@ -116,11 +116,11 @@ public class RegisterPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        userRegisterLabel.setFont(new java.awt.Font("Lexend Medium", 0, 18)); // NOI18N
+        userRegisterLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         userRegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userRegisterLabel.setText("REGISTER");
 
-        loginLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        loginLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         loginLabel.setForeground(new java.awt.Color(0, 0, 255));
         loginLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loginLabel.setText("Login Now");
@@ -133,7 +133,7 @@ public class RegisterPanel extends javax.swing.JPanel {
             }
         });
 
-        messageLabel.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        messageLabel.setFont(GuiUtils.GOOGLE_SANS_14);
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         messageLabel.setText("Already have an account?");
 
@@ -143,8 +143,8 @@ public class RegisterPanel extends javax.swing.JPanel {
             loginMessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginMessagePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -163,17 +163,18 @@ public class RegisterPanel extends javax.swing.JPanel {
         centerPanelLayout.setHorizontalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centerPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(centerPanelLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(userRegisterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(66, 66, 66))
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(registerFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
             .addGroup(centerPanelLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(loginMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGroup(centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(centerPanelLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(loginMessagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(centerPanelLayout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(userRegisterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         centerPanelLayout.setVerticalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -86,8 +86,8 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="getUserByIdButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Get User By ID"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -111,8 +111,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="getAllUsersButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Get All Users"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -136,8 +136,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="createUserButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Create User"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -161,8 +161,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="updateUserButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Update User"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -186,8 +186,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="findIdButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Find UserID By Username"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -211,8 +211,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="deleteUserButton">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Google Sans" size="14" style="0"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GuiUtils.GOOGLE_SANS_14" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete User"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -267,8 +267,8 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="headerLabel">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="GuiUtils.LEXEND_MEDIUM_18" type="code"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="USERS"/>

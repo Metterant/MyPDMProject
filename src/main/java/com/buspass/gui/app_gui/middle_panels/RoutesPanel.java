@@ -60,7 +60,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         buttonPanel.setName(""); // NOI18N
         buttonPanel.setLayout(new javax.swing.BoxLayout(buttonPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        getRouteByIdButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        getRouteByIdButton.setFont(GuiUtils.GOOGLE_SANS_14);
         getRouteByIdButton.setText("Get Route By ID");
         getRouteByIdButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getRouteByIdButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -69,7 +69,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         getRouteByIdButton.addActionListener(this::getRouteByIdButtonActionPerformed);
         buttonPanel.add(getRouteByIdButton);
 
-        getAllRoutesButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        getAllRoutesButton.setFont(GuiUtils.GOOGLE_SANS_14);
         getAllRoutesButton.setText("Get All Routes");
         getAllRoutesButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getAllRoutesButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -78,7 +78,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         getAllRoutesButton.addActionListener(this::getAllRoutesButtonActionPerformed);
         buttonPanel.add(getAllRoutesButton);
 
-        createRouteButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        createRouteButton.setFont(GuiUtils.GOOGLE_SANS_14);
         createRouteButton.setText("Create Route");
         createRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         createRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -87,7 +87,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         createRouteButton.addActionListener(this::createRouteButtonActionPerformed);
         buttonPanel.add(createRouteButton);
 
-        updateRouteButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        updateRouteButton.setFont(GuiUtils.GOOGLE_SANS_14);
         updateRouteButton.setText("Update Route");
         updateRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         updateRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -96,7 +96,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
         updateRouteButton.addActionListener(this::updateRouteButtonActionPerformed);
         buttonPanel.add(updateRouteButton);
 
-        deleteRouteButton.setFont(GuiUtils.GOOGLE_SANS_14); // NOI18N
+        deleteRouteButton.setFont(GuiUtils.GOOGLE_SANS_14);
         deleteRouteButton.setText("Delete Route");
         deleteRouteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteRouteButton.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -107,7 +107,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
-        resultTable.setFont(GuiUtils.GOOGLE_SANS_13); // NOI18N
+        resultTable.setFont(GuiUtils.GOOGLE_SANS_13);
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -121,7 +121,7 @@ public class RoutesPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         headerPanel.setLayout(new java.awt.GridBagLayout());
 
-        headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerLabel.setFont(GuiUtils.LEXEND_MEDIUM_18);
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("ROUTES");
         headerPanel.add(headerLabel, new java.awt.GridBagConstraints());
