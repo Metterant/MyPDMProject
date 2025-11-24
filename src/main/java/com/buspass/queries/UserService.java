@@ -117,7 +117,7 @@ public class UserService {
      * @return either -1 or the UserID of a User
      */
     public int getIdByUsername(String username) {
-        String sql = "SELECT UserID FROM User WHERE Username = ? ";
+        String sql = "SELECT UserID FROM User WHERE Username = ?";
         List<LinkedHashMap<String, Object>> users = QueryExecutionModule.executeQuery(sql, username);
         if (users == null || users.isEmpty()) 
             return -1;
@@ -130,7 +130,8 @@ public class UserService {
 
     public List<LinkedHashMap<String, Object>> getAllUsers() {
         String sql = "SELECT UserID, Username, FullName, Age, Phone, UserAddress, RoleDescription " + //
-            "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID";
+            "FROM User JOIN UserRoles ON User.UserRoleID = UserRoles.UserRoleID " +
+            "ORDER BY UserID, Username";
             
         List<LinkedHashMap<String, Object>> users = QueryExecutionModule.executeQuery(sql);
         
