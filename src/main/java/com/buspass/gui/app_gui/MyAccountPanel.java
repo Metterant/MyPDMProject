@@ -247,7 +247,17 @@ public class MyAccountPanel extends javax.swing.JPanel {
         if (!password.isEmpty() && !AuthUtils.isValidPassword(password)) { DialogUtils.showDialogInvalidPWs(); return; }
 
         int age = 0;
-        try { age = Integer.parseInt(ageText); } catch (Exception ex) { javax.swing.JOptionPane.showMessageDialog(this, "Age must be an integer.", "Validation", javax.swing.JOptionPane.WARNING_MESSAGE); return; }
+        try { 
+            age = Integer.parseInt(ageText); 
+            if (age < 0) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Man, what are you? A sperm cell?.", "Validation", javax.swing.JOptionPane.WARNING_MESSAGE); 
+                return;    
+            }
+        } 
+        catch (Exception ex) { 
+            javax.swing.JOptionPane.showMessageDialog(this, "Age must be an integer.", "Validation", javax.swing.JOptionPane.WARNING_MESSAGE); 
+            return; 
+        }
 
         try {
             boolean ok = true;
@@ -310,7 +320,7 @@ public class MyAccountPanel extends javax.swing.JPanel {
         userIdField.setText(userLoginSession.getUserId().toString());
         usernameField.setText(userLoginSession.getUsername());
         fullNameField.setText(userLoginSession.getFullName());
-        ageField.setText(userLoginSession.getAge().toString());
+        ageField.setText((userLoginSession.getAge() != null) ? userLoginSession.getAge().toString() : "");
         phoneField.setText(userLoginSession.getPhoneNumber());
         addressField.setText(userLoginSession.getAddress());
         passwordField.setText("");
