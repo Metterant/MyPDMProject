@@ -104,7 +104,7 @@ public class TicketQuery {
                         "    JOIN Bus_Info b ON tr.BusID = b.BusID\r\n" + //
                         "    JOIN Route r ON b.RouteID = r.RouteID\r\n" + //
                         "WHERE u.UserID = ? " +
-                        "ORDER BY TicketDateTime";
+                        "ORDER BY TripDate, DepartureTime, TicketDateTime";
             
         List<LinkedHashMap<String, Object>> users = QueryExecutionModule.executeQuery(sql, userId);
         
