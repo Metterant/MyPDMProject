@@ -39,6 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
         appPanel = new AppPanel(userLoginSession);
         getContentPane().setLayout(new java.awt.BorderLayout());
         getContentPane().add(appPanel, java.awt.BorderLayout.CENTER);
+        setTitle("Digital Bus Pass");
         
         pack();
         setLocationRelativeTo(null);
