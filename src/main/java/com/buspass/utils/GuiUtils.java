@@ -2,6 +2,7 @@ package com.buspass.utils;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,9 +18,9 @@ public class GuiUtils {
     public static final Font LEXEND_MEDIUM_18;
 
     static {
-        try (InputStream is = GuiUtils.class.getResourceAsStream("../res/fonts/GoogleSans-Regular.ttf")) {
+        try (InputStream is = GuiUtils.class.getResourceAsStream("/fonts/GoogleSans-Regular.ttf")) {
             if (is == null) {
-                throw new IOException("Resource not found: ../res/fonts/GoogleSans-Regular.ttf");
+                throw new IOException("Resource not found: /fonts/GoogleSans-Regular.ttf");
             }
             GOOGLE_SANS = Font.createFont(Font.TRUETYPE_FONT, is);
 
@@ -35,9 +36,9 @@ public class GuiUtils {
             throw new ExceptionInInitializerError(e);
         } 
 
-        try (InputStream is = GuiUtils.class.getResourceAsStream("../res/fonts/Lexend-Medium.ttf")) {
+        try (InputStream is = GuiUtils.class.getResourceAsStream("/fonts/Lexend-Medium.ttf")) {
             if (is == null) {
-                throw new IOException("Resource not found: ../res/fonts/Lexend-Medium.ttf");
+                throw new IOException("Resource not found: /fonts/Lexend-Medium.ttf");
             }
             LEXEND_MEDIUM = Font.createFont(Font.TRUETYPE_FONT, is);
 
