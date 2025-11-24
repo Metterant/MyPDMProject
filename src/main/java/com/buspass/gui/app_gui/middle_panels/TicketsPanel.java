@@ -4,7 +4,6 @@
  */
 package com.buspass.gui.app_gui.middle_panels;
 
-import java.util.LinkedHashMap;
 
 import com.buspass.auth.UserLoginSession;
 import com.buspass.queries.TicketQuery;
@@ -27,6 +26,9 @@ public class TicketsPanel extends javax.swing.JPanel implements InMiddlePanel{
     public TicketsPanel(UserLoginSession userLoginSession) {
         initComponents();
         this.userLoginSession = userLoginSession;
+
+        // Hide Change Ticket's TripID button since it's unused
+        changeToTripButton.setVisible(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
