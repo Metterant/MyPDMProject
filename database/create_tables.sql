@@ -107,7 +107,7 @@ JOIN Route r ON b.RouteID = r.RouteID
 WHERE (t.TripDate > CURDATE()
        OR (t.TripDate = CURDATE() AND t.DepartureTime > NOW()));
 
-DROP VIEW IF EXISTS trips_upcoming_view;
+DROP VIEW IF EXISTS trip_detailed_view;
 CREATE VIEW trip_detailed_view AS
 SELECT 
     TripID, 
