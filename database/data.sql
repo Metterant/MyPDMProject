@@ -30,15 +30,30 @@ VALUES
 ('Nguyen Driver', 30, 'L54321', '0907654321'),
 ('Tran Driver', 50, 'L13579', '0998765432'),
 ('Vu Driver', 38, 'L98765', '0911223344'),
-('Bui Driver', 55, 'L24680', '0909887766');
+('Bui Driver', 55, 'L24680', '0909887766'); 
+('Bui Driver', 34, 'L14680', '0909887766'); 
+('Bui Driver', 39, 'L44680', '0909887766'); 
+('Bui Driver', 45, 'L23640', '0909887766'); 
+('Bui Driver', 49, 'L21380', '0909887766'); 
 
 INSERT INTO `Route` (RouteName, StartLocation, EndLocation, Fare, Distance, Duration)
 VALUES
 ('8', 'Station A', 'Station B', 7000.0, 12.3, '00:45:00'),
+('8', 'Station B', 'Station A', 7000.0, 12.3, '00:45:00'),
 ('10', 'Station B', 'Station C', 7000.0, 12.3, '00:45:00'),
+('10', 'Station C', 'Station B', 7000.0, 12.3, '00:45:00'),
 ('19', 'Station C', 'Station D', 6000.0, 10.3, '00:35:00'),
-('21', 'Station D', 'Station E', 6000.0, 15.0, '01:00:00'),
+('19', 'Station D', 'Station C', 6000.0, 10.3, '00:35:00'),
+('33', 'Station D', 'Station E', 6000.0, 18.0, '01:20:00'),
+('33', 'Station E', 'Station D', 6000.0, 18.0, '01:20:00'),
+('50', 'Station D', 'Station F', 3000.0, 13.0, '01:00:00'),
+('50', 'Station F', 'Station D', 3000.0, 13.0, '01:00:00'),
+('52', 'Station D', 'Station H', 6000.0, 15.0, '01:00:00'),
+('52', 'Station H', 'Station D', 6000.0, 15.0, '01:00:00'),
+('69', 'Station G', 'Station A', 6000.0, 15.0, '01:00:00'),
+('69', 'Station A', 'Station G', 6000.0, 15.0, '01:00:00'),
 ('67-69', 'Station E', 'Station F', 5000.0, 8.5, '00:25:00');
+('67-69', 'Station F', 'Station E', 5000.0, 8.5, '00:25:00');
 
 INSERT INTO Bus_Info (PlateNumber, Capacity, DriverID, RouteID)
 VALUES
@@ -46,7 +61,12 @@ VALUES
 ('30A-54321', 40, 2, 2),
 ('30A-13579', 40, 3, 3),
 ('29B-99887', 50, 4, 4),
-('51C-10203', 35, 5, 5);
+('51C-10203', 35, 6, 6);
+('51C-14923', 35, 7, 7);
+('51C-42069', 35, 4, 8);
+('51C-69420', 35, 3, 9);
+('51C-99999', 35, 2, 10);
+('55C-88888', 35, 5, 11);
 
 INSERT INTO Trip (TripDate, DepartureTime, ArrivalTime, BusID)
 VALUES
