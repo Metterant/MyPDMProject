@@ -76,8 +76,21 @@ public class TicketAction extends javax.swing.JPanel {
         panel.getCancelButton().addActionListener(e -> dialog.dispose());
         panel.getPurchaseButton().addActionListener(e -> {
 
-            int paymentMethodId = panel.getPaymentMethod();
-            if (paymentMethodId != 0) {
+            int paymentMethodIdIndex = panel.getPaymentMethod(); 
+            
+            if (paymentMethodIdIndex != 0) {
+                
+                int paymentMethodId = 4;
+                switch (paymentMethodIdIndex) {
+                    case 1:
+                        paymentMethodId = 2;
+                        break;
+                    case 2:
+                        paymentMethodId = 3;
+                    default:
+                        break;
+                }
+
                 TicketQuery ticketQuery = new TicketQuery();
                 
                 int userId = tripInject.getUserLoginSession().getUserId();
