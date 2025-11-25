@@ -30,11 +30,11 @@ VALUES
 ('Nguyen Driver', 30, 'L54321', '0907654321'),
 ('Tran Driver', 50, 'L13579', '0998765432'),
 ('Vu Driver', 38, 'L98765', '0911223344'),
-('Bui Driver', 55, 'L24680', '0909887766'); 
-('Bui Driver', 34, 'L14680', '0909887766'); 
-('Bui Driver', 39, 'L44680', '0909887766'); 
-('Bui Driver', 45, 'L23640', '0909887766'); 
-('Bui Driver', 49, 'L21380', '0909887766'); 
+('Bui Driver', 55, 'L24680', '0909887566'),
+('Admin Driver', 34, 'L14680', '0909887466'), 
+('Sigma Driver', 39, 'L44680', '0909887366'),
+('Enrqiue Driver', 45, 'L23640', '0909817766'), 
+('Andrian Driver', 49, 'L21380', '0909827766'); 
 
 INSERT INTO `Route` (RouteName, StartLocation, EndLocation, Fare, Distance, Duration)
 VALUES
