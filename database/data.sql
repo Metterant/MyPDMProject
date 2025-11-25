@@ -52,7 +52,7 @@ VALUES
 ('52', 'Station H', 'Station D', 6000.0, 15.0, '01:00:00'),
 ('69', 'Station G', 'Station A', 6000.0, 15.0, '01:00:00'),
 ('69', 'Station A', 'Station G', 6000.0, 15.0, '01:00:00'),
-('67-69', 'Station E', 'Station F', 5000.0, 8.5, '00:25:00');
+('67-69', 'Station E', 'Station F', 5000.0, 8.5, '00:25:00'),
 ('67-69', 'Station F', 'Station E', 5000.0, 8.5, '00:25:00');
 
 INSERT INTO Bus_Info (PlateNumber, Capacity, DriverID, RouteID)
