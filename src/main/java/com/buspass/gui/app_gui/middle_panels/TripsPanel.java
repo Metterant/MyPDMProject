@@ -212,7 +212,7 @@ public class TripsPanel extends javax.swing.JPanel implements InMiddlePanel {
 
         buttonScrollPane.setViewportView(buttonPanel);
 
-        resultTable.setFont(new java.awt.Font("Google Sans", 0, 13)); // NOI18N
+        resultTable.setFont(GuiUtils.GOOGLE_SANS_13);
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
